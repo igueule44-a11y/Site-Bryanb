@@ -69,7 +69,7 @@ Responde siempre en menos de 3 frases salvo que se pidan más detalles.`
         'Authorization': `Bearer ${process.env.OPENROUTER_API_KEY}`,
         'Content-Type': 'application/json',
         'HTTP-Referer': 'https://bryan-blaevoet.vercel.app',
-        'X-Title': 'Bryan Blaevoet — Virtual Assistant'
+        'X-Title': 'Bryan Blaevoet - Virtual Assistant'
       },
       body: JSON.stringify({
         model: 'deepseek/deepseek-v4-flash',
