@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Bryan Blaevoet | Agence IA · Madrid</title>
+
+<meta name="description" content="Agence IA à Madrid — Sites web, Agents IA, Chatbots, Image de marque, Marketing et Création de contenu pour les marques ambitieuses."/>
+<meta name="author" content="Bryan Blaevoet"/>
+<meta name="robots" content="index, follow"/>
+
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="Bryan Blaevoet — Agence IA · Madrid"/>
+<meta property="og:description" content="Votre marque avance. Même quand vous dormez. Sites web, Agents IA, Chatbots et Contenu pour les marques ambitieuses."/>
+<meta property="og:locale" content="fr_FR"/>
+
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lora:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+tailwind.config={darkMode:"class",theme:{extend:{colors:{"deep-navy":"#060c18","main-bg":"#080e1a","card-bg":"#0d1a2e","soft-white":"#f0f8ff","muted-text":"#8ab4cc","soft-cyan":"#7de8f7","cyan-glow":"#00d4ff"},fontFamily:{heading:["Playfair Display","serif"],body:["Inter","sans-serif"]},boxShadow:{"neon-cyan":"0 0 20px rgba(0,212,255,0.4)","neon-cyan-strong":"0 0 30px rgba(0,212,255,0.6)","glass":"0 8px 32px 0 rgba(0,0,0,0.5)"}}}}
+</script>
+
+<style>
+html{background:linear-gradient(180deg,#060c18 0%,#0a1628 12%,#080e1a 28%,#0b1220 45%,#080e1a 60%,#091526 78%,#080e1a 100%);min-height:100%}
+body{background:transparent;color:#f0f8ff;font-family:"Inter",sans-serif}
+h1,h2,h3,h4,h5,h6,.font-heading{font-family:"Playfair Display",serif}
+h1.gradient-text{font-family:"Lora",serif!important}
+
+.gradient-text{
+  background:linear-gradient(135deg,#f0f8ff 0%,#b3ecff 25%,#00d4ff 50%,#7de8f7 75%,#f0f8ff 100%);
+  background-size:200% auto;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  animation:gradient-shimmer 7s ease-in-out infinite alternate;
+}
+@keyframes gradient-shimmer{0%{background-position:left center}100%{background-position:right center}}
+
+.mesh-bg{
+  position:absolute;top:0;left:0;width:100%;height:100%;
+  background:
+    radial-gradient(circle at 15% 50%,rgba(0,212,255,.10),transparent 40%),
+    radial-gradient(circle at 85% 30%,rgba(0,150,200,.08),transparent 40%),
+    radial-gradient(circle at 50% 80%,rgba(30,80,160,.07),transparent 35%);
+  z-index:0;pointer-events:none
+}
+
+.reveal{opacity:0;transform:translateY(20px);filter:blur(8px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1),filter .9s cubic-bezier(.16,1,.3,1)}
+.reveal.active{opacity:1;transform:translateY(0);filter:blur(0)}
+
+.marquee-wrapper{overflow:hidden;white-space:nowrap;position:relative;width:100%}
+.marquee-wrapper::before,.marquee-wrapper::after{content:"";position:absolute;top:0;width:120px;height:100%;z-index:2}
+.marquee-wrapper::before{left:0;background:linear-gradient(to right,#080e1a,transparent)}
+.marquee-wrapper::after{right:0;background:linear-gradient(to left,#080e1a,transparent)}
+.marquee-content{display:inline-block;animation:marquee 30s linear infinite}
+.marquee-content:hover{animation-play-state:paused}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+@media(max-width:767px){.marquee-content{animation-duration:18s}}
+
+.nav-scrolled{background-color:rgba(8,14,26,.78);border-bottom:1px solid rgba(0,212,255,.10);backdrop-filter:blur(16px)}
+
+.glass-card{background:rgba(13,26,46,.35);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(0,212,255,.10);box-shadow:inset 0 2px 20px rgba(0,0,0,.4),0 8px 32px rgba(0,0,0,.4)}
+
+.skill-tag{display:inline-flex;align-items:center;background:rgba(13,26,46,.5);border:1px solid rgba(0,212,255,.15);color:#8ab4cc;padding:6px 14px;border-radius:9999px;font-size:12px;font-weight:500;letter-spacing:.05em;transition:all .3s}
+.skill-tag:hover{border-color:rgba(0,212,255,.5);color:#f0f8ff;box-shadow:0 0 12px rgba(0,212,255,.2)}
+
+.timeline-line{width:1px;flex-shrink:0;background:linear-gradient(to bottom,rgba(0,212,255,.4),rgba(0,212,255,.04))}
+.timeline-dot{width:10px;height:10px;border-radius:50%;background:#00d4ff;box-shadow:0 0 10px rgba(0,212,255,.6);flex-shrink:0;margin-top:7px}
+
+.lang-bar{height:3px;background:rgba(255,255,255,.08);border-radius:9999px;overflow:hidden;margin-top:8px}
+.lang-bar-fill{height:100%;background:linear-gradient(90deg,#00d4ff,#7de8f7);border-radius:9999px}
+
+.material-symbols-outlined{font-variation-settings:"FILL" 0,"wght" 200,"GRAD" 0,"opsz" 24}
+.neon-icon{filter:drop-shadow(0 0 8px rgba(125,232,247,.6))}
+.neon-icon-cyan{filter:drop-shadow(0 0 8px rgba(0,212,255,.6))}
+
+.lang-btn{transition:color .2s}
+.lang-btn.active{color:#00d4ff !important}
+
+footer{background:rgba(8,14,26,.85) !important;backdrop-filter:blur(8px)}
+</style>
+</head>
+
+<body class="antialiased">
+
+<!-- ── NAVIGATION ──────────────────────────────────────────────────────────── -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+  <div class="max-w-6xl mx-auto px-5 h-16 flex items-center justify-between">
+
+    <a href="#hero" class="font-heading text-xl font-bold gradient-text">Bryan Blaevoet</a>
+
+    <div class="hidden md:flex items-center gap-7">
+      <a href="#about"      class="text-[12px] font-medium text-[#8ab4cc] hover:text-[#f0f8ff] transition-colors tracking-[.15em] uppercase" data-i18n="nav_about">À propos</a>
+      <a href="#services"   class="text-[12px] font-medium text-[#8ab4cc] hover:text-[#f0f8ff] transition-colors tracking-[.15em] uppercase" data-i18n="nav_services">Services</a>
+      <a href="#experience" class="text-[12px] font-medium text-[#8ab4cc] hover:text-[#f0f8ff] transition-colors tracking-[.15em] uppercase" data-i18n="nav_experience">Expérience</a>
+      <a href="#contact"    class="text-[12px] font-medium text-[#8ab4cc] hover:text-[#f0f8ff] transition-colors tracking-[.15em] uppercase" data-i18n="nav_contact">Contact</a>
+      <a href="cv.html"     class="text-[12px] font-medium text-[#7de8f7] hover:text-[#00d4ff] transition-colors tracking-[.15em] uppercase" data-i18n="nav_cv">CV</a>
+    </div>
+
+    <div class="flex items-center gap-4">
+      <div class="hidden md:flex items-center gap-2 text-[12px] font-semibold tracking-widest">
+        <button class="lang-btn active text-[#8ab4cc]" data-lang="fr" onclick="setLanguage('fr')">FR</button>
+        <span class="text-[#8ab4cc] opacity-30">·</span>
+        <button class="lang-btn text-[#8ab4cc]" data-lang="en" onclick="setLanguage('en')">EN</button>
+        <span class="text-[#8ab4cc] opacity-30">·</span>
+        <button class="lang-btn text-[#8ab4cc]" data-lang="es" onclick="setLanguage('es')">ES</button>
+      </div>
+      <a href="#contact"
+         class="hidden md:inline-flex items-center gap-2 bg-[#00d4ff] text-[#060c18] text-[12px] font-semibold tracking-[.10em] uppercase px-5 py-2.5 rounded-full shadow-[0_0_20px_rgba(0,212,255,0.35)] hover:shadow-[0_0_30px_rgba(0,212,255,0.60)] hover:-translate-y-px transition-all duration-300"
+         data-i18n="nav_cta">Prendre un RDV</a>
+      <button id="mobile-toggle" class="md:hidden text-[#8ab4cc] hover:text-[#f0f8ff] transition-colors">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobile-menu" class="hidden md:hidden border-t border-[rgba(0,212,255,.08)] px-5 py-6 flex flex-col gap-5" style="background:rgba(8,14,26,.97);backdrop-filter:blur(20px)">
+    <a href="#about"      class="text-[13px] font-medium text-[#8ab4cc] uppercase tracking-[.15em]" data-i18n="nav_about">À propos</a>
+    <a href="#services"   class="text-[13px] font-medium text-[#8ab4cc] uppercase tracking-[.15em]" data-i18n="nav_services">Services</a>
+    <a href="#experience" class="text-[13px] font-medium text-[#8ab4cc] uppercase tracking-[.15em]" data-i18n="nav_experience">Expérience</a>
+    <a href="#contact"    class="text-[13px] font-medium text-[#8ab4cc] uppercase tracking-[.15em]" data-i18n="nav_contact">Contact</a>
+    <div class="flex items-center gap-3 pt-3 border-t border-[rgba(0,212,255,.08)]">
+      <button class="lang-btn active text-[#8ab4cc] text-[13px] font-semibold" data-lang="fr" onclick="setLanguage('fr')">FR</button>
+      <span class="text-[#8ab4cc] opacity-30">·</span>
+      <button class="lang-btn text-[#8ab4cc] text-[13px] font-semibold" data-lang="en" onclick="setLanguage('en')">EN</button>
+      <span class="text-[#8ab4cc] opacity-30">·</span>
+      <button class="lang-btn text-[#8ab4cc] text-[13px] font-semibold" data-lang="es" onclick="setLanguage('es')">ES</button>
+    </div>
+  </div>
+</nav>
+
+<!-- ── HERO ────────────────────────────────────────────────────────────────── -->
+<section id="hero" class="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden">
+  <div class="mesh-bg"></div>
+  <div class="relative z-10 text-center px-5 max-w-5xl mx-auto">
+
+    <p class="text-[11px] font-semibold uppercase tracking-[.25em] text-[#7de8f7] mb-6 reveal" data-i18n="hero_overline">Agence IA · Madrid</p>
+
+    <h1 class="gradient-text text-[clamp(42px,8vw,84px)] font-normal leading-tight mb-2 reveal">Bryan Blaevoet</h1>
+
+    <p class="font-heading text-[clamp(20px,3.5vw,40px)] font-semibold text-[#f0f8ff] mt-6 mb-5 leading-snug reveal" data-i18n="hero_tagline">
+      Votre marque avance.<br class="hidden sm:block"/> Même quand vous dormez.
+    </p>
+
+    <p class="text-[16px] font-light text-[#8ab4cc] max-w-2xl mx-auto mb-10 leading-relaxed reveal" data-i18n="hero_desc">
+      Je construis des présences digitales qui travaillent pour vous — sites performants, agents IA, chatbots et stratégies de contenu pour les marques ambitieuses.
+    </p>
+
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 reveal">
+      <a href="https://calendly.com/bryan-blaevoet/nouvelle-reunion" target="_blank" rel="noopener"
+         class="inline-flex items-center gap-2 bg-[#00d4ff] text-[#060c18] text-[13px] font-semibold tracking-[.10em] uppercase px-8 py-4 rounded-full shadow-[0_0_20px_rgba(0,212,255,0.40)] hover:shadow-[0_0_32px_rgba(0,212,255,0.65)] hover:-translate-y-px transition-all duration-300"
+         data-i18n="hero_cta_primary">Prendre un RDV</a>
+      <a href="#services"
+         class="inline-flex items-center gap-2 text-[13px] font-semibold tracking-[.10em] uppercase px-8 py-4 rounded-full border border-[rgba(0,212,255,.2)] text-[#f0f8ff] hover:bg-[rgba(13,26,46,.5)] hover:border-[#7de8f7] hover:text-[#7de8f7] hover:-translate-y-px transition-all duration-300"
+         data-i18n="hero_cta_secondary">Voir mes services</a>
+    </div>
+
+    <div class="mt-20 flex flex-col items-center gap-0 opacity-30 reveal">
+      <div class="w-px h-12 bg-gradient-to-b from-[#00d4ff] to-transparent"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── À PROPOS ────────────────────────────────────────────────────────────── -->
+<section id="about" class="py-16 md:py-28 px-5">
+  <div class="max-w-6xl mx-auto">
+    <div class="flex flex-col lg:flex-row items-center gap-16">
+
+      <!-- Photo -->
+      <div class="flex-shrink-0 reveal">
+        <div class="relative w-64 h-64 md:w-72 md:h-72">
+          <img src="assets/photo-bryan.jpg" alt="Bryan Blaevoet"
+               class="w-full h-full object-cover object-top rounded-full border-2 border-[rgba(0,212,255,.35)] shadow-[0_0_28px_rgba(0,212,255,0.20)]"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+          <div class="absolute inset-0 rounded-full border-2 border-[rgba(0,212,255,.35)] bg-[rgba(13,26,46,.6)] items-center justify-center shadow-[0_0_28px_rgba(0,212,255,0.20)]" style="display:none">
+            <span class="material-symbols-outlined text-[80px] text-[#00d4ff] opacity-30">person</span>
+          </div>
+          <div class="absolute -inset-3 rounded-full border border-[rgba(0,212,255,.07)]"></div>
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div class="flex-1">
+        <p class="text-[11px] font-semibold uppercase tracking-[.25em] text-[#7de8f7] mb-3 reveal" data-i18n="about_overline">À propos</p>
+        <h2 class="font-heading text-[30px] md:text-[36px] font-bold gradient-text mb-6 reveal pb-1" data-i18n="about_title">Marketing. IA. Résultats.</h2>
+        <p class="text-[16px] font-light text-[#8ab4cc] leading-relaxed mb-4 reveal" data-i18n="about_p1">
+          Expatrié à Madrid, je travaille à l'intersection du marketing digital, de la communication et de l'intelligence artificielle.
+        </p>
+        <p class="text-[16px] font-light text-[#8ab4cc] leading-relaxed mb-10 reveal" data-i18n="about_p2">
+          Ancien responsable partenariats chez Markchain et passé par des groupes comme Thales et AKKODIS, j'ai développé une expertise unique à l'intersection du marketing digital, de la stratégie de croissance et des outils IA de dernière génération.
+        </p>
+
+        <div class="grid grid-cols-3 gap-4 reveal">
+          <div class="glass-card rounded-2xl p-4 text-center">
+            <p class="font-heading text-[26px] font-bold gradient-text pb-0.5">5+</p>
+            <p class="text-[10px] font-semibold uppercase tracking-[.15em] text-[#7de8f7] mt-1 leading-snug" data-i18n="stat_years">Années d'expérience</p>
+          </div>
+          <div class="glass-card rounded-2xl p-4 text-center">
+            <p class="font-heading text-[26px] font-bold gradient-text pb-0.5">3</p>
+            <p class="text-[10px] font-semibold uppercase tracking-[.15em] text-[#7de8f7] mt-1 leading-snug" data-i18n="stat_projects">Projets actifs</p>
+          </div>
+          <div class="glass-card rounded-2xl p-4 text-center">
+            <p class="font-heading text-[26px] font-bold gradient-text pb-0.5">3</p>
+            <p class="text-[10px] font-semibold uppercase tracking-[.15em] text-[#7de8f7] mt-1 leading-snug" data-i18n="stat_languages">Langues</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SERVICES ────────────────────────────────────────────────────────────── -->
+<section id="services" class="py-16 md:py-28 px-5" style="background:linear-gradient(160deg,rgba(13,26,46,.28) 0%,rgba(8,14,26,1) 55%,rgba(20,40,70,.18) 100%)">
+  <div class="max-w-6xl mx-auto">
+
+    <div class="text-center mb-14">
+      <p class="text-[11px] font-semibold uppercase tracking-[.25em] text-[#7de8f7] mb-3 reveal" data-i18n="services_overline">Ce que je fais</p>
+      <h2 class="font-heading text-[30px] md:text-[40px] font-bold gradient-text mb-4 reveal pb-1" data-i18n="services_title">Services</h2>
+      <p class="text-[16px] font-light text-[#8ab4cc] max-w-xl mx-auto reveal" data-i18n="services_subtitle">Du site web à l'agent IA — tout ce dont votre marque a besoin pour croître.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <div class="glass-card rounded-3xl p-8 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(0,212,255,0.13)] transition-all duration-500 reveal">
+        <div class="w-14 h-14 rounded-full bg-[rgba(13,26,46,.5)] border border-[rgba(0,212,255,.18)] flex items-center justify-center mb-6">
+          <span class="material-symbols-outlined text-[28px] text-[#00d4ff] neon-icon-cyan">web</span>
+        </div>
+        <h3 class="font-heading text-[20px] font-bold text-[#f0f8ff] mb-3" data-i18n="svc1_title">Sites web</h3>
+        <p class="text-[14px] font-light text-[#8ab4cc] leading-relaxed" data-i18n="svc1_desc">Sites performants et modernes, optimisés pour convertir vos visiteurs en clients. Design sur mesure, rapide, responsive.</p>
+      </div>
+
+      <div class="glass-card rounded-3xl p-8 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(0,212,255,0.13)] transition-all duration-500 reveal">
+        <div class="w-14 h-14 rounded-full bg-[rgba(13,26,46,.5)] border border-[rgba(0,212,255,.18)] flex items-center justify-center mb-6">
+          <span class="material-symbols-outlined text-[28px] text-[#00d4ff] neon-icon-cyan">smart_toy</span>
+        </div>
+        <h3 class="font-heading text-[20px] font-bold text-[#f0f8ff] mb-3" data-i18n="svc2_title">Agents IA</h3>
+        <p class="text-[14px] font-light text-[#8ab4cc] leading-relaxed" data-i18n="svc2_desc">Des agents intelligents qui automatisent vos processus métier et travaillent 24h/24 — prospection, support, analyse.</p>
+      </div>
+
+      <div class="glass-card rounded-3xl p-8 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(0,212,255,0.13)] transition-all duration-500 reveal">
+        <div class="w-14 h-14 rounded-full bg-[rgba(13,26,46,.5)] border border-[rgba(0,212,255,.18)] flex items-center justify-center mb-6">
+          <span class="material-symbols-outlined text-[28px] text-[#00d4ff] neon-icon-cyan">chat_bubble</span>
+        </div>
+        <h3 class="font-heading text-[20px] font-bold text-[#f0f8ff] mb-3" data-i18n="svc3_title">Chatbots</h3>
+        <p class="text-[14px] font-light text-[#8ab4cc] leading-relaxed" data-i18n="svc3_desc">Chatbots personnalisés pour engager vos prospects et qualifier vos leads automatiquement, sur votre site ou vos réseaux.</p>
+      </div>
+
+      <div class="glass-card rounded-3xl p-8 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(0,212,255,0.13)] transition-all duration-500 reveal">
+        <div class="w-14 h-14 rounded-full bg-[rgba(13,26,46,.5)] border border-[rgba(0,212,255,.18)] flex items-center justify-center mb-6">
+          <span class="material-symbols-outlined text-[28px] text-[#00d4ff] neon-icon-cyan">palette</span>
+        </div>
+        <h3 class="font-heading text-[20px] font-bold text-[#f0f8ff] mb-3" data-i18n="svc4_title">Image de marque</h3>
+        <p class="text-[14px] font-light text-[#8ab4cc] leading-relaxed" data-i18n="svc4_desc">Identité visuelle cohérente et mémorable — logo, palette, typographie et guidelines pour une marque qui marque les esprits.</p>
+      </div>
+
+      <div class="glass-card rounded-3xl p-8 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(0,212,255,0.13)] transition-all duration-500 reveal">
+        <div class="w-14 h-14 rounded-full bg-[rgba(13,26,46,.5)] border border-[rgba(0,212,255,.18)] flex items-center justify-center mb-6">
+          <span class="material-symbols-outlined text-[28px] text-[#00d4ff] neon-icon-cyan">trending_up</span>
+        </div>
+        <h3 class="font-heading text-[20px] font-bold text-[#f0f8ff] mb-3" data-i18n="svc5_title">Marketing</h3>
+        <p class="text-[14px] font-light text-[#8ab4cc] leading-relaxed" data-i18n="svc5_desc">Stratégies marketing IA-first pour maximiser votre visibilité, votre acquisition et votre retour sur investissement.</p>
+      </div>
+
+      <div class="glass-card rounded-3xl p-8 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(0,212,255,0.13)] transition-all duration-500 reveal">
+        <div class="w-14 h-14 rounded-full bg-[rgba(13,26,46,.5)] border border-[rgba(0,212,255,.18)] flex items-center justify-center mb-6">
+          <span class="material-symbols-outlined text-[28px] text-[#00d4ff] neon-icon-cyan">edit_note</span>
+        </div>
+        <h3 class="font-heading text-[20px] font-bold text-[#f0f8ff] mb-3" data-i18n="svc6_title">Création de contenu</h3>
+        <p class="text-[14px] font-light text-[#8ab4cc] leading-relaxed" data-i18n="svc6_desc">Contenu de qualité pour vos réseaux sociaux, blog et campagnes — rédigé, optimisé et scalé grâce à l'IA.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── STACK MARQUEE ───────────────────────────────────────────────────────── -->
+<section class="py-14 px-5 overflow-hidden" style="background:linear-gradient(160deg,rgba(13,26,46,.2) 0%,rgba(8,14,26,1) 50%,rgba(13,26,46,.15) 100%)">
+  <div class="max-w-6xl mx-auto mb-8 text-center reveal">
+    <p class="text-[11px] font-semibold uppercase tracking-[.25em] text-[#7de8f7]" data-i18n="stack_overline">Stack &amp; Outils</p>
+  </div>
+  <div class="marquee-wrapper reveal">
+    <div class="marquee-content">
+      <span class="skill-tag mx-2">Claude</span><span class="text-[#00d4ff] opacity-25 mx-3">◆</span>
+      <span class="skill-tag mx-2">n8n</span><span class="text-[#00d4ff] opacity-25 mx-3">◆</span>
+      <span class="skill-tag mx-2">Manychat</span><span class="text-[#00d4ff] opacity-25 mx-3">◆</span>
+      <span class="skill-tag mx-2">Notion</span><span class="text-[#00d4ff] opacity-25 mx-3">◆</span>
+      <span class="skill-tag mx-2">Gemini</span><span class="text-[#00d4ff] opacity-25 mx-3">◆</span>
+      <span class="skill-tag mx-2">Antigravity</span><span class="text-[#00d4ff] opacity-25 mx-3">◆</span>
+      <span class="skill-tag mx-2">Next.js</span><span class="text-[#00d4ff] opacity-25 mx-3">◆</span>
+      <span class="skill-tag mx-2">Vercel</span><span class="text-[#00d4ff] opacity-25 mx-3">◆</span>
+      <span class="skill-tag mx-2">Tailwind</span><span class="text-[#00d4ff] opacity-25 mx-3">◆</span>
+      <span class="skill-tag mx-2">Make</span><span class="text-[#00d4ff] opacity-25 mx-3">◆</span>
+      <span class="skill-tag mx-2">Framer</span><span class="text-[#00d4ff] opacity-25 mx-3">◆</span>
+      <span class="skill-tag mx-2">Claude Code</span><span class="text-[#00d4ff] opacity-25 mx-3">◆</span>
+      <!-- double pour boucle infinie sans saut -->
+      <span class="skill-tag mx-2">Claude</span><span class="text-[#00d4ff] opacity-25 mx-3">◆</span>
+      <span class="skill-tag mx-2">n8n</span><span class="text-[#00d4ff] opacity-25 mx-3">◆</span>
+      <span class="skill-tag mx-2">Manychat</span><span class="text-[#00d4ff] opacity-25 mx-3">◆</span>
+      <span class="skill-tag mx-2">Notion</span><span class="text-[#00d4ff] opacity-25 mx-3">◆</span>
+      <span class="skill-tag mx-2">Gemini</span><span class="text-[#00d4ff] opacity-25 mx-3">◆</span>
+      <span class="skill-tag mx-2">Antigravity</span><span class="text-[#00d4ff] opacity-25 mx-3">◆</span>
+      <span class="skill-tag mx-2">Next.js</span><span class="text-[#00d4ff] opacity-25 mx-3">◆</span>
+      <span class="skill-tag mx-2">Vercel</span><span class="text-[#00d4ff] opacity-25 mx-3">◆</span>
+      <span class="skill-tag mx-2">Tailwind</span><span class="text-[#00d4ff] opacity-25 mx-3">◆</span>
+      <span class="skill-tag mx-2">Make</span><span class="text-[#00d4ff] opacity-25 mx-3">◆</span>
+      <span class="skill-tag mx-2">Framer</span><span class="text-[#00d4ff] opacity-25 mx-3">◆</span>
+      <span class="skill-tag mx-2">Claude Code</span><span class="text-[#00d4ff] opacity-25 mx-3">◆</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── EXPÉRIENCE ──────────────────────────────────────────────────────────── -->
+<section id="experience" class="py-16 md:py-28 px-5">
+  <div class="max-w-3xl mx-auto">
+
+    <div class="text-center mb-14">
+      <p class="text-[11px] font-semibold uppercase tracking-[.25em] text-[#7de8f7] mb-3 reveal" data-i18n="exp_overline">Parcours</p>
+      <h2 class="font-heading text-[30px] md:text-[40px] font-bold gradient-text reveal pb-1" data-i18n="exp_title">Expérience</h2>
+    </div>
+
+    <div class="flex gap-6">
+      <div class="flex flex-col items-center pt-1">
+        <div class="timeline-dot"></div>
+        <div class="timeline-line flex-1 my-2"></div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-line flex-1 my-2"></div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-line flex-1 my-2"></div>
+        <div class="timeline-dot"></div>
+      </div>
+
+      <div class="flex-1 space-y-8">
+
+        <div class="glass-card rounded-2xl p-6 hover:shadow-[0_0_18px_rgba(0,212,255,0.10)] transition-all duration-500 reveal">
+          <div class="flex flex-wrap items-start justify-between gap-2 mb-2">
+            <h3 class="font-heading text-[18px] font-bold text-[#f0f8ff]" data-i18n="exp1_title">Fondateur — Agence IA</h3>
+            <span class="text-[11px] font-medium text-[#7de8f7] tracking-widest whitespace-nowrap">2024 – <span data-i18n="exp_present">Présent</span></span>
+          </div>
+          <p class="text-[13px] font-semibold text-[#00d4ff] mb-3">Bryan Blaevoet · Madrid</p>
+          <p class="text-[14px] font-light text-[#8ab4cc] leading-relaxed" data-i18n="exp1_desc">Création et développement d'une agence spécialisée en marketing IA et automatisation. Sites web, agents IA, chatbots, image de marque et stratégies de contenu pour des marques ambitieuses.</p>
+        </div>
+
+        <div class="glass-card rounded-2xl p-6 hover:shadow-[0_0_18px_rgba(0,212,255,0.10)] transition-all duration-500 reveal">
+          <div class="flex flex-wrap items-start justify-between gap-2 mb-2">
+            <h3 class="font-heading text-[18px] font-bold text-[#f0f8ff]" data-i18n="exp2_title">Responsable Partenariats</h3>
+            <span class="text-[11px] font-medium text-[#7de8f7] tracking-widest">2022 – 2024</span>
+          </div>
+          <p class="text-[13px] font-semibold text-[#00d4ff] mb-3">Markchain · Agence Marketing Crypto</p>
+          <p class="text-[14px] font-light text-[#8ab4cc] leading-relaxed" data-i18n="exp2_desc">Développement des partenariats stratégiques pour une agence marketing spécialisée dans l'écosystème crypto. Réseau influenceurs et gestion de campagnes digitales à grande échelle.</p>
+        </div>
+
+        <div class="glass-card rounded-2xl p-6 hover:shadow-[0_0_18px_rgba(0,212,255,0.10)] transition-all duration-500 reveal">
+          <div class="flex flex-wrap items-start justify-between gap-2 mb-2">
+            <h3 class="font-heading text-[18px] font-bold text-[#f0f8ff]" data-i18n="exp3_title">Marketing Digital</h3>
+            <span class="text-[11px] font-medium text-[#7de8f7] tracking-widest">2021 – 2022</span>
+          </div>
+          <p class="text-[13px] font-semibold text-[#00d4ff] mb-3">AKKODIS</p>
+          <p class="text-[14px] font-light text-[#8ab4cc] leading-relaxed" data-i18n="exp3_desc">Stratégie et exécution marketing digital pour un acteur majeur du conseil en ingénierie et technologie.</p>
+        </div>
+
+        <div class="glass-card rounded-2xl p-6 hover:shadow-[0_0_18px_rgba(0,212,255,0.10)] transition-all duration-500 reveal">
+          <div class="flex flex-wrap items-start justify-between gap-2 mb-2">
+            <h3 class="font-heading text-[18px] font-bold text-[#f0f8ff]" data-i18n="exp4_title">Marketing Digital</h3>
+            <span class="text-[11px] font-medium text-[#7de8f7] tracking-widest">2020 – 2021</span>
+          </div>
+          <p class="text-[13px] font-semibold text-[#00d4ff] mb-3">Thales Civil Aviation</p>
+          <p class="text-[14px] font-light text-[#8ab4cc] leading-relaxed" data-i18n="exp4_desc">Marketing digital au sein de la division aviation civile du groupe Thales, l'un des leaders mondiaux de la haute technologie.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ─────────────────────────────────────────────────────────────── -->
+<section id="contact" class="py-16 md:py-28 px-5" style="background:linear-gradient(160deg,rgba(13,26,46,.2) 0%,rgba(8,14,26,1) 55%,rgba(20,40,70,.15) 100%)">
+  <div class="max-w-xl mx-auto text-center">
+
+    <p class="text-[11px] font-semibold uppercase tracking-[.25em] text-[#7de8f7] mb-3 reveal" data-i18n="contact_overline">Contact</p>
+    <h2 class="font-heading text-[30px] md:text-[40px] font-bold gradient-text mb-4 reveal pb-1" data-i18n="contact_title">Travaillons ensemble</h2>
+    <p class="text-[16px] font-light text-[#8ab4cc] mb-10 reveal" data-i18n="contact_desc">Un projet en tête ? Réservez un appel ou envoyez-moi un message.</p>
+
+    <!-- Calendly CTA — remplacer href par votre lien Calendly -->
+    <div class="mb-10 reveal">
+      <a href="https://calendly.com/bryan-blaevoet/nouvelle-reunion"
+         target="_blank" rel="noopener"
+         class="inline-flex items-center gap-3 bg-[#00d4ff] text-[#060c18] text-[13px] font-semibold tracking-[.10em] uppercase px-10 py-4 rounded-full shadow-[0_0_20px_rgba(0,212,255,0.40)] hover:shadow-[0_0_35px_rgba(0,212,255,0.65)] hover:-translate-y-px transition-all duration-300">
+        <span class="material-symbols-outlined text-[18px]">calendar_month</span>
+        <span data-i18n="contact_cta_cal">Réserver un appel</span>
+      </a>
+    </div>
+
+    <!-- Separator -->
+    <div class="flex items-center gap-4 mb-10 reveal">
+      <div class="flex-1 h-px bg-[rgba(0,212,255,.1)]"></div>
+      <span class="text-[11px] font-semibold uppercase tracking-[.2em] text-[#8ab4cc] opacity-60" data-i18n="contact_or">ou</span>
+      <div class="flex-1 h-px bg-[rgba(0,212,255,.1)]"></div>
+    </div>
+
+    <!-- Form -->
+    <div class="glass-card rounded-3xl p-8 text-left reveal">
+      <form id="contact-form" class="space-y-5">
+        <div>
+          <label class="block text-[11px] font-semibold uppercase tracking-[.2em] text-[#7de8f7] mb-2" data-i18n="form_name">Nom</label>
+          <input type="text" required
+                 class="w-full bg-[rgba(13,26,46,.5)] border border-[rgba(0,212,255,.12)] rounded-xl px-4 py-3 text-[14px] text-[#f0f8ff] focus:outline-none focus:border-[rgba(0,212,255,.5)] focus:shadow-[0_0_12px_rgba(0,212,255,0.15)] transition-all"
+                 data-placeholder-i18n="form_name_placeholder" placeholder="Votre nom"/>
+        </div>
+        <div>
+          <label class="block text-[11px] font-semibold uppercase tracking-[.2em] text-[#7de8f7] mb-2">Email</label>
+          <input type="email" required
+                 class="w-full bg-[rgba(13,26,46,.5)] border border-[rgba(0,212,255,.12)] rounded-xl px-4 py-3 text-[14px] text-[#f0f8ff] focus:outline-none focus:border-[rgba(0,212,255,.5)] focus:shadow-[0_0_12px_rgba(0,212,255,0.15)] transition-all"
+                 data-placeholder-i18n="form_email_placeholder" placeholder="votre@email.com"/>
+        </div>
+        <div>
+          <label class="block text-[11px] font-semibold uppercase tracking-[.2em] text-[#7de8f7] mb-2" data-i18n="form_message">Message</label>
+          <textarea rows="4" required
+                    class="w-full bg-[rgba(13,26,46,.5)] border border-[rgba(0,212,255,.12)] rounded-xl px-4 py-3 text-[14px] text-[#f0f8ff] focus:outline-none focus:border-[rgba(0,212,255,.5)] focus:shadow-[0_0_12px_rgba(0,212,255,0.15)] transition-all resize-none"
+                    data-placeholder-i18n="form_message_placeholder" placeholder="Décrivez votre projet..."></textarea>
+        </div>
+        <button type="submit"
+                class="w-full bg-[#00d4ff] text-[#060c18] text-[13px] font-semibold tracking-[.10em] uppercase py-4 rounded-xl shadow-[0_0_20px_rgba(0,212,255,0.30)] hover:shadow-[0_0_28px_rgba(0,212,255,0.55)] hover:-translate-y-px transition-all duration-300"
+                data-i18n="form_submit">Envoyer</button>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── FOOTER ──────────────────────────────────────────────────────────────── -->
+<footer class="py-10 px-5 border-t border-[rgba(0,212,255,.06)]">
+  <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+    <p class="font-heading text-[18px] gradient-text">Bryan Blaevoet</p>
+    <p class="text-[12px] text-[#8ab4cc] text-center" data-i18n="footer_copy">© 2026 Bryan Blaevoet · Agence IA · Madrid</p>
+    <div class="flex items-center gap-5">
+      <a href="https://www.linkedin.com/in/bryan-blaevoet/?locale=en" target="_blank" rel="noopener"
+         class="text-[12px] font-semibold uppercase tracking-widest text-[#8ab4cc] hover:text-[#00d4ff] transition-colors">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ── JAVASCRIPT ──────────────────────────────────────────────────────────── -->
+<script>
+const t = {
+  fr: {
+    nav_about:"À propos",nav_services:"Services",nav_projects:"Projets",
+    nav_experience:"Expérience",nav_contact:"Contact",nav_cv:"CV",nav_cta:"Prendre un RDV",
+    hero_overline:"Agence IA · Madrid",
+    hero_tagline:"Votre marque avance.\nMême quand vous dormez.",
+    hero_desc:"Je construis des présences digitales qui travaillent pour vous — sites performants, agents IA, chatbots et stratégies de contenu pour les marques ambitieuses.",
+    hero_cta_primary:"Prendre un RDV",hero_cta_secondary:"Voir mes services",
+    about_overline:"À propos",about_title:"Marketing. IA. Résultats.",
+    about_p1:"Expatrié à Madrid, je travaille à l'intersection du marketing digital, de la communication et de l'intelligence artificielle.",
+    about_p2:"Ancien responsable partenariats chez Markchain et passé par des groupes comme Thales et AKKODIS, j'ai développé une expertise unique à l'intersection du marketing digital, de la stratégie de croissance et des outils IA de dernière génération.",
+    stat_years:"Années d'expérience",stat_projects:"Projets actifs",stat_languages:"Langues",
+    services_overline:"Ce que je fais",services_title:"Services",
+    services_subtitle:"Du site web à l'agent IA — tout ce dont votre marque a besoin pour croître.",
+    svc1_title:"Sites web",svc1_desc:"Sites performants et modernes, optimisés pour convertir vos visiteurs en clients. Design sur mesure, rapide, responsive.",
+    svc2_title:"Agents IA",svc2_desc:"Des agents intelligents qui automatisent vos processus métier et travaillent 24h/24 — prospection, support, analyse.",
+    svc3_title:"Chatbots",svc3_desc:"Chatbots personnalisés pour engager vos prospects et qualifier vos leads automatiquement, sur votre site ou vos réseaux.",
+    svc4_title:"Image de marque",svc4_desc:"Identité visuelle cohérente et mémorable — logo, palette, typographie et guidelines pour une marque qui marque les esprits.",
+    svc5_title:"Marketing",svc5_desc:"Stratégies marketing IA-first pour maximiser votre visibilité, votre acquisition et votre retour sur investissement.",
+    svc6_title:"Création de contenu",svc6_desc:"Contenu de qualité pour vos réseaux sociaux, blog et campagnes — rédigé, optimisé et scalé grâce à l'IA.",
+    projects_overline:"Projets",projects_title:"Ce sur quoi je travaille",
+    proj_active:"En cours",
+    proj1_desc:"Plateforme multi-agents IA dédiée au marketing. Automatisez vos campagnes, gérez votre contenu et pilotez votre croissance depuis une seule interface.",
+    proj2_desc:"Solution SaaS d'analyse vidéo pour le tennis. Tracking de performance, coaching à distance et données en temps réel pour joueurs et entraîneurs.",
+    proj_cofounder:"Co-fondateur",badge_multiagent:"Multi-agents",badge_video:"Analyse vidéo",
+    stack_overline:"Stack & Outils",
+    exp_overline:"Parcours",exp_title:"Expérience",exp_present:"Présent",
+    exp1_title:"Fondateur — Agence IA",
+    exp1_desc:"Création et développement d'une agence spécialisée en marketing IA et automatisation. Sites web, agents IA, chatbots, image de marque et stratégies de contenu pour des marques ambitieuses.",
+    exp2_title:"Responsable Partenariats",
+    exp2_desc:"Développement des partenariats stratégiques pour une agence marketing spécialisée dans l'écosystème crypto. Réseau influenceurs et gestion de campagnes digitales à grande échelle.",
+    exp3_title:"Marketing Digital",
+    exp3_desc:"Stratégie et exécution marketing digital pour un acteur majeur du conseil en ingénierie et technologie.",
+    exp4_title:"Marketing Digital",
+    exp4_desc:"Marketing digital au sein de la division aviation civile du groupe Thales, l'un des leaders mondiaux de la haute technologie.",
+    contact_overline:"Contact",contact_title:"Travaillons ensemble",
+    contact_desc:"Un projet en tête ? Réservez un appel ou envoyez-moi un message.",
+    contact_cta_cal:"Réserver un appel",contact_or:"ou",
+    form_name:"Nom",form_name_placeholder:"Votre nom",
+    form_email_placeholder:"votre@email.com",
+    form_message:"Message",form_message_placeholder:"Décrivez votre projet...",
+    form_submit:"Envoyer",
+    footer_copy:"© 2026 Bryan Blaevoet · Agence IA · Madrid",
+  },
+  en: {
+    nav_about:"About",nav_services:"Services",nav_projects:"Projects",
+    nav_experience:"Experience",nav_contact:"Contact",nav_cv:"CV",nav_cta:"Book a call",
+    hero_overline:"AI Agency · Madrid",
+    hero_tagline:"Your brand moves forward.\nEven while you sleep.",
+    hero_desc:"I build digital presences that work for you — high-performance websites, AI agents, chatbots and content strategies for ambitious brands.",
+    hero_cta_primary:"Book a call",hero_cta_secondary:"See my services",
+    about_overline:"About",about_title:"Marketing. AI. Results.",
+    about_p1:"Based in Madrid as an expat, I work at the intersection of digital marketing, communication and artificial intelligence.",
+    about_p2:"Former partnerships manager at Markchain and experienced at groups like Thales and AKKODIS, I've developed a unique expertise at the intersection of digital marketing, growth strategy, and the latest AI tools.",
+    stat_years:"Years of experience",stat_projects:"Active projects",stat_languages:"Languages",
+    services_overline:"What I do",services_title:"Services",
+    services_subtitle:"From websites to AI agents — everything your brand needs to grow.",
+    svc1_title:"Websites",svc1_desc:"High-performance, modern websites optimized to convert your visitors into customers. Custom design, fast, responsive.",
+    svc2_title:"AI Agents",svc2_desc:"Intelligent agents that automate your business processes and work 24/7 — prospecting, support, analysis.",
+    svc3_title:"Chatbots",svc3_desc:"Custom chatbots to engage your prospects and qualify your leads automatically, on your website or social media.",
+    svc4_title:"Brand Identity",svc4_desc:"Consistent and memorable visual identity — logo, palette, typography and brand guidelines that leave a lasting impression.",
+    svc5_title:"Marketing",svc5_desc:"AI-first marketing strategies to maximize your visibility, acquisition and return on investment.",
+    svc6_title:"Content Creation",svc6_desc:"Quality content for your social media, blog and campaigns — written, optimized and scaled with AI.",
+    projects_overline:"Projects",projects_title:"What I'm working on",
+    proj_active:"In progress",
+    proj1_desc:"Multi-agent AI platform dedicated to marketing. Automate your campaigns, manage your content and drive your growth from a single interface.",
+    proj2_desc:"SaaS video analysis solution for tennis. Performance tracking, remote coaching and real-time data for players and coaches.",
+    proj_cofounder:"Co-founder",badge_multiagent:"Multi-agents",badge_video:"Video analysis",
+    stack_overline:"Stack & Tools",
+    exp_overline:"Background",exp_title:"Experience",exp_present:"Present",
+    exp1_title:"Founder — AI Agency",
+    exp1_desc:"Creation and development of an agency specializing in AI marketing and automation. Websites, AI agents, chatbots, brand identity and content strategies for ambitious brands.",
+    exp2_title:"Partnerships Manager",
+    exp2_desc:"Development of strategic partnerships for a marketing agency specializing in the crypto ecosystem. Influencer network and large-scale digital campaign management.",
+    exp3_title:"Digital Marketing",
+    exp3_desc:"Digital marketing strategy and execution for a major player in engineering and technology consulting.",
+    exp4_title:"Digital Marketing",
+    exp4_desc:"Digital marketing within the civil aviation division of Thales Group, one of the world's leading high-technology companies.",
+    contact_overline:"Contact",contact_title:"Let's work together",
+    contact_desc:"Have a project in mind? Book a call or send me a message.",
+    contact_cta_cal:"Book a call",contact_or:"or",
+    form_name:"Name",form_name_placeholder:"Your name",
+    form_email_placeholder:"your@email.com",
+    form_message:"Message",form_message_placeholder:"Describe your project...",
+    form_submit:"Send",
+    footer_copy:"© 2026 Bryan Blaevoet · AI Agency · Madrid",
+  },
+  es: {
+    nav_about:"Sobre mí",nav_services:"Servicios",nav_projects:"Proyectos",
+    nav_experience:"Experiencia",nav_contact:"Contacto",nav_cv:"CV",nav_cta:"Reservar llamada",
+    hero_overline:"Agencia IA · Madrid",
+    hero_tagline:"Tu marca avanza.\nIncluso mientras duermes.",
+    hero_desc:"Construyo presencias digitales que trabajan para ti — sitios web, agentes IA, chatbots y estrategias de contenido para marcas ambiciosas.",
+    hero_cta_primary:"Reservar llamada",hero_cta_secondary:"Ver mis servicios",
+    about_overline:"Sobre mí",about_title:"Marketing. IA. Resultados.",
+    about_p1:"Expatriado en Madrid, trabajo en la intersección del marketing digital, la comunicación y la inteligencia artificial.",
+    about_p2:"Ex responsable de partnerships en Markchain y con experiencia en grupos como Thales y AKKODIS, he desarrollado una experiencia única en la intersección del marketing digital, la estrategia de crecimiento y las últimas herramientas de IA.",
+    stat_years:"Años de experiencia",stat_projects:"Proyectos activos",stat_languages:"Idiomas",
+    services_overline:"Lo que hago",services_title:"Servicios",
+    services_subtitle:"Del sitio web al agente IA — todo lo que tu marca necesita para crecer.",
+    svc1_title:"Sitios web",svc1_desc:"Sitios modernos y de alto rendimiento, optimizados para convertir visitantes en clientes. Diseño a medida, rápido y responsive.",
+    svc2_title:"Agentes IA",svc2_desc:"Agentes inteligentes que automatizan tus procesos y trabajan 24/7 — prospección, soporte, análisis.",
+    svc3_title:"Chatbots",svc3_desc:"Chatbots personalizados para captar prospectos y calificar leads automáticamente, en tu sitio o redes sociales.",
+    svc4_title:"Imagen de marca",svc4_desc:"Identidad visual coherente y memorable — logo, paleta, tipografía y guidelines para una marca que deja huella.",
+    svc5_title:"Marketing",svc5_desc:"Estrategias de marketing IA-first para maximizar tu visibilidad, adquisición y retorno de inversión.",
+    svc6_title:"Creación de contenido",svc6_desc:"Contenido de calidad para tus redes, blog y campañas — redactado, optimizado y escalado con IA.",
+    projects_overline:"Proyectos",projects_title:"En lo que trabajo",
+    proj_active:"En curso",
+    proj1_desc:"Plataforma multi-agente IA dedicada al marketing. Automatiza tus campañas, gestiona tu contenido y pilota tu crecimiento desde una sola interfaz.",
+    proj2_desc:"Solución SaaS de análisis de vídeo para el tenis. Seguimiento de rendimiento, coaching a distancia y datos en tiempo real para jugadores y entrenadores.",
+    proj_cofounder:"Co-fundador",badge_multiagent:"Multi-agentes",badge_video:"Análisis de vídeo",
+    stack_overline:"Stack y Herramientas",
+    exp_overline:"Trayectoria",exp_title:"Experiencia",exp_present:"Presente",
+    exp1_title:"Fundador — Agencia IA",
+    exp1_desc:"Creación y desarrollo de una agencia especializada en marketing IA y automatización. Sitios web, agentes IA, chatbots, imagen de marca y estrategias de contenido para marcas ambiciosas.",
+    exp2_title:"Responsable de Partnerships",
+    exp2_desc:"Desarrollo de partnerships estratégicos para una agencia de marketing especializada en el ecosistema cripto. Red de influencers y gestión de campañas digitales a gran escala.",
+    exp3_title:"Marketing Digital",
+    exp3_desc:"Estrategia y ejecución de marketing digital para un actor líder en consultoría de ingeniería y tecnología.",
+    exp4_title:"Marketing Digital",
+    exp4_desc:"Marketing digital en la división de aviación civil del Grupo Thales, uno de los líderes mundiales en alta tecnología.",
+    contact_overline:"Contacto",contact_title:"Trabajemos juntos",
+    contact_desc:"¿Tienes un proyecto en mente? Reserva una llamada o envíame un mensaje.",
+    contact_cta_cal:"Reservar llamada",contact_or:"o",
+    form_name:"Nombre",form_name_placeholder:"Tu nombre",
+    form_email_placeholder:"tu@email.com",
+    form_message:"Mensaje",form_message_placeholder:"Describe tu proyecto...",
+    form_submit:"Enviar",
+    footer_copy:"© 2026 Bryan Blaevoet · Agencia IA · Madrid",
+  }
+};
+
+let currentLang = 'fr';
+
+function setLanguage(lang) {
+  currentLang = lang;
+  document.documentElement.lang = lang;
+
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.dataset.i18n;
+    if (!t[lang][key]) return;
+    if (t[lang][key].includes('\n')) {
+      el.innerHTML = t[lang][key].replace(/\n/g, '<br class="hidden sm:block"/>');
+    } else {
+      el.textContent = t[lang][key];
+    }
+  });
+
+  document.querySelectorAll('[data-placeholder-i18n]').forEach(el => {
+    const key = el.dataset.placeholderI18n;
+    if (t[lang][key]) el.placeholder = t[lang][key];
+  });
+
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    const active = btn.dataset.lang === lang;
+    btn.classList.toggle('active', active);
+    btn.style.color = active ? '#00d4ff' : '#8ab4cc';
+  });
+}
+
+// Nav blur
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('nav-scrolled', window.scrollY > 40);
+}, {passive: true});
+
+// Mobile menu
+document.getElementById('mobile-toggle').addEventListener('click', () => {
+  const m = document.getElementById('mobile-menu');
+  m.classList.toggle('hidden');
+  m.classList.toggle('flex');
+});
+document.querySelectorAll('#mobile-menu a').forEach(a => {
+  a.addEventListener('click', () => {
+    document.getElementById('mobile-menu').classList.add('hidden');
+    document.getElementById('mobile-menu').classList.remove('flex');
+  });
+});
+
+// Scroll reveals
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+}, {threshold: 0.08, rootMargin: '0px 0px -30px 0px'});
+document.querySelectorAll('.reveal').forEach((el, i) => {
+  el.style.transitionDelay = (i % 5) * 0.07 + 's';
+  observer.observe(el);
+});
+
+// Contact form feedback
+document.getElementById('contact-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const btn = this.querySelector('button[type="submit"]');
+  const messages = {fr:'Message envoyé ✓', en:'Message sent ✓', es:'Mensaje enviado ✓'};
+  const originalText = t[currentLang]['form_submit'];
+  btn.textContent = messages[currentLang];
+  btn.style.background = 'rgba(0,212,255,.15)';
+  btn.style.color = '#00d4ff';
+  setTimeout(() => {
+    btn.textContent = originalText;
+    btn.style.background = '';
+    btn.style.color = '';
+    this.reset();
+  }, 3000);
+});
+
+setLanguage('fr');
+</script>
+
+</body>
+</html>
