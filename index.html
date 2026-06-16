@@ -361,6 +361,73 @@ footer{background:rgba(8,14,26,.85) !important;backdrop-filter:blur(8px)}
   </div>
 </section>
 
+<!-- ── PROJETS ─────────────────────────────────────────────────────────────── -->
+<section id="projects" class="py-16 md:py-28 px-5">
+  <div class="max-w-6xl mx-auto">
+
+    <div class="text-center mb-14">
+      <p class="text-[11px] font-semibold uppercase tracking-[.25em] text-[#7de8f7] mb-3 reveal" data-i18n="projects_overline">Projets</p>
+      <h2 class="font-heading text-[30px] md:text-[40px] font-bold gradient-text reveal pb-1" data-i18n="projects_title">Ce sur quoi je travaille</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+      <!-- Archive -->
+      <a href="https://archive-website-psi.vercel.app/" target="_blank" rel="noopener"
+         class="glass-card rounded-3xl overflow-hidden group hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(0,212,255,0.13)] transition-all duration-500 reveal block">
+        <div class="relative h-48 overflow-hidden bg-[#080e1a] flex items-center justify-center">
+          <div class="absolute inset-0" style="background:radial-gradient(circle at 30% 50%,rgba(0,212,255,.07),transparent 60%),radial-gradient(circle at 80% 30%,rgba(100,60,200,.08),transparent 50%)"></div>
+          <div class="relative z-10 text-center px-8">
+            <p class="font-heading text-[28px] font-bold text-[#f0f8ff] tracking-[.08em]">ARCHIVE</p>
+            <p class="text-[11px] font-medium text-[#7de8f7] tracking-[.2em] uppercase mt-1">Un moteur de découverte cinéma</p>
+          </div>
+          <div class="absolute inset-0 bg-[rgba(0,212,255,.04)] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        </div>
+        <div class="p-6">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-[11px] font-semibold uppercase tracking-[.15em] text-[#7de8f7]" data-i18n="proj1_tag">Site web · Madrid</span>
+            <span class="material-symbols-outlined text-[18px] text-[#00d4ff] group-hover:translate-x-1 transition-transform duration-300">arrow_outward</span>
+          </div>
+          <h3 class="font-heading text-[19px] font-bold text-[#f0f8ff] mb-2" data-i18n="proj1_title">Archive — Découverte cinéma par émotions</h3>
+          <p class="text-[13px] font-light text-[#8ab4cc] leading-relaxed" data-i18n="proj1_desc">Plateforme de découverte culturelle qui cartographie 4 812 films par sensations et concepts. Navigation émotionnelle, graphe sémantique et curation éditoriale — en beta publique.</p>
+          <div class="flex flex-wrap gap-2 mt-4">
+            <span class="skill-tag">HTML/CSS</span>
+            <span class="skill-tag">Vercel</span>
+            <span class="skill-tag">IA</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Nelly Orozco -->
+      <a href="https://nelly-orozco.vercel.app/" target="_blank" rel="noopener"
+         class="glass-card rounded-3xl overflow-hidden group hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(0,212,255,0.13)] transition-all duration-500 reveal block">
+        <div class="relative h-48 overflow-hidden bg-[#11081a] flex items-center justify-center">
+          <div class="absolute inset-0" style="background:radial-gradient(circle at 70% 40%,rgba(168,117,255,.1),transparent 55%),radial-gradient(circle at 20% 70%,rgba(100,50,180,.07),transparent 50%)"></div>
+          <div class="relative z-10 text-center px-8">
+            <p class="font-heading text-[28px] font-bold text-[#f0f8ff]">Nelly Orozco</p>
+            <p class="text-[11px] font-medium text-[#d4b3ff] tracking-[.2em] uppercase mt-1">Site vitrine · PM & Coach</p>
+          </div>
+          <div class="absolute inset-0 bg-[rgba(168,117,255,.04)] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        </div>
+        <div class="p-6">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-[11px] font-semibold uppercase tracking-[.15em] text-[#7de8f7]" data-i18n="proj2_tag">Site web · Madrid</span>
+            <span class="material-symbols-outlined text-[18px] text-[#00d4ff] group-hover:translate-x-1 transition-transform duration-300">arrow_outward</span>
+          </div>
+          <h3 class="font-heading text-[19px] font-bold text-[#f0f8ff] mb-2" data-i18n="proj2_title">Nelly Orozco — Site vitrine & CV interactif</h3>
+          <p class="text-[13px] font-light text-[#8ab4cc] leading-relaxed" data-i18n="proj2_desc">Site one-page pour une Product Manager Coach à Madrid — chatbot IA intégré, réservation Calendly, design glassmorphism et animations au scroll.</p>
+          <div class="flex flex-wrap gap-2 mt-4">
+            <span class="skill-tag">HTML/CSS</span>
+            <span class="skill-tag">Chatbot IA</span>
+            <span class="skill-tag">Vercel</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
 <!-- ── EXPÉRIENCE ──────────────────────────────────────────────────────────── -->
 <section id="experience" class="py-16 md:py-28 px-5">
   <div class="max-w-3xl mx-auto">
@@ -514,6 +581,8 @@ const t = {
     svc5_title:"Marketing",svc5_desc:"Stratégies marketing IA-first pour maximiser votre visibilité, votre acquisition et votre retour sur investissement.",
     svc6_title:"Création de contenu",svc6_desc:"Contenu de qualité pour vos réseaux sociaux, blog et campagnes — rédigé, optimisé et scalé grâce à l'IA.",
     projects_overline:"Projets",projects_title:"Ce sur quoi je travaille",
+    proj1_tag:"Site web · Madrid",proj1_title:"Archive — Découverte cinéma par émotions",proj1_desc:"Plateforme de découverte culturelle qui cartographie 4 812 films par sensations et concepts. Navigation émotionnelle, graphe sémantique et curation éditoriale — en beta publique.",
+    proj2_tag:"Site web · Madrid",proj2_title:"Nelly Orozco — Site vitrine & CV interactif",proj2_desc:"Site one-page pour une Product Manager Coach à Madrid — chatbot IA intégré, réservation Calendly, design glassmorphism et animations au scroll.",
     proj_active:"En cours",
     proj1_desc:"Plateforme multi-agents IA dédiée au marketing. Automatisez vos campagnes, gérez votre contenu et pilotez votre croissance depuis une seule interface.",
     proj2_desc:"Solution SaaS d'analyse vidéo pour le tennis. Tracking de performance, coaching à distance et données en temps réel pour joueurs et entraîneurs.",
@@ -557,6 +626,8 @@ const t = {
     svc5_title:"Marketing",svc5_desc:"AI-first marketing strategies to maximize your visibility, acquisition and return on investment.",
     svc6_title:"Content Creation",svc6_desc:"Quality content for your social media, blog and campaigns — written, optimized and scaled with AI.",
     projects_overline:"Projects",projects_title:"What I'm working on",
+    proj1_tag:"Website · Madrid",proj1_title:"Archive — Cinema discovery through emotions",proj1_desc:"Cultural discovery platform mapping 4,812 films by feelings and concepts. Emotional navigation, semantic graph and editorial curation — now in public beta.",
+    proj2_tag:"Website · Madrid",proj2_title:"Nelly Orozco — Portfolio & interactive CV",proj2_desc:"One-page site for a Product Manager Coach in Madrid — integrated AI chatbot, Calendly booking, glassmorphism design and scroll animations.",
     proj_active:"In progress",
     proj1_desc:"Multi-agent AI platform dedicated to marketing. Automate your campaigns, manage your content and drive your growth from a single interface.",
     proj2_desc:"SaaS video analysis solution for tennis. Performance tracking, remote coaching and real-time data for players and coaches.",
@@ -600,6 +671,8 @@ const t = {
     svc5_title:"Marketing",svc5_desc:"Estrategias de marketing IA-first para maximizar tu visibilidad, adquisición y retorno de inversión.",
     svc6_title:"Creación de contenido",svc6_desc:"Contenido de calidad para tus redes, blog y campañas — redactado, optimizado y escalado con IA.",
     projects_overline:"Proyectos",projects_title:"En lo que trabajo",
+    proj1_tag:"Sitio web · Madrid",proj1_title:"Archive — Descubrimiento de cine por emociones",proj1_desc:"Plataforma de descubrimiento cultural que mapea 4.812 películas por sensaciones y conceptos. Navegación emocional, grafo semántico y curaduría editorial — en beta pública.",
+    proj2_tag:"Sitio web · Madrid",proj2_title:"Nelly Orozco — Sitio vitrina y CV interactivo",proj2_desc:"Sitio one-page para una Product Manager Coach en Madrid — chatbot IA integrado, reserva Calendly, diseño glassmorphism y animaciones al hacer scroll.",
     proj_active:"En curso",
     proj1_desc:"Plataforma multi-agente IA dedicada al marketing. Automatiza tus campañas, gestiona tu contenido y pilota tu crecimiento desde una sola interfaz.",
     proj2_desc:"Solución SaaS de análisis de vídeo para el tenis. Seguimiento de rendimiento, coaching a distancia y datos en tiempo real para jugadores y entrenadores.",
