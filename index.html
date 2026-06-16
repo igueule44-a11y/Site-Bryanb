@@ -82,6 +82,54 @@ h1.gradient-text{font-family:"Lora",serif!important}
 .lang-btn.active{color:#00d4ff !important}
 
 footer{background:rgba(8,14,26,.85) !important;backdrop-filter:blur(8px)}
+
+/* ── CHATBOT ────────────────────────────────────────────── */
+#bc-bubble{position:fixed;bottom:28px;right:28px;z-index:9998;width:56px;height:56px;border-radius:50%;overflow:hidden;cursor:pointer;border:2px solid rgba(0,212,255,.5);box-shadow:0 0 22px rgba(0,212,255,.35),0 4px 20px rgba(0,0,0,.5);transition:transform .2s,box-shadow .2s}
+#bc-bubble:hover{transform:scale(1.07);box-shadow:0 0 32px rgba(0,212,255,.55),0 4px 24px rgba(0,0,0,.6)}
+#bc-bubble img{width:100%;height:100%;object-fit:cover}
+#bc-window{position:fixed;bottom:100px;right:28px;z-index:9999;width:360px;max-width:calc(100vw - 32px);background:rgba(8,14,26,.97);border:1px solid rgba(0,212,255,.18);border-radius:18px;box-shadow:0 0 40px rgba(0,212,255,.12),0 16px 48px rgba(0,0,0,.7);display:none;flex-direction:column;overflow:hidden;backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px)}
+#bc-window.open{display:flex}
+#bc-header{display:flex;align-items:center;gap:10px;padding:14px 16px;background:rgba(0,212,255,.05);border-bottom:1px solid rgba(0,212,255,.1);flex-shrink:0}
+#bc-header img{width:36px;height:36px;border-radius:50%;object-fit:cover;border:1.5px solid rgba(0,212,255,.4)}
+#bc-header-info{flex:1;min-width:0}
+#bc-name{font-family:"Playfair Display",serif;font-size:13.5px;font-weight:600;color:#f0f8ff;letter-spacing:.01em}
+#bc-status{font-family:"Inter",sans-serif;font-size:11px;color:#00d4ff;letter-spacing:.02em;margin-top:1px}
+#bc-lang{display:flex;gap:4px;margin-right:4px}
+.bc-lb{background:none;border:1px solid rgba(0,212,255,.2);color:#8ab4cc;font-family:"Inter",sans-serif;font-size:10px;font-weight:600;padding:3px 7px;border-radius:9999px;cursor:pointer;transition:all .2s;letter-spacing:.05em}
+.bc-lb.on{background:rgba(0,212,255,.15);border-color:rgba(0,212,255,.5);color:#00d4ff}
+#bc-x{background:none;border:none;color:#8ab4cc;cursor:pointer;padding:4px;display:flex;align-items:center;transition:color .2s}
+#bc-x:hover{color:#f0f8ff}
+#bc-msgs{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px;min-height:220px;max-height:320px;scrollbar-width:thin;scrollbar-color:rgba(0,212,255,.2) transparent}
+#bc-msgs::-webkit-scrollbar{width:4px}
+#bc-msgs::-webkit-scrollbar-thumb{background:rgba(0,212,255,.2);border-radius:4px}
+.bc-intro{display:flex;gap:10px;align-items:flex-start}
+.bc-intro img{width:28px;height:28px;border-radius:50%;object-fit:cover;flex-shrink:0;margin-top:2px}
+.bc-intro p{background:rgba(13,26,46,.6);border:1px solid rgba(0,212,255,.1);border-radius:0 12px 12px 12px;padding:10px 13px;font-family:"Inter",sans-serif;font-size:13px;line-height:1.5;color:#c8dff0;margin:0}
+.bc-m{max-width:82%;font-family:"Inter",sans-serif;font-size:13px;line-height:1.5;padding:9px 13px;border-radius:12px;word-break:break-word}
+.bc-m.usr{align-self:flex-end;background:rgba(0,212,255,.15);border:1px solid rgba(0,212,255,.25);color:#f0f8ff;border-radius:12px 12px 2px 12px}
+.bc-m.bot{align-self:flex-start;background:rgba(13,26,46,.6);border:1px solid rgba(0,212,255,.1);color:#c8dff0;border-radius:2px 12px 12px 12px}
+.bc-dot{align-self:flex-start;display:flex;gap:5px;padding:12px 14px;background:rgba(13,26,46,.6);border:1px solid rgba(0,212,255,.1);border-radius:2px 12px 12px 12px}
+.bc-dot span{width:6px;height:6px;border-radius:50%;background:#00d4ff;opacity:.5;animation:bc-pulse 1.2s ease-in-out infinite}
+.bc-dot span:nth-child(2){animation-delay:.2s}
+.bc-dot span:nth-child(3){animation-delay:.4s}
+@keyframes bc-pulse{0%,100%{transform:scale(.8);opacity:.3}50%{transform:scale(1.1);opacity:.9}}
+#bc-quick{display:flex;flex-wrap:wrap;gap:6px;padding:0 14px 10px}
+.bc-qr{font-family:"Inter",sans-serif;font-size:11.5px;font-weight:500;background:rgba(0,212,255,.07);border:1px solid rgba(0,212,255,.22);color:#7de8f7;padding:6px 12px;border-radius:9999px;cursor:pointer;transition:all .2s;white-space:nowrap}
+.bc-qr:hover{background:rgba(0,212,255,.15);border-color:rgba(0,212,255,.45);color:#f0f8ff}
+#bc-ia{font-family:"Inter",sans-serif;font-size:10px;color:rgba(0,212,255,.4);text-align:center;padding:6px 14px;letter-spacing:.04em;border-top:1px solid rgba(0,212,255,.06)}
+#bc-foot{display:flex;align-items:center;gap:8px;padding:10px 14px 14px;flex-shrink:0}
+#bc-inp{flex:1;background:rgba(13,26,46,.6);border:1px solid rgba(0,212,255,.18);color:#f0f8ff;font-family:"Inter",sans-serif;font-size:13px;padding:9px 14px;border-radius:9999px;outline:none;transition:border-color .2s}
+#bc-inp::placeholder{color:#8ab4cc}
+#bc-inp:focus{border-color:rgba(0,212,255,.45)}
+#bc-btn{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#00d4ff,#7de8f7);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:box-shadow .2s,transform .2s}
+#bc-btn:hover{box-shadow:0 0 16px rgba(0,212,255,.5);transform:scale(1.06)}
+#bc-callout{position:fixed;bottom:96px;right:28px;z-index:9997;display:flex;flex-direction:column;align-items:flex-end;gap:4px;opacity:0;transform:translateY(10px);transition:opacity .5s ease,transform .5s cubic-bezier(.16,1,.3,1);pointer-events:none}
+#bc-callout.show{opacity:1;transform:translateY(0)}
+#bc-callout.hide{opacity:0;transform:translateY(10px)}
+#bc-callout-pill{background:rgba(8,14,26,.97);border:1px solid rgba(0,212,255,.4);border-radius:20px;padding:9px 16px;font-family:"Inter",sans-serif;font-size:12.5px;font-weight:500;color:#7de8f7;white-space:nowrap;box-shadow:0 4px 24px rgba(0,0,0,.45),0 0 14px rgba(0,212,255,.15);letter-spacing:.01em}
+#bc-callout-arrow{color:#00d4ff;text-align:center;padding-right:14px;font-size:16px;line-height:1;animation:bc-arrow-pulse 1.1s ease-in-out infinite}
+@keyframes bc-arrow-pulse{0%,100%{transform:translateY(0);opacity:.6}50%{transform:translateY(6px);opacity:1}}
+@media(max-width:480px){#bc-bubble{right:14px;bottom:14px}#bc-window{right:10px;bottom:86px;width:calc(100vw - 20px)}#bc-callout{right:14px;bottom:84px}}
 </style>
 </head>
 
@@ -651,6 +699,231 @@ document.getElementById('contact-form').addEventListener('submit', function(e) {
 });
 
 setLanguage('fr');
+</script>
+
+<!-- ── CHATBOT ────────────────────────────────────────────────────────────── -->
+<div id="bc-callout" aria-hidden="true">
+  <div id="bc-callout-pill">💬 Parler à ma version virtuelle</div>
+  <div id="bc-callout-arrow">▼</div>
+</div>
+
+<div id="bc-bubble" onclick="bcToggle()" title="Parler à Bryan IA">
+  <img src="assets/photo-bryan.jpg" alt="Bryan Blaevoet"/>
+</div>
+
+<div id="bc-window">
+  <div id="bc-header">
+    <img src="assets/photo-bryan.jpg" alt="Bryan"/>
+    <div id="bc-header-info">
+      <div id="bc-name">Bryan Blaevoet</div>
+      <div id="bc-status">En ligne · Expert IA</div>
+    </div>
+    <div id="bc-lang">
+      <button class="bc-lb on" onclick="bcLang('fr')">FR</button>
+      <button class="bc-lb" onclick="bcLang('en')">EN</button>
+      <button class="bc-lb" onclick="bcLang('es')">ES</button>
+    </div>
+    <button id="bc-x" onclick="bcToggle()">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+  <div id="bc-msgs"></div>
+  <div id="bc-quick"></div>
+  <div id="bc-ia">✦ <span id="bc-ia-txt">Assistant IA · créé par Bryan Blaevoet</span></div>
+  <div id="bc-foot">
+    <input id="bc-inp" type="text" placeholder="Écris un message..." onkeydown="if(event.key==='Enter')bcSend()"/>
+    <button id="bc-btn" onclick="bcSend()">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="#060c18"><path d="M2 21l21-9L2 3v7l15 2-15 2z"/></svg>
+    </button>
+  </div>
+</div>
+
+<script>
+(function(){
+  const QR={
+    fr:['Quels sont tes services ?','Tu travailles avec des PME ?','Comment tu utilises l\'IA ?','📅 Réserver un appel'],
+    en:['What services do you offer?','Do you work with SMEs?','How do you use AI?','📅 Book a call'],
+    es:['¿Cuáles son tus servicios?','¿Trabajas con PYMEs?','¿Cómo usas la IA?','📅 Reservar una llamada']
+  };
+  const INTRO={
+    fr:'<strong>Salut ! Je suis la version virtuelle de Bryan.</strong><br>Je peux répondre à tes questions sur mes services, mon expérience et ma façon de travailler. Qu\'est-ce que je peux faire pour toi ?',
+    en:'<strong>Hey! I\'m Bryan\'s virtual version.</strong><br>I can answer your questions about my services, experience and how I work. What can I do for you?',
+    es:'<strong>¡Hola! Soy la versión virtual de Bryan.</strong><br>Puedo responder tus preguntas sobre mis servicios, experiencia y forma de trabajar. ¿En qué puedo ayudarte?'
+  };
+  const STATUS={
+    fr:'En ligne · Expert IA',
+    en:'Online · AI Expert',
+    es:'En línea · Experto IA'
+  };
+  const IA_TXT={
+    fr:'Assistant IA · créé par Bryan Blaevoet',
+    en:'AI Assistant · created by Bryan Blaevoet',
+    es:'Asistente IA · creado por Bryan Blaevoet'
+  };
+  const PLACEHOLDER={fr:'Écris un message...',en:'Type a message...',es:'Escribe un mensaje...'};
+  const BOOK_URL='https://calendly.com/bryanblaevoet';
+
+  let open=false,lang='fr',hist=[],started=false;
+
+  window.bcToggle=function(){
+    open=!open;
+    bcHideCallout();
+    document.getElementById('bc-window').classList.toggle('open',open);
+    if(open&&!started){bcInit();started=true;}
+    if(open)setTimeout(()=>document.getElementById('bc-inp').focus(),350);
+  };
+
+  window.bcLang=function(l){
+    lang=l;
+    document.querySelectorAll('.bc-lb').forEach(b=>b.classList.remove('on'));
+    document.querySelector(`.bc-lb[onclick="bcLang('${l}')"]`).classList.add('on');
+    document.getElementById('bc-inp').placeholder=PLACEHOLDER[l];
+    document.getElementById('bc-status').textContent=STATUS[l];
+    document.getElementById('bc-ia-txt').textContent=IA_TXT[l];
+    const ip=document.querySelector('.bc-intro p');
+    if(ip)ip.innerHTML=INTRO[l];
+    bcShowQR();
+  };
+
+  function bcInit(){
+    const msgs=document.getElementById('bc-msgs');
+    const card=document.createElement('div');
+    card.className='bc-intro';
+    card.innerHTML=`<img src="assets/photo-bryan.jpg" alt="Bryan"/><p>${INTRO[lang]}</p>`;
+    msgs.appendChild(card);
+    bcShowQR();
+  }
+
+  function bcShowQR(){
+    const el=document.getElementById('bc-quick');
+    el.innerHTML=QR[lang].map(q=>{
+      if(q.startsWith('📅')){
+        return `<a class="bc-qr" href="${BOOK_URL}" target="_blank" style="text-decoration:none;">${q}</a>`;
+      }
+      return `<button class="bc-qr" onclick="bcQ('${q.replace(/'/g,"\\'")}')">${q}</button>`;
+    }).join('');
+  }
+
+  window.bcQ=function(t){
+    document.getElementById('bc-quick').innerHTML='';
+    bcAdd(t,'usr');
+    bcCall(t);
+  };
+
+  window.bcSend=function(){
+    const inp=document.getElementById('bc-inp');
+    const t=inp.value.trim();if(!t)return;
+    inp.value='';
+    document.getElementById('bc-quick').innerHTML='';
+    bcAdd(t,'usr');
+    bcCall(t);
+  };
+
+  function bcAdd(text,role){
+    const msgs=document.getElementById('bc-msgs');
+    const d=document.createElement('div');
+    d.className='bc-m '+role;
+    if(role==='bot'){
+      const bookRx=/\[BOOK\|([^\|]+)\|([^\]]+)\]/g;
+      let clean=text.replace(bookRx,'').trim();
+      d.textContent=clean;
+      [...text.matchAll(bookRx)].forEach(m=>{
+        const btn=document.createElement('a');
+        btn.href=m[1];btn.target='_blank';
+        btn.textContent=m[2];
+        btn.className='bc-qr';
+        btn.style.cssText='display:block;margin-top:8px;text-decoration:none;';
+        d.appendChild(btn);
+      });
+    }else{
+      d.textContent=text;
+    }
+    msgs.appendChild(d);
+    msgs.scrollTop=msgs.scrollHeight;
+    if(role==='usr')hist.push({role:'user',content:text});
+    return d;
+  }
+
+  function bcTyping(){
+    const msgs=document.getElementById('bc-msgs');
+    const d=document.createElement('div');
+    d.className='bc-dot';
+    d.innerHTML='<span></span><span></span><span></span>';
+    msgs.appendChild(d);
+    msgs.scrollTop=msgs.scrollHeight;
+    return d;
+  }
+
+  async function bcCall(userText){
+    const dot=bcTyping();
+    try{
+      const r=await fetch('/api/chat',{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({messages:[...hist],lang})
+      });
+      if(!r.ok){
+        let detail='';
+        try{const j=await r.json();detail=j.detail||j.error||'';}catch{}
+        throw new Error('HTTP '+r.status+(detail?' — '+detail:''));
+      }
+      const data=await r.json();
+      dot.remove();
+      const fallback={fr:'Désolé, une erreur est survenue.',en:'Sorry, something went wrong.',es:'Lo siento, hubo un error.'};
+      const reply=data.reply||fallback[lang];
+      bcAdd(reply,'bot');
+      hist.push({role:'assistant',content:reply});
+    }catch(e){
+      dot.remove();
+      bcAdd('⚠️ '+e.message,'bot');
+    }
+  }
+
+  // ── CALLOUT ──────────────────────────────────────────────
+  var callout=document.getElementById('bc-callout');
+  var _ct;
+  function bcHideCallout(){clearTimeout(_ct);callout.classList.remove('show');callout.classList.add('hide');}
+  function bcShowCallout(){callout.classList.remove('hide');callout.classList.add('show');_ct=setTimeout(bcHideCallout,7000);}
+
+  // ── PING ─────────────────────────────────────────────────
+  function bcPing(){
+    try{
+      var ctx=new(window.AudioContext||window.webkitAudioContext)();
+      var note=function(freq,t0,dur,vol){
+        var o=ctx.createOscillator(),g=ctx.createGain();
+        o.connect(g);g.connect(ctx.destination);
+        o.type='sine';o.frequency.value=freq;
+        g.gain.setValueAtTime(0,ctx.currentTime+t0);
+        g.gain.linearRampToValueAtTime(vol,ctx.currentTime+t0+0.025);
+        g.gain.exponentialRampToValueAtTime(0.001,ctx.currentTime+t0+dur);
+        o.start(ctx.currentTime+t0);o.stop(ctx.currentTime+t0+dur+0.05);
+      };
+      note(880,0,.45,.08);
+      note(1100,.22,.4,.05);
+    }catch(e){}
+  }
+
+  setTimeout(bcShowCallout,1800);
+
+  var _pinged=false;
+  function _onFirstInteraction(){
+    if(_pinged)return;_pinged=true;bcPing();
+    document.removeEventListener('scroll',_onFirstInteraction);
+    document.removeEventListener('click',_onFirstInteraction);
+    document.removeEventListener('touchstart',_onFirstInteraction);
+  }
+  document.addEventListener('scroll',_onFirstInteraction,{passive:true});
+  document.addEventListener('click',_onFirstInteraction,{once:true});
+  document.addEventListener('touchstart',_onFirstInteraction,{passive:true,once:true});
+
+  // Sync chatbot lang with site language switcher
+  var _origSetLang=window.setLanguage;
+  window.setLanguage=function(l){
+    if(_origSetLang)_origSetLang(l);
+    var bcL=l==='fr'?'fr':l==='en'?'en':'es';
+    if(bcL!==lang)bcLang(bcL);
+  };
+})();
 </script>
 
 </body>
