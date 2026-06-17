@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Le Stack Marketing IA — Guide complet | Bryan Blaevoet</title>
+<meta name="description" content="Comment j'automatise la visibilité et la conversion de mes clients avec l'IA — méthode complète, workflows inclus."/>
+<meta name="robots" content="noindex, nofollow"/>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+tailwind.config={darkMode:"class",theme:{extend:{colors:{"deep-navy":"#060c18","main-bg":"#080e1a","card-bg":"#0d1a2e","soft-white":"#f0f8ff","muted-text":"#8ab4cc","soft-cyan":"#7de8f7","cyan-glow":"#00d4ff"},fontFamily:{heading:["Cormorant Garamond","serif"],body:["DM Sans","sans-serif"],mono:["JetBrains Mono","Courier New","monospace"]},boxShadow:{"neon-cyan":"0 0 20px rgba(0,212,255,0.4)","neon-cyan-strong":"0 0 30px rgba(0,212,255,0.6)","glass":"0 8px 32px 0 rgba(0,0,0,0.5)"}}}}
+</script>
+
+<style>
+html{background:linear-gradient(180deg,#060c18 0%,#0a1628 12%,#080e1a 28%,#0b1220 45%,#080e1a 60%,#091526 78%,#080e1a 100%);min-height:100%}
+body{background:transparent;color:#f0f8ff;font-family:"DM Sans",sans-serif}
+h1,h2,h3,h4,h5,h6,.font-heading{font-family:"Cormorant Garamond",serif}
+
+.gradient-text{
+  background:linear-gradient(135deg,#f0f8ff 0%,#b3ecff 25%,#00d4ff 50%,#7de8f7 75%,#f0f8ff 100%);
+  background-size:200% auto;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  animation:gradient-shimmer 7s ease-in-out infinite alternate;
+}
+@keyframes gradient-shimmer{0%{background-position:left center}100%{background-position:right center}}
+
+/* ── NAV ── */
+.nav-scrolled{background-color:rgba(8,14,26,.85);border-bottom:1px solid rgba(0,212,255,.10);backdrop-filter:blur(16px)}
+
+/* ── GLASS ── */
+.glass-card{background:rgba(13,26,46,.35);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(0,212,255,.10);box-shadow:inset 0 2px 20px rgba(0,0,0,.4),0 8px 32px rgba(0,0,0,.4)}
+
+/* ── CALLOUTS ── */
+.callout{border-radius:12px;padding:18px 22px;margin:28px 0;display:flex;gap:14px;align-items:flex-start;line-height:1.65}
+.callout-emoji{font-size:18px;flex-shrink:0;margin-top:3px}
+.callout-tip{background:rgba(0,212,255,.06);border:1px solid rgba(0,212,255,.18)}
+.callout-warn{background:rgba(255,80,80,.06);border:1px solid rgba(255,80,80,.2)}
+.callout-action{background:rgba(255,200,0,.05);border:1px solid rgba(255,200,0,.2)}
+.callout-cta{background:rgba(0,180,120,.06);border:1px solid rgba(0,180,120,.2)}
+.callout-list{background:rgba(13,26,46,.6);border:1px solid rgba(0,212,255,.1)}
+.callout-metric{background:rgba(13,26,46,.5);border:1px solid rgba(0,212,255,.15);border-radius:14px;padding:26px 30px}
+
+/* ── PROMPT BLOCK ── */
+.prompt-block{
+  background:rgba(4,9,18,.9);
+  border:1px solid rgba(0,212,255,.14);
+  border-left:3px solid rgba(0,212,255,.6);
+  border-radius:10px;
+  padding:22px 24px;
+  font-family:'JetBrains Mono',monospace;
+  font-size:12.5px;
+  color:#7de8f7;
+  white-space:pre-wrap;
+  overflow-x:auto;
+  line-height:1.75;
+  margin:20px 0;
+}
+
+/* ── STEP NUMBER ── */
+.step-number{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  color:#00d4ff;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:10px;
+}
+.step-number::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,rgba(0,212,255,.3),transparent)}
+
+/* ── PART BADGE ── */
+.part-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  background:rgba(0,212,255,.08);
+  border:1px solid rgba(0,212,255,.22);
+  color:#00d4ff;
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:.15em;
+  padding:5px 14px;
+  border-radius:9999px;
+  margin-bottom:14px;
+}
+
+/* ── CYAN SEPARATOR ── */
+.cyan-sep{width:44px;height:2px;background:linear-gradient(90deg,#00d4ff,transparent);margin:14px 0 32px}
+
+/* ── TABLE OF CONTENTS ── */
+.toc-item{display:flex;align-items:center;gap:14px;padding:11px 0;border-bottom:1px solid rgba(0,212,255,.06);color:#8ab4cc;font-size:14px;text-decoration:none;transition:color .2s}
+.toc-item:last-child{border-bottom:none}
+.toc-item:hover{color:#f0f8ff}
+.toc-num{color:#00d4ff;font-family:'JetBrains Mono',monospace;font-size:11px;width:28px;flex-shrink:0}
+
+/* ── RULE CARD ── */
+.rule-card{display:flex;gap:16px;align-items:flex-start;background:rgba(0,212,255,.04);border:1px solid rgba(0,212,255,.11);border-radius:12px;padding:18px 22px;margin-bottom:12px}
+.rule-emoji{font-size:20px;flex-shrink:0;margin-top:1px}
+
+/* ── OPTION CARD ── */
+.option-card{background:rgba(13,26,46,.5);border:1px solid rgba(0,212,255,.12);border-radius:14px;padding:24px 26px}
+
+/* ── DIVIDER ── */
+.guide-divider{border:none;border-top:1px solid rgba(0,212,255,.07);margin:56px 0}
+
+/* ── READING META ── */
+.read-meta{display:inline-flex;align-items:center;gap:6px;color:#8ab4cc;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em}
+.read-meta-dot{width:3px;height:3px;border-radius:50%;background:#00d4ff;opacity:.6}
+</style>
+</head>
+
+<body class="antialiased">
+
+<!-- ── NAV ─────────────────────────────────────────────────────────────────── -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+  <div class="max-w-3xl mx-auto px-5 h-14 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-2 text-[#8ab4cc] hover:text-[#f0f8ff] transition-colors text-sm font-medium tracking-wide">
+      <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      Bryan Blaevoet
+    </a>
+    <a href="index.html#contact"
+       class="inline-flex items-center gap-2 bg-[#00d4ff] text-[#060c18] text-[11px] font-bold tracking-[.10em] uppercase px-4 py-2 rounded-full shadow-[0_0_14px_rgba(0,212,255,0.3)] hover:shadow-[0_0_22px_rgba(0,212,255,0.55)] transition-all duration-300">
+      Prendre un RDV
+    </a>
+  </div>
+</nav>
+
+<!-- ── HERO / TITLE ──────────────────────────────────────────────────────── -->
+<section class="pt-28 pb-10 px-5">
+  <div class="max-w-3xl mx-auto">
+
+    <!-- Reading meta -->
+    <div class="flex items-center gap-2 mb-6">
+      <span class="read-meta">Guide pratique</span>
+      <span class="read-meta-dot"></span>
+      <span class="read-meta">IA Marketing</span>
+      <span class="read-meta-dot"></span>
+      <span class="read-meta">Lecture 8 min</span>
+    </div>
+
+    <!-- Title -->
+    <h1 class="font-heading text-[clamp(2rem,5vw,3.6rem)] font-bold leading-[1.08] mb-6">
+      Le Stack Marketing IA :<br/>
+      <span class="gradient-text">Comment j'automatise la visibilité<br/>et la conversion de mes clients 24h/24</span>
+    </h1>
+
+    <!-- Subtitle -->
+    <p class="text-[#8ab4cc] text-[17px] leading-relaxed mb-10 max-w-2xl">
+      7 briques. Des workflows prêts à déployer. Le système exact que j'utilise pour mes clients depuis Madrid — de la qualification du lead à la conversion automatique.
+    </p>
+
+    <!-- Metrics callout -->
+    <div class="callout callout-metric mb-5">
+      <div class="callout-emoji">💡</div>
+      <div class="flex-1">
+        <p class="text-[11px] font-semibold uppercase tracking-[.2em] text-[#7de8f7] mb-3">Quelques métriques à mon sujet :</p>
+        <div class="space-y-1.5 text-[15px] text-[#b3ecff]">
+          <p>→ <strong class="text-[#f0f8ff]">30+ entreprises</strong> accompagnées en 3 ans</p>
+          <p>→ <strong class="text-[#f0f8ff]">5 systèmes IA actifs</strong> en ce moment pour mes clients</p>
+          <p>→ Agence créée depuis <strong class="text-[#f0f8ff]">Madrid</strong>, pour des marques en France, Espagne et au-delà</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Value prop callout -->
+    <div class="callout callout-action">
+      <div class="callout-emoji">🔥</div>
+      <div class="flex-1">
+        <p class="font-bold text-[#f0f8ff] mb-1">Un système marketing automatisé complet. 7 outils. 0 agence supplémentaire.</p>
+        <p class="text-[#8ab4cc] text-sm leading-relaxed">Cette ressource te donne le workflow exact que j'utilise pour mes clients : de la génération de leads à la conversion en automatique. Toutes les configurations sont dedans, prêtes à adapter.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── TABLE OF CONTENTS ──────────────────────────────────────────────────── -->
+<section class="px-5 pb-16">
+  <div class="max-w-3xl mx-auto">
+    <div class="glass-card rounded-2xl p-8">
+      <p class="text-[11px] font-semibold uppercase tracking-[.22em] text-[#7de8f7] mb-6">Dans ce guide</p>
+      <nav class="space-y-0">
+        <a href="#part1"  class="toc-item"><span class="toc-num">01</span><span>La philosophie — l'erreur que font 90% des business</span></a>
+        <a href="#step1"  class="toc-item"><span class="toc-num">02</span><span>La cartographie des flux (avant tout le reste)</span></a>
+        <a href="#step2"  class="toc-item"><span class="toc-num">03</span><span>Le chatbot de qualification (Manychat)</span></a>
+        <a href="#step3"  class="toc-item"><span class="toc-num">04</span><span>L'agent de nurturing automatique (n8n)</span></a>
+        <a href="#step4"  class="toc-item"><span class="toc-num">05</span><span>Les campagnes ads automatisées (Make + Meta)</span></a>
+        <a href="#step5"  class="toc-item"><span class="toc-num">06</span><span>La production de contenu augmentée (Claude Code + Higgsfield)</span></a>
+        <a href="#step6"  class="toc-item"><span class="toc-num">07</span><span>Le site qui convertit tout seul (Next.js + Vercel)</span></a>
+        <a href="#step7"  class="toc-item"><span class="toc-num">08</span><span>Le dashboard de pilotage (Notion)</span></a>
+        <a href="#offer"  class="toc-item"><span class="toc-num">09</span><span>Ce qu'on peut faire ensemble</span></a>
+      </nav>
+    </div>
+  </div>
+</section>
+
+<!-- ── PART 1 : PHILOSOPHIE ──────────────────────────────────────────────── -->
+<section id="part1" class="px-5 pb-20">
+  <div class="max-w-3xl mx-auto">
+
+    <div class="part-badge">🧠 PART 1</div>
+    <h2 class="font-heading text-[clamp(1.8rem,4vw,2.9rem)] font-bold leading-tight mb-2">La philosophie<br/><em class="text-[#8ab4cc] font-normal">le truc que 90% des business ratent</em></h2>
+    <div class="cyan-sep"></div>
+
+    <p class="text-[#b3ecff] text-[16px] leading-relaxed mb-6">Tout le monde "utilise l'IA" maintenant. ChatGPT pour rédiger, Canva IA pour les visuels, un chatbot générique sur le site. Résultat : des tâches un peu plus rapides. Aucun système derrière.</p>
+
+    <div class="callout callout-warn">
+      <div class="callout-emoji">🚫</div>
+      <div>
+        <p class="font-bold text-[#f0f8ff] mb-1">Le piège :</p>
+        <p class="text-[#b3ecff] text-sm leading-relaxed">Traiter l'IA comme un assistant ponctuel. Tu sors du contenu plus vite, tu réponds aux emails plus vite, mais tu restes dans la boucle. Tu gagnes du temps. Tu ne construis pas de système. La différence entre les deux ? Quelques milliers d'euros par mois de chiffre d'affaires supplémentaire en pilote automatique.</p>
+      </div>
+    </div>
+
+    <h3 class="font-heading text-[1.7rem] font-semibold text-[#f0f8ff] mt-10 mb-4">Le shift mental</h3>
+
+    <p class="text-[#b3ecff] text-[16px] leading-relaxed mb-4">Un système marketing IA ne remplace pas un outil. Il remplace un département entier — en travaillant la nuit, le week-end, sans vacances. La vraie question n'est pas <em>"quel outil IA utiliser ?"</em> mais <em>"quelle décision est-ce que je veux déléguer à la machine ?"</em></p>
+
+    <div class="callout callout-tip">
+      <div class="callout-emoji">💡</div>
+      <div>
+        <p class="font-bold text-[#f0f8ff] mb-1">Principe fondamental :</p>
+        <p class="text-[#b3ecff] text-sm leading-relaxed">Le vrai skill marketing IA en 2026, ce n'est pas de maîtriser un outil. C'est d'architecturer un flux : qui capture le lead, qui le qualifie, qui le nurture, qui le convertit, qui le fidélise. L'IA s'occupe de chaque étape. Toi tu pilotes la stratégie.</p>
+      </div>
+    </div>
+
+    <h3 class="font-heading text-[1.7rem] font-semibold text-[#f0f8ff] mt-10 mb-4">Le brief systémique (à remplir avant de toucher un outil)</h3>
+
+    <p class="text-[#8ab4cc] text-sm mb-4">Avant de configurer quoi que ce soit, je commence chaque projet client avec ce brief. C'est lui qui pilote toutes les décisions tech qui suivent.</p>
+
+    <div class="prompt-block">Nom de la marque : [TA MARQUE]
+Persona cible : [QUI TU VISES, SA DOULEUR PRINCIPALE, SON BUDGET MOYEN]
+Canal principal d'acquisition : [Instagram / LinkedIn / Email / SEO / Ads]
+Objectif primaire : [Leads qualifiés / Ventes directes / Notoriété locale]
+Volume mensuel actuel : [X leads/mois ou X€ CA/mois]
+Objectif à 90 jours : [CIBLE RÉALISTE]
+Budget automatisation : [Y€/mois — outils + accompagnement]
+Disponibilité client pour onboarding : [X heures/semaine les 2 premières semaines]</div>
+
+    <div class="callout callout-action">
+      <div class="callout-emoji">⚡</div>
+      <div>
+        <p class="font-bold text-[#f0f8ff] mb-1">Action immédiate :</p>
+        <p class="text-[#b3ecff] text-sm">Remplis ce brief pour ta marque maintenant. Les 7 étapes qui suivent sont conçues pour s'y brancher directement. Sans ce brief, tu construis un système pour personne.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── PART 2 INTRO ──────────────────────────────────────────────────────── -->
+<section class="px-5 pb-8">
+  <div class="max-w-3xl mx-auto">
+    <div class="part-badge">🔧 PART 2</div>
+    <h2 class="font-heading text-[clamp(1.8rem,4vw,2.9rem)] font-bold leading-tight mb-2">Le système complet<br/><em class="text-[#8ab4cc] font-normal">7 briques, de l'acquisition à la fidélisation</em></h2>
+    <div class="cyan-sep"></div>
+  </div>
+</section>
+
+<!-- ── STEP 1 ─────────────────────────────────────────────────────────────── -->
+<section id="step1" class="px-5 pb-16">
+  <div class="max-w-3xl mx-auto">
+
+    <div class="step-number">Étape 01</div>
+    <h3 class="font-heading text-[clamp(1.5rem,3vw,2.2rem)] font-bold text-[#f0f8ff] mb-1">La cartographie des flux</h3>
+    <p class="text-[#7de8f7] text-[11px] font-semibold uppercase tracking-[.2em] mb-7">Notion · Avant tout le reste</p>
+
+    <p class="text-[#b3ecff] text-[16px] leading-relaxed mb-6">Avant de brancher le premier outil, je dessine le système entier sur une page Notion. Chaque flux : d'où vient le lead, ce qui lui arrive à chaque étape, comment il sort du tunnel. Sans cette carte, les outils ne se parlent pas.</p>
+
+    <div class="prompt-block">FLUX EXEMPLE : Lead Instagram → Client
+
+[Instagram Story / Reels]
+  → DM automatique Manychat (qualification en 3 questions)
+  → Si qualifié → Séquence email n8n (5 emails / 10 jours)
+  → CTA → Page de vente (Next.js)
+  → Achat → Onboarding automatique (template Notion envoyé par n8n)
+  → Feedback J+30 → Upsell automatique
+
+Points de fuite identifiés :
+  · Entre DM et capture email (perte de contact si pas de suivi immédiat)
+  · Entre email J+3 et J+7 (pic de désinscriptions)
+
+KPI à tracker : taux DM→email / email→call / call→client</div>
+
+    <div class="callout callout-tip">
+      <div class="callout-emoji">💡</div>
+      <div>
+        <p class="font-bold text-[#f0f8ff] mb-1">Tip :</p>
+        <p class="text-[#b3ecff] text-sm">Dessine TOUJOURS la carte entière avant de configurer quoi que ce soit. 90% des projets échouent parce qu'on branche l'outil avant de savoir ce qu'il doit faire, à quel moment, pour qui.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── STEP 2 ─────────────────────────────────────────────────────────────── -->
+<section id="step2" class="px-5 pb-16">
+  <div class="max-w-3xl mx-auto">
+
+    <div class="step-number">Étape 02</div>
+    <h3 class="font-heading text-[clamp(1.5rem,3vw,2.2rem)] font-bold text-[#f0f8ff] mb-1">Le chatbot de qualification</h3>
+    <p class="text-[#7de8f7] text-[11px] font-semibold uppercase tracking-[.2em] mb-7">Manychat · Instagram & Facebook DM</p>
+
+    <p class="text-[#b3ecff] text-[16px] leading-relaxed mb-6">La première chose que je connecte : un chatbot Manychat sur le compte Instagram du client. Il répond aux DM entrants 24h/24, pose 3 questions de qualification, et trie automatiquement les prospects chauds des curieux sans budget.</p>
+
+    <div class="prompt-block">CONFIGURATION MANYCHAT — Séquence de qualification
+
+Déclencheur : DM entrant OU commentaire sur post spécifique
+
+Message 1 (immédiat) :
+"Hey [Prénom] ! Merci pour ton message 👋
+Pour être sûr de te donner la meilleure réponse — tu cherches quelque chose en particulier ?"
+
+Boutons : [Automatisation IA]  [Site web]  [Contenu]  [Autre]
+
+Si [Automatisation IA] :
+  → Q2 : "Tu gères ça pour ton business ou pour un client ?"
+  → Boutons : [Mon business]  [Mes clients]
+  → Q3 : "Quel est ton budget mensuel pour ce projet ?"
+  → Boutons : [< 500€]  [500–2 000€]  [> 2 000€]
+
+Routage automatique :
+  → Budget > 500€ → Tag "LEAD_CHAUD" + notification Slack + ajout Notion CRM
+  → Budget < 500€ → Ressource gratuite envoyée + invitation newsletter</div>
+
+    <div class="callout callout-action">
+      <div class="callout-emoji">⚡</div>
+      <div>
+        <p class="font-bold text-[#f0f8ff] mb-1">Avant / Maintenant :</p>
+        <p class="text-[#b3ecff] text-sm"><strong class="text-[#f0f8ff]">Avant :</strong> je répondais à 30 DM par jour, dont 25 étaient des curieux sans budget. <strong class="text-[#f0f8ff]">Maintenant :</strong> je reçois 3 à 5 notifications Slack de leads qualifiés. Le reste est géré automatiquement.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── STEP 3 ─────────────────────────────────────────────────────────────── -->
+<section id="step3" class="px-5 pb-16">
+  <div class="max-w-3xl mx-auto">
+
+    <div class="step-number">Étape 03</div>
+    <h3 class="font-heading text-[clamp(1.5rem,3vw,2.2rem)] font-bold text-[#f0f8ff] mb-1">L'agent de nurturing automatique</h3>
+    <p class="text-[#7de8f7] text-[11px] font-semibold uppercase tracking-[.2em] mb-7">n8n · Email automation + CRM</p>
+
+    <p class="text-[#b3ecff] text-[16px] leading-relaxed mb-6">Quand Manychat tague un lead "LEAD_CHAUD", n8n prend le relais. Il orchestre une séquence de 5 emails sur 10 jours, personnalisée selon le problème identifié en DM. Pas un template générique — un fil narratif qui répond aux objections dans l'ordre où elles apparaissent.</p>
+
+    <div class="prompt-block">WORKFLOW n8n — Séquence nurturing 10 jours
+
+Déclencheur : Webhook reçu de Manychat (tag LEAD_CHAUD)
+
+J+0 : "Bienvenue" → ressource gratuite liée au problème mentionné
+  → Contenu : solution partielle + ouverture
+  → CTA : "réponds à cet email si tu veux qu'on creuse ensemble"
+
+J+2 : "Case study" → histoire d'un client avec un profil similaire
+  → Contenu : avant/après avec chiffres concrets
+  → CTA : "tu vois des parallèles avec ta situation ?"
+
+J+4 : "La méthode" → les 3 étapes du système
+  → Contenu : éducatif, positionne l'expertise sans vendre frontalement
+  → CTA : lien vers cette page de guide (soft)
+
+J+7 : "L'objection principale" → démontage de l'objection #1
+  → Contenu : "Je n'ai pas le temps de gérer ça" → système géré par moi
+  → CTA : lien Calendly (réservation directe)
+
+J+10 : "Dernière prise de contact"
+  → Contenu : disponibilités du mois, projets en cours
+  → CTA : Calendly + contact direct
+
+Branchements :
+  · Email ouvert J+0 → envoyer J+2
+  · Email non ouvert J+4 → changer l'objet + relancer
+  · Clic sur Calendly à n'importe quelle étape → stopper la séquence</div>
+
+    <div class="callout callout-tip">
+      <div class="callout-emoji">💡</div>
+      <div>
+        <p class="font-bold text-[#f0f8ff] mb-1">Tip :</p>
+        <p class="text-[#b3ecff] text-sm">Le branchement conditionnel est la clé. Un prospect qui ouvre chaque email mais ne clique jamais reçoit un message différent de celui qui clique tout de suite. n8n gère ça nativement, sans ligne de code.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── STEP 4 ─────────────────────────────────────────────────────────────── -->
+<section id="step4" class="px-5 pb-16">
+  <div class="max-w-3xl mx-auto">
+
+    <div class="step-number">Étape 04</div>
+    <h3 class="font-heading text-[clamp(1.5rem,3vw,2.2rem)] font-bold text-[#f0f8ff] mb-1">Les campagnes ads automatisées</h3>
+    <p class="text-[#7de8f7] text-[11px] font-semibold uppercase tracking-[.2em] mb-7">Make · Meta Ads API + Google</p>
+
+    <p class="text-[#b3ecff] text-[16px] leading-relaxed mb-6">Make surveille les performances des campagnes Meta en temps réel. Quand un ad dépasse un seuil de CPC ou tombe sous un ROAS cible, le scénario se déclenche automatiquement : pause de l'ad, bascule du budget sur la variante gagnante, alerte Slack.</p>
+
+    <div class="prompt-block">SCÉNARIO MAKE — Optimisation ads automatique
+
+Déclencheur : Watch Meta Ads (toutes les 2 heures)
+
+Conditions :
+  → Si CPC > 1,50€ ET CTR < 1,5% → Mettre l'ad en pause
+  → Si ROAS < 2x sur 48h → Réduire le budget de 30%
+  → Si ROAS > 4x sur 24h → Augmenter le budget de 20% (max 3x budget initial)
+
+Actions automatiques :
+  → Mise à jour de l'ad set via Meta Marketing API
+  → Notification Slack : "[Nom ad] mis en pause — CPC : 1.82€ / CTR : 0.9%"
+  → Log Google Sheet (date, action, métrique déclencheur)
+  → Si 3 pauses en 7 jours → email d'alerte "Révision créative nécessaire"
+
+Bonus :
+  → Si un ad atteint 50 achats → lancer automatiquement un lookalike 1%</div>
+
+    <div class="callout callout-action">
+      <div class="callout-emoji">⚡</div>
+      <div>
+        <p class="font-bold text-[#f0f8ff] mb-1">Avant / Maintenant :</p>
+        <p class="text-[#b3ecff] text-sm"><strong class="text-[#f0f8ff]">Avant :</strong> vérifier les ads matin et soir, rater les optimisations la nuit. <strong class="text-[#f0f8ff]">Maintenant :</strong> le système optimise toutes les 2h. Budget brûlé inutilement : <strong class="text-[#f0f8ff]">−40%</strong> en moyenne sur les 30 premiers jours.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── STEP 5 ─────────────────────────────────────────────────────────────── -->
+<section id="step5" class="px-5 pb-16">
+  <div class="max-w-3xl mx-auto">
+
+    <div class="step-number">Étape 05</div>
+    <h3 class="font-heading text-[clamp(1.5rem,3vw,2.2rem)] font-bold text-[#f0f8ff] mb-1">La production de contenu augmentée</h3>
+    <p class="text-[#7de8f7] text-[11px] font-semibold uppercase tracking-[.2em] mb-7">Claude Code + Higgsfield · Contenu vidéo & social</p>
+
+    <p class="text-[#b3ecff] text-[16px] leading-relaxed mb-6">Le contenu est le carburant de tout le système. Mais produire 4 à 5 posts de qualité par semaine est chronophage. J'ai construit un pipeline de production qui génère le brief, le script, les visuels et programme la publication en une séquence semi-automatique.</p>
+
+    <div class="prompt-block">PIPELINE CONTENU HEBDOMADAIRE
+
+LUNDI — Brief automatique (Claude Code) :
+  → Analyse des 5 posts les plus performants de la semaine précédente
+  → Extraction des patterns : format, accroche, sujet, longueur
+  → Génération de 3 briefs pour la semaine (sujet + angle + CTA)
+
+MARDI — Production visuelle (Higgsfield) :
+  → Génération des thumbnails / visuels pour chaque brief
+  → Prompt basé sur l'identité visuelle lockée de la marque
+  → 3 variantes par visuel, choix manuel du meilleur
+
+MERCREDI-JEUDI — Script + publication (Claude Code + n8n) :
+  → Script rédigé par Claude à partir du brief validé
+  → Publication programmée via n8n → API Instagram / LinkedIn
+  → Premier commentaire automatique (hashtags + CTA)
+
+VENDREDI — Analyse et feedback loop :
+  → n8n récupère les métriques de la semaine
+  → Ajout dans le Google Sheet de performance
+  → Réinjection dans le brief du lundi suivant</div>
+
+    <div class="callout callout-tip">
+      <div class="callout-emoji">💡</div>
+      <div>
+        <p class="font-bold text-[#f0f8ff] mb-1">Le secret du pipeline :</p>
+        <p class="text-[#b3ecff] text-sm">La boucle de feedback est ce qui améliore le système semaine après semaine. Les briefs du lundi sont meilleurs que ceux de la semaine d'avant parce qu'ils intègrent les données réelles de performance. Le système apprend.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── STEP 6 ─────────────────────────────────────────────────────────────── -->
+<section id="step6" class="px-5 pb-16">
+  <div class="max-w-3xl mx-auto">
+
+    <div class="step-number">Étape 06</div>
+    <h3 class="font-heading text-[clamp(1.5rem,3vw,2.2rem)] font-bold text-[#f0f8ff] mb-1">Le site qui convertit tout seul</h3>
+    <p class="text-[#7de8f7] text-[11px] font-semibold uppercase tracking-[.2em] mb-7">Next.js + Vercel · Landing + agent IA intégré</p>
+
+    <p class="text-[#b3ecff] text-[16px] leading-relaxed mb-6">Le site web n'est pas un catalogue. C'est le point de conversion central du système. Chaque page a un rôle précis dans le tunnel, et un agent IA répond aux questions des visiteurs 24h/24 — qualifiant les prospects pendant ton sommeil.</p>
+
+    <div class="prompt-block">ARCHITECTURE SITE — Tunnel de conversion
+
+/                → Hero + Preuve sociale + Chatbot (qualification immédiate)
+/services        → Détail de l'offre, pricing transparent, FAQ dynamique
+/case-studies    → 3 études de cas avec métriques avant/après
+/guide           → Ressource gratuite (cette page) → capture email
+/contact         → Calendly embed + formulaire simplifié
+
+Agent IA intégré (API Claude via /api/chat) :
+  → Répond aux questions sur les services (base JSON)
+  → Récupère le nom + email si conversation > 2 min
+  → Pousse les données vers n8n → séquence email automatique
+  → Si question hors scope → propose un RDV Calendly
+
+Stack technique :
+  → Next.js App Router (performance + SEO)
+  → Vercel (déploiement CI/CD automatique)
+  → Tailwind CSS (design system cohérent)
+  → OpenRouter pour le chatbot (modèle léger, coût minimal)</div>
+
+    <div class="callout callout-action">
+      <div class="callout-emoji">⚡</div>
+      <div>
+        <p class="font-bold text-[#f0f8ff] mb-1">Le site comme vendeur automatique :</p>
+        <p class="text-[#b3ecff] text-sm">Le chatbot ne remplace pas un call commercial. Il le prépare. Quand le prospect arrive sur Calendly, ses questions de base ont déjà une réponse et son intérêt est qualifié. Le taux de no-show chute de moitié.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── STEP 7 ─────────────────────────────────────────────────────────────── -->
+<section id="step7" class="px-5 pb-16">
+  <div class="max-w-3xl mx-auto">
+
+    <div class="step-number">Étape 07</div>
+    <h3 class="font-heading text-[clamp(1.5rem,3vw,2.2rem)] font-bold text-[#f0f8ff] mb-1">Le dashboard de pilotage</h3>
+    <p class="text-[#7de8f7] text-[11px] font-semibold uppercase tracking-[.2em] mb-7">Notion · CRM + Métriques + Logs auto</p>
+
+    <p class="text-[#b3ecff] text-[16px] leading-relaxed mb-6">Toutes les données convergent dans un dashboard Notion. Leads entrants (Manychat), performances emails (n8n), métriques ads (Make), posts publiés (pipeline contenu). Un seul endroit pour tout piloter — alimenté automatiquement.</p>
+
+    <div class="prompt-block">STRUCTURE NOTION — Dashboard Marketing IA
+
+📊 Hub central
+├── 🎯 Leads Pipeline (CRM)
+│     Kanban : Nouveau / Qualifié / En discussion / Client / Perdu
+│     Champs : Source, Budget, Canal, Date premier contact
+│
+├── 📅 Calendrier Contenu
+│     Vue calendrier : posts programmés par plateforme
+│     Statuts : Brief → En prod → Publié → Analysé
+│
+├── 📈 Métriques Hebdo
+│     Table : semaine, leads, CA, ROAS ads, reach contenu
+│     Graphe d'évolution (Notion chart views)
+│
+├── 🤖 Journal Automatisations
+│     Log automatique via webhook n8n
+│     Chaque action système tracée ici
+│
+└── 📋 Projets Clients Actifs
+      Une sous-page par client
+      Accès partagé pour transparence totale</div>
+
+    <div class="callout callout-tip">
+      <div class="callout-emoji">💡</div>
+      <div>
+        <p class="font-bold text-[#f0f8ff] mb-1">Notion comme cerveau du système :</p>
+        <p class="text-[#b3ecff] text-sm">n8n alimente Notion automatiquement. Je ne saisis plus rien à la main. Chaque lead qui entre dans Manychat arrive dans le CRM. Chaque optimisation Make crée une ligne de log. Le dashboard se construit seul.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="guide-divider mx-5"/>
+
+<!-- ── PART 3 : L'OFFRE ───────────────────────────────────────────────────── -->
+<section id="offer" class="px-5 pb-16">
+  <div class="max-w-3xl mx-auto">
+
+    <div class="part-badge">🎁 PART 3</div>
+    <h2 class="font-heading text-[clamp(1.8rem,4vw,2.9rem)] font-bold leading-tight mb-2">Ce qu'on peut faire ensemble<br/><em class="text-[#8ab4cc] font-normal">le Système Complet, livré en 30 jours</em></h2>
+    <div class="cyan-sep"></div>
+
+    <p class="text-[#b3ecff] text-[16px] leading-relaxed mb-8">Cette ressource te donne la méthode complète. Mais connecter les 7 briques entre elles et les calibrer sur ta marque spécifique — ça demande du métier : prioriser les flux, éviter les boucles infinies, tester sans casser ce qui tourne déjà.</p>
+
+    <h3 class="font-heading text-[1.7rem] font-semibold text-[#f0f8ff] mb-5">Ce que tu reçois</h3>
+
+    <div class="callout callout-list">
+      <div class="callout-emoji">📋</div>
+      <div class="flex-1 space-y-2 text-[15px] text-[#b3ecff]">
+        <p>→ <strong class="text-[#f0f8ff]">Chatbot Manychat</strong> configuré sur ton Instagram, 3 flux de triage (1 semaine)</p>
+        <p>→ <strong class="text-[#f0f8ff]">Séquence nurturing n8n</strong> — 5 emails + branchements conditionnels (1 semaine)</p>
+        <p>→ <strong class="text-[#f0f8ff]">Optimisation ads Make</strong> — scénarios Meta + alertes Slack (4 jours)</p>
+        <p>→ <strong class="text-[#f0f8ff]">Pipeline contenu hebdo</strong> — brief auto + publication programmée (4 jours)</p>
+        <p>→ <strong class="text-[#f0f8ff]">Site web machine à leads</strong> — chatbot intégré + Calendly + tunnel optimisé (2 semaines)</p>
+        <p>→ <strong class="text-[#f0f8ff]">Dashboard Notion complet</strong> — CRM + métriques + logs auto (3 jours)</p>
+        <p>→ <strong class="text-[#f0f8ff]">Formation 2h</strong> — tu sors autonome sur le pilotage et l'évolution du système</p>
+        <br/>
+        <p class="text-[#7de8f7] font-semibold">7 briques connectées, calibrées sur ta marque, livrées en 30 jours.</p>
+      </div>
+    </div>
+
+    <h3 class="font-heading text-[1.7rem] font-semibold text-[#f0f8ff] mt-10 mb-5">Le deal</h3>
+
+    <div class="grid md:grid-cols-2 gap-4 mb-10">
+      <div class="glass-card rounded-xl p-6">
+        <p class="text-[#7de8f7] text-[11px] uppercase tracking-[.18em] mb-4">Process</p>
+        <div class="space-y-2 text-sm text-[#b3ecff]">
+          <p>→ Call de brief (1h) — cartographie de tes flux actuels</p>
+          <p>→ Livraison brique par brique avec tests en live</p>
+          <p>→ Call de feedback mi-parcours (30 min)</p>
+          <p>→ Livraison finale + formation 2h</p>
+        </div>
+      </div>
+      <div class="glass-card rounded-xl p-6">
+        <p class="text-[#7de8f7] text-[11px] uppercase tracking-[.18em] mb-4">Conditions</p>
+        <div class="space-y-2 text-sm text-[#b3ecff]">
+          <p>→ <strong class="text-[#f0f8ff]">Délai :</strong> 30 jours ouvrés</p>
+          <p>→ <strong class="text-[#f0f8ff]">Livrables :</strong> workflows exportés + documentation Notion</p>
+          <p>→ <strong class="text-[#f0f8ff]">Tarif :</strong> sur devis, calé sur la taille de ta marque</p>
+          <p>→ <strong class="text-[#f0f8ff]">Garantie :</strong> si les flux ne tournent pas en 30 jours, je continue jusqu'à ce qu'ils tournent</p>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="font-heading text-[1.7rem] font-semibold text-[#f0f8ff] mb-5">À qui c'est destiné</h3>
+
+    <div class="space-y-3 mb-4">
+      <div class="flex items-start gap-3 text-[15px] text-[#b3ecff]"><span class="text-[#00d4ff] mt-0.5 flex-shrink-0">→</span><p><strong class="text-[#f0f8ff]">Founder / solopreneur</strong> qui perd 3h/jour sur des tâches répétitives et veut récupérer son temps</p></div>
+      <div class="flex items-start gap-3 text-[15px] text-[#b3ecff]"><span class="text-[#00d4ff] mt-0.5 flex-shrink-0">→</span><p><strong class="text-[#f0f8ff]">E-commerce</strong> qui veut automatiser la relation client post-achat et réduire le churn</p></div>
+      <div class="flex items-start gap-3 text-[15px] text-[#b3ecff]"><span class="text-[#00d4ff] mt-0.5 flex-shrink-0">→</span><p><strong class="text-[#f0f8ff]">Agence ou consultant</strong> qui veut délivrer plus à ses clients sans recruter</p></div>
+      <div class="flex items-start gap-3 text-[15px] text-[#b3ecff]"><span class="text-[#00d4ff] mt-0.5 flex-shrink-0">→</span><p><strong class="text-[#f0f8ff]">Coach / formateur</strong> qui veut remplir son calendrier sans prospecter manuellement</p></div>
+      <div class="flex items-start gap-3 text-[15px] text-[#b3ecff]"><span class="text-[#00d4ff] mt-0.5 flex-shrink-0">→</span><p><strong class="text-[#f0f8ff]">PME locale</strong> qui veut concurrencer les grandes marques sur le digital sans leur budget</p></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── 5 RÈGLES D'OR ──────────────────────────────────────────────────────── -->
+<section class="px-5 pb-16">
+  <div class="max-w-3xl mx-auto">
+
+    <h2 class="font-heading text-[clamp(1.8rem,4vw,2.6rem)] font-bold text-[#f0f8ff] mb-1">Les 5 règles d'or<br/><em class="text-[#8ab4cc] font-normal text-[1.5rem]">de l'automatisation marketing IA</em></h2>
+    <div class="cyan-sep"></div>
+
+    <div class="mt-4 space-y-0">
+
+      <div class="rule-card">
+        <div class="rule-emoji">✅</div>
+        <div>
+          <p class="font-bold text-[#f0f8ff] mb-1">1. Brief systémique avant premier outil.</p>
+          <p class="text-[#8ab4cc] text-sm leading-relaxed">Cartographie l'ensemble du flux avant de configurer quoi que ce soit. Sans vision macro, tu construis des îlots qui ne se parlent pas.</p>
+        </div>
+      </div>
+
+      <div class="rule-card">
+        <div class="rule-emoji">✅</div>
+        <div>
+          <p class="font-bold text-[#f0f8ff] mb-1">2. Qualification avant nurturing.</p>
+          <p class="text-[#8ab4cc] text-sm leading-relaxed">Envoyer une séquence email à quelqu'un sans budget ou sans besoin, c'est du bruit. Qualifie d'abord avec Manychat, nurture ensuite avec n8n. Dans cet ordre.</p>
+        </div>
+      </div>
+
+      <div class="rule-card">
+        <div class="rule-emoji">✅</div>
+        <div>
+          <p class="font-bold text-[#f0f8ff] mb-1">3. Tout converge dans Notion.</p>
+          <p class="text-[#8ab4cc] text-sm leading-relaxed">Chaque outil envoie ses données dans un seul endroit. Pas de 7 onglets Chrome avec 7 dashboards. Un seul, alimenté automatiquement.</p>
+        </div>
+      </div>
+
+      <div class="rule-card">
+        <div class="rule-emoji">✅</div>
+        <div>
+          <p class="font-bold text-[#f0f8ff] mb-1">4. Le contenu a une fonction dans le tunnel.</p>
+          <p class="text-[#8ab4cc] text-sm leading-relaxed">Chaque post publié doit avoir un rôle : acquisition (accroche froide), nurturing (éducation), ou conversion (CTA). Pas de contenu orphelin "pour faire vivre le compte".</p>
+        </div>
+      </div>
+
+      <div class="rule-card">
+        <div class="rule-emoji">✅</div>
+        <div>
+          <p class="font-bold text-[#f0f8ff] mb-1">5. Mesure avant d'optimiser.</p>
+          <p class="text-[#8ab4cc] text-sm leading-relaxed">Lance le système tel quel pendant 4 semaines. Recueille les données. Optimise ensuite. Trop de gens modifient le système avant d'avoir des signaux — et perdent la causalité dans le bruit.</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ── FINAL CTA ───────────────────────────────────────────────────────────── -->
+<section id="contact-cta" class="px-5 pb-24">
+  <div class="max-w-3xl mx-auto">
+
+    <div class="glass-card rounded-2xl p-10">
+
+      <h2 class="font-heading text-[clamp(1.8rem,4vw,2.8rem)] font-bold gradient-text mb-3 text-center">Prêt à automatiser ta croissance ?</h2>
+      <p class="text-[#8ab4cc] text-[16px] leading-relaxed mb-8 max-w-xl mx-auto text-center">Tu as la méthode complète : le brief systémique, les 7 briques, les configs, les règles d'or. Deux options maintenant.</p>
+
+      <div class="grid md:grid-cols-2 gap-5 mb-8">
+
+        <div class="option-card">
+          <p class="text-[#7de8f7] text-[11px] uppercase tracking-[.18em] mb-3">Option A</p>
+          <p class="font-heading text-xl font-bold text-[#f0f8ff] mb-2">Tu fais tout toi-même.</p>
+          <p class="text-[#8ab4cc] text-sm leading-relaxed">Ça marche. La ressource est complète. C'est juste plus lent, et tu vas tâtonner sur les connexions entre outils le temps de calibrer ton workflow.</p>
+        </div>
+
+        <div class="option-card" style="border-color:rgba(0,212,255,.28);background:rgba(0,212,255,.04)">
+          <p class="text-[#00d4ff] text-[11px] uppercase tracking-[.18em] mb-3">Option B</p>
+          <p class="font-heading text-xl font-bold text-[#f0f8ff] mb-2">On monte le Système ensemble.</p>
+          <p class="text-[#8ab4cc] text-sm leading-relaxed">15 minutes pour que je regarde tes flux actuels. Si ça matche, on cale le devis. Système livré en 30 jours, clé en main.</p>
+        </div>
+
+      </div>
+
+      <div class="callout callout-cta mb-8">
+        <div class="callout-emoji">📅</div>
+        <div>
+          <p class="font-bold text-[#f0f8ff] mb-1">Réserve 15 minutes avec moi →</p>
+          <p class="text-[#8ab4cc] text-sm">Gratuit. Sans engagement. On regarde tes flux actuels, je te montre comment j'aborderais ça, et on cale le devis si ça matche.</p>
+        </div>
+      </div>
+
+      <div class="text-center">
+        <a href="index.html#contact"
+           class="inline-flex items-center gap-2 bg-[#00d4ff] text-[#060c18] font-bold tracking-[.08em] uppercase px-8 py-4 rounded-full shadow-[0_0_24px_rgba(0,212,255,0.4)] hover:shadow-[0_0_38px_rgba(0,212,255,0.65)] hover:-translate-y-0.5 transition-all duration-300 text-sm">
+          Prendre un RDV gratuit
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ── FOOTER ──────────────────────────────────────────────────────────────── -->
+<footer class="border-t border-[rgba(0,212,255,.07)] px-5 py-8">
+  <div class="max-w-3xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+    <div>
+      <p class="font-heading text-lg font-bold gradient-text">Bryan Blaevoet</p>
+      <p class="text-[#8ab4cc] text-xs mt-1">Guide créé en juin 2026 · Madrid · Tous droits réservés</p>
+    </div>
+    <div class="flex items-center gap-6 text-xs text-[#8ab4cc]">
+      <a href="index.html" class="hover:text-[#f0f8ff] transition-colors">← Retour au site</a>
+      <a href="index.html#services" class="hover:text-[#f0f8ff] transition-colors">Services</a>
+      <a href="index.html#contact" class="hover:text-[#f0f8ff] transition-colors">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('nav-scrolled', window.scrollY > 20);
+  });
+</script>
+
+</body>
+</html>
