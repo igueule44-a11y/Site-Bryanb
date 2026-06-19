@@ -3,27 +3,283 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ollama Cloud × Claude Code</title>
+    <title>Ollama Cloud × Claude Code — Guide Complet</title>
     <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto; line-height: 1.6; color: #0f172a; background: linear-gradient(135deg, #ecf0f1 0%, #f5f7fa 100%); padding: 40px 20px; }
-        .container { max-width: 900px; margin: 0 auto; background: white; border-radius: 12px; box-shadow: 0 10px 40px rgba(15, 23, 42, 0.08); }
-        .header { background: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 100%); color: white; padding: 60px 40px; text-align: center; }
-        .header h1 { font-size: 2.5em; margin-bottom: 10px; }
-        .content { padding: 40px; }
-        .intro-box { background: #f0f9ff; border-left: 4px solid #0ea5e9; padding: 20px; margin-bottom: 30px; border-radius: 6px; }
-        .section { margin-bottom: 40px; }
-        .section h2 { color: #0284c7; font-size: 1.8em; margin-bottom: 20px; border-bottom: 2px solid #0ea5e9; padding-bottom: 10px; }
-        .section p { margin-bottom: 15px; color: #334155; }
-        .section code { background: #e2e8f0; padding: 2px 6px; border-radius: 3px; }
-        .section pre { background: #1e293b; color: #e2e8f0; padding: 15px; border-radius: 6px; overflow-x: auto; margin: 15px 0; }
-        .accordion { margin-bottom: 30px; border: 1px solid #e2e8f0; border-radius: 8px; }
-        .accordion-header { background: #f1f5f9; padding: 20px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; border: none; width: 100%; text-align: left; font-size: 1.1em; font-weight: 600; color: #0f172a; }
-        .accordion-header:hover { background: #e2e8f0; }
-        .accordion-header.active { background: #0ea5e9; color: white; }
-        .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
-        .accordion-content.active { max-height: 5000px; }
-        .accordion-body { padding: 30px; background: #fafbfc; }
-        .footer { background: #f1f5f9; padding: 30px 40px; text-align: center; color: #64748b; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #0f172a;
+            background: linear-gradient(135deg, #ecf0f1 0%, #f5f7fa 100%);
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(15, 23, 42, 0.08);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.95;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .intro-box {
+            background: #f0f9ff;
+            border-left: 4px solid #0ea5e9;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 6px;
+        }
+
+        .intro-box h2 {
+            color: #0284c7;
+            margin-bottom: 10px;
+        }
+
+        .intro-box p {
+            color: #0f172a;
+            font-size: 1.05em;
+        }
+
+        .accordion {
+            margin-bottom: 30px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .accordion-header {
+            background: #f1f5f9;
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s ease;
+            border: none;
+            width: 100%;
+            text-align: left;
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #0f172a;
+        }
+
+        .accordion-header:hover {
+            background: #e2e8f0;
+        }
+
+        .accordion-header.active {
+            background: #0ea5e9;
+            color: white;
+        }
+
+        .accordion-icon {
+            font-size: 1.5em;
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-header.active .accordion-icon {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background: white;
+        }
+
+        .accordion-content.active {
+            max-height: 5000px;
+        }
+
+        .accordion-body {
+            padding: 30px;
+            background: #fafbfc;
+        }
+
+        .accordion-body h3 {
+            color: #0284c7;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .accordion-body h3:first-child {
+            margin-top: 0;
+        }
+
+        .accordion-body p {
+            margin-bottom: 15px;
+            color: #334155;
+        }
+
+        .accordion-body code {
+            background: #e2e8f0;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Courier New', monospace;
+            color: #0f172a;
+        }
+
+        .accordion-body pre {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 6px;
+            overflow-x: auto;
+            margin: 15px 0;
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 0.9em;
+            line-height: 1.5;
+        }
+
+        .accordion-body ul {
+            margin-left: 25px;
+            margin-bottom: 15px;
+        }
+
+        .accordion-body li {
+            margin-bottom: 8px;
+            color: #334155;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section h2 {
+            color: #0284c7;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #0ea5e9;
+        }
+
+        .section p {
+            margin-bottom: 15px;
+            color: #334155;
+        }
+
+        .section code {
+            background: #e2e8f0;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Courier New', monospace;
+            color: #0f172a;
+        }
+
+        .section pre {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 6px;
+            overflow-x: auto;
+            margin: 15px 0;
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 0.9em;
+            line-height: 1.5;
+        }
+
+        .section ul {
+            margin-left: 25px;
+            margin-bottom: 15px;
+        }
+
+        .section li {
+            margin-bottom: 10px;
+            color: #334155;
+        }
+
+        .section ol {
+            margin-left: 25px;
+            margin-bottom: 15px;
+        }
+
+        .section ol li {
+            margin-bottom: 10px;
+            color: #334155;
+        }
+
+        .highlight {
+            background: #fef3c7;
+            padding: 3px 6px;
+            border-radius: 3px;
+            color: #92400e;
+        }
+
+        .footer {
+            background: #f1f5f9;
+            padding: 30px 40px;
+            text-align: center;
+            color: #64748b;
+            font-size: 0.95em;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 100%);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 6px;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 600;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(14, 165, 233, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .accordion-header {
+                font-size: 1em;
+            }
+
+            .accordion-body {
+                padding: 20px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -32,66 +288,138 @@
             <h1>Ollama Cloud × Claude Code</h1>
             <p>Guide complet — De zéro à productif en 30 minutes</p>
         </div>
+
         <div class="content">
             <div class="intro-box">
                 <h2>📖 Voici toute l'histoire</h2>
-                <p>Tu veux connaître le vrai contexte ? J'ai passé 3 heures à me battre contre des erreurs incompréhensibles pour configurer Ollama Cloud. Clique sur le bouton ci-dessous pour lire l'histoire complète, ou saute directement au guide pratique si tu veux juste que ça fonctionne.</p>
+                <p>Tu veux connaître le <span class="highlight">vrai contexte</span> de ce guide ? J'ai passé 3 heures à me battre contre des erreurs incompréhensibles pour configurer Ollama Cloud avec Hermès Agent. J'ai découvert des pièges invisibles, des clés grillées, et des configurations qui refusaient de partir. <strong>Clique sur le bouton ci-dessous pour lire l'histoire complète</strong>, ou <strong>saute directement au guide pratique</strong> si tu veux juste que ça fonctionne.</p>
             </div>
+
             <div class="accordion">
                 <button class="accordion-header" onclick="toggleAccordion(event)">
-                    <span>📝 L'histoire complète</span>
-                    <span>▼</span>
+                    <span>📝 L'histoire complète — Comment j'ai passé une matinée à me battre contre un mur invisible</span>
+                    <span class="accordion-icon">▼</span>
                 </button>
                 <div class="accordion-content">
                     <div class="accordion-body">
-                        <p>Je documente publiquement mon apprentissage de l'IA depuis environ un mois, sans aucun background de développeur. Ce matin, je voulais juste faire une chose simple : configurer Ollama Cloud avec Hermès Agent et Claude Code.</p>
+                        <p>Je documente publiquement mon apprentissage de l'IA depuis environ un mois, sans aucun background de développeur. Ce matin, je voulais juste faire une chose simple : configurer un agent IA (Hermès Agent) pour qu'il utilise Ollama Cloud, un service que je paye déjà 20$/mois, à la fois sur mon assistant de code et sur mon agent perso.</p>
+                        <p>Trois heures plus tard, j'avais l'impression de m'être battu contre un mur. Voici ce qui s'est passé, et ce que ça m'a appris.</p>
                         <h3>Le piège du faux terminal</h3>
-                        <p>Tout a commencé avec une erreur : "aucune information de connexion valide trouvée." Mon réflexe a été d'aller corriger ça dans VS Code. Sauf qu'en réalité, je n'étais pas dans un vrai terminal — j'étais dans une conversation avec un modèle d'IA qui ressemble à un terminal. J'ai donc "configuré" un fichier qui n'a jamais réellement été modifié.</p>
+                        <p>Tout a commencé avec une erreur impossible à comprendre : "aucune information de connexion valide trouvée." Pas de bouton retour, pas d'explication claire. Mon réflexe a été d'aller corriger ça directement dans mon éditeur de code (VS Code), en tapant des commandes dans la fenêtre de terminal intégrée.</p>
+                        <p>Sauf qu'en réalité, je n'étais pas dans un vrai terminal. J'étais resté coincé dans une sorte de chat avec un modèle d'IA, qui ressemble énormément à un terminal mais qui n'en est pas un. Je donnais des instructions à voix haute, en gros, sans que personne n'agisse réellement derrière. C'est comme demander à un GPS de te recalculer un itinéraire alors que tu es en train de parler dans le vide : ça a l'air de fonctionner, mais la voiture n'a pas bougé d'un centimètre.</p>
+                        <p>J'ai donc "configuré" un fichier qui n'a jamais réellement été modifié. Et ça a semé une confusion qui m'a suivi pendant tout le reste de la matinée.</p>
                         <h3>Le mot de passe qui a fui</h3>
-                        <p>En cherchant à débloquer la situation, j'ai copié-collé une clé d'accès directement dans une conversation. Résultat : elle a été automatiquement désactivée. J'ai continué à essayer de la faire fonctionner alors qu'elle était déjà morte.</p>
+                        <p>En cherchant à débloquer la situation, j'ai fait une erreur classique : j'ai copié-collé une clé d'accès (un genre de mot de passe technique) directement dans une conversation, alors que cette clé avait de l'argent rattaché derrière. Résultat : par sécurité, elle a été automatiquement désactivée, sans prévenir. J'ai continué à m'arracher les cheveux à essayer de la faire fonctionner alors qu'elle était déjà morte.</p>
+                        <p>La leçon est simple : une clé d'accès, c'est comme la clé de ta maison. Tu ne la prends pas en photo et tu ne l'envoies pas dans un message juste pour montrer à quelqu'un à quoi elle ressemble.</p>
                         <h3>L'erreur qui s'est incrustée</h3>
-                        <p>À un moment, j'ai enregistré une configuration qui pointait vers OpenRouter dans les réglages profonds de Hermès. Cette information s'est incrustée tellement profondément que même en supprimant les dossiers et en réinstallant depuis zéro, Hermès continuait à revenir vers OpenRouter.</p>
-                        <h3>Ce qui a fini par débloquer</h3>
-                        <p>Au final, ce ne sont pas les clics qui m'ont sauvé, mais deux commandes :</p>
+                        <p>Voilà le vrai problème, celui qui a fait déraper toute la matinée : à un moment, en suivant des instructions pour réparer la situation, j'ai fini par enregistrer une configuration qui pointait vers un fournisseur (OpenRouter) directement dans les réglages profonds de Hermès. Le souci, c'est que cette information s'est incrustée tellement profondément que même en supprimant les dossiers de configuration et en réinstallant l'application depuis zéro, Hermès continuait à revenir vers OpenRouter, comme un GPS buggé qui te ramène toujours à la même adresse même quand tu changes de destination.</p>
+                        <p>J'ai dû littéralement désinstaller et réinstaller Hermès plusieurs fois depuis le terminal pour m'en sortir, en pensant à chaque fois "cette fois c'est repartie de zéro" — alors que non, une trace persistait quelque part.</p>
+                        <h3>Ce qui a fini par débloquer la situation</h3>
+                        <p>Au final, ce n'est pas l'interface visuelle qui m'a sauvé (elle restait buggée), mais deux ou trois commandes tapées directement dans le terminal, une fois que j'étais sûr d'être au bon endroit :</p>
                         <pre>rm -rf ~/.hermes</pre>
+                        <p>Pour repartir vraiment de zéro, sans rien garder de l'ancienne configuration.</p>
                         <pre>hermes model</pre>
-                        <h3>Leçons</h3>
-                        <p>• Vérifie où tu es vraiment avant de taper une commande<br>• Ne partage jamais une clé d'accès en clair<br>• Si une interface graphique bloque, essaie une commande simple<br>• Une configuration mal enregistrée peut survivre à une suppression</p>
+                        <p>Pour forcer Hermès à me demander explicitement quel fournisseur et quel modèle utiliser, plutôt que de deviner tout seul (et de se planter).</p>
+                        <p>Ces deux commandes m'ont permis de sortir de la boucle infinie et de connecter enfin Ollama Cloud correctement.</p>
+                        <h3>Ce que je retiens</h3>
+                        <ul>
+                            <li>Avant de taper une commande, vérifie où tu es réellement. Un prompt qui ressemble à un terminal n'en est pas forcément un — si les réponses ressemblent à des explications plutôt qu'à des résultats, tu es probablement au mauvais endroit.</li>
+                            <li>Ne partage jamais une clé d'accès en clair, même par accident, même dans un outil de confiance. Une fois exposée, considère-la comme grillée.</li>
+                            <li>Quand une interface graphique bloque en boucle, la solution est souvent une commande simple plutôt que de s'acharner à cliquer.</li>
+                            <li>Une configuration mal enregistrée peut survivre à une suppression de dossier ou une réinstallation. Si le même problème revient après un "reset", c'est le signe qu'il faut chercher plus profond.</li>
+                        </ul>
                     </div>
                 </div>
             </div>
+
             <div class="section">
-                <h2>🚀 Guide Pratique</h2>
+                <h2>🚀 Le Guide Pratique</h2>
+                <p>Si tu es ici juste pour que ça marche : voilà les étapes exactes, sans la galère.</p>
+            </div>
+
+            <div class="section">
                 <h2>1️⃣ Créer un compte Ollama Cloud</h2>
-                <ol style="margin-left: 25px;">
-                    <li>Va sur ollama.ai</li>
+                <ol>
+                    <li>Va sur <code>ollama.ai</code> (ou <code>ollama.com</code>)</li>
                     <li>Crée un compte avec ton email</li>
                     <li>Valide ton email</li>
-                    <li>Crée une nouvelle clé API et copie-la dans un endroit sûr</li>
+                    <li>Dans le dashboard, crée une <span class="highlight">nouvelle clé API</span> (copie-la dans un endroit sûr, style un gestionnaire de mots de passe)</li>
                 </ol>
-                <h2>2️⃣ Configurer dans VS Code</h2>
-                <ol style="margin-left: 25px;">
-                    <li>Installe l'extension Cline</li>
-                    <li>Va dans les paramètres</li>
-                    <li>Configure le fournisseur comme "Ollama Cloud"</li>
-                    <li>Colle ta clé API</li>
-                    <li>Choisis ton modèle</li>
+            </div>
+
+            <div class="section">
+                <h2>2️⃣ Configurer Ollama Cloud dans VS Code</h2>
+                <p>Ouvre VS Code et suis ces étapes :</p>
+                <ol>
+                    <li>Installe l'extension <span class="highlight">Cline</span> (ou Claude Code)</li>
+                    <li>Va dans les paramètres de l'extension</li>
+                    <li>Configure le fournisseur comme <code>Ollama Cloud</code></li>
+                    <li>Colle ta clé API (celle que tu as copiée à l'étape précédente)</li>
+                    <li>Choisis ton modèle préféré (ex: <code>llama-2-7b</code>, <code>neural-chat-7b</code>, etc.)</li>
                 </ol>
+            </div>
+
+            <div class="section">
                 <h2>3️⃣ Configurer Hermès Agent (optionnel)</h2>
+                <p>Si tu veux aussi utiliser Ollama Cloud avec Hermès Agent :</p>
                 <pre>hermes config</pre>
-                <p>Puis réponds à ces questions : Provider → ollama_cloud | API Key → (ta clé) | Model → (ton modèle)</p>
-                <h2>⚠️ Pièges courants</h2>
-                <p><strong>Clé exposée ?</strong> Regénère-la immédiatement dans le dashboard Ollama.<br><strong>Configuration buggée ?</strong> Utilise: rm -rf ~/.hermes puis hermes model<br><strong>VS Code ne reconnaît pas Ollama ?</strong> Redémarre VS Code<br><strong>Besoin de tester ta clé ?</strong> Elle fonctionne si tu reçois une réponse sans erreur</p>
+                <p>Puis réponds à ces questions :</p>
+                <ul>
+                    <li><code>Provider</code> → <code>ollama_cloud</code></li>
+                    <li><code>API Key</code> → (colle ta clé)</li>
+                    <li><code>Model</code> → (choisis un modèle)</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>⚠️ Pièges courants (et comment les éviter)</h2>
+                <ul>
+                    <li><strong>Clé exposée ?</strong> Tes dépenses explosent dans quelques minutes. Regénère une nouvelle clé immédiatement dans le dashboard Ollama.</li>
+                    <li><strong>Configuration buggée qui refuse de partir ?</strong> Supprime ton dossier de config :
+                        <pre>rm -rf ~/.hermes</pre>
+                        Puis relance avec :
+                        <pre>hermes model</pre>
+                    </li>
+                    <li><strong>VS Code ne reconnaît pas Ollama Cloud ?</strong> Redémarre VS Code complètement (ferme et rouvre).</li>
+                    <li><strong>Besoin de vérifier ta clé fonctionne ?</strong> Test simple dans le terminal :
+                        <pre>curl -X POST https://api.ollama.cloud/v1/chat/completions \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"messages": [{"role": "user", "content": "Salut"}]}'</pre>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>💰 Coûts et limites</h2>
+                <ul>
+                    <li><strong>Abonnement Ollama Cloud :</strong> 20$/mois pour un quotidien raisonnable (10-20 requêtes/jour)</li>
+                    <li><strong>Modèles disponibles :</strong> llama, neural-chat, mistral, et autres (check le site pour la liste complète)</li>
+                    <li><strong>Latence :</strong> généralement 2-5 sec par réponse (dépend du modèle et de la charge du service)</li>
+                    <li><strong>Limite de tokens :</strong> varie selon le plan — vérifie sur le dashboard</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>✅ Vérifier que c'est opérationnel</h2>
+                <p>Une fois configuré, teste ça dans VS Code ou Hermès :</p>
+                <pre>"Dis bonjour en français et en anglais, puis compte jusqu'à 5"</pre>
+                <p>Si tu reçois une réponse complète sans erreur, tu es bon. Ollama Cloud fonctionne. 🎉</p>
             </div>
         </div>
+
         <div class="footer">
             <p>Guide créé par <strong>Bryan Blaevoet</strong> — Agence IA · Madrid</p>
+            <p style="margin-top: 10px; opacity: 0.7;">Basé sur une vrai galère matinale et enfin résolue ✨</p>
+            <a href="https://calendly.com/bryan-blaevoet/nouvelle-reunion" class="cta-button">Parler avec moi sur un projet</a>
         </div>
     </div>
+
     <script>
         function toggleAccordion(event) {
             const header = event.currentTarget;
             const content = header.nextElementSibling;
+            
             header.classList.toggle('active');
             content.classList.toggle('active');
         }
