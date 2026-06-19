@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ollama Cloud × Claude Code</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto; line-height: 1.6; color: #0f172a; background: linear-gradient(135deg, #ecf0f1 0%, #f5f7fa 100%); padding: 40px 20px; }
+        .container { max-width: 900px; margin: 0 auto; background: white; border-radius: 12px; box-shadow: 0 10px 40px rgba(15, 23, 42, 0.08); }
+        .header { background: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 100%); color: white; padding: 60px 40px; text-align: center; }
+        .header h1 { font-size: 2.5em; margin-bottom: 10px; }
+        .content { padding: 40px; }
+        .intro-box { background: #f0f9ff; border-left: 4px solid #0ea5e9; padding: 20px; margin-bottom: 30px; border-radius: 6px; }
+        .section { margin-bottom: 40px; }
+        .section h2 { color: #0284c7; font-size: 1.8em; margin-bottom: 20px; border-bottom: 2px solid #0ea5e9; padding-bottom: 10px; }
+        .section p { margin-bottom: 15px; color: #334155; }
+        .section code { background: #e2e8f0; padding: 2px 6px; border-radius: 3px; }
+        .section pre { background: #1e293b; color: #e2e8f0; padding: 15px; border-radius: 6px; overflow-x: auto; margin: 15px 0; }
+        .accordion { margin-bottom: 30px; border: 1px solid #e2e8f0; border-radius: 8px; }
+        .accordion-header { background: #f1f5f9; padding: 20px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; border: none; width: 100%; text-align: left; font-size: 1.1em; font-weight: 600; color: #0f172a; }
+        .accordion-header:hover { background: #e2e8f0; }
+        .accordion-header.active { background: #0ea5e9; color: white; }
+        .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+        .accordion-content.active { max-height: 5000px; }
+        .accordion-body { padding: 30px; background: #fafbfc; }
+        .footer { background: #f1f5f9; padding: 30px 40px; text-align: center; color: #64748b; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Ollama Cloud × Claude Code</h1>
+            <p>Guide complet — De zéro à productif en 30 minutes</p>
+        </div>
+        <div class="content">
+            <div class="intro-box">
+                <h2>📖 Voici toute l'histoire</h2>
+                <p>Tu veux connaître le vrai contexte ? J'ai passé 3 heures à me battre contre des erreurs incompréhensibles pour configurer Ollama Cloud. Clique sur le bouton ci-dessous pour lire l'histoire complète, ou saute directement au guide pratique si tu veux juste que ça fonctionne.</p>
+            </div>
+            <div class="accordion">
+                <button class="accordion-header" onclick="toggleAccordion(event)">
+                    <span>📝 L'histoire complète</span>
+                    <span>▼</span>
+                </button>
+                <div class="accordion-content">
+                    <div class="accordion-body">
+                        <p>Je documente publiquement mon apprentissage de l'IA depuis environ un mois, sans aucun background de développeur. Ce matin, je voulais juste faire une chose simple : configurer Ollama Cloud avec Hermès Agent et Claude Code.</p>
+                        <h3>Le piège du faux terminal</h3>
+                        <p>Tout a commencé avec une erreur : "aucune information de connexion valide trouvée." Mon réflexe a été d'aller corriger ça dans VS Code. Sauf qu'en réalité, je n'étais pas dans un vrai terminal — j'étais dans une conversation avec un modèle d'IA qui ressemble à un terminal. J'ai donc "configuré" un fichier qui n'a jamais réellement été modifié.</p>
+                        <h3>Le mot de passe qui a fui</h3>
+                        <p>En cherchant à débloquer la situation, j'ai copié-collé une clé d'accès directement dans une conversation. Résultat : elle a été automatiquement désactivée. J'ai continué à essayer de la faire fonctionner alors qu'elle était déjà morte.</p>
+                        <h3>L'erreur qui s'est incrustée</h3>
+                        <p>À un moment, j'ai enregistré une configuration qui pointait vers OpenRouter dans les réglages profonds de Hermès. Cette information s'est incrustée tellement profondément que même en supprimant les dossiers et en réinstallant depuis zéro, Hermès continuait à revenir vers OpenRouter.</p>
+                        <h3>Ce qui a fini par débloquer</h3>
+                        <p>Au final, ce ne sont pas les clics qui m'ont sauvé, mais deux commandes :</p>
+                        <pre>rm -rf ~/.hermes</pre>
+                        <pre>hermes model</pre>
+                        <h3>Leçons</h3>
+                        <p>• Vérifie où tu es vraiment avant de taper une commande<br>• Ne partage jamais une clé d'accès en clair<br>• Si une interface graphique bloque, essaie une commande simple<br>• Une configuration mal enregistrée peut survivre à une suppression</p>
+                    </div>
+                </div>
+            </div>
+            <div class="section">
+                <h2>🚀 Guide Pratique</h2>
+                <h2>1️⃣ Créer un compte Ollama Cloud</h2>
+                <ol style="margin-left: 25px;">
+                    <li>Va sur ollama.ai</li>
+                    <li>Crée un compte avec ton email</li>
+                    <li>Valide ton email</li>
+                    <li>Crée une nouvelle clé API et copie-la dans un endroit sûr</li>
+                </ol>
+                <h2>2️⃣ Configurer dans VS Code</h2>
+                <ol style="margin-left: 25px;">
+                    <li>Installe l'extension Cline</li>
+                    <li>Va dans les paramètres</li>
+                    <li>Configure le fournisseur comme "Ollama Cloud"</li>
+                    <li>Colle ta clé API</li>
+                    <li>Choisis ton modèle</li>
+                </ol>
+                <h2>3️⃣ Configurer Hermès Agent (optionnel)</h2>
+                <pre>hermes config</pre>
+                <p>Puis réponds à ces questions : Provider → ollama_cloud | API Key → (ta clé) | Model → (ton modèle)</p>
+                <h2>⚠️ Pièges courants</h2>
+                <p><strong>Clé exposée ?</strong> Regénère-la immédiatement dans le dashboard Ollama.<br><strong>Configuration buggée ?</strong> Utilise: rm -rf ~/.hermes puis hermes model<br><strong>VS Code ne reconnaît pas Ollama ?</strong> Redémarre VS Code<br><strong>Besoin de tester ta clé ?</strong> Elle fonctionne si tu reçois une réponse sans erreur</p>
+            </div>
+        </div>
+        <div class="footer">
+            <p>Guide créé par <strong>Bryan Blaevoet</strong> — Agence IA · Madrid</p>
+        </div>
+    </div>
+    <script>
+        function toggleAccordion(event) {
+            const header = event.currentTarget;
+            const content = header.nextElementSibling;
+            header.classList.toggle('active');
+            content.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
