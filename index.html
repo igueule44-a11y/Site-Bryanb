@@ -208,9 +208,10 @@ footer{background:rgba(8,14,26,.85) !important;backdrop-filter:blur(8px)}
          data-i18n="hero_cta_secondary">Voir nos services</a>
     </div>
 
-    <div class="mt-10 flex items-center justify-center reveal">
-      <p id="typewriter" class="text-[clamp(12px,1.5vw,15px)] font-light tracking-[.14em] uppercase text-[#7de8f7] opacity-60"></p>
-      <span id="tw-cursor" class="inline-block w-[1.5px] h-[1em] bg-[#00d4ff] ml-1 opacity-70" style="animation:twBlink .8s step-end infinite"></span>
+    <div class="mt-10 flex items-center justify-center gap-2 reveal">
+      <span class="text-[#00d4ff] opacity-50 text-[clamp(12px,1.5vw,15px)] font-light select-none">&#62;</span>
+      <p id="typewriter" class="text-[clamp(12px,1.5vw,15px)] font-bold tracking-[.06em] text-[#f0f8ff]"></p>
+      <span id="tw-cursor" class="text-[#00d4ff] text-[clamp(12px,1.5vw,15px)] font-bold opacity-80" style="animation:twBlink .7s step-end infinite">_</span>
     </div>
 
     <div class="mt-6 flex flex-col items-center gap-0 opacity-30 reveal">
@@ -1008,11 +1009,11 @@ setLanguage('fr');
 <script>
 (function(){
   const phrases = [
-    "Les marques qui résistent s'automatisent.",
-    "Votre concurrence n'attend pas.",
-    "Les systèmes qui travaillent. Les résultats qui durent.",
-    "Marketing. IA. Résultats.",
-    "Les marques qui avancent ne dorment pas."
+    "« Les marques qui résistent s'automatisent. »",
+    "« Votre concurrence n'attend pas. »",
+    "« Les systèmes qui travaillent. Les résultats qui durent. »",
+    "« Marketing. IA. Résultats. »",
+    "« Les marques qui avancent ne dorment pas. »"
   ];
   const el = document.getElementById('typewriter');
   if(!el) return;
