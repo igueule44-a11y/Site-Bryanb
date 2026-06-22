@@ -16,19 +16,21 @@
 
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lora:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@700,900&display=swap" rel="stylesheet"/>
+<link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600,700&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <script id="tailwind-config">
-tailwind.config={darkMode:"class",theme:{extend:{colors:{"deep-navy":"#060c18","main-bg":"#080e1a","card-bg":"#0d1a2e","soft-white":"#f0f8ff","muted-text":"#8ab4cc","soft-cyan":"#7de8f7","cyan-glow":"#00d4ff"},fontFamily:{heading:["Playfair Display","serif"],body:["Inter","sans-serif"]},boxShadow:{"neon-cyan":"0 0 20px rgba(0,212,255,0.4)","neon-cyan-strong":"0 0 30px rgba(0,212,255,0.6)","glass":"0 8px 32px 0 rgba(0,0,0,0.5)"}}}}
+tailwind.config={darkMode:"class",theme:{extend:{colors:{"deep-navy":"#060c18","main-bg":"#080e1a","card-bg":"#0d1a2e","soft-white":"#f0f8ff","muted-text":"#8ab4cc","soft-cyan":"#7de8f7","cyan-glow":"#00d4ff"},fontFamily:{heading:["Satoshi","sans-serif"],label:["Switzer","sans-serif"],body:["Inter","sans-serif"]},boxShadow:{"neon-cyan":"0 0 20px rgba(0,212,255,0.4)","neon-cyan-strong":"0 0 30px rgba(0,212,255,0.6)","glass":"0 8px 32px 0 rgba(0,0,0,0.5)"}}}}
 </script>
 
 <style>
 html{background:linear-gradient(180deg,#060c18 0%,#0a1628 12%,#080e1a 28%,#0b1220 45%,#080e1a 60%,#091526 78%,#080e1a 100%);min-height:100%}
 body{background:transparent;color:#f0f8ff;font-family:"Inter",sans-serif}
-h1,h2,h3,h4,h5,h6,.font-heading{font-family:"Playfair Display",serif}
-h1.gradient-text{font-family:"Lora",serif!important}
+h1,h2,h3,h4,h5,h6,.font-heading{font-family:"Satoshi",sans-serif}
+h1.gradient-text{font-family:"Satoshi",sans-serif!important;letter-spacing:-0.02em}
 
 .gradient-text{
   background:linear-gradient(135deg,#f0f8ff 0%,#b3ecff 25%,#00d4ff 50%,#7de8f7 75%,#f0f8ff 100%);
@@ -186,9 +188,9 @@ footer{background:rgba(8,14,26,.85) !important;backdrop-filter:blur(8px)}
   <div class="mesh-bg"></div>
   <div class="relative z-10 text-center px-5 max-w-5xl mx-auto">
 
-    <p class="text-[11px] font-semibold uppercase tracking-[.25em] text-[#7de8f7] mb-6 reveal" data-i18n="hero_overline">Agence IA · Madrid</p>
+    <p class="text-[11px] font-label font-semibold uppercase tracking-[.25em] text-[#7de8f7] mb-6 reveal" data-i18n="hero_overline">Agence IA · Madrid</p>
 
-    <h1 class="gradient-text text-[clamp(42px,8vw,84px)] font-normal leading-tight mb-2 reveal">Bryan Blaevoet</h1>
+    <h1 class="gradient-text text-[clamp(42px,8vw,84px)] font-black leading-tight mb-2 reveal">Bryan Blaevoet</h1>
 
     <p class="font-heading text-[clamp(20px,3.5vw,40px)] font-semibold text-[#f0f8ff] mt-6 mb-5 leading-snug reveal" data-i18n="hero_tagline">
       Votre marque avance.<br class="hidden sm:block"/> Même quand vous dormez.
@@ -233,7 +235,7 @@ footer{background:rgba(8,14,26,.85) !important;backdrop-filter:blur(8px)}
 
       <!-- Content -->
       <div class="flex-1">
-        <p class="text-[11px] font-semibold uppercase tracking-[.25em] text-[#7de8f7] mb-3 reveal" data-i18n="about_overline">À propos</p>
+        <p class="text-[11px] font-label font-semibold uppercase tracking-[.25em] text-[#7de8f7] mb-3 reveal" data-i18n="about_overline">À propos</p>
         <h2 class="font-heading text-[30px] md:text-[36px] font-bold gradient-text mb-6 reveal pb-1" data-i18n="about_title">Marketing. IA. Résultats.</h2>
         <p class="text-[16px] font-light text-[#8ab4cc] leading-relaxed mb-4 reveal" data-i18n="about_p1">
           Basé à Madrid, je construis des systèmes digitaux qui génèrent des résultats en continu. Pas de magie — de la méthode.
@@ -266,7 +268,7 @@ footer{background:rgba(8,14,26,.85) !important;backdrop-filter:blur(8px)}
   <div class="max-w-6xl mx-auto">
 
     <div class="text-center mb-14">
-      <p class="text-[11px] font-semibold uppercase tracking-[.25em] text-[#7de8f7] mb-3 reveal" data-i18n="services_overline">Ce que je fais</p>
+      <p class="text-[11px] font-label font-semibold uppercase tracking-[.25em] text-[#7de8f7] mb-3 reveal" data-i18n="services_overline">Ce que je fais</p>
       <h2 class="font-heading text-[30px] md:text-[40px] font-bold gradient-text mb-4 reveal pb-1" data-i18n="services_title">Services</h2>
       <p class="text-[16px] font-light text-[#8ab4cc] max-w-xl mx-auto reveal" data-i18n="services_subtitle">Chaque prestation est conçue pour tourner sans vous. Résultats dès le premier mois.</p>
     </div>
@@ -328,7 +330,7 @@ footer{background:rgba(8,14,26,.85) !important;backdrop-filter:blur(8px)}
 <!-- ── STACK MARQUEE ───────────────────────────────────────────────────────── -->
 <section class="py-14 px-5 overflow-hidden" style="background:linear-gradient(160deg,rgba(13,26,46,.2) 0%,rgba(8,14,26,1) 50%,rgba(13,26,46,.15) 100%)">
   <div class="max-w-6xl mx-auto mb-8 text-center reveal">
-    <p class="text-[11px] font-semibold uppercase tracking-[.25em] text-[#7de8f7]" data-i18n="stack_overline">Stack &amp; Outils</p>
+    <p class="text-[11px] font-label font-semibold uppercase tracking-[.25em] text-[#7de8f7]" data-i18n="stack_overline">Stack &amp; Outils</p>
   </div>
   <div class="marquee-wrapper reveal">
     <div class="marquee-content">
@@ -366,7 +368,7 @@ footer{background:rgba(8,14,26,.85) !important;backdrop-filter:blur(8px)}
   <div class="max-w-6xl mx-auto">
 
     <div class="text-center mb-14">
-      <p class="text-[11px] font-semibold uppercase tracking-[.25em] text-[#7de8f7] mb-3 reveal" data-i18n="projects_overline">Projets</p>
+      <p class="text-[11px] font-label font-semibold uppercase tracking-[.25em] text-[#7de8f7] mb-3 reveal" data-i18n="projects_overline">Projets</p>
       <h2 class="font-heading text-[30px] md:text-[40px] font-bold gradient-text reveal pb-1" data-i18n="projects_title">Ce sur quoi je travaille</h2>
     </div>
 
@@ -433,7 +435,7 @@ footer{background:rgba(8,14,26,.85) !important;backdrop-filter:blur(8px)}
   <div class="max-w-3xl mx-auto">
 
     <div class="text-center mb-14">
-      <p class="text-[11px] font-semibold uppercase tracking-[.25em] text-[#7de8f7] mb-3 reveal" data-i18n="exp_overline">Parcours</p>
+      <p class="text-[11px] font-label font-semibold uppercase tracking-[.25em] text-[#7de8f7] mb-3 reveal" data-i18n="exp_overline">Parcours</p>
       <h2 class="font-heading text-[30px] md:text-[40px] font-bold gradient-text reveal pb-1" data-i18n="exp_title">Expérience</h2>
     </div>
 
@@ -495,7 +497,7 @@ footer{background:rgba(8,14,26,.85) !important;backdrop-filter:blur(8px)}
 <section id="contact" class="py-16 md:py-28 px-5" style="background:linear-gradient(160deg,rgba(13,26,46,.2) 0%,rgba(8,14,26,1) 55%,rgba(20,40,70,.15) 100%)">
   <div class="max-w-xl mx-auto text-center">
 
-    <p class="text-[11px] font-semibold uppercase tracking-[.25em] text-[#7de8f7] mb-3 reveal" data-i18n="contact_overline">Contact</p>
+    <p class="text-[11px] font-label font-semibold uppercase tracking-[.25em] text-[#7de8f7] mb-3 reveal" data-i18n="contact_overline">Contact</p>
     <h2 class="font-heading text-[30px] md:text-[40px] font-bold gradient-text mb-4 reveal pb-1" data-i18n="contact_title">Travaillons ensemble</h2>
     <p class="text-[16px] font-light text-[#8ab4cc] mb-10 reveal" data-i18n="contact_desc">Vos prochains clients sont à 30 minutes d'appel. Réservez. On construit ensemble.</p>
 
