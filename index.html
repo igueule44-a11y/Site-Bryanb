@@ -16,21 +16,20 @@
 
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
-<link href="https://api.fontshare.com/v2/css?f[]=satoshi@700,900&display=swap" rel="stylesheet"/>
-<link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600,700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <script id="tailwind-config">
-tailwind.config={darkMode:"class",theme:{extend:{colors:{"deep-navy":"#060c18","main-bg":"#080e1a","card-bg":"#0d1a2e","soft-white":"#f0f8ff","muted-text":"#8ab4cc","soft-cyan":"#7de8f7","cyan-glow":"#00d4ff"},fontFamily:{heading:["Satoshi","sans-serif"],label:["Switzer","sans-serif"],body:["Space Grotesk","sans-serif"]},boxShadow:{"neon-cyan":"0 0 20px rgba(0,212,255,0.4)","neon-cyan-strong":"0 0 30px rgba(0,212,255,0.6)","glass":"0 8px 32px 0 rgba(0,0,0,0.5)"}}}}
+tailwind.config={darkMode:"class",theme:{extend:{colors:{"deep-navy":"#060c18","main-bg":"#080e1a","card-bg":"#0d1a2e","soft-white":"#f0f8ff","muted-text":"#8ab4cc","soft-cyan":"#7de8f7","cyan-glow":"#00d4ff"},fontFamily:{heading:["Space Grotesk","sans-serif"],label:["Space Grotesk","sans-serif"],body:["Space Grotesk","sans-serif"]},boxShadow:{"neon-cyan":"0 0 20px rgba(0,212,255,0.4)","neon-cyan-strong":"0 0 30px rgba(0,212,255,0.6)","glass":"0 8px 32px 0 rgba(0,0,0,0.5)"}}}}
 </script>
 
 <style>
 html{background:linear-gradient(180deg,#060c18 0%,#0a1628 12%,#080e1a 28%,#0b1220 45%,#080e1a 60%,#091526 78%,#080e1a 100%);min-height:100%}
-body{background:transparent;color:#f0f8ff;font-family:"Space Grotesk","sans-serif"}*{font-family:"Space Grotesk","sans-serif"}input,textarea,select,button{font-family:"Space Grotesk","sans-serif"}
-h1,h2,h3,h4,h5,h6,.font-heading{font-family:"Satoshi",sans-serif}
-h1.gradient-text{font-family:"Satoshi",sans-serif!important;letter-spacing:-0.02em}
+body{background:transparent;color:#f0f8ff;font-family:"Space Grotesk",sans-serif}*{font-family:"Space Grotesk",sans-serif}input,textarea,select,button{font-family:"Space Grotesk",sans-serif}
+h1,h2,h3,h4,h5,h6,.font-heading{font-family:"Space Grotesk",sans-serif;font-weight:600;letter-spacing:-0.03em}
+h1.gradient-text{font-family:"Space Grotesk",sans-serif!important;letter-spacing:-0.03em}
+p,li,span,div{letter-spacing:0.01em}
 
 .gradient-text{
   background:linear-gradient(135deg,#f0f8ff 0%,#b3ecff 25%,#00d4ff 50%,#7de8f7 75%,#f0f8ff 100%);
@@ -141,7 +140,7 @@ footer{background:rgba(8,14,26,.85) !important;backdrop-filter:blur(8px)}
 <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
   <div class="max-w-6xl mx-auto px-5 h-16 flex items-center justify-between">
 
-    <a href="#hero" class="flex flex-col leading-none gap-0.5"><span class="font-heading text-xl font-bold gradient-text">Omnyx</span><span style="font-size:8px;letter-spacing:.18em;color:#7de8f7;font-family:'Space Grotesk',sans-serif;font-weight:500;text-transform:uppercase;">Marketing · AI Agency</span></a>
+    <a href="#hero" class="flex flex-col leading-none gap-0.5"><span class="font-heading text-xl font-medium gradient-text">Omnyx</span><span style="font-size:8px;letter-spacing:.18em;color:#7de8f7;font-family:'Space Grotesk',sans-serif;font-weight:500;text-transform:uppercase;">Marketing · AI Agency</span></a>
 
     <div class="hidden md:flex items-center gap-7">
       <a href="#about"      class="text-[12px] font-medium text-[#8ab4cc] hover:text-[#f0f8ff] transition-colors tracking-[.15em] uppercase" data-i18n="nav_about">À propos</a>
@@ -190,7 +189,7 @@ footer{background:rgba(8,14,26,.85) !important;backdrop-filter:blur(8px)}
 
     <p class="text-[11px] font-label font-semibold uppercase tracking-[.25em] text-[#7de8f7] mb-6 reveal" data-i18n="hero_overline">Marketing · AI Agency · Madrid</p>
 
-    <h1 class="gradient-text text-[clamp(42px,8vw,84px)] font-black leading-tight mb-2 reveal">Omnyx</h1>
+    <h1 class="gradient-text text-[clamp(42px,8vw,84px)] font-semibold leading-tight mb-2 reveal">Omnyx</h1>
 
     <p class="font-heading text-[clamp(20px,3.5vw,40px)] font-semibold text-[#f0f8ff] mt-6 mb-5 leading-snug reveal" data-i18n="hero_tagline">
       Votre marque avance.<br class="hidden sm:block"/> Même quand vous dormez.
@@ -236,7 +235,7 @@ footer{background:rgba(8,14,26,.85) !important;backdrop-filter:blur(8px)}
       <!-- Content -->
       <div class="flex-1">
         <p class="text-[11px] font-label font-semibold uppercase tracking-[.25em] text-[#7de8f7] mb-3 reveal" data-i18n="about_overline">À propos</p>
-        <h2 class="font-heading text-[30px] md:text-[36px] font-bold gradient-text mb-6 reveal pb-1" data-i18n="about_title">Marketing. Automation. Résultats.</h2>
+        <h2 class="font-heading text-[30px] md:text-[36px] font-semibold gradient-text mb-6 reveal pb-1" data-i18n="about_title">Marketing. Automation. Résultats.</h2>
         <p class="text-[16px] font-light text-[#8ab4cc] leading-relaxed mb-4 reveal" data-i18n="about_p1">
           Basé à Madrid, je construis des systèmes digitaux qui génèrent des résultats en continu. Pas de magie — de la méthode.
         </p>
@@ -246,15 +245,15 @@ footer{background:rgba(8,14,26,.85) !important;backdrop-filter:blur(8px)}
 
         <div class="grid grid-cols-3 gap-4 reveal">
           <div class="glass-card rounded-2xl p-4 text-center">
-            <p class="font-heading text-[26px] font-bold gradient-text pb-0.5">5+</p>
+            <p class="font-heading text-[26px] font-semibold gradient-text pb-0.5">5+</p>
             <p class="text-[10px] font-semibold uppercase tracking-[.15em] text-[#7de8f7] mt-1 leading-snug" data-i18n="stat_years">Années d'expérience</p>
           </div>
           <div class="glass-card rounded-2xl p-4 text-center">
-            <p class="font-heading text-[26px] font-bold gradient-text pb-0.5">3</p>
+            <p class="font-heading text-[26px] font-semibold gradient-text pb-0.5">3</p>
             <p class="text-[10px] font-semibold uppercase tracking-[.15em] text-[#7de8f7] mt-1 leading-snug" data-i18n="stat_projects">Projets actifs</p>
           </div>
           <div class="glass-card rounded-2xl p-4 text-center">
-            <p class="font-heading text-[26px] font-bold gradient-text pb-0.5">3</p>
+            <p class="font-heading text-[26px] font-semibold gradient-text pb-0.5">3</p>
             <p class="text-[10px] font-semibold uppercase tracking-[.15em] text-[#7de8f7] mt-1 leading-snug" data-i18n="stat_languages">Langues</p>
           </div>
         </div>
@@ -269,7 +268,7 @@ footer{background:rgba(8,14,26,.85) !important;backdrop-filter:blur(8px)}
 
     <div class="text-center mb-14">
       <p class="text-[11px] font-label font-semibold uppercase tracking-[.25em] text-[#7de8f7] mb-3 reveal" data-i18n="services_overline">Ce que je fais</p>
-      <h2 class="font-heading text-[30px] md:text-[40px] font-bold gradient-text mb-4 reveal pb-1" data-i18n="services_title">Services</h2>
+      <h2 class="font-heading text-[30px] md:text-[40px] font-semibold gradient-text mb-4 reveal pb-1" data-i18n="services_title">Services</h2>
       <p class="text-[16px] font-light text-[#8ab4cc] max-w-xl mx-auto reveal" data-i18n="services_subtitle">Chaque prestation est conçue pour tourner sans vous. Résultats dès le premier mois.</p>
     </div>
 
@@ -279,7 +278,7 @@ footer{background:rgba(8,14,26,.85) !important;backdrop-filter:blur(8px)}
         <div class="w-14 h-14 rounded-full bg-[rgba(13,26,46,.5)] border border-[rgba(0,212,255,.18)] flex items-center justify-center mb-6">
           <span class="material-symbols-outlined text-[28px] text-[#00d4ff] neon-icon-cyan">web</span>
         </div>
-        <h3 class="font-heading text-[20px] font-bold text-[#f0f8ff] mb-3" data-i18n="svc1_title">Sites web</h3>
+        <h3 class="font-heading text-[20px] font-semibold text-[#f0f8ff] mb-3" data-i18n="svc1_title">Sites web</h3>
         <p class="text-[14px] font-light text-[#8ab4cc] leading-relaxed" data-i18n="svc1_desc">Votre site convertit. Rapide, responsive, optimisé SEO. Vos visiteurs deviennent des clients — en automatique.</p>
       </div>
 
@@ -287,7 +286,7 @@ footer{background:rgba(8,14,26,.85) !important;backdrop-filter:blur(8px)}
         <div class="w-14 h-14 rounded-full bg-[rgba(13,26,46,.5)] border border-[rgba(0,212,255,.18)] flex items-center justify-center mb-6">
           <span class="material-symbols-outlined text-[28px] text-[#00d4ff] neon-icon-cyan">smart_toy</span>
         </div>
-        <h3 class="font-heading text-[20px] font-bold text-[#f0f8ff] mb-3" data-i18n="svc2_title">Agents IA</h3>
+        <h3 class="font-heading text-[20px] font-semibold text-[#f0f8ff] mb-3" data-i18n="svc2_title">Agents IA</h3>
         <p class="text-[14px] font-light text-[#8ab4cc] leading-relaxed" data-i18n="svc2_desc">Vos agents travaillent 24h/24. Prospection, support, analyse. Zéro pause. Zéro oubli. Résultats en continu.</p>
       </div>
 
@@ -295,7 +294,7 @@ footer{background:rgba(8,14,26,.85) !important;backdrop-filter:blur(8px)}
         <div class="w-14 h-14 rounded-full bg-[rgba(13,26,46,.5)] border border-[rgba(0,212,255,.18)] flex items-center justify-center mb-6">
           <span class="material-symbols-outlined text-[28px] text-[#00d4ff] neon-icon-cyan">chat_bubble</span>
         </div>
-        <h3 class="font-heading text-[20px] font-bold text-[#f0f8ff] mb-3" data-i18n="svc3_title">Chatbots</h3>
+        <h3 class="font-heading text-[20px] font-semibold text-[#f0f8ff] mb-3" data-i18n="svc3_title">Chatbots</h3>
         <p class="text-[14px] font-light text-[#8ab4cc] leading-relaxed" data-i18n="svc3_desc">Votre chatbot engage, qualifie, répond. Sur votre site ou vos réseaux. Pendant que vous faites autre chose.</p>
       </div>
 
@@ -303,7 +302,7 @@ footer{background:rgba(8,14,26,.85) !important;backdrop-filter:blur(8px)}
         <div class="w-14 h-14 rounded-full bg-[rgba(13,26,46,.5)] border border-[rgba(0,212,255,.18)] flex items-center justify-center mb-6">
           <span class="material-symbols-outlined text-[28px] text-[#00d4ff] neon-icon-cyan">palette</span>
         </div>
-        <h3 class="font-heading text-[20px] font-bold text-[#f0f8ff] mb-3" data-i18n="svc4_title">Image de marque</h3>
+        <h3 class="font-heading text-[20px] font-semibold text-[#f0f8ff] mb-3" data-i18n="svc4_title">Image de marque</h3>
         <p class="text-[14px] font-light text-[#8ab4cc] leading-relaxed" data-i18n="svc4_desc">Une marque qui marque. Logo, palette, typographie — une identité cohérente qui attire les bons clients.</p>
       </div>
 
@@ -311,7 +310,7 @@ footer{background:rgba(8,14,26,.85) !important;backdrop-filter:blur(8px)}
         <div class="w-14 h-14 rounded-full bg-[rgba(13,26,46,.5)] border border-[rgba(0,212,255,.18)] flex items-center justify-center mb-6">
           <span class="material-symbols-outlined text-[28px] text-[#00d4ff] neon-icon-cyan">trending_up</span>
         </div>
-        <h3 class="font-heading text-[20px] font-bold text-[#f0f8ff] mb-3" data-i18n="svc5_title">Marketing</h3>
+        <h3 class="font-heading text-[20px] font-semibold text-[#f0f8ff] mb-3" data-i18n="svc5_title">Marketing</h3>
         <p class="text-[14px] font-light text-[#8ab4cc] leading-relaxed" data-i18n="svc5_desc">Plus de visibilité. Plus de clients. Meilleur ROI. Stratégie IA-first — pilotée par les données, pas l'intuition.</p>
       </div>
 
@@ -319,7 +318,7 @@ footer{background:rgba(8,14,26,.85) !important;backdrop-filter:blur(8px)}
         <div class="w-14 h-14 rounded-full bg-[rgba(13,26,46,.5)] border border-[rgba(0,212,255,.18)] flex items-center justify-center mb-6">
           <span class="material-symbols-outlined text-[28px] text-[#00d4ff] neon-icon-cyan">edit_note</span>
         </div>
-        <h3 class="font-heading text-[20px] font-bold text-[#f0f8ff] mb-3" data-i18n="svc6_title">Création de contenu</h3>
+        <h3 class="font-heading text-[20px] font-semibold text-[#f0f8ff] mb-3" data-i18n="svc6_title">Création de contenu</h3>
         <p class="text-[14px] font-light text-[#8ab4cc] leading-relaxed" data-i18n="svc6_desc">Contenu de qualité à grande échelle. Réseaux, blog, campagnes — rédigé, optimisé et publié avec l'IA.</p>
       </div>
 
@@ -369,7 +368,7 @@ footer{background:rgba(8,14,26,.85) !important;backdrop-filter:blur(8px)}
 
     <div class="text-center mb-14">
       <p class="text-[11px] font-label font-semibold uppercase tracking-[.25em] text-[#7de8f7] mb-3 reveal" data-i18n="projects_overline">Projets</p>
-      <h2 class="font-heading text-[30px] md:text-[40px] font-bold gradient-text reveal pb-1" data-i18n="projects_title">Ce sur quoi je travaille</h2>
+      <h2 class="font-heading text-[30px] md:text-[40px] font-semibold gradient-text reveal pb-1" data-i18n="projects_title">Ce sur quoi je travaille</h2>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -380,7 +379,7 @@ footer{background:rgba(8,14,26,.85) !important;backdrop-filter:blur(8px)}
         <div class="relative h-48 overflow-hidden bg-[#080e1a] flex items-center justify-center">
           <div class="absolute inset-0" style="background:radial-gradient(circle at 30% 50%,rgba(0,212,255,.07),transparent 60%),radial-gradient(circle at 80% 30%,rgba(100,60,200,.08),transparent 50%)"></div>
           <div class="relative z-10 text-center px-8">
-            <p class="font-heading text-[28px] font-bold text-[#f0f8ff] tracking-[.08em]">ARCHIVE</p>
+            <p class="font-heading text-[28px] font-semibold text-[#f0f8ff] tracking-[.08em]">ARCHIVE</p>
             <p class="text-[11px] font-medium text-[#7de8f7] tracking-[.2em] uppercase mt-1">Un moteur de découverte cinéma</p>
           </div>
           <div class="absolute inset-0 bg-[rgba(0,212,255,.04)] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -390,7 +389,7 @@ footer{background:rgba(8,14,26,.85) !important;backdrop-filter:blur(8px)}
             <span class="text-[11px] font-semibold uppercase tracking-[.15em] text-[#7de8f7]" data-i18n="proj1_tag">Site web · Madrid</span>
             <span class="material-symbols-outlined text-[18px] text-[#00d4ff] group-hover:translate-x-1 transition-transform duration-300">arrow_outward</span>
           </div>
-          <h3 class="font-heading text-[19px] font-bold text-[#f0f8ff] mb-2" data-i18n="proj1_title">Archive — Découverte cinéma par émotions</h3>
+          <h3 class="font-heading text-[19px] font-semibold text-[#f0f8ff] mb-2" data-i18n="proj1_title">Archive — Découverte cinéma par émotions</h3>
           <p class="text-[13px] font-light text-[#8ab4cc] leading-relaxed" data-i18n="proj1_desc">Plateforme de découverte culturelle qui cartographie 4 812 films par sensations et concepts. Navigation émotionnelle, graphe sémantique et curation éditoriale — en beta publique.</p>
           <div class="flex flex-wrap gap-2 mt-4">
             <span class="skill-tag">HTML/CSS</span>
@@ -406,7 +405,7 @@ footer{background:rgba(8,14,26,.85) !important;backdrop-filter:blur(8px)}
         <div class="relative h-48 overflow-hidden bg-[#11081a] flex items-center justify-center">
           <div class="absolute inset-0" style="background:radial-gradient(circle at 70% 40%,rgba(168,117,255,.1),transparent 55%),radial-gradient(circle at 20% 70%,rgba(100,50,180,.07),transparent 50%)"></div>
           <div class="relative z-10 text-center px-8">
-            <p class="font-heading text-[28px] font-bold text-[#f0f8ff]">Nelly Orozco</p>
+            <p class="font-heading text-[28px] font-semibold text-[#f0f8ff]">Nelly Orozco</p>
             <p class="text-[11px] font-medium text-[#d4b3ff] tracking-[.2em] uppercase mt-1">Site vitrine · PM & Coach</p>
           </div>
           <div class="absolute inset-0 bg-[rgba(168,117,255,.04)] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -416,7 +415,7 @@ footer{background:rgba(8,14,26,.85) !important;backdrop-filter:blur(8px)}
             <span class="text-[11px] font-semibold uppercase tracking-[.15em] text-[#7de8f7]" data-i18n="proj2_tag">Site web · Madrid</span>
             <span class="material-symbols-outlined text-[18px] text-[#00d4ff] group-hover:translate-x-1 transition-transform duration-300">arrow_outward</span>
           </div>
-          <h3 class="font-heading text-[19px] font-bold text-[#f0f8ff] mb-2" data-i18n="proj2_title">Nelly Orozco — Site vitrine & CV interactif</h3>
+          <h3 class="font-heading text-[19px] font-semibold text-[#f0f8ff] mb-2" data-i18n="proj2_title">Nelly Orozco — Site vitrine & CV interactif</h3>
           <p class="text-[13px] font-light text-[#8ab4cc] leading-relaxed" data-i18n="proj2_desc">Site one-page pour une Product Manager Coach à Madrid — chatbot IA intégré, réservation Calendly, design glassmorphism et animations au scroll.</p>
           <div class="flex flex-wrap gap-2 mt-4">
             <span class="skill-tag">HTML/CSS</span>
@@ -436,7 +435,7 @@ footer{background:rgba(8,14,26,.85) !important;backdrop-filter:blur(8px)}
 
     <div class="text-center mb-14">
       <p class="text-[11px] font-label font-semibold uppercase tracking-[.25em] text-[#7de8f7] mb-3 reveal" data-i18n="exp_overline">Parcours</p>
-      <h2 class="font-heading text-[30px] md:text-[40px] font-bold gradient-text reveal pb-1" data-i18n="exp_title">Expérience</h2>
+      <h2 class="font-heading text-[30px] md:text-[40px] font-semibold gradient-text reveal pb-1" data-i18n="exp_title">Expérience</h2>
     </div>
 
     <div class="flex gap-6">
@@ -454,7 +453,7 @@ footer{background:rgba(8,14,26,.85) !important;backdrop-filter:blur(8px)}
 
         <div class="glass-card rounded-2xl p-6 hover:shadow-[0_0_18px_rgba(0,212,255,0.10)] transition-all duration-500 reveal">
           <div class="flex flex-wrap items-start justify-between gap-2 mb-2">
-            <h3 class="font-heading text-[18px] font-bold text-[#f0f8ff]" data-i18n="exp1_title">Fondateur — Omnyx</h3>
+            <h3 class="font-heading text-[18px] font-semibold text-[#f0f8ff]" data-i18n="exp1_title">Fondateur — Omnyx</h3>
             <span class="text-[11px] font-medium text-[#7de8f7] tracking-widest whitespace-nowrap">2024 – <span data-i18n="exp_present">Présent</span></span>
           </div>
           <p class="text-[13px] font-semibold text-[#00d4ff] mb-3">Omnyx Agency · Madrid</p>
@@ -463,7 +462,7 @@ footer{background:rgba(8,14,26,.85) !important;backdrop-filter:blur(8px)}
 
         <div class="glass-card rounded-2xl p-6 hover:shadow-[0_0_18px_rgba(0,212,255,0.10)] transition-all duration-500 reveal">
           <div class="flex flex-wrap items-start justify-between gap-2 mb-2">
-            <h3 class="font-heading text-[18px] font-bold text-[#f0f8ff]" data-i18n="exp2_title">Responsable Partenariats</h3>
+            <h3 class="font-heading text-[18px] font-semibold text-[#f0f8ff]" data-i18n="exp2_title">Responsable Partenariats</h3>
             <span class="text-[11px] font-medium text-[#7de8f7] tracking-widest">2022 – 2024</span>
           </div>
           <p class="text-[13px] font-semibold text-[#00d4ff] mb-3"><a href="https://www.markchain.fr" target="_blank" rel="noopener" class="hover:text-[#7de8f7] transition-colors">Markchain</a> · Agence Marketing Crypto</p>
@@ -472,7 +471,7 @@ footer{background:rgba(8,14,26,.85) !important;backdrop-filter:blur(8px)}
 
         <div class="glass-card rounded-2xl p-6 hover:shadow-[0_0_18px_rgba(0,212,255,0.10)] transition-all duration-500 reveal">
           <div class="flex flex-wrap items-start justify-between gap-2 mb-2">
-            <h3 class="font-heading text-[18px] font-bold text-[#f0f8ff]" data-i18n="exp3_title">Marketing Digital</h3>
+            <h3 class="font-heading text-[18px] font-semibold text-[#f0f8ff]" data-i18n="exp3_title">Marketing Digital</h3>
             <span class="text-[11px] font-medium text-[#7de8f7] tracking-widest">2021 – 2022</span>
           </div>
           <p class="text-[13px] font-semibold text-[#00d4ff] mb-3"><a href="https://www.akkodis.com" target="_blank" rel="noopener" class="hover:text-[#7de8f7] transition-colors">AKKODIS</a></p>
@@ -481,7 +480,7 @@ footer{background:rgba(8,14,26,.85) !important;backdrop-filter:blur(8px)}
 
         <div class="glass-card rounded-2xl p-6 hover:shadow-[0_0_18px_rgba(0,212,255,0.10)] transition-all duration-500 reveal">
           <div class="flex flex-wrap items-start justify-between gap-2 mb-2">
-            <h3 class="font-heading text-[18px] font-bold text-[#f0f8ff]" data-i18n="exp4_title">Marketing Digital</h3>
+            <h3 class="font-heading text-[18px] font-semibold text-[#f0f8ff]" data-i18n="exp4_title">Marketing Digital</h3>
             <span class="text-[11px] font-medium text-[#7de8f7] tracking-widest">2020 – 2021</span>
           </div>
           <p class="text-[13px] font-semibold text-[#00d4ff] mb-3"><a href="https://www.thalesgroup.com" target="_blank" rel="noopener" class="hover:text-[#7de8f7] transition-colors">Thales</a> Civil Aviation</p>
@@ -498,7 +497,7 @@ footer{background:rgba(8,14,26,.85) !important;backdrop-filter:blur(8px)}
   <div class="max-w-xl mx-auto text-center">
 
     <p class="text-[11px] font-label font-semibold uppercase tracking-[.25em] text-[#7de8f7] mb-3 reveal" data-i18n="contact_overline">Contact</p>
-    <h2 class="font-heading text-[30px] md:text-[40px] font-bold gradient-text mb-4 reveal pb-1" data-i18n="contact_title">Travaillons ensemble</h2>
+    <h2 class="font-heading text-[30px] md:text-[40px] font-semibold gradient-text mb-4 reveal pb-1" data-i18n="contact_title">Travaillons ensemble</h2>
     <p class="text-[16px] font-light text-[#8ab4cc] mb-10 reveal" data-i18n="contact_desc">Vos prochains clients sont à 30 minutes d'appel. Réservez. On construit ensemble.</p>
 
     <!-- Calendly CTA — remplacer href par votre lien Calendly -->
