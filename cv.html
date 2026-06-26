@@ -11,19 +11,20 @@
 
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lora:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <script id="tailwind-config">
-tailwind.config={darkMode:"class",theme:{extend:{colors:{"deep-navy":"#060c18","main-bg":"#080e1a","card-bg":"#0d1a2e","soft-white":"#f0f8ff","muted-text":"#8ab4cc","soft-cyan":"#7de8f7","cyan-glow":"#00d4ff"},fontFamily:{heading:["Playfair Display","serif"],body:["Inter","sans-serif"]},boxShadow:{"neon-cyan":"0 0 20px rgba(0,212,255,0.4)","neon-cyan-strong":"0 0 30px rgba(0,212,255,0.6)","glass":"0 8px 32px 0 rgba(0,0,0,0.5)"}}}}
+tailwind.config={darkMode:"class",theme:{extend:{colors:{"deep-navy":"#060c18","main-bg":"#080e1a","card-bg":"#0d1a2e","soft-white":"#f0f8ff","muted-text":"#8ab4cc","soft-cyan":"#7de8f7","cyan-glow":"#00d4ff"},fontFamily:{heading:["Space Grotesk","sans-serif"],body:["Space Grotesk","sans-serif"]},boxShadow:{"neon-cyan":"0 0 20px rgba(0,212,255,0.4)","neon-cyan-strong":"0 0 30px rgba(0,212,255,0.6)","glass":"0 8px 32px 0 rgba(0,0,0,0.5)"}}}}
 </script>
 
 <style>
 html{background:linear-gradient(180deg,#060c18 0%,#0a1628 12%,#080e1a 28%,#0b1220 45%,#080e1a 60%,#091526 78%,#080e1a 100%);min-height:100%}
-body{background:transparent;color:#f0f8ff;font-family:"Inter",sans-serif}
-h1,h2,h3,h4,h5,h6,.font-heading{font-family:"Playfair Display",serif}
-h1.gradient-text{font-family:"Lora",serif!important}
+body{background:transparent;color:#f0f8ff;font-family:"Space Grotesk",sans-serif}*{font-family:"Space Grotesk",sans-serif}input,textarea,select,button{font-family:"Space Grotesk",sans-serif}
+h1,h2,h3,h4,h5,h6,.font-heading{font-family:"Space Grotesk",sans-serif;font-weight:600;letter-spacing:-0.03em}
+h1.gradient-text{font-family:"Space Grotesk",sans-serif!important;letter-spacing:-0.03em}
+p,li,span,div{letter-spacing:0.01em}
 
 .gradient-text{
   background:linear-gradient(135deg,#f0f8ff 0%,#b3ecff 25%,#00d4ff 50%,#7de8f7 75%,#f0f8ff 100%);
@@ -91,7 +92,6 @@ footer{background:rgba(8,14,26,.85) !important;backdrop-filter:blur(8px)}
       <span class="material-symbols-outlined text-[18px]">arrow_back</span>
       <span data-i18n="nav_back">Retour au site</span>
     </a>
-    <a href="index.html" class="font-heading text-xl font-bold gradient-text">Bryan Blaevoet</a>
     <div class="flex items-center gap-2 text-[12px] font-semibold tracking-widest">
       <button class="lang-btn active text-[#8ab4cc]" data-lang="fr" onclick="setLanguage('fr')">FR</button>
       <span class="text-[#8ab4cc] opacity-30">·</span>
@@ -111,7 +111,7 @@ footer{background:rgba(8,14,26,.85) !important;backdrop-filter:blur(8px)}
       <!-- Photo -->
       <div class="flex-shrink-0 reveal">
         <div class="relative w-48 h-48 md:w-56 md:h-56">
-          <img src="assets/photo-bryan.jpg" alt="Bryan Blaevoet"
+          <img src="assets/photo-profil-omnyx.png" alt="Bryan Blaevoet"
                class="w-full h-full object-cover object-top rounded-full border-2 border-[rgba(0,212,255,.35)] shadow-[0_0_28px_rgba(0,212,255,0.20)]"
                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
           <div class="absolute inset-0 rounded-full border-2 border-[rgba(0,212,255,.35)] bg-[rgba(13,26,46,.6)] items-center justify-center shadow-[0_0_28px_rgba(0,212,255,0.20)]" style="display:none">
@@ -310,9 +310,26 @@ footer{background:rgba(8,14,26,.85) !important;backdrop-filter:blur(8px)}
         <div class="timeline-dot"></div>
         <div class="timeline-line flex-1 my-2"></div>
         <div class="timeline-dot"></div>
+        <div class="timeline-line flex-1 my-2"></div>
+        <div class="timeline-dot"></div>
       </div>
 
       <div class="flex-1 space-y-7">
+
+        <div class="glass-card rounded-2xl p-6 hover:shadow-[0_0_18px_rgba(0,212,255,0.10)] transition-all duration-500 reveal">
+          <div class="flex flex-wrap items-start justify-between gap-2 mb-1">
+            <h3 class="font-heading text-[18px] font-bold text-[#f0f8ff]" data-i18n="exp1_title">Fondateur — Omnyx</h3>
+            <span class="text-[11px] font-medium text-[#7de8f7] tracking-widest whitespace-nowrap">2026 – <span data-i18n="exp_present">Création en cours</span></span>
+          </div>
+          <p class="text-[13px] font-semibold text-[#00d4ff] mb-3"><a href="https://omnyx.agency" target="_blank" rel="noopener" class="hover:text-[#7de8f7] transition-colors">Omnyx</a> · Agence Marketing · AI · Madrid</p>
+          <p class="text-[14px] font-light text-[#8ab4cc] leading-relaxed mb-4" data-i18n="exp1_desc">Création et développement d'Omnyx, agence Marketing · AI basée à Madrid. Marketing digital, automatisation, agents IA, chatbots et stratégie de contenu pour fondateurs Web2 et Web3.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-tag" data-i18n="badge_ai">Agents IA</span>
+            <span class="skill-tag" data-i18n="badge_automation">Automatisation</span>
+            <span class="skill-tag" data-i18n="badge_digital">Marketing digital</span>
+            <span class="skill-tag" data-i18n="badge_content">Création de contenu</span>
+          </div>
+        </div>
 
         <div class="glass-card rounded-2xl p-6 hover:shadow-[0_0_18px_rgba(0,212,255,0.10)] transition-all duration-500 reveal">
           <div class="flex flex-wrap items-start justify-between gap-2 mb-1">
@@ -331,15 +348,15 @@ footer{background:rgba(8,14,26,.85) !important;backdrop-filter:blur(8px)}
 
         <div class="glass-card rounded-2xl p-6 hover:shadow-[0_0_18px_rgba(0,212,255,0.10)] transition-all duration-500 reveal">
           <div class="flex flex-wrap items-start justify-between gap-2 mb-1">
-            <h3 class="font-heading text-[18px] font-bold text-[#f0f8ff]" data-i18n="exp3_title">Marketing Digital</h3>
+            <h3 class="font-heading text-[18px] font-bold text-[#f0f8ff]" data-i18n="exp3_title">Assistant Chef de Projet</h3>
             <span class="text-[11px] font-medium text-[#7de8f7] tracking-widest">Mai – Nov. 2018</span>
           </div>
           <p class="text-[13px] font-semibold text-[#00d4ff] mb-3"><a href="https://www.akkodis.com" target="_blank" rel="noopener" class="hover:text-[#7de8f7] transition-colors">AKKODIS</a> Aerospace & Defence · Blagnac</p>
           <p class="text-[14px] font-light text-[#8ab4cc] leading-relaxed mb-4" data-i18n="exp3_desc">Support sur un projet d'optimisation de la gestion documentaire en phase avant-vente. Organisation d'ateliers, animation de réunions et développement d'outils pour les équipes commerciales.</p>
           <div class="flex flex-wrap gap-2">
-            <span class="skill-tag" data-i18n="badge_digital">Marketing digital</span>
-            <span class="skill-tag" data-i18n="badge_social">Réseaux sociaux</span>
-            <span class="skill-tag">Communication</span>
+            <span class="skill-tag" data-i18n="badge_pm">Gestion de projet</span>
+            <span class="skill-tag" data-i18n="badge_workshops">Ateliers &amp; réunions</span>
+            <span class="skill-tag">Aerospace</span>
           </div>
         </div>
 
@@ -562,18 +579,20 @@ const t = {
     skill_strategy:"Stratégie marketing digitale",skill_branding:"Image de marque",
     skill_partnerships:"Partenariats & Influence",skill_automation:"Automatisation marketing",
     section_experience:"Expérience professionnelle",
-    exp1_title:"Fondateur — Agence Marketing IA",
-    exp1_desc:"Création d'une agence spécialisée en marketing digital et IA. Sites web sur mesure, agents IA, chatbots, gestion des réseaux sociaux, création de contenu et image de marque pour des clients variés.",
+    exp1_title:"Fondateur — Omnyx",
+    exp1_desc:"Création et développement d'Omnyx, agence Marketing · AI basée à Madrid. Marketing digital, automatisation, agents IA, chatbots et stratégie de contenu pour fondateurs Web2 et Web3.",
     exp2_title:"Responsable Partenariats",
     exp2_desc:"Développement des partenariats stratégiques, gestion des relations influenceurs et pilotage de campagnes marketing digitales dans l'écosystème crypto. Réseau de contacts haut niveau.",
-    exp3_title:"Marketing Digital",
-    exp3_desc:"Stratégie et exécution marketing digital pour un acteur majeur du conseil en ingénierie et technologie. Gestion des contenus, réseaux sociaux et communication externe.",
+    exp3_title:"Assistant Chef de Projet",
+    exp3_desc:"Support sur un projet d'optimisation de la gestion documentaire en phase avant-vente. Organisation d'ateliers, animation de réunions et développement d'outils pour les équipes commerciales.",
     exp4_title:"Marketing Digital",
     exp4_desc:"Marketing digital dans la division aviation civile du groupe Thales. Communication institutionnelle, gestion de contenus et présence digitale pour une marque internationale.",
-    exp_present:"Présent",
+    exp_present:"Création en cours",
     badge_content:"Création de contenu",badge_campaigns:"Campagnes digitales",
     badge_digital:"Marketing digital",badge_social:"Réseaux sociaux",
     badge_institutional:"Communication institutionnelle",
+    badge_pm:"Gestion de projet",badge_workshops:"Ateliers & réunions",
+    badge_ai:"Agents IA",badge_automation:"Automatisation",
     section_tools:"Outils maîtrisés",
     section_languages:"Langues",
     lang_fr:"Français",lang_native:"Langue maternelle",lang_proficient:"Courant",lang_advanced:"Avancé",
@@ -608,18 +627,20 @@ const t = {
     skill_strategy:"Digital Marketing Strategy",skill_branding:"Brand Identity",
     skill_partnerships:"Partnerships & Influence",skill_automation:"Marketing Automation",
     section_experience:"Professional Experience",
-    exp1_title:"Founder — AI Marketing Agency",
-    exp1_desc:"Created an agency specializing in digital marketing and AI. Custom websites, AI agents, chatbots, social media management, content creation and brand identity for various clients.",
+    exp1_title:"Founder — Omnyx",
+    exp1_desc:"Building Omnyx, a Marketing · AI agency based in Madrid. Digital marketing, automation, AI agents, chatbots and content strategy for Web2 and Web3 founders.",
     exp2_title:"Partnerships Manager",
     exp2_desc:"Development of strategic partnerships, influencer relationship management and digital marketing campaigns in the crypto ecosystem. High-level contact network.",
-    exp3_title:"Digital Marketing",
-    exp3_desc:"Digital marketing strategy and execution for a major player in engineering and technology consulting. Content management, social media and external communication.",
+    exp3_title:"Assistant Project Manager",
+    exp3_desc:"Support for a project to optimise document management in the pre-sales phase. Organising workshops, chairing meetings and developing tools for sales managers.",
     exp4_title:"Digital Marketing",
     exp4_desc:"Digital marketing within the civil aviation division of Thales Group. Institutional communication, content management and digital presence for an international brand.",
-    exp_present:"Present",
+    exp_present:"In creation",
     badge_content:"Content Creation",badge_campaigns:"Digital Campaigns",
     badge_digital:"Digital Marketing",badge_social:"Social Media",
     badge_institutional:"Institutional Communication",
+    badge_pm:"Project Management",badge_workshops:"Workshops & meetings",
+    badge_ai:"AI Agents",badge_automation:"Automation",
     section_tools:"Tools",
     section_languages:"Languages",
     lang_fr:"French",lang_native:"Native",lang_proficient:"Fluent",lang_advanced:"Advanced",
@@ -654,18 +675,20 @@ const t = {
     skill_strategy:"Estrategia de marketing digital",skill_branding:"Imagen de marca",
     skill_partnerships:"Partnerships e Influencia",skill_automation:"Automatización de marketing",
     section_experience:"Experiencia profesional",
-    exp1_title:"Fundador — Agencia Marketing IA",
-    exp1_desc:"Creación de una agencia especializada en marketing digital e IA. Sitios web a medida, agentes IA, chatbots, gestión de redes sociales, creación de contenido e imagen de marca para clientes variados.",
+    exp1_title:"Fundador — Omnyx",
+    exp1_desc:"Creación y desarrollo de Omnyx, agencia Marketing · AI con base en Madrid. Marketing digital, automatización, agentes IA, chatbots y estrategia de contenido para fundadores Web2 y Web3.",
     exp2_title:"Responsable de Partnerships",
     exp2_desc:"Desarrollo de partnerships estratégicos, gestión de relaciones con influencers y campañas de marketing digital en el ecosistema cripto. Red de contactos de alto nivel.",
-    exp3_title:"Marketing Digital",
-    exp3_desc:"Estrategia y ejecución de marketing digital para un actor líder en consultoría de ingeniería y tecnología. Gestión de contenidos, redes sociales y comunicación externa.",
+    exp3_title:"Asistente de Jefe de Proyecto",
+    exp3_desc:"Apoyo en un proyecto de optimización de la gestión documental en la fase de preventa. Organización de talleres, dirección de reuniones y desarrollo de herramientas para los equipos comerciales.",
     exp4_title:"Marketing Digital",
     exp4_desc:"Marketing digital en la división de aviación civil del Grupo Thales. Comunicación institucional, gestión de contenidos y presencia digital para una marca internacional.",
-    exp_present:"Presente",
+    exp_present:"En creación",
     badge_content:"Creación de contenido",badge_campaigns:"Campañas digitales",
     badge_digital:"Marketing digital",badge_social:"Redes sociales",
     badge_institutional:"Comunicación institucional",
+    badge_pm:"Gestión de proyectos",badge_workshops:"Talleres y reuniones",
+    badge_ai:"Agentes IA",badge_automation:"Automatización",
     section_tools:"Herramientas",
     section_languages:"Idiomas",
     lang_fr:"Francés",lang_native:"Lengua materna",lang_proficient:"Fluido",lang_advanced:"Avanzado",
