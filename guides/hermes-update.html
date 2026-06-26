@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="La plus grosse mise à jour de Hermès Agent décryptée : iMessage, agents en arrière-plan, profils spécialisés, Skills Hub. Ce qui change vraiment pour qui utilise des agents IA au quotidien.">
+<title>La grosse update de Hermès Agent — décryptage | Bryan Blaevoet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-darkest:#060c18;
+    --bg-main:#080e1a;
+    --bg-card:#0d1a2e;
+    --accent:#00d4ff;
+    --accent-soft:#7de8f7;
+    --text-primary:#f0f8ff;
+    --text-secondary:#8ab4cc;
+    --border-soft:rgba(0,212,255,0.16);
+    --border-strong:rgba(0,212,255,0.32);
+    --warn:#ff8a65;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation:none !important; transition:none !important;}
+  }
+
+  body{
+    margin:0;
+    background:var(--bg-main);
+    color:var(--text-primary);
+    font-family:'Inter', system-ui, sans-serif;
+    line-height:1.65;
+    font-size:16px;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1, h2, h3{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:600;
+    line-height:1.2;
+    margin:0;
+  }
+
+  a{color:var(--accent); text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  a:focus-visible, button:focus-visible{outline:2px solid var(--accent); outline-offset:3px;}
+
+  .wrap{max-width:760px; margin:0 auto; padding:0 24px;}
+
+  /* Header */
+  header.site-header{
+    background:var(--bg-darkest);
+    border-bottom:1px solid var(--border-soft);
+    position:sticky; top:0; z-index:50;
+  }
+  .site-header-inner{
+    max-width:760px; margin:0 auto; padding:18px 24px;
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+  }
+  .logo-link{
+    font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:17px;
+    color:var(--text-primary);
+  }
+  .logo-link:hover{text-decoration:none; color:var(--accent-soft);}
+  .btn-cta{
+    background:var(--accent); color:#02131f; font-weight:600; font-size:14px;
+    padding:9px 18px; border-radius:8px; white-space:nowrap;
+    transition:background 0.15s ease, transform 0.15s ease;
+  }
+  .btn-cta:hover{background:var(--accent-soft); text-decoration:none; transform:translateY(-1px);}
+
+  /* Hero */
+  .hero{padding:56px 0 32px;}
+  .eyebrow-row{
+    display:flex; gap:10px; align-items:center; flex-wrap:wrap;
+    font-size:13px; color:var(--text-secondary); margin-bottom:18px;
+    font-weight:500; letter-spacing:0.02em;
+  }
+  .eyebrow-row .dot{color:var(--border-strong);}
+  .eyebrow-tag{color:var(--accent-soft);}
+
+  h1.title{
+    font-size:clamp(28px, 5vw, 40px);
+    color:var(--text-primary);
+    margin-bottom:18px;
+  }
+  h1.title em{
+    display:block; font-style:normal; color:var(--accent-soft); font-weight:500;
+    font-size:0.85em; margin-top:4px;
+  }
+
+  .subtitle{
+    font-size:17px; color:var(--text-secondary); max-width:600px; margin-bottom:32px;
+  }
+
+  /* Stats box */
+  .stats-box{
+    background:var(--bg-card);
+    border:1px solid var(--border-soft);
+    border-radius:14px;
+    padding:24px 28px;
+  }
+  .stats-box .stats-label{
+    font-size:14px; color:var(--text-secondary); margin-bottom:14px;
+    display:flex; gap:8px; align-items:center;
+  }
+  .stats-list{list-style:none; margin:0; padding:0; display:grid; gap:10px;}
+  .stats-list li{
+    font-size:15px; color:var(--text-primary); display:flex; gap:10px; align-items:baseline;
+  }
+  .stats-list li .arrow{color:var(--accent); flex-shrink:0;}
+  .stats-list strong{color:var(--accent-soft); font-weight:600;}
+
+  /* Intro box */
+  .intro-box{
+    margin:36px 0 48px;
+    background:linear-gradient(135deg, var(--bg-card), var(--bg-darkest));
+    border:1px solid var(--border-strong);
+    border-radius:16px;
+    padding:32px 28px;
+  }
+  .intro-box .intro-emoji{font-size:22px; margin-bottom:10px; display:block;}
+  .intro-box h2{font-size:21px; color:var(--text-primary); margin-bottom:12px;}
+  .intro-box p{color:var(--text-secondary); margin:0; font-size:15.5px;}
+
+  /* TOC nav */
+  .toc{
+    margin:0 0 56px;
+    background:var(--bg-card);
+    border:1px solid var(--border-soft);
+    border-radius:14px;
+    padding:22px 26px;
+  }
+  .toc-label{font-size:13px; color:var(--text-secondary); margin-bottom:14px; font-weight:600; text-transform:uppercase; letter-spacing:0.05em;}
+  .toc ol{list-style:none; margin:0; padding:0; display:grid; gap:9px;}
+  .toc ol li a{
+    display:flex; gap:10px; color:var(--text-primary); font-size:14.5px; padding:2px 0;
+  }
+  .toc ol li a:hover{color:var(--accent-soft); text-decoration:none;}
+  .toc ol li a .num{color:var(--accent); font-family:'JetBrains Mono', monospace; font-size:13px; flex-shrink:0;}
+
+  /* Parts */
+  .part{margin-bottom:64px;}
+  .part-eyebrow{
+    font-size:13px; font-weight:700; letter-spacing:0.08em; color:var(--accent);
+    margin-bottom:10px; display:flex; align-items:center; gap:8px;
+  }
+  .part > h2{font-size:clamp(22px, 4vw, 28px); margin-bottom:22px;}
+  .part > h2 em{display:block; font-style:normal; color:var(--text-secondary); font-weight:500; font-size:0.7em; margin-top:6px;}
+
+  .part p{color:var(--text-primary); margin:0 0 18px; font-size:15.5px;}
+  .part p.muted{color:var(--text-secondary);}
+
+  /* Callout boxes */
+  .callout{
+    border-radius:12px; padding:20px 22px; margin:22px 0;
+    border:1px solid var(--border-soft);
+    background:var(--bg-card);
+  }
+  .callout .callout-label{
+    font-size:13px; font-weight:700; margin-bottom:8px; display:flex; gap:8px; align-items:center;
+  }
+  .callout p{margin:0; font-size:14.5px; color:var(--text-secondary);}
+  .callout.warn{border-color:rgba(255,138,101,0.35);}
+  .callout.warn .callout-label{color:var(--warn);}
+  .callout.tip .callout-label{color:var(--accent-soft);}
+  .callout.action{background:linear-gradient(135deg, var(--bg-card), var(--bg-darkest)); border-color:var(--border-strong);}
+  .callout.action .callout-label{color:var(--accent);}
+  .callout.compare .callout-label{color:var(--accent-soft);}
+  .callout.compare p strong{color:var(--text-primary); font-weight:600;}
+
+  /* Step cards */
+  .step{
+    display:grid; grid-template-columns:64px 1fr; gap:20px;
+    margin-bottom:44px;
+  }
+  .step-num{
+    font-family:'Space Grotesk', sans-serif; font-size:34px; font-weight:700;
+    color:var(--accent-soft); opacity:0.55; line-height:1;
+  }
+  .step-body h3{font-size:19px; color:var(--text-primary); margin-bottom:6px;}
+  .step-tag{
+    font-size:12.5px; color:var(--text-secondary); font-family:'JetBrains Mono', monospace;
+    margin-bottom:14px; display:block;
+  }
+  .step-body p{color:var(--text-primary); margin:0 0 14px; font-size:15.5px;}
+  .step-body p.muted{color:var(--text-secondary);}
+
+  /* Rules list */
+  .rules{list-style:none; margin:0; padding:0; display:grid; gap:18px;}
+  .rules li{
+    display:grid; grid-template-columns:28px 1fr; gap:14px;
+    background:var(--bg-card); border:1px solid var(--border-soft); border-radius:12px;
+    padding:18px 20px;
+  }
+  .rule-icon{color:var(--accent); font-size:17px;}
+  .rules h4{margin:0 0 6px; font-size:15.5px; color:var(--text-primary); font-family:'Inter', sans-serif; font-weight:600;}
+  .rules p{margin:0; font-size:14px; color:var(--text-secondary);}
+
+  /* Closing CTA */
+  .closing{margin:64px 0 0;}
+  .closing > h2{font-size:clamp(22px, 4vw, 28px); margin-bottom:14px;}
+  .closing > p{color:var(--text-secondary); font-size:15.5px; margin-bottom:32px; max-width:560px;}
+
+  .closing-cta-final{
+    background:linear-gradient(135deg, var(--bg-card), var(--bg-darkest));
+    border:1px solid var(--border-strong); border-radius:16px;
+    padding:30px 28px; text-align:center;
+  }
+  .closing-cta-final .btn-big{
+    display:inline-block; background:var(--accent); color:#02131f; font-weight:600;
+    font-size:15px; padding:13px 28px; border-radius:9px; margin-bottom:10px;
+    transition:background 0.15s ease, transform 0.15s ease;
+  }
+  .closing-cta-final .btn-big:hover{background:var(--accent-soft); text-decoration:none; transform:translateY(-1px);}
+  .closing-cta-final .fine-print{font-size:13px; color:var(--text-secondary); margin:0;}
+
+  /* Footer */
+  footer.site-footer{
+    border-top:1px solid var(--border-soft);
+    margin-top:72px;
+    padding:32px 0 48px;
+  }
+  .footer-name{font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:15px; color:var(--text-primary); margin-bottom:4px;}
+  .footer-meta{font-size:13px; color:var(--text-secondary); margin-bottom:18px;}
+  .footer-links{display:flex; gap:18px; flex-wrap:wrap; font-size:13.5px;}
+
+  @media(max-width:540px){
+    .step{grid-template-columns:1fr; gap:8px;}
+    .step-num{font-size:24px; opacity:0.5;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="logo-link" href="https://bryan-blaevoet.vercel.app/index.html">Bryan Blaevoet</a>
+    <a class="btn-cta" href="https://bryan-blaevoet.vercel.app/index.html#contact">Prendre un RDV</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="hero">
+    <div class="eyebrow-row">
+      <span class="eyebrow-tag">Décryptage IA</span>
+      <span class="dot">·</span>
+      <span>Agents IA</span>
+      <span class="dot">·</span>
+      <span>Lecture 6 min</span>
+    </div>
+
+    <h1 class="title">La grosse update de Hermès Agent
+      <em>Quand l'agent IA arrête d'être une démo et devient un poste de travail</em>
+    </h1>
+
+    <p class="subtitle">Hermès vient de sortir sa plus grosse mise à jour. iMessage, agents en arrière-plan, profils spécialisés, Skills Hub. Voici ce qui change vraiment, vu de mon poste de builder qui s'en sert tous les jours.</p>
+
+    <div class="stats-box">
+      <div class="stats-label">💡 Ce que tu retiens de cette update en 30 secondes :</div>
+      <ul class="stats-list">
+        <li><span class="arrow">→</span><span>L'agent sort enfin du terminal de dev : <strong>iMessage, Telegram, app desktop</strong></span></li>
+        <li><span class="arrow">→</span><span>Plus une tâche à la fois, mais des <strong>sous-agents en parallèle</strong> pendant que tu continues</span></li>
+        <li><span class="arrow">→</span><span>Plus un assistant généraliste, mais une <strong>équipe d'agents spécialisés</strong> que tu pilotes</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="intro-box">
+    <span class="intro-emoji">🚀</span>
+    <h2>Une mise à jour. Trois phases d'évolution franchies d'un coup.</h2>
+    <p>J'utilise Hermès Agent comme hub central de mes agents IA. Cette update n'ajoute pas juste des fonctionnalités : elle fait passer l'agent du statut de « truc qu'on lance ponctuellement » à celui de système de travail continu, accessible partout, capable de se spécialiser et de s'améliorer. Voici les 8 nouveautés qui comptent, et ce qu'elles changent concrètement.</p>
+  </section>
+
+  <nav class="toc">
+    <div class="toc-label">Au sommaire</div>
+    <ol>
+      <li><a href="#n1"><span class="num">01</span><span>Support natif d'iMessage</span></a></li>
+      <li><a href="#n2"><span class="num">02</span><span>Les agents en arrière-plan</span></a></li>
+      <li><a href="#n3"><span class="num">03</span><span>L'arbre de sous-agents</span></a></li>
+      <li><a href="#n4"><span class="num">04</span><span>La nouvelle app desktop</span></a></li>
+      <li><a href="#n5"><span class="num">05</span><span>Le Profile Builder</span></a></li>
+      <li><a href="#n6"><span class="num">06</span><span>Le Skills Hub</span></a></li>
+      <li><a href="#n7"><span class="num">07</span><span>Mémoire et skills auto-améliorés</span></a></li>
+      <li><a href="#n8"><span class="num">08</span><span>Telegram + Unreal Engine 5.8</span></a></li>
+      <li><a href="#bilan"><span class="num">→</span><span>Le bilan : on ne parle plus d'un chatbot</span></a></li>
+    </ol>
+  </nav>
+
+  <section class="part">
+    <div class="step" id="n1">
+      <div class="step-num">01</div>
+      <div class="step-body">
+        <h3>Support natif d'iMessage</h3>
+        <span class="step-tag">via Photon · accessibilité</span>
+        <p>Hermès peut maintenant se piloter directement depuis iMessage. Tu parles à ton agent comme à un contact dans ta liste de messages.</p>
+        <p class="muted">Tu lui demandes une analyse, une recherche, une action sur ton ordi, un résumé rapide — sans ouvrir la moindre interface technique. C'est important : l'usage des agents ne doit pas rester coincé dans un environnement de développeur. Plus l'agent est accessible depuis tes outils du quotidien, plus il devient réellement utile.</p>
+      </div>
+    </div>
+
+    <div class="step" id="n2">
+      <div class="step-num">02</div>
+      <div class="step-body">
+        <h3>Les agents en arrière-plan</h3>
+        <span class="step-tag">parallélisation des tâches</span>
+        <p>Avant, une tâche longue te bloquait : l'agent travaillait, toi tu attendais. Maintenant Hermès lance des sous-agents automatiquement.</p>
+        <p class="muted">Ces sous-agents bossent sur des tâches complexes pendant que tu continues à discuter avec l'agent principal. On passe d'un assistant qui exécute une chose à la fois à un système capable de travailler en parallèle.</p>
+        <div class="callout compare">
+          <div class="callout-label">⚖️ Avant / après</div>
+          <p><strong>Avant :</strong> tu lances une grosse tâche → tu attends la fin → tu enchaînes.<br><strong>Après :</strong> tu lances → un sous-agent prend le relais → tu continues à bosser en même temps.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="step" id="n3">
+      <div class="step-num">03</div>
+      <div class="step-body">
+        <h3>L'arbre de sous-agents</h3>
+        <span class="step-tag">transparence · supervision</span>
+        <p>L'interface te montre quels sous-agents sont actifs, ce qu'ils font, les outils utilisés et l'avancement global.</p>
+        <p class="muted">Cette transparence est essentielle. Si les agents gèrent des tâches importantes, il faut pouvoir comprendre ce qu'ils font, où ils en sont et pourquoi ils prennent telle ou telle action. Sans ça, tu délègues à l'aveugle.</p>
+      </div>
+    </div>
+
+    <div class="step" id="n4">
+      <div class="step-num">04</div>
+      <div class="step-body">
+        <h3>La nouvelle app desktop</h3>
+        <span class="step-tag">le cockpit de travail</span>
+        <p>Tu peux ouvrir plusieurs conversations dans des fenêtres séparées, changer de modèle rapidement, utiliser un terminal intégré et suivre les agents actifs sans quitter l'interface.</p>
+        <p class="muted">L'app desktop devient moins un simple chat IA, et davantage un vrai cockpit de travail. C'est un détail qui change tout sur l'usage quotidien.</p>
+      </div>
+    </div>
+
+    <div class="step" id="n5">
+      <div class="step-num">05</div>
+      <div class="step-body">
+        <h3>Le Profile Builder</h3>
+        <span class="step-tag">agents spécialisés</span>
+        <p>Tu peux créer plusieurs profils d'agents spécialisés. Un pour coder, un pour la recherche, un pour la mémoire, un pour l'analyse, un pour le créatif.</p>
+        <p class="muted">Chaque profil a son propre modèle, ses propres skills, son propre rôle. C'est probablement l'un des usages les plus puissants des agents IA : ne plus avoir un seul assistant généraliste, mais plusieurs spécialistes qui collaborent autour de tes besoins.</p>
+        <div class="callout tip">
+          <div class="callout-label">💡 Le bon réflexe</div>
+          <p>Pense équipe, pas couteau suisse. Un agent qui sait tout faire moyennement vaut moins que trois agents qui font une chose très bien — chacun avec le modèle adapté à sa tâche.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="step" id="n6">
+      <div class="step-num">06</div>
+      <div class="step-body">
+        <h3>Le Skills Hub</h3>
+        <span class="step-tag">bibliothèque de compétences</span>
+        <p>Un hub te permet de parcourir, installer ou analyser des skills. Une bibliothèque de capacités supplémentaires pour personnaliser Hermès.</p>
+        <p class="muted">Ça montre une tendance de fond : les agents ne seront pas seulement définis par le modèle utilisé, mais aussi par les outils, les skills et les workflows qu'on leur donne. Le modèle est le moteur. Les skills sont ce qui fait la différence.</p>
+      </div>
+    </div>
+
+    <div class="step" id="n7">
+      <div class="step-num">07</div>
+      <div class="step-body">
+        <h3>Mémoire et skills auto-améliorés</h3>
+        <span class="step-tag">l'agent qui apprend de lui-même</span>
+        <p>Hermès améliore plus souvent ses propres skills, les corrige et les adapte au fil de l'utilisation.</p>
+        <p class="muted">C'est sans doute le point le plus important pour la suite. Un bon agent ne doit pas simplement répondre. Il doit s'améliorer, capitaliser sur les tâches passées, devenir plus efficace à chaque utilisation.</p>
+      </div>
+    </div>
+
+    <div class="step" id="n8">
+      <div class="step-num">08</div>
+      <div class="step-body">
+        <h3>Telegram enrichi + Unreal Engine 5.8</h3>
+        <span class="step-tag">formats · intégration MCP</span>
+        <p>Telegram gagne de meilleurs formats : tableaux, listes, gras, streaming plus fluide, réponses plus lisibles. Et Hermès s'intègre à Unreal Engine 5.8 via MCP pour construire des jeux et des environnements 3D avec l'IA.</p>
+        <p class="muted">La forme compte énormément. Un agent utile n'est pas seulement puissant : c'est un agent qui présente l'info clairement, dans le bon canal, au bon moment.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="part" id="bilan">
+    <div class="part-eyebrow">→ LE BILAN</div>
+    <h2>On ne parle plus d'un chatbot<em>On parle d'un système de travail augmenté</em></h2>
+    <p>Ce que cette update montre, c'est que les agents IA entrent dans une nouvelle phase. Et c'est là que se trouve la vraie rupture — pas dans des modèles plus puissants, mais dans des agents plus accessibles, plus spécialisés, plus transparents et capables de bosser en parallèle.</p>
+
+    <ul class="rules">
+      <li>
+        <span class="rule-icon">①</span>
+        <div>
+          <h4>Phase 1 — La démonstration</h4>
+          <p>« Regarde, l'IA peut exécuter une tâche. » Impressionnant, mais ponctuel.</p>
+        </div>
+      </li>
+      <li>
+        <span class="rule-icon">②</span>
+        <div>
+          <h4>Phase 2 — L'intégration</h4>
+          <p>« L'IA est présente dans mes outils du quotidien. » iMessage, Telegram, desktop.</p>
+        </div>
+      </li>
+      <li>
+        <span class="rule-icon">③</span>
+        <div>
+          <h4>Phase 3 — L'orchestration</h4>
+          <p>« Plusieurs agents spécialisés travaillent ensemble pendant que je pilote l'ensemble. » C'est là qu'on bascule.</p>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <section class="closing">
+    <h2>Tu fais déjà tourner des agents en parallèle ?</h2>
+    <p>Si tu en es encore à un seul assistant généraliste, cette update est le bon moment pour penser ton stack autrement. Et si tu veux un coup de main pour mettre des agents IA au service de ton business, on en parle.</p>
+
+    <div class="closing-cta-final">
+      <a class="btn-big" href="https://bryan-blaevoet.vercel.app/index.html#contact">Prendre un RDV</a>
+      <p class="fine-print">Bryan Blaevoet — Omnyx Agency · Marketing, IA &amp; automation</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-name">Bryan Blaevoet</div>
+    <div class="footer-meta">Builder IA · Omnyx Agency · Madrid</div>
+    <div class="footer-links">
+      <a href="https://bryan-blaevoet.vercel.app/index.html">Site</a>
+      <a href="https://bryan-blaevoet.vercel.app/index.html#contact">Contact</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
