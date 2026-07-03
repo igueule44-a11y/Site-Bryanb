@@ -1,44 +1,271 @@
-<!doctype html>
-<html lang="fr" class="scroll-smooth">
+<!DOCTYPE html>
+<html lang="fr">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0"/>
-<meta name="theme-color" content="#080e1a"/>
-<title>Maîtriser ses prompts en 2026 : ce qui a vraiment changé depuis GPT-3.5 | Blog Omnyx</title>
-<meta name="description" content="Les techniques de prompting qui marchent vraiment en 2026 avec les modèles de dernière génération. Différences fondamentales avec 2023, exemples concrets, et erreurs classiques à éviter."/>
-<link rel="canonical" href="https://omnyx.agency/blog/maitriser-prompts-2026.html"/>
-
-<link rel="icon" type="image/png" href="assets/logo-omnyx-nav.png"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow">
+<meta name="description" content="Les techniques de prompting qui marchent vraiment en 2026 avec les modèles de dernière génération. Différences fondamentales avec 2023, exemples concrets, et erreurs classiques à éviter.">
+<title>Maîtriser ses prompts en 2026 — Ce qui a vraiment changé depuis GPT-3.5 — basé sur 18 mois d'usage quotidien | Omnyx</title>
+<link rel="canonical" href="https://omnyx.agency/blog/maitriser-prompts-2026.html">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 <!-- Open Graph -->
-<meta property="og:type" content="article"/>
-<meta property="og:title" content="Maîtriser ses prompts en 2026 : ce qui a vraiment changé depuis GPT-3.5 | Blog Omnyx"/>
-<meta property="og:description" content="Les techniques de prompting qui marchent vraiment en 2026 avec les modèles de dernière génération. Différences fondamentales avec 2023, exemples concrets, et erreurs classiques à éviter."/>
-<meta property="og:url" content="https://omnyx.agency/blog/maitriser-prompts-2026.html"/>
-<meta property="og:image" content="/assets/logo-omnyx.png"/>
-<meta property="og:locale" content="fr_FR"/>
-<meta property="og:site_name" content="Omnyx"/>
+<meta property="og:type" content="article">
+<meta property="og:title" content="Maîtriser ses prompts en 2026 — Ce qui a vraiment changé depuis GPT-3.5 — basé sur 18 mois d'usage quotidien">
+<meta property="og:description" content="Les techniques de prompting qui marchent vraiment en 2026 avec les modèles de dernière génération. Différences fondamentales avec 2023, exemples concrets, et erreurs classiques à éviter.">
+<meta property="og:url" content="https://omnyx.agency/blog/maitriser-prompts-2026.html">
+<meta property="og:image" content="https://omnyx.agency/assets/logo-omnyx.png">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Omnyx">
 
-<!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="Maîtriser ses prompts en 2026 : ce qui a vraiment changé depuis GPT-3.5 | Blog Omnyx"/>
-<meta name="twitter:description" content="Les techniques de prompting qui marchent vraiment en 2026 avec les modèles de dernière génération. Différences fondamentales avec 2023, exemples concrets, et erreurs classiques à éviter."/>
-<meta name="twitter:image" content="/assets/logo-omnyx.png"/>
+<style>
+  :root{
+    --bg-darkest:#060c18;
+    --bg-main:#080e1a;
+    --bg-card:#0d1a2e;
+    --accent:#00d4ff;
+    --accent-soft:#7de8f7;
+    --text-primary:#f0f8ff;
+    --text-secondary:#8ab4cc;
+    --border-soft:rgba(0,212,255,0.16);
+    --border-strong:rgba(0,212,255,0.32);
+    --warn:#ff8a65;
+  }
 
-<!-- Fonts (same as index) -->
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation:none !important; transition:none !important;}
+  }
 
-<link rel="stylesheet" href="blog.css"/>
+  body{
+    margin:0;
+    background:var(--bg-main);
+    color:var(--text-primary);
+    font-family:'Inter', system-ui, sans-serif;
+    line-height:1.65;
+    font-size:16px;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1, h2, h3{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:600;
+    line-height:1.2;
+    margin:0;
+  }
+
+  a{color:var(--accent); text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  a:focus-visible, button:focus-visible{outline:2px solid var(--accent); outline-offset:3px;}
+
+  .wrap{max-width:760px; margin:0 auto; padding:0 24px;}
+
+  /* Header */
+  header.site-header{
+    background:var(--bg-darkest);
+    border-bottom:1px solid var(--border-soft);
+    position:sticky; top:0; z-index:50;
+  }
+  .site-header-inner{
+    max-width:760px; margin:0 auto; padding:12px 24px;
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+  }
+  .logo-link{
+    font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:17px;
+    color:var(--text-primary); display:flex; align-items:center;
+  }
+  .logo-link img{height:60px; width:auto; display:block;}
+  .logo-link:hover{text-decoration:none; color:var(--accent-soft);}
+  .btn-cta{
+    background:var(--accent); color:#02131f; font-weight:600; font-size:14px;
+    padding:9px 18px; border-radius:8px; white-space:nowrap;
+    transition:background 0.15s ease, transform 0.15s ease;
+  }
+  .btn-cta:hover{background:var(--accent-soft); text-decoration:none; transform:translateY(-1px);}
+
+  /* Back link */
+  .back-link{
+    display:inline-flex; align-items:center; gap:6px;
+    font-size:13.5px; color:var(--text-secondary); margin:28px 0 0;
+  }
+  .back-link:hover{color:var(--accent-soft); text-decoration:none;}
+
+  /* Hero */
+  .hero{padding:24px 0 32px;}
+  .eyebrow-row{
+    display:flex; gap:10px; align-items:center; flex-wrap:wrap;
+    font-size:13px; color:var(--text-secondary); margin-bottom:18px;
+    font-weight:500; letter-spacing:0.02em;
+  }
+  .eyebrow-row .dot{color:var(--border-strong);}
+  .eyebrow-tag{color:var(--accent-soft);}
+
+  h1.title{
+    font-size:clamp(28px, 5vw, 40px);
+    color:var(--text-primary);
+    margin-bottom:18px;
+  }
+  h1.title em{
+    display:block; font-style:normal; color:var(--accent-soft); font-weight:500;
+    font-size:0.85em; margin-top:4px;
+  }
+
+  .subtitle{
+    font-size:17px; color:var(--text-secondary); max-width:600px; margin-bottom:32px;
+  }
+
+  /* Stats box */
+  .stats-box{
+    background:var(--bg-card);
+    border:1px solid var(--border-soft);
+    border-radius:14px;
+    padding:24px 28px;
+  }
+  .stats-box .stats-label{
+    font-size:14px; color:var(--text-secondary); margin-bottom:14px;
+    display:flex; gap:8px; align-items:center;
+  }
+  .stats-list{list-style:none; margin:0; padding:0; display:grid; gap:10px;}
+  .stats-list li{
+    font-size:15px; color:var(--text-primary); display:flex; gap:10px; align-items:baseline;
+  }
+  .stats-list li .arrow{color:var(--accent); flex-shrink:0;}
+  .stats-list strong{color:var(--accent-soft); font-weight:600;}
+
+  /* Intro box */
+  .intro-box{
+    margin:36px 0 48px;
+    background:linear-gradient(135deg, var(--bg-card), var(--bg-darkest));
+    border:1px solid var(--border-strong);
+    border-radius:16px;
+    padding:32px 28px;
+  }
+  .intro-box .intro-emoji{font-size:22px; margin-bottom:10px; display:block;}
+  .intro-box h2{font-size:21px; color:var(--text-primary); margin-bottom:12px;}
+  .intro-box p{color:var(--text-secondary); margin:0; font-size:15.5px;}
+
+  /* TOC nav */
+  .toc{
+    margin:0 0 56px;
+    background:var(--bg-card);
+    border:1px solid var(--border-soft);
+    border-radius:14px;
+    padding:22px 26px;
+  }
+  .toc-label{font-size:13px; color:var(--text-secondary); margin-bottom:14px; font-weight:600; text-transform:uppercase; letter-spacing:0.05em;}
+  .toc ol{list-style:none; margin:0; padding:0; display:grid; gap:9px;}
+  .toc ol li a{
+    display:flex; gap:10px; color:var(--text-primary); font-size:14.5px; padding:2px 0;
+  }
+  .toc ol li a:hover{color:var(--accent-soft); text-decoration:none;}
+  .toc ol li a .num{color:var(--accent); font-family:'JetBrains Mono', monospace; font-size:13px; flex-shrink:0;}
+
+  /* Parts */
+  .part{margin-bottom:64px;}
+  .part-eyebrow{
+    font-size:13px; font-weight:700; letter-spacing:0.08em; color:var(--accent);
+    margin-bottom:10px; display:flex; align-items:center; gap:8px;
+  }
+  .part > h2{font-size:clamp(22px, 4vw, 28px); margin-bottom:22px;}
+  .part > h2 em{display:block; font-style:normal; color:var(--text-secondary); font-weight:500; font-size:0.7em; margin-top:6px;}
+
+  .part p{color:var(--text-primary); margin:0 0 18px; font-size:15.5px;}
+  .part p.muted{color:var(--text-secondary);}
+
+  /* Callout boxes */
+  .callout{
+    border-radius:12px; padding:20px 22px; margin:22px 0;
+    border:1px solid var(--border-soft);
+    background:var(--bg-card);
+  }
+  .callout .callout-label{
+    font-size:13px; font-weight:700; margin-bottom:8px; display:flex; gap:8px; align-items:center;
+  }
+  .callout p{margin:0; font-size:14.5px; color:var(--text-secondary); white-space:pre-wrap;}
+  .callout.warn{border-color:rgba(255,138,101,0.35);}
+  .callout.warn .callout-label{color:var(--warn);}
+  .callout.tip .callout-label{color:var(--accent-soft);}
+  .callout.action{background:linear-gradient(135deg, var(--bg-card), var(--bg-darkest)); border-color:var(--border-strong);}
+  .callout.action .callout-label{color:var(--accent);}
+  .callout.compare .callout-label{color:var(--accent-soft);}
+  .callout.compare p strong{color:var(--text-primary); font-weight:600;}
+
+  /* Step cards */
+  .step{
+    display:grid; grid-template-columns:64px 1fr; gap:20px;
+    margin-bottom:44px;
+  }
+  .step-num{
+    font-family:'Space Grotesk', sans-serif; font-size:34px; font-weight:700;
+    color:var(--accent-soft); opacity:0.55; line-height:1;
+  }
+  .step-body h3{font-size:19px; color:var(--text-primary); margin-bottom:6px;}
+  .step-tag{
+    font-size:12.5px; color:var(--text-secondary); font-family:'JetBrains Mono', monospace;
+    margin-bottom:14px; display:block;
+  }
+  .step-body p{color:var(--text-primary); margin:0 0 14px; font-size:15.5px;}
+  .step-body p.muted{color:var(--text-secondary);}
+
+  /* Rules list */
+  .rules{list-style:none; margin:0; padding:0; display:grid; gap:18px;}
+  .rules li{
+    display:grid; grid-template-columns:28px 1fr; gap:14px;
+    background:var(--bg-card); border:1px solid var(--border-soft); border-radius:12px;
+    padding:18px 20px;
+  }
+  .rule-icon{color:var(--accent); font-size:17px;}
+  .rules h4{margin:0 0 6px; font-size:15.5px; color:var(--text-primary); font-family:'Inter', sans-serif; font-weight:600;}
+  .rules p{margin:0; font-size:14px; color:var(--text-secondary);}
+
+  /* Closing CTA */
+  .closing{margin:64px 0 0;}
+  .closing > h2{font-size:clamp(22px, 4vw, 28px); margin-bottom:14px;}
+  .closing > p{color:var(--text-secondary); font-size:15.5px; margin-bottom:32px; max-width:560px;}
+
+  .closing-cta-final{
+    background:linear-gradient(135deg, var(--bg-card), var(--bg-darkest));
+    border:1px solid var(--border-strong); border-radius:16px;
+    padding:30px 28px; text-align:center;
+  }
+  .closing-cta-final .btn-big{
+    display:inline-block; background:var(--accent); color:#02131f; font-weight:600;
+    font-size:15px; padding:13px 28px; border-radius:9px; margin-bottom:10px;
+    transition:background 0.15s ease, transform 0.15s ease;
+  }
+  .closing-cta-final .btn-big:hover{background:var(--accent-soft); text-decoration:none; transform:translateY(-1px);}
+  .closing-cta-final .fine-print{font-size:13px; color:var(--text-secondary); margin:0;}
+
+  /* Footer */
+  footer.site-footer{
+    border-top:1px solid var(--border-soft);
+    margin-top:72px;
+    padding:32px 0 48px;
+  }
+  .footer-name{font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:15px; color:var(--text-primary); margin-bottom:4px;}
+  .footer-meta{font-size:13px; color:var(--text-secondary); margin-bottom:18px;}
+  .footer-links{display:flex; gap:18px; flex-wrap:wrap; font-size:13.5px;}
+
+  @media(max-width:540px){
+    .step{grid-template-columns:1fr; gap:8px;}
+    .step-num{font-size:24px; opacity:0.5;}
+  }
+</style>
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "Maîtriser ses prompts en 2026 : ce qui a vraiment changé depuis GPT-3.5",
+  "headline": "Maîtriser ses prompts en 2026 — Ce qui a vraiment changé depuis GPT-3.5 — basé sur 18 mois d'usage quotidien",
   "description": "Les techniques de prompting qui marchent vraiment en 2026 avec les modèles de dernière génération. Différences fondamentales avec 2023, exemples concrets, et erreurs classiques à éviter.",
+  "datePublished": "2026-07-02",
+  "dateModified": "2026-07-02",
   "author": {
     "@type": "Person",
     "name": "Bryan Blaevoet",
@@ -52,105 +279,168 @@
       "url": "https://omnyx.agency/assets/logo-omnyx.png"
     }
   },
-  "datePublished": "2026-07-02",
-  "dateModified": "2026-07-02",
   "mainEntityOfPage": {
     "@type": "WebPage",
     "@id": "https://omnyx.agency/blog/maitriser-prompts-2026.html"
   },
-  "keywords": "prompts, LLM, Claude, GPT, Gemini, productivité",
+  "keywords": "Coulisses techniques, LLM · prompting",
   "inLanguage": "fr-FR"
 }
 </script>
 </head>
 <body>
-<div class="mesh-bg"></div>
-<script>
-// Reveal-on-scroll observer
-document.addEventListener('DOMContentLoaded',()=>{
-  const els=document.querySelectorAll('.reveal');
-  const io=new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('active');io.unobserve(e.target);}});
-  },{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
-  els.forEach(el=>io.observe(el));
-  // Nav scroll effect
-  const nav=document.getElementById('blog-nav');
-  if(nav){window.addEventListener('scroll',()=>{nav.classList.toggle('nav-scrolled',window.scrollY>40);},{passive:true});}
-});
-</script>
 
-<nav id="blog-nav" class="nav-fixed">
-  <div class="container-omnyx" style="height:5rem;display:flex;align-items:center;justify-content:space-between;">
-    <a href="/" aria-label="Omnyx — Accueil"><img src="assets/logo-omnyx-original-nav.png" alt="Omnyx" style="height:60px;width:auto;display:block"/></a>
-    <div class="hidden md:flex items-center gap-7">
-      <a href="index.html#about"      class="text-[12px] font-medium text-[#c2dae8] hover:text-[#f0f8ff] transition-colors tracking-[.15em] uppercase">À propos</a>
-      <a href="index.html#services"   class="text-[12px] font-medium text-[#c2dae8] hover:text-[#f0f8ff] transition-colors tracking-[.15em] uppercase">Services</a>
-      <a href="blog.html"             class="text-[12px] font-medium text-[#7de8f7] hover:text-[#00d4ff] transition-colors tracking-[.15em] uppercase">Blog</a>
-      <a href="index.html#contact"    class="text-[12px] font-medium text-[#c2dae8] hover:text-[#f0f8ff] transition-colors tracking-[.15em] uppercase">Contact</a>
-      <a href="cv.html"               class="text-[12px] font-medium text-[#7de8f7] hover:text-[#00d4ff] transition-colors tracking-[.15em] uppercase">CV</a>
-    </div>
-    <a href="index.html#contact" class="hidden md:inline-flex items-center gap-2 bg-[#00d4ff] text-[#060c18] text-[12px] font-semibold tracking-[.10em] uppercase px-5 py-2.5 rounded-full shadow-[0_0_20px_rgba(0,212,255,0.35)] hover:shadow-[0_0_30px_rgba(0,212,255,0.60)] hover:-translate-y-px transition-all duration-300">Prendre un RDV</a>
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="logo-link" href="../index.html"><img src="../assets/logo-omnyx-bleu.png" alt="Omnyx"></a>
+    <a class="btn-cta" href="../index.html#contact">Prendre un RDV</a>
   </div>
-</nav>
+</header>
 
-<main style="position:relative;z-index:1;padding-top:7rem;">
-  <article class="container-omnyx" style="max-width:780px;padding-bottom:40px;">
+<main class="wrap">
 
-    <a href="blog.html" class="back-link reveal" style="margin-bottom:24px;">← Retour au blog</a>
+  <a class="back-link" href="../blog.html">← Retour au blog</a>
 
-    <div class="reveal" style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:20px;">
-      <span class="tag tag-orange">Coulisses techniques</span>
-      <span class="meta-line">
-        <span>2 juillet 2026</span>
-        <span class="dot">·</span>
-        <span>7 min de lecture</span>
-      </span>
+  <section class="hero">
+    <div class="eyebrow-row">
+      <span class="eyebrow-tag">Coulisses techniques</span>
+      <span class="dot">·</span>
+      <span>LLM · prompting</span>
+      <span class="dot">·</span>
+      <span>Lecture 7 min</span>
     </div>
 
-    <h1 class="font-heading gradient-text reveal" style="font-size:clamp(36px,5vw,52px);font-weight:700;line-height:1.1;margin:0 0 20px 0;letter-spacing:-0.03em;">Maîtriser ses prompts en 2026 : ce qui a vraiment changé depuis GPT-3.5</h1>
+    <h1 class="title">Maîtriser ses prompts en 2026
+      <em>Ce qui a vraiment changé depuis GPT-3.5 — basé sur 18 mois d'usage quotidien</em>
+    </h1>
 
-    <p class="reveal" style="font-size:19px;font-weight:300;color:#c2dae8;line-height:1.55;margin:0 0 48px 0;">Les conseils de prompting de 2023 sont obsolètes. Voici ce qui marche maintenant avec Claude 4, GPT-5, et Gemini 2.5 — basé sur 18 mois d'usage quotidien.</p>
+    <p class="subtitle">Les techniques de prompting qui marchent vraiment en 2026 avec les modèles de dernière génération. Différences fondamentales avec 2023, exemples concrets, et erreurs classiques à éviter.</p>
 
-    <div class="article-body reveal">
-      <p>J'utilise Claude, GPT et Gemini en production depuis 18 mois, tous les jours, sur des tâches critiques (code client, articles, emails, agents autonomes). Voici les 6 choses qui ont fondamentalement changé dans ma façon de prompter.</p><h2>1. "Fais comme si tu étais X" est devenu inutile</h2><p>En 2023, le role prompting ("tu es un expert SEO avec 15 ans d'expérience...") aidait. En 2026, <strong>ça n'apporte plus rien sur les modèles de pointe</strong>. Claude 4 et GPT-5 ont déjà le contexte, le role est implicite. Le role prompting gaspille des tokens et peut même dégrader la réponse en créant un cadrage artificiel.</p><p>À la place, donne des <strong>exemples concrets</strong> (few-shot). C'est 10x plus efficace qu'un long role prompt.</p><h2>2. Les instructions négatives sont une perte de temps</h2><p>"Ne fais pas X, ne fais pas Y" ne marche pas bien. Le modèle oublie ou interprète mal. <strong>Dis ce que tu veux, pas ce que tu ne veux pas</strong>. "Écris un email de 3 phrases maximum, ton direct" > "N'écris pas un long email, évite le ton formel".</p><h2>3. Le structured output bat le prompting créatif</h2><p>Si tu veux une sortie exploitable (JSON, table, liste), <strong>force le format dans le prompt ET en sortie</strong>. Les modèles 2026 supportent tous le JSON schema, le tool calling, et les grammaires contraintes (GBNF). Utilise-les.</p><p>En pratique : ne dis pas "réponds en JSON", donne le schéma exact et utilise l'API mode "json_object" ou "tool_use".</p><h2>4. La fenêtre de contexte n'est pas un luxe, c'est un outil</h2><p>Claude 4 Sonnet a 200k tokens, GPT-5 a 400k, Gemini 2.5 Pro a 2M. <strong>Utilise-les</strong>. Au lieu de résumer ton code, colle-le. Au lieu de paraphraser la spec produit, mets-la en entier. La qualité de la sortie explose quand le modèle a tout le contexte.</p><p>Limite à ne pas franchir : au-delà de 60-70% de la fenêtre, la qualité baisse. Mais 100-150k de contexte, c'est 100% utilisable.</p><h2>5. Chain-of-thought = cache ta pensée, pas l'expose</h2><p>Demander "réfléchis étape par étape" en 2023 améliorait la qualité. En 2026, les modèles savent déjà le faire. <strong>Demande la réponse finale, sauf si tu as besoin de voir le raisonnement pour le valider</strong>.</p><p>Cas où le CoT reste utile : debug de logique complexe, math, raisonnement juridique. Pour le reste, ça allonge inutilement la réponse.</p><h2>6. Le prompting par tools est le nouveau prompting par instructions</h2><p>En 2026, un prompt efficace ne décrit pas un workflow, il <strong>définit des tools</strong>. Chaque tool = une action, une signature, une docstring claire. Le modèle choisit tout seul comment les combiner.</p><p>C'est toute la philosophie derrière les agents : au lieu de dire "chercher sur Google, résumer, envoyer par email", tu définis <code>search_web(query)</code>, <code>summarize(text)</code>, <code>send_email(to, subject, body)</code>, et tu laisses le modèle composer.</p><h2>Le template minimal qui marche en 2026</h2><pre><code>&lt;role&gt;Le rôle est implicite, pas besoin de le déclarer&lt;/role&gt;
+    <div class="stats-box">
+      <div class="stats-label">💡 Ce que tu retiens en 30 secondes :</div>
+      <ul class="stats-list">
+        <li><span class="arrow">→</span><span><strong>Role prompting</strong> (« tu es un expert X ») est devenu inutile sur les modèles 2026</span></li>
+        <li><span class="arrow">→</span><span>Les <strong>instructions négatives</strong> ne marchent plus, dis ce que tu veux</span></li>
+        <li><span class="arrow">→</span><span>Le <strong>structured output</strong> bat le prompting créatif pour les sorties exploitables</span></li>
+        <li><span class="arrow">→</span><span>La <strong>fenêtre de contexte</strong> est un outil, pas un luxe : utilise-la</span></li>
+      </ul>
+    </div>
+  </section>
 
-&lt;context&gt;Tout le contexte pertinent, en entier&lt;/context&gt;
+  <section class="intro-box">
+    <span class="intro-emoji">🧠</span>
+    <h2>Les conseils de prompting de 2023 sont obsolètes</h2>
+    <p>J'utilise Claude, GPT et Gemini en production depuis 18 mois, tous les jours, sur des tâches critiques (code client, articles, emails, agents autonomes). Voici les 6 choses qui ont fondamentalement changé dans ma façon de prompter. Pas du hype, du retour d'usage terrain.</p>
+  </section>
 
-&lt;task&gt;Ce que tu veux, en une phrase&lt;/task&gt;
+  <nav class="toc">
+    <div class="toc-label">Au sommaire</div>
+    <ol>
+      <li><a href="#n1"><span class="num">01</span><span>Le role prompting est mort</span></a></li>
+      <li><a href="#n2"><span class="num">02</span><span>Les instructions négatives</span></a></li>
+      <li><a href="#n3"><span class="num">03</span><span>Structured output > prompt créatif</span></a></li>
+      <li><a href="#n4"><span class="num">04</span><span>Le prompting par tools</span></a></li>
+      <li><a href="#bilan"><span class="num">→</span><span>Le bilan</span></a></li>
+    </ol>
+  </nav>
 
-&lt;format&gt;Le format de sortie exact, en JSON schema si possible&lt;/format&gt;
+  <section class="part">
 
-&lt;examples&gt;1-2 exemples concrets de la sortie attendue&lt;/examples&gt;</code></pre><h2>Ce qui n'a PAS changé</h2><ul><li><strong>L'itération reste reine</strong> : ton premier prompt est toujours mauvais, le 3e est correct, le 5e est bon</li><li><strong>Le contexte est roi</strong> : mieux le modèle comprend ta situation, mieux il répond</li><li><strong>Les exemples battent les instructions</strong> : montre, ne dis pas</li></ul><p>Pour aller plus loin, on propose des <a href="/#contact">ateliers prompts pour les équipes</a> qui veulent industrialiser leur usage.</p>
+    <div class="step" id="n1">
+      <div class="step-num">01</div>
+      <div class="step-body">
+        <h3>« Fais comme si tu étais X » est devenu inutile</h3>
+        <span class="step-tag">role prompting · dead</span>
+        <p>En 2023, le role prompting (« tu es un expert SEO avec 15 ans d'expérience... ») aidait. En 2026, ça n'apporte plus rien sur les modèles de pointe. Claude 4 et GPT-5 ont déjà le contexte, le role est implicite. Le role prompting gaspille des tokens et peut même dégrader la réponse en créant un cadrage artificiel.</p>
+        <p class="muted">À la place, donne des exemples concrets (few-shot). C'est 10x plus efficace qu'un long role prompt. Le modèle apprend le format et le ton de ta sortie attendue, pas un personnage fictif.</p>
+        <div class="callout action">
+          <div class="callout-label">⚙️ Le template minimal qui marche</div>
+          <p><role>Le rôle est implicite, pas besoin de le déclarer</role>
+
+<context>Tout le contexte pertinent, en entier</context>
+
+<task>Ce que tu veux, en une phrase</task>
+
+<format>Le format de sortie exact, en JSON schema si possible</format>
+
+<examples>1-2 exemples concrets de la sortie attendue</examples></p>
+        </div>
+      </div>
     </div>
 
-    <div class="cta-card reveal">
-      <p class="eyebrow" style="margin-bottom:8px;">Omnyx</p>
-      <h3 class="font-heading" style="font-size:22px;color:#f0f8ff;margin:0 0 12px 0;letter-spacing:-0.02em;">On peut faire ça pour vous.</h3>
-      <p style="color:#8ab4cc;font-size:15px;margin:0 0 24px 0;">Automatisation, agents IA, sites web qui convertissent. 30 min pour voir si on peut vous faire gagner du temps.</p>
-      <a href="index.html#contact" class="btn-primary">Prendre RDV →</a>
+    <div class="step" id="n2">
+      <div class="step-num">02</div>
+      <div class="step-body">
+        <h3>Les instructions négatives sont une perte de temps</h3>
+        <span class="step-tag">dire ce qu'on veut, pas l'inverse</span>
+        <p>« Ne fais pas X, ne fais pas Y » ne marche pas bien. Le modèle oublie ou interprète mal. Dis ce que tu veux, pas ce que tu ne veux pas. « Écris un email de 3 phrases maximum, ton direct » > « N'écris pas un long email, évite le ton formel ».</p>
+        <p class="muted">Pire : les modèles 2026 sont entraînés à chercher l'intention derrière l'instruction. Si tu écris « ne mentionne pas la concurrence », le modèle peut interpréter ça comme « mentionne la concurrence pour ne pas la mentionner ». Effet Streisand garanti.</p>
+      </div>
     </div>
 
-    <div class="author-block reveal">
-      <p class="eyebrow" style="margin-bottom:8px;">Auteur</p>
-      <p style="color:#f0f8ff;margin:0;font-size:15px;"><strong style="color:#f0f8ff;font-weight:600;">Bryan Blaevoet</strong> — Fondateur Omnyx · Ex-Partnerships Markchain · Madrileño depuis 2024</p>
+    <div class="step" id="n3">
+      <div class="step-num">03</div>
+      <div class="step-body">
+        <h3>Le structured output bat le prompting créatif</h3>
+        <span class="step-tag">JSON schema · tool use</span>
+        <p>Si tu veux une sortie exploitable (JSON, table, liste), force le format dans le prompt ET en sortie. Les modèles 2026 supportent tous le JSON schema, le tool calling, et les grammaires contraintes (GBNF). Utilise-les. En pratique : ne dis pas « réponds en JSON », donne le schéma exact et utilise l'API mode « json_object » ou « tool_use ».</p>
+        <p class="muted">Avantage énorme : tu récupères du JSON parsable, pas du texte que tu dois re-parser toi-même. Plus de regex fragile, plus de string matching à la main.</p>
+        <div class="callout tip">
+          <div class="callout-label">💡 Le bon réflexe</div>
+          <p>Pour tout output structuré : utilise le mode JSON ou tool_use de l'API. Le modèle respecte le schéma à 100%, pas à 95%. Si tu dois re-parser, t'as un bug, pas une limite du modèle.</p>
+        </div>
+      </div>
     </div>
 
-  </article>
+    <div class="step" id="n4">
+      <div class="step-num">04</div>
+      <div class="step-body">
+        <h3>Le prompting par tools est le nouveau prompting par instructions</h3>
+        <span class="step-tag">tools · agents</span>
+        <p>En 2026, un prompt efficace ne décrit pas un workflow, il définit des tools. Chaque tool = une action, une signature, une docstring claire. Le modèle choisit tout seul comment les combiner. C'est toute la philosophie derrière les agents : au lieu de dire « chercher sur Google, résumer, envoyer par email », tu définis search_web(query), summarize(text), send_email(to, subject, body), et tu laisses le modèle composer.</p>
+        <p class="muted">Le prompting par tools est plus court, plus précis, et plus robuste. Le modèle ne dévie pas de la spec parce que la spec est dans les signatures des tools, pas dans le texte libre.</p>
+        <div class="callout warn">
+          <div class="callout-label">⚠️ Erreur classique</div>
+          <p>Décrire un workflow en langage naturel (« d'abord fais ça, puis ça ») au lieu de définir des tools. Le modèle va improviser, oublier une étape, ou en sauter une. Les tools = spec, le langage = suggestion.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="part" id="bilan">
+    <div class="part-eyebrow">→ LE BILAN</div>
+    <h2>Trois choses qui n'ont PAS changé<em>Et qui restent vraies quelle que soit l'année</em></h2>
+    <p>L'itération reste reine, le contexte est roi, les exemples battent les instructions. Ton premier prompt est toujours mauvais, le 3e est correct, le 5e est bon. Tout le reste est détail technique qui change avec les modèles. Ces 3 invariants te sauveront toujours.</p>
+    <ul class="rules">
+      <li><span class="rule-icon">🎯</span><div><h4>L'itération reste reine</h4><p>Ton premier prompt est toujours mauvais, le 3e est correct, le 5e est bon</p></div></li>
+      <li><span class="rule-icon">⚙️</span><div><h4>Le contexte est roi</h4><p>Mieux le modèle comprend ta situation, mieux il répond</p></div></li>
+      <li><span class="rule-icon">💡</span><div><h4>Les exemples battent les instructions</h4><p>Montre, ne dis pas — few-shot > role prompt</p></div></li>
+    </ul>
+  </section>
+
+  <section class="closing">
+    <h2>Tu veux industrialiser les prompts de ton équipe ?</h2>
+    <p>On propose des ateliers prompts pour les équipes : 2h pour aligner tout le monde sur les techniques qui marchent en 2026, avec des templates réutilisables et un guide interne.</p>
+
+    <div class="closing-cta-final">
+      <a class="btn-big" href="../index.html#contact">Prendre un RDV</a>
+      <p class="fine-print">Omnyx Agency · Marketing, IA &amp; automation · Madrid</p>
+    </div>
+  </section>
+
 </main>
 
-<footer class="blog-footer">
-  <div class="container-omnyx" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;">
-    <div style="display:flex;align-items:center;gap:12px;">
-      <img src="assets/logo-omnyx-original-nav.png" alt="Omnyx" style="height:24px;width:auto"/>
-      <span style="font-family:'Space Grotesk',sans-serif;color:#8ab4cc;font-size:13px;">© 2026 Omnyx · Madrid · Bryan Blaevoet</span>
-    </div>
-    <div style="display:flex;gap:24px;font-size:13px;align-items:center;">
-      <a href="index.html"      style="color:#8ab4cc;text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#7de8f7'" onmouseout="this.style.color='#8ab4cc'">Accueil</a>
-      <a href="blog.html"       style="color:#8ab4cc;text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#7de8f7'" onmouseout="this.style.color='#8ab4cc'">Blog</a>
-      <a href="cv.html"         style="color:#8ab4cc;text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#7de8f7'" onmouseout="this.style.color='#8ab4cc'">CV</a>
-      <a href="https://www.linkedin.com/in/bryanblaevoet/" rel="noopener" style="color:#8ab4cc;text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#7de8f7'" onmouseout="this.style.color='#8ab4cc'">LinkedIn</a>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-name">Omnyx Agency</div>
+    <div class="footer-meta">Marketing, IA &amp; automation · Madrid</div>
+    <div class="footer-links">
+      <a href="../index.html">Site</a>
+      <a href="../blog.html">Blog</a>
+      <a href="../index.html#contact">Contact</a>
     </div>
   </div>
 </footer>
+
 </body>
 </html>

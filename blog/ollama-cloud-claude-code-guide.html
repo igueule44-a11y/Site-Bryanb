@@ -1,44 +1,271 @@
-<!doctype html>
-<html lang="fr" class="scroll-smooth">
+<!DOCTYPE html>
+<html lang="fr">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0"/>
-<meta name="theme-color" content="#080e1a"/>
-<title>Ollama Cloud × Claude Code : le guide complet pour ne plus jamais être bloqué par tes tokens | Blog Omnyx</title>
-<meta name="description" content="Tutoriel pas à pas pour connecter Ollama Cloud à Claude Code et Hermès Agent. Configuration API, basculement automatique, et pourquoi Ollama Cloud change la donne pour les solo founders."/>
-<link rel="canonical" href="https://omnyx.agency/blog/ollama-cloud-claude-code-guide.html"/>
-
-<link rel="icon" type="image/png" href="assets/logo-omnyx-nav.png"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow">
+<meta name="description" content="Tutoriel pas-à-pas pour connecter Ollama Cloud à Claude Code et Hermès Agent. Configuration API, basculement automatique, et pourquoi Ollama Cloud change la donne pour les solo founders.">
+<title>Ollama Cloud × Claude Code : le setup complet — Comment connecter Ollama Cloud à Claude Code et Hermès Agent pour ne plus jamais être bloqué par tes tokens | Omnyx</title>
+<link rel="canonical" href="https://omnyx.agency/blog/ollama-cloud-claude-code-guide.html">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 <!-- Open Graph -->
-<meta property="og:type" content="article"/>
-<meta property="og:title" content="Ollama Cloud × Claude Code : le guide complet pour ne plus jamais être bloqué par tes tokens | Blog Omnyx"/>
-<meta property="og:description" content="Tutoriel pas à pas pour connecter Ollama Cloud à Claude Code et Hermès Agent. Configuration API, basculement automatique, et pourquoi Ollama Cloud change la donne pour les solo founders."/>
-<meta property="og:url" content="https://omnyx.agency/blog/ollama-cloud-claude-code-guide.html"/>
-<meta property="og:image" content="/assets/logo-omnyx.png"/>
-<meta property="og:locale" content="fr_FR"/>
-<meta property="og:site_name" content="Omnyx"/>
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ollama Cloud × Claude Code : le setup complet — Comment connecter Ollama Cloud à Claude Code et Hermès Agent pour ne plus jamais être bloqué par tes tokens">
+<meta property="og:description" content="Tutoriel pas-à-pas pour connecter Ollama Cloud à Claude Code et Hermès Agent. Configuration API, basculement automatique, et pourquoi Ollama Cloud change la donne pour les solo founders.">
+<meta property="og:url" content="https://omnyx.agency/blog/ollama-cloud-claude-code-guide.html">
+<meta property="og:image" content="https://omnyx.agency/assets/logo-omnyx.png">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Omnyx">
 
-<!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="Ollama Cloud × Claude Code : le guide complet pour ne plus jamais être bloqué par tes tokens | Blog Omnyx"/>
-<meta name="twitter:description" content="Tutoriel pas à pas pour connecter Ollama Cloud à Claude Code et Hermès Agent. Configuration API, basculement automatique, et pourquoi Ollama Cloud change la donne pour les solo founders."/>
-<meta name="twitter:image" content="/assets/logo-omnyx.png"/>
+<style>
+  :root{
+    --bg-darkest:#060c18;
+    --bg-main:#080e1a;
+    --bg-card:#0d1a2e;
+    --accent:#00d4ff;
+    --accent-soft:#7de8f7;
+    --text-primary:#f0f8ff;
+    --text-secondary:#8ab4cc;
+    --border-soft:rgba(0,212,255,0.16);
+    --border-strong:rgba(0,212,255,0.32);
+    --warn:#ff8a65;
+  }
 
-<!-- Fonts (same as index) -->
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation:none !important; transition:none !important;}
+  }
 
-<link rel="stylesheet" href="blog.css"/>
+  body{
+    margin:0;
+    background:var(--bg-main);
+    color:var(--text-primary);
+    font-family:'Inter', system-ui, sans-serif;
+    line-height:1.65;
+    font-size:16px;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1, h2, h3{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:600;
+    line-height:1.2;
+    margin:0;
+  }
+
+  a{color:var(--accent); text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  a:focus-visible, button:focus-visible{outline:2px solid var(--accent); outline-offset:3px;}
+
+  .wrap{max-width:760px; margin:0 auto; padding:0 24px;}
+
+  /* Header */
+  header.site-header{
+    background:var(--bg-darkest);
+    border-bottom:1px solid var(--border-soft);
+    position:sticky; top:0; z-index:50;
+  }
+  .site-header-inner{
+    max-width:760px; margin:0 auto; padding:12px 24px;
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+  }
+  .logo-link{
+    font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:17px;
+    color:var(--text-primary); display:flex; align-items:center;
+  }
+  .logo-link img{height:60px; width:auto; display:block;}
+  .logo-link:hover{text-decoration:none; color:var(--accent-soft);}
+  .btn-cta{
+    background:var(--accent); color:#02131f; font-weight:600; font-size:14px;
+    padding:9px 18px; border-radius:8px; white-space:nowrap;
+    transition:background 0.15s ease, transform 0.15s ease;
+  }
+  .btn-cta:hover{background:var(--accent-soft); text-decoration:none; transform:translateY(-1px);}
+
+  /* Back link */
+  .back-link{
+    display:inline-flex; align-items:center; gap:6px;
+    font-size:13.5px; color:var(--text-secondary); margin:28px 0 0;
+  }
+  .back-link:hover{color:var(--accent-soft); text-decoration:none;}
+
+  /* Hero */
+  .hero{padding:24px 0 32px;}
+  .eyebrow-row{
+    display:flex; gap:10px; align-items:center; flex-wrap:wrap;
+    font-size:13px; color:var(--text-secondary); margin-bottom:18px;
+    font-weight:500; letter-spacing:0.02em;
+  }
+  .eyebrow-row .dot{color:var(--border-strong);}
+  .eyebrow-tag{color:var(--accent-soft);}
+
+  h1.title{
+    font-size:clamp(28px, 5vw, 40px);
+    color:var(--text-primary);
+    margin-bottom:18px;
+  }
+  h1.title em{
+    display:block; font-style:normal; color:var(--accent-soft); font-weight:500;
+    font-size:0.85em; margin-top:4px;
+  }
+
+  .subtitle{
+    font-size:17px; color:var(--text-secondary); max-width:600px; margin-bottom:32px;
+  }
+
+  /* Stats box */
+  .stats-box{
+    background:var(--bg-card);
+    border:1px solid var(--border-soft);
+    border-radius:14px;
+    padding:24px 28px;
+  }
+  .stats-box .stats-label{
+    font-size:14px; color:var(--text-secondary); margin-bottom:14px;
+    display:flex; gap:8px; align-items:center;
+  }
+  .stats-list{list-style:none; margin:0; padding:0; display:grid; gap:10px;}
+  .stats-list li{
+    font-size:15px; color:var(--text-primary); display:flex; gap:10px; align-items:baseline;
+  }
+  .stats-list li .arrow{color:var(--accent); flex-shrink:0;}
+  .stats-list strong{color:var(--accent-soft); font-weight:600;}
+
+  /* Intro box */
+  .intro-box{
+    margin:36px 0 48px;
+    background:linear-gradient(135deg, var(--bg-card), var(--bg-darkest));
+    border:1px solid var(--border-strong);
+    border-radius:16px;
+    padding:32px 28px;
+  }
+  .intro-box .intro-emoji{font-size:22px; margin-bottom:10px; display:block;}
+  .intro-box h2{font-size:21px; color:var(--text-primary); margin-bottom:12px;}
+  .intro-box p{color:var(--text-secondary); margin:0; font-size:15.5px;}
+
+  /* TOC nav */
+  .toc{
+    margin:0 0 56px;
+    background:var(--bg-card);
+    border:1px solid var(--border-soft);
+    border-radius:14px;
+    padding:22px 26px;
+  }
+  .toc-label{font-size:13px; color:var(--text-secondary); margin-bottom:14px; font-weight:600; text-transform:uppercase; letter-spacing:0.05em;}
+  .toc ol{list-style:none; margin:0; padding:0; display:grid; gap:9px;}
+  .toc ol li a{
+    display:flex; gap:10px; color:var(--text-primary); font-size:14.5px; padding:2px 0;
+  }
+  .toc ol li a:hover{color:var(--accent-soft); text-decoration:none;}
+  .toc ol li a .num{color:var(--accent); font-family:'JetBrains Mono', monospace; font-size:13px; flex-shrink:0;}
+
+  /* Parts */
+  .part{margin-bottom:64px;}
+  .part-eyebrow{
+    font-size:13px; font-weight:700; letter-spacing:0.08em; color:var(--accent);
+    margin-bottom:10px; display:flex; align-items:center; gap:8px;
+  }
+  .part > h2{font-size:clamp(22px, 4vw, 28px); margin-bottom:22px;}
+  .part > h2 em{display:block; font-style:normal; color:var(--text-secondary); font-weight:500; font-size:0.7em; margin-top:6px;}
+
+  .part p{color:var(--text-primary); margin:0 0 18px; font-size:15.5px;}
+  .part p.muted{color:var(--text-secondary);}
+
+  /* Callout boxes */
+  .callout{
+    border-radius:12px; padding:20px 22px; margin:22px 0;
+    border:1px solid var(--border-soft);
+    background:var(--bg-card);
+  }
+  .callout .callout-label{
+    font-size:13px; font-weight:700; margin-bottom:8px; display:flex; gap:8px; align-items:center;
+  }
+  .callout p{margin:0; font-size:14.5px; color:var(--text-secondary); white-space:pre-wrap;}
+  .callout.warn{border-color:rgba(255,138,101,0.35);}
+  .callout.warn .callout-label{color:var(--warn);}
+  .callout.tip .callout-label{color:var(--accent-soft);}
+  .callout.action{background:linear-gradient(135deg, var(--bg-card), var(--bg-darkest)); border-color:var(--border-strong);}
+  .callout.action .callout-label{color:var(--accent);}
+  .callout.compare .callout-label{color:var(--accent-soft);}
+  .callout.compare p strong{color:var(--text-primary); font-weight:600;}
+
+  /* Step cards */
+  .step{
+    display:grid; grid-template-columns:64px 1fr; gap:20px;
+    margin-bottom:44px;
+  }
+  .step-num{
+    font-family:'Space Grotesk', sans-serif; font-size:34px; font-weight:700;
+    color:var(--accent-soft); opacity:0.55; line-height:1;
+  }
+  .step-body h3{font-size:19px; color:var(--text-primary); margin-bottom:6px;}
+  .step-tag{
+    font-size:12.5px; color:var(--text-secondary); font-family:'JetBrains Mono', monospace;
+    margin-bottom:14px; display:block;
+  }
+  .step-body p{color:var(--text-primary); margin:0 0 14px; font-size:15.5px;}
+  .step-body p.muted{color:var(--text-secondary);}
+
+  /* Rules list */
+  .rules{list-style:none; margin:0; padding:0; display:grid; gap:18px;}
+  .rules li{
+    display:grid; grid-template-columns:28px 1fr; gap:14px;
+    background:var(--bg-card); border:1px solid var(--border-soft); border-radius:12px;
+    padding:18px 20px;
+  }
+  .rule-icon{color:var(--accent); font-size:17px;}
+  .rules h4{margin:0 0 6px; font-size:15.5px; color:var(--text-primary); font-family:'Inter', sans-serif; font-weight:600;}
+  .rules p{margin:0; font-size:14px; color:var(--text-secondary);}
+
+  /* Closing CTA */
+  .closing{margin:64px 0 0;}
+  .closing > h2{font-size:clamp(22px, 4vw, 28px); margin-bottom:14px;}
+  .closing > p{color:var(--text-secondary); font-size:15.5px; margin-bottom:32px; max-width:560px;}
+
+  .closing-cta-final{
+    background:linear-gradient(135deg, var(--bg-card), var(--bg-darkest));
+    border:1px solid var(--border-strong); border-radius:16px;
+    padding:30px 28px; text-align:center;
+  }
+  .closing-cta-final .btn-big{
+    display:inline-block; background:var(--accent); color:#02131f; font-weight:600;
+    font-size:15px; padding:13px 28px; border-radius:9px; margin-bottom:10px;
+    transition:background 0.15s ease, transform 0.15s ease;
+  }
+  .closing-cta-final .btn-big:hover{background:var(--accent-soft); text-decoration:none; transform:translateY(-1px);}
+  .closing-cta-final .fine-print{font-size:13px; color:var(--text-secondary); margin:0;}
+
+  /* Footer */
+  footer.site-footer{
+    border-top:1px solid var(--border-soft);
+    margin-top:72px;
+    padding:32px 0 48px;
+  }
+  .footer-name{font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:15px; color:var(--text-primary); margin-bottom:4px;}
+  .footer-meta{font-size:13px; color:var(--text-secondary); margin-bottom:18px;}
+  .footer-links{display:flex; gap:18px; flex-wrap:wrap; font-size:13.5px;}
+
+  @media(max-width:540px){
+    .step{grid-template-columns:1fr; gap:8px;}
+    .step-num{font-size:24px; opacity:0.5;}
+  }
+</style>
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "Ollama Cloud × Claude Code : le guide complet pour ne plus jamais être bloqué par tes tokens",
-  "description": "Tutoriel pas à pas pour connecter Ollama Cloud à Claude Code et Hermès Agent. Configuration API, basculement automatique, et pourquoi Ollama Cloud change la donne pour les solo founders.",
+  "headline": "Ollama Cloud × Claude Code : le setup complet — Comment connecter Ollama Cloud à Claude Code et Hermès Agent pour ne plus jamais être bloqué par tes tokens",
+  "description": "Tutoriel pas-à-pas pour connecter Ollama Cloud à Claude Code et Hermès Agent. Configuration API, basculement automatique, et pourquoi Ollama Cloud change la donne pour les solo founders.",
+  "datePublished": "2026-06-25",
+  "dateModified": "2026-06-25",
   "author": {
     "@type": "Person",
     "name": "Bryan Blaevoet",
@@ -52,70 +279,110 @@
       "url": "https://omnyx.agency/assets/logo-omnyx.png"
     }
   },
-  "datePublished": "2026-06-25",
-  "dateModified": "2026-06-25",
   "mainEntityOfPage": {
     "@type": "WebPage",
     "@id": "https://omnyx.agency/blog/ollama-cloud-claude-code-guide.html"
   },
-  "keywords": "Ollama Cloud, Claude Code, Hermès Agent, LLM, API, tokens",
+  "keywords": "Outils & Setup, LLM open-source",
   "inLanguage": "fr-FR"
 }
 </script>
 </head>
 <body>
-<div class="mesh-bg"></div>
-<script>
-// Reveal-on-scroll observer
-document.addEventListener('DOMContentLoaded',()=>{
-  const els=document.querySelectorAll('.reveal');
-  const io=new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('active');io.unobserve(e.target);}});
-  },{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
-  els.forEach(el=>io.observe(el));
-  // Nav scroll effect
-  const nav=document.getElementById('blog-nav');
-  if(nav){window.addEventListener('scroll',()=>{nav.classList.toggle('nav-scrolled',window.scrollY>40);},{passive:true});}
-});
-</script>
 
-<nav id="blog-nav" class="nav-fixed">
-  <div class="container-omnyx" style="height:5rem;display:flex;align-items:center;justify-content:space-between;">
-    <a href="/" aria-label="Omnyx — Accueil"><img src="assets/logo-omnyx-original-nav.png" alt="Omnyx" style="height:60px;width:auto;display:block"/></a>
-    <div class="hidden md:flex items-center gap-7">
-      <a href="index.html#about"      class="text-[12px] font-medium text-[#c2dae8] hover:text-[#f0f8ff] transition-colors tracking-[.15em] uppercase">À propos</a>
-      <a href="index.html#services"   class="text-[12px] font-medium text-[#c2dae8] hover:text-[#f0f8ff] transition-colors tracking-[.15em] uppercase">Services</a>
-      <a href="blog.html"             class="text-[12px] font-medium text-[#7de8f7] hover:text-[#00d4ff] transition-colors tracking-[.15em] uppercase">Blog</a>
-      <a href="index.html#contact"    class="text-[12px] font-medium text-[#c2dae8] hover:text-[#f0f8ff] transition-colors tracking-[.15em] uppercase">Contact</a>
-      <a href="cv.html"               class="text-[12px] font-medium text-[#7de8f7] hover:text-[#00d4ff] transition-colors tracking-[.15em] uppercase">CV</a>
-    </div>
-    <a href="index.html#contact" class="hidden md:inline-flex items-center gap-2 bg-[#00d4ff] text-[#060c18] text-[12px] font-semibold tracking-[.10em] uppercase px-5 py-2.5 rounded-full shadow-[0_0_20px_rgba(0,212,255,0.35)] hover:shadow-[0_0_30px_rgba(0,212,255,0.60)] hover:-translate-y-px transition-all duration-300">Prendre un RDV</a>
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="logo-link" href="../index.html"><img src="../assets/logo-omnyx-bleu.png" alt="Omnyx"></a>
+    <a class="btn-cta" href="../index.html#contact">Prendre un RDV</a>
   </div>
-</nav>
+</header>
 
-<main style="position:relative;z-index:1;padding-top:7rem;">
-  <article class="container-omnyx" style="max-width:780px;padding-bottom:40px;">
+<main class="wrap">
 
-    <a href="blog.html" class="back-link reveal" style="margin-bottom:24px;">← Retour au blog</a>
+  <a class="back-link" href="../blog.html">← Retour au blog</a>
 
-    <div class="reveal" style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:20px;">
-      <span class="tag">Automatisation & Agents IA</span>
-      <span class="meta-line">
-        <span>25 juin 2026</span>
-        <span class="dot">·</span>
-        <span>8 min de lecture</span>
-      </span>
+  <section class="hero">
+    <div class="eyebrow-row">
+      <span class="eyebrow-tag">Outils & Setup</span>
+      <span class="dot">·</span>
+      <span>LLM open-source</span>
+      <span class="dot">·</span>
+      <span>Lecture 8 min</span>
     </div>
 
-    <h1 class="font-heading gradient-text reveal" style="font-size:clamp(36px,5vw,52px);font-weight:700;line-height:1.1;margin:0 0 20px 0;letter-spacing:-0.03em;">Ollama Cloud × Claude Code : le guide complet pour ne plus jamais être bloqué par tes tokens</h1>
+    <h1 class="title">Ollama Cloud × Claude Code : le setup complet
+      <em>Comment connecter Ollama Cloud à Claude Code et Hermès Agent pour ne plus jamais être bloqué par tes tokens</em>
+    </h1>
 
-    <p class="reveal" style="font-size:19px;font-weight:300;color:#c2dae8;line-height:1.55;margin:0 0 48px 0;">Comment connecter Ollama Cloud à Claude Code et Hermès Agent pour ne plus jamais être bloqué par tes tokens, pas à pas et sans coder.</p>
+    <p class="subtitle">Tutoriel pas-à-pas pour connecter Ollama Cloud à Claude Code et Hermès Agent. Configuration API, basculement automatique, et pourquoi Ollama Cloud change la donne pour les solo founders.</p>
 
-    <div class="article-body reveal">
-      <p>Si tu utilises Claude Code ou Hermès Agent, tu connais la douleur : <strong>tu tombes à court de tokens au pire moment</strong>. Ollama Cloud règle ça. Voici comment tout brancher en 10 minutes.</p><h2>Pourquoi Ollama Cloud plutôt qu'un autre provider</h2><p>Ollama Cloud te donne accès à des modèles open-source (Llama, Qwen, DeepSeek, Mistral) via une API simple, compatible OpenAI. Avantages :</p><ul><li><strong>Coût marginal quasi-nul</strong> sur les modèles locaux bien plus petits que Claude</li><li><strong>Pas de rate limit agressif</strong> comme les API classiques</li><li><strong>Confidentialité</strong> : tes données ne servent pas à entraîner le modèle</li><li><strong>Variété</strong> : tu peux router entre un gros modèle (DeepSeek V3) pour les tâches complexes et un petit (Llama 3.1 8B) pour les tâches simples</li></ul><h2>Étape 1 : récupérer ta clé Ollama Cloud</h2><p>Rends-toi sur <a href="https://ollama.com" rel="noopener">ollama.com</a>, crée un compte, va dans Settings → API Keys. Copie la clé au format <code>ollama-...</code>.</p><h2>Étape 2 : configurer Claude Code</h2><p>Dans ton shell :</p><pre><code>export ANTHROPIC_BASE_URL=https://ollama.com/v1
-export ANTHROPIC_API_KEY=ollama-ta-cle-ici</code></pre><p>Tu peux aussi créer un alias pour switcher rapidement :</p><pre><code># ~/.zshrc ou ~/.bashrc
-alias cc-ollama='ANTHROPIC_BASE_URL=https://ollama.com/v1 ANTHROPIC_API_KEY=ollama-... claude'
-alias cc-anthropic='claude'</code></pre><h2>Étape 3 : brancher Hermès Agent</h2><p>Dans <code>~/.hermes/config.yaml</code>, ajoute un custom provider :</p><pre><code>providers:
+    <div class="stats-box">
+      <div class="stats-label">💡 Ce que tu retiens en 30 secondes :</div>
+      <ul class="stats-list">
+        <li><span class="arrow">→</span><span>Coût marginal quasi-nul sur les <strong>modèles open-source</strong> (Llama, Qwen, DeepSeek)</span></li>
+        <li><span class="arrow">→</span><span>Pas de rate limit agressif, tu peux enchaîner les requêtes</span></li>
+        <li><span class="arrow">→</span><span><strong>Confidentialité</strong> : tes données ne servent pas à entraîner le modèle</span></li>
+        <li><span class="arrow">→</span><span>Une <strong>fallback chain</strong> qui te fait baisser ta facture LLM de 60 à 80%</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="intro-box">
+    <span class="intro-emoji">🛠️</span>
+    <h2>Le problème : tomber à court de tokens au pire moment</h2>
+    <p>Si tu utilises Claude Code ou Hermès Agent, tu connais la douleur : tu tombes à court de tokens au pire moment, en plein debug critique, et tu dois attendre le reset mensuel ou sortir la CB. Ollama Cloud règle ça. Voici comment tout brancher en 10 minutes.</p>
+  </section>
+
+  <nav class="toc">
+    <div class="toc-label">Au sommaire</div>
+    <ol>
+      <li><a href="#n1"><span class="num">01</span><span>Pourquoi Ollama Cloud</span></a></li>
+      <li><a href="#n2"><span class="num">02</span><span>Setup Claude Code</span></a></li>
+      <li><a href="#n3"><span class="num">03</span><span>Setup Hermès Agent</span></a></li>
+      <li><a href="#n4"><span class="num">04</span><span>La stratégie de bascule</span></a></li>
+      <li><a href="#bilan"><span class="num">→</span><span>Le bilan</span></a></li>
+    </ol>
+  </nav>
+
+  <section class="part">
+
+    <div class="step" id="n1">
+      <div class="step-num">01</div>
+      <div class="step-body">
+        <h3>Pourquoi Ollama Cloud plutôt qu'un autre provider</h3>
+        <span class="step-tag">économie · variété</span>
+        <p>Ollama Cloud te donne accès à des modèles open-source (Llama, Qwen, DeepSeek, Mistral) via une API simple, compatible OpenAI. Le coût marginal est quasi-nul, pas de rate limit agressif, et tes données ne servent pas à entraîner le modèle. Tu peux router entre un gros modèle (DeepSeek V3) pour les tâches complexes et un petit (Llama 8B) pour les tâches simples.</p>
+        <p class="muted">Avantage clé pour les solo founders : tu peux te permettre de générer du volume sans regarder la facture. Une veille sectorielle qui tourne 24/7 sur Llama 70B coûte quelques centimes par jour.</p>
+      </div>
+    </div>
+
+    <div class="step" id="n2">
+      <div class="step-num">02</div>
+      <div class="step-body">
+        <h3>Configurer Claude Code</h3>
+        <span class="step-tag">5 min de setup</span>
+        <p>Dans ton shell, configure les variables d'environnement :</p>
+        <p class="muted">Tu peux aussi créer un alias pour switcher rapidement entre providers. Le jour où tu veux basculer sur Anthropic direct, un alias suffit.</p>
+        <div class="callout action">
+          <div class="callout-label">⚙️ Commandes shell</div>
+          <p>export ANTHROPIC_BASE_URL=https://ollama.com/v1
+export ANTHROPIC_API_KEY=ollama-ta-cle
+
+Alias : alias cc-ollama='ANTHROPIC_BASE_URL=... ANTHROPIC_API_KEY=... claude'</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="step" id="n3">
+      <div class="step-num">03</div>
+      <div class="step-body">
+        <h3>Brancher Hermès Agent</h3>
+        <span class="step-tag">config.yaml</span>
+        <p>Dans ~/.hermes/config.yaml, ajoute un custom provider qui pointe vers Ollama Cloud. Tu peux ensuite router une partie de tes tâches vers ce provider dans les cron jobs ou directement à la main.</p>
+        <p class="muted">Avantage : tu gardes Claude pour les tâches critiques (code, raisonnement complexe), et tu délègues la veille, le tri, les résumés à Ollama.</p>
+        <div class="callout action">
+          <div class="callout-label">⚙️ Extrait config.yaml</div>
+          <p>providers:
   - name: ollama-cloud
     base_url: https://ollama.com/v1
     api_key: ollama-ta-cle
@@ -123,41 +390,61 @@ alias cc-anthropic='claude'</code></pre><h2>Étape 3 : brancher Hermès Agent</h
       - name: deepseek-v3
         context: 128000
       - name: llama-3.3-70b
-        context: 128000</code></pre><p>Tu peux ensuite router une partie de tes tâches vers ce provider dans les cron jobs ou directement à la main.</p><h2>Étape 4 : la stratégie de bascule</h2><p>La vraie force c'est le <strong>fallback chain</strong> : Claude Sonnet pour le code complexe, Ollama Cloud pour la recherche, le résumé, la classification. Ton coût par tâche baisse de 60-80% sans perte de qualité sur les tâches critiques.</p><p>Concrètement, dans un cron job Hermès :</p><pre><code>model:
-  primary: anthropic/claude-sonnet-4
-  fallbacks:
-    - ollama-cloud/deepseek-v3
-    - ollama-cloud/llama-3.3-70b</code></pre><h2>Cas d'usage qui marchent bien sur Ollama Cloud</h2><ul><li>Recherche et résumé web (Llama 70B suffit)</li><li>Génération de première version d'article (DeepSeek V3)</li><li>Classification et tagging (petits modèles)</li><li>Analyse de logs et debugging simple</li></ul><p>À éviter : génération de code React complexe ou raisonnement multi-étapes long — reste sur Claude Sonnet pour ça.</p><p>Si tu veux qu'on te configure tout ça pour ton stack : <a href="/#contact">on peut le setup en 30 min</a>.</p>
+        context: 128000</p>
+        </div>
+      </div>
     </div>
 
-    <div class="cta-card reveal">
-      <p class="eyebrow" style="margin-bottom:8px;">Omnyx</p>
-      <h3 class="font-heading" style="font-size:22px;color:#f0f8ff;margin:0 0 12px 0;letter-spacing:-0.02em;">On peut faire ça pour vous.</h3>
-      <p style="color:#8ab4cc;font-size:15px;margin:0 0 24px 0;">Automatisation, agents IA, sites web qui convertissent. 30 min pour voir si on peut vous faire gagner du temps.</p>
-      <a href="index.html#contact" class="btn-primary">Prendre RDV →</a>
+    <div class="step" id="n4">
+      <div class="step-num">04</div>
+      <div class="step-body">
+        <h3>La stratégie de bascule (fallback chain)</h3>
+        <span class="step-tag">économie 60-80%</span>
+        <p>Le setup le plus malin : configurer une chaîne de fallback. Si Claude Sonnet échoue ou est trop lent, Hermès bascule automatiquement sur Ollama. Tu définis l'ordre dans la config et tu n'y penses plus.</p>
+        <p class="muted">Concrètement, dans un cron job : primary = Claude Sonnet, fallbacks = [DeepSeek V3, Llama 70B]. Si Claude est saturé, DeepSeek prend le relais. Pas d'interruption, pas d'attente.</p>
+        <div class="callout tip">
+          <div class="callout-label">💡 Le bon réflexe</div>
+          <p>À éviter sur Ollama Cloud : génération de code React complexe ou raisonnement multi-étapes long. Reste sur Claude Sonnet pour ça, le delta de qualité justifie le surcoût.</p>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <div class="author-block reveal">
-      <p class="eyebrow" style="margin-bottom:8px;">Auteur</p>
-      <p style="color:#f0f8ff;margin:0;font-size:15px;"><strong style="color:#f0f8ff;font-weight:600;">Bryan Blaevoet</strong> — Fondateur Omnyx · Ex-Partnerships Markchain · Madrileño depuis 2024</p>
+  <section class="part" id="bilan">
+    <div class="part-eyebrow">→ LE BILAN</div>
+    <h2>Le bon setup, c'est pas un seul modèle<em>C'est un mix intelligent selon la tâche</em></h2>
+    <p>La vraie force c'est le fallback chain : Claude Sonnet pour le code complexe, Ollama Cloud pour la recherche, le résumé, la classification. Ton coût par tâche baisse de 60-80% sans perte de qualité sur les tâches critiques. Si tu fais du code, reste sur Claude. Si tu fais de la veille ou du tri, Ollama suffit largement.</p>
+    <ul class="rules">
+      <li><span class="rule-icon">🎯</span><div><h4>Recherche et résumé web</h4><p>Llama 70B suffit, coût marginal ~0</p></div></li>
+      <li><span class="rule-icon">⚙️</span><div><h4>Premier draft d'article</h4><p>DeepSeek V3, qualité quasi-identique à GPT-4</p></div></li>
+      <li><span class="rule-icon">💡</span><div><h4>Classification et tagging</h4><p>Petits modèles (8B), latence minimale</p></div></li>
+      <li><span class="rule-icon">🚀</span><div><h4>Code React complexe</h4><p>Reste sur Claude Sonnet, ne descends pas</p></div></li>
+    </ul>
+  </section>
+
+  <section class="closing">
+    <h2>Tu veux qu'on te configure tout ça pour ton stack ?</h2>
+    <p>Setup complet en 30 min : API key, providers, fallback chain, et un test sur ton use case réel. Tu repars avec un système qui tourne.</p>
+
+    <div class="closing-cta-final">
+      <a class="btn-big" href="../index.html#contact">Prendre un RDV</a>
+      <p class="fine-print">Omnyx Agency · Marketing, IA &amp; automation · Madrid</p>
     </div>
+  </section>
 
-  </article>
 </main>
 
-<footer class="blog-footer">
-  <div class="container-omnyx" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;">
-    <div style="display:flex;align-items:center;gap:12px;">
-      <img src="assets/logo-omnyx-original-nav.png" alt="Omnyx" style="height:24px;width:auto"/>
-      <span style="font-family:'Space Grotesk',sans-serif;color:#8ab4cc;font-size:13px;">© 2026 Omnyx · Madrid · Bryan Blaevoet</span>
-    </div>
-    <div style="display:flex;gap:24px;font-size:13px;align-items:center;">
-      <a href="index.html"      style="color:#8ab4cc;text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#7de8f7'" onmouseout="this.style.color='#8ab4cc'">Accueil</a>
-      <a href="blog.html"       style="color:#8ab4cc;text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#7de8f7'" onmouseout="this.style.color='#8ab4cc'">Blog</a>
-      <a href="cv.html"         style="color:#8ab4cc;text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#7de8f7'" onmouseout="this.style.color='#8ab4cc'">CV</a>
-      <a href="https://www.linkedin.com/in/bryanblaevoet/" rel="noopener" style="color:#8ab4cc;text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#7de8f7'" onmouseout="this.style.color='#8ab4cc'">LinkedIn</a>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-name">Omnyx Agency</div>
+    <div class="footer-meta">Marketing, IA &amp; automation · Madrid</div>
+    <div class="footer-links">
+      <a href="../index.html">Site</a>
+      <a href="../blog.html">Blog</a>
+      <a href="../index.html#contact">Contact</a>
     </div>
   </div>
 </footer>
+
 </body>
 </html>

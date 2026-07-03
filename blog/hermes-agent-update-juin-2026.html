@@ -1,44 +1,271 @@
-<!doctype html>
-<html lang="fr" class="scroll-smooth">
+<!DOCTYPE html>
+<html lang="fr">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0"/>
-<meta name="theme-color" content="#080e1a"/>
-<title>Hermès Agent : la grosse update de juin 2026, décryptage complet | Blog Omnyx</title>
-<meta name="description" content="Décryptage complet de la mise à jour majeure de Hermès Agent en juin 2026 : iMessage natif, agents en arrière-plan, profils spécialisés, Skills Hub, cron jobs intelligents. Ce que ça change concrètement."/>
-<link rel="canonical" href="https://omnyx.agency/blog/hermes-agent-update-juin-2026.html"/>
-
-<link rel="icon" type="image/png" href="assets/logo-omnyx-nav.png"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow">
+<meta name="description" content="iMessage, agents en arrière-plan, profils spécialisés, Skills Hub : cette update fait passer l'agent du statut démo à un vrai système de travail continu. Décryptage.">
+<title>La grosse update d'Hermès Agent — Quand l'agent IA arrête d'être une démo et devient un poste de travail | Omnyx</title>
+<link rel="canonical" href="https://omnyx.agency/blog/hermes-agent-update-juin-2026.html">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 <!-- Open Graph -->
-<meta property="og:type" content="article"/>
-<meta property="og:title" content="Hermès Agent : la grosse update de juin 2026, décryptage complet | Blog Omnyx"/>
-<meta property="og:description" content="Décryptage complet de la mise à jour majeure de Hermès Agent en juin 2026 : iMessage natif, agents en arrière-plan, profils spécialisés, Skills Hub, cron jobs intelligents. Ce que ça change concrètement."/>
-<meta property="og:url" content="https://omnyx.agency/blog/hermes-agent-update-juin-2026.html"/>
-<meta property="og:image" content="/assets/logo-omnyx.png"/>
-<meta property="og:locale" content="fr_FR"/>
-<meta property="og:site_name" content="Omnyx"/>
+<meta property="og:type" content="article">
+<meta property="og:title" content="La grosse update d'Hermès Agent — Quand l'agent IA arrête d'être une démo et devient un poste de travail">
+<meta property="og:description" content="iMessage, agents en arrière-plan, profils spécialisés, Skills Hub : cette update fait passer l'agent du statut démo à un vrai système de travail continu. Décryptage.">
+<meta property="og:url" content="https://omnyx.agency/blog/hermes-agent-update-juin-2026.html">
+<meta property="og:image" content="https://omnyx.agency/assets/logo-omnyx.png">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Omnyx">
 
-<!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="Hermès Agent : la grosse update de juin 2026, décryptage complet | Blog Omnyx"/>
-<meta name="twitter:description" content="Décryptage complet de la mise à jour majeure de Hermès Agent en juin 2026 : iMessage natif, agents en arrière-plan, profils spécialisés, Skills Hub, cron jobs intelligents. Ce que ça change concrètement."/>
-<meta name="twitter:image" content="/assets/logo-omnyx.png"/>
+<style>
+  :root{
+    --bg-darkest:#060c18;
+    --bg-main:#080e1a;
+    --bg-card:#0d1a2e;
+    --accent:#00d4ff;
+    --accent-soft:#7de8f7;
+    --text-primary:#f0f8ff;
+    --text-secondary:#8ab4cc;
+    --border-soft:rgba(0,212,255,0.16);
+    --border-strong:rgba(0,212,255,0.32);
+    --warn:#ff8a65;
+  }
 
-<!-- Fonts (same as index) -->
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation:none !important; transition:none !important;}
+  }
 
-<link rel="stylesheet" href="blog.css"/>
+  body{
+    margin:0;
+    background:var(--bg-main);
+    color:var(--text-primary);
+    font-family:'Inter', system-ui, sans-serif;
+    line-height:1.65;
+    font-size:16px;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1, h2, h3{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:600;
+    line-height:1.2;
+    margin:0;
+  }
+
+  a{color:var(--accent); text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  a:focus-visible, button:focus-visible{outline:2px solid var(--accent); outline-offset:3px;}
+
+  .wrap{max-width:760px; margin:0 auto; padding:0 24px;}
+
+  /* Header */
+  header.site-header{
+    background:var(--bg-darkest);
+    border-bottom:1px solid var(--border-soft);
+    position:sticky; top:0; z-index:50;
+  }
+  .site-header-inner{
+    max-width:760px; margin:0 auto; padding:12px 24px;
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+  }
+  .logo-link{
+    font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:17px;
+    color:var(--text-primary); display:flex; align-items:center;
+  }
+  .logo-link img{height:60px; width:auto; display:block;}
+  .logo-link:hover{text-decoration:none; color:var(--accent-soft);}
+  .btn-cta{
+    background:var(--accent); color:#02131f; font-weight:600; font-size:14px;
+    padding:9px 18px; border-radius:8px; white-space:nowrap;
+    transition:background 0.15s ease, transform 0.15s ease;
+  }
+  .btn-cta:hover{background:var(--accent-soft); text-decoration:none; transform:translateY(-1px);}
+
+  /* Back link */
+  .back-link{
+    display:inline-flex; align-items:center; gap:6px;
+    font-size:13.5px; color:var(--text-secondary); margin:28px 0 0;
+  }
+  .back-link:hover{color:var(--accent-soft); text-decoration:none;}
+
+  /* Hero */
+  .hero{padding:24px 0 32px;}
+  .eyebrow-row{
+    display:flex; gap:10px; align-items:center; flex-wrap:wrap;
+    font-size:13px; color:var(--text-secondary); margin-bottom:18px;
+    font-weight:500; letter-spacing:0.02em;
+  }
+  .eyebrow-row .dot{color:var(--border-strong);}
+  .eyebrow-tag{color:var(--accent-soft);}
+
+  h1.title{
+    font-size:clamp(28px, 5vw, 40px);
+    color:var(--text-primary);
+    margin-bottom:18px;
+  }
+  h1.title em{
+    display:block; font-style:normal; color:var(--accent-soft); font-weight:500;
+    font-size:0.85em; margin-top:4px;
+  }
+
+  .subtitle{
+    font-size:17px; color:var(--text-secondary); max-width:600px; margin-bottom:32px;
+  }
+
+  /* Stats box */
+  .stats-box{
+    background:var(--bg-card);
+    border:1px solid var(--border-soft);
+    border-radius:14px;
+    padding:24px 28px;
+  }
+  .stats-box .stats-label{
+    font-size:14px; color:var(--text-secondary); margin-bottom:14px;
+    display:flex; gap:8px; align-items:center;
+  }
+  .stats-list{list-style:none; margin:0; padding:0; display:grid; gap:10px;}
+  .stats-list li{
+    font-size:15px; color:var(--text-primary); display:flex; gap:10px; align-items:baseline;
+  }
+  .stats-list li .arrow{color:var(--accent); flex-shrink:0;}
+  .stats-list strong{color:var(--accent-soft); font-weight:600;}
+
+  /* Intro box */
+  .intro-box{
+    margin:36px 0 48px;
+    background:linear-gradient(135deg, var(--bg-card), var(--bg-darkest));
+    border:1px solid var(--border-strong);
+    border-radius:16px;
+    padding:32px 28px;
+  }
+  .intro-box .intro-emoji{font-size:22px; margin-bottom:10px; display:block;}
+  .intro-box h2{font-size:21px; color:var(--text-primary); margin-bottom:12px;}
+  .intro-box p{color:var(--text-secondary); margin:0; font-size:15.5px;}
+
+  /* TOC nav */
+  .toc{
+    margin:0 0 56px;
+    background:var(--bg-card);
+    border:1px solid var(--border-soft);
+    border-radius:14px;
+    padding:22px 26px;
+  }
+  .toc-label{font-size:13px; color:var(--text-secondary); margin-bottom:14px; font-weight:600; text-transform:uppercase; letter-spacing:0.05em;}
+  .toc ol{list-style:none; margin:0; padding:0; display:grid; gap:9px;}
+  .toc ol li a{
+    display:flex; gap:10px; color:var(--text-primary); font-size:14.5px; padding:2px 0;
+  }
+  .toc ol li a:hover{color:var(--accent-soft); text-decoration:none;}
+  .toc ol li a .num{color:var(--accent); font-family:'JetBrains Mono', monospace; font-size:13px; flex-shrink:0;}
+
+  /* Parts */
+  .part{margin-bottom:64px;}
+  .part-eyebrow{
+    font-size:13px; font-weight:700; letter-spacing:0.08em; color:var(--accent);
+    margin-bottom:10px; display:flex; align-items:center; gap:8px;
+  }
+  .part > h2{font-size:clamp(22px, 4vw, 28px); margin-bottom:22px;}
+  .part > h2 em{display:block; font-style:normal; color:var(--text-secondary); font-weight:500; font-size:0.7em; margin-top:6px;}
+
+  .part p{color:var(--text-primary); margin:0 0 18px; font-size:15.5px;}
+  .part p.muted{color:var(--text-secondary);}
+
+  /* Callout boxes */
+  .callout{
+    border-radius:12px; padding:20px 22px; margin:22px 0;
+    border:1px solid var(--border-soft);
+    background:var(--bg-card);
+  }
+  .callout .callout-label{
+    font-size:13px; font-weight:700; margin-bottom:8px; display:flex; gap:8px; align-items:center;
+  }
+  .callout p{margin:0; font-size:14.5px; color:var(--text-secondary); white-space:pre-wrap;}
+  .callout.warn{border-color:rgba(255,138,101,0.35);}
+  .callout.warn .callout-label{color:var(--warn);}
+  .callout.tip .callout-label{color:var(--accent-soft);}
+  .callout.action{background:linear-gradient(135deg, var(--bg-card), var(--bg-darkest)); border-color:var(--border-strong);}
+  .callout.action .callout-label{color:var(--accent);}
+  .callout.compare .callout-label{color:var(--accent-soft);}
+  .callout.compare p strong{color:var(--text-primary); font-weight:600;}
+
+  /* Step cards */
+  .step{
+    display:grid; grid-template-columns:64px 1fr; gap:20px;
+    margin-bottom:44px;
+  }
+  .step-num{
+    font-family:'Space Grotesk', sans-serif; font-size:34px; font-weight:700;
+    color:var(--accent-soft); opacity:0.55; line-height:1;
+  }
+  .step-body h3{font-size:19px; color:var(--text-primary); margin-bottom:6px;}
+  .step-tag{
+    font-size:12.5px; color:var(--text-secondary); font-family:'JetBrains Mono', monospace;
+    margin-bottom:14px; display:block;
+  }
+  .step-body p{color:var(--text-primary); margin:0 0 14px; font-size:15.5px;}
+  .step-body p.muted{color:var(--text-secondary);}
+
+  /* Rules list */
+  .rules{list-style:none; margin:0; padding:0; display:grid; gap:18px;}
+  .rules li{
+    display:grid; grid-template-columns:28px 1fr; gap:14px;
+    background:var(--bg-card); border:1px solid var(--border-soft); border-radius:12px;
+    padding:18px 20px;
+  }
+  .rule-icon{color:var(--accent); font-size:17px;}
+  .rules h4{margin:0 0 6px; font-size:15.5px; color:var(--text-primary); font-family:'Inter', sans-serif; font-weight:600;}
+  .rules p{margin:0; font-size:14px; color:var(--text-secondary);}
+
+  /* Closing CTA */
+  .closing{margin:64px 0 0;}
+  .closing > h2{font-size:clamp(22px, 4vw, 28px); margin-bottom:14px;}
+  .closing > p{color:var(--text-secondary); font-size:15.5px; margin-bottom:32px; max-width:560px;}
+
+  .closing-cta-final{
+    background:linear-gradient(135deg, var(--bg-card), var(--bg-darkest));
+    border:1px solid var(--border-strong); border-radius:16px;
+    padding:30px 28px; text-align:center;
+  }
+  .closing-cta-final .btn-big{
+    display:inline-block; background:var(--accent); color:#02131f; font-weight:600;
+    font-size:15px; padding:13px 28px; border-radius:9px; margin-bottom:10px;
+    transition:background 0.15s ease, transform 0.15s ease;
+  }
+  .closing-cta-final .btn-big:hover{background:var(--accent-soft); text-decoration:none; transform:translateY(-1px);}
+  .closing-cta-final .fine-print{font-size:13px; color:var(--text-secondary); margin:0;}
+
+  /* Footer */
+  footer.site-footer{
+    border-top:1px solid var(--border-soft);
+    margin-top:72px;
+    padding:32px 0 48px;
+  }
+  .footer-name{font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:15px; color:var(--text-primary); margin-bottom:4px;}
+  .footer-meta{font-size:13px; color:var(--text-secondary); margin-bottom:18px;}
+  .footer-links{display:flex; gap:18px; flex-wrap:wrap; font-size:13.5px;}
+
+  @media(max-width:540px){
+    .step{grid-template-columns:1fr; gap:8px;}
+    .step-num{font-size:24px; opacity:0.5;}
+  }
+</style>
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "Hermès Agent : la grosse update de juin 2026, décryptage complet",
-  "description": "Décryptage complet de la mise à jour majeure de Hermès Agent en juin 2026 : iMessage natif, agents en arrière-plan, profils spécialisés, Skills Hub, cron jobs intelligents. Ce que ça change concrètement.",
+  "headline": "La grosse update d'Hermès Agent — Quand l'agent IA arrête d'être une démo et devient un poste de travail",
+  "description": "iMessage, agents en arrière-plan, profils spécialisés, Skills Hub : cette update fait passer l'agent du statut démo à un vrai système de travail continu. Décryptage.",
+  "datePublished": "2026-06-23",
+  "dateModified": "2026-06-23",
   "author": {
     "@type": "Person",
     "name": "Bryan Blaevoet",
@@ -52,97 +279,156 @@
       "url": "https://omnyx.agency/assets/logo-omnyx.png"
     }
   },
-  "datePublished": "2026-06-23",
-  "dateModified": "2026-06-23",
   "mainEntityOfPage": {
     "@type": "WebPage",
     "@id": "https://omnyx.agency/blog/hermes-agent-update-juin-2026.html"
   },
-  "keywords": "Hermès Agent, agents IA, automatisation, Nous Research, iMessage, Skills Hub",
+  "keywords": "Décryptage IA, Agents IA",
   "inLanguage": "fr-FR"
 }
 </script>
 </head>
 <body>
-<div class="mesh-bg"></div>
-<script>
-// Reveal-on-scroll observer
-document.addEventListener('DOMContentLoaded',()=>{
-  const els=document.querySelectorAll('.reveal');
-  const io=new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('active');io.unobserve(e.target);}});
-  },{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
-  els.forEach(el=>io.observe(el));
-  // Nav scroll effect
-  const nav=document.getElementById('blog-nav');
-  if(nav){window.addEventListener('scroll',()=>{nav.classList.toggle('nav-scrolled',window.scrollY>40);},{passive:true});}
-});
-</script>
 
-<nav id="blog-nav" class="nav-fixed">
-  <div class="container-omnyx" style="height:5rem;display:flex;align-items:center;justify-content:space-between;">
-    <a href="/" aria-label="Omnyx — Accueil"><img src="assets/logo-omnyx-original-nav.png" alt="Omnyx" style="height:60px;width:auto;display:block"/></a>
-    <div class="hidden md:flex items-center gap-7">
-      <a href="index.html#about"      class="text-[12px] font-medium text-[#c2dae8] hover:text-[#f0f8ff] transition-colors tracking-[.15em] uppercase">À propos</a>
-      <a href="index.html#services"   class="text-[12px] font-medium text-[#c2dae8] hover:text-[#f0f8ff] transition-colors tracking-[.15em] uppercase">Services</a>
-      <a href="blog.html"             class="text-[12px] font-medium text-[#7de8f7] hover:text-[#00d4ff] transition-colors tracking-[.15em] uppercase">Blog</a>
-      <a href="index.html#contact"    class="text-[12px] font-medium text-[#c2dae8] hover:text-[#f0f8ff] transition-colors tracking-[.15em] uppercase">Contact</a>
-      <a href="cv.html"               class="text-[12px] font-medium text-[#7de8f7] hover:text-[#00d4ff] transition-colors tracking-[.15em] uppercase">CV</a>
-    </div>
-    <a href="index.html#contact" class="hidden md:inline-flex items-center gap-2 bg-[#00d4ff] text-[#060c18] text-[12px] font-semibold tracking-[.10em] uppercase px-5 py-2.5 rounded-full shadow-[0_0_20px_rgba(0,212,255,0.35)] hover:shadow-[0_0_30px_rgba(0,212,255,0.60)] hover:-translate-y-px transition-all duration-300">Prendre un RDV</a>
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="logo-link" href="../index.html"><img src="../assets/logo-omnyx-bleu.png" alt="Omnyx"></a>
+    <a class="btn-cta" href="../index.html#contact">Prendre un RDV</a>
   </div>
-</nav>
+</header>
 
-<main style="position:relative;z-index:1;padding-top:7rem;">
-  <article class="container-omnyx" style="max-width:780px;padding-bottom:40px;">
+<main class="wrap">
 
-    <a href="blog.html" class="back-link reveal" style="margin-bottom:24px;">← Retour au blog</a>
+  <a class="back-link" href="../blog.html">← Retour au blog</a>
 
-    <div class="reveal" style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:20px;">
-      <span class="tag">Automatisation & Agents IA</span>
-      <span class="meta-line">
-        <span>23 juin 2026</span>
-        <span class="dot">·</span>
-        <span>7 min de lecture</span>
-      </span>
+  <section class="hero">
+    <div class="eyebrow-row">
+      <span class="eyebrow-tag">Décryptage IA</span>
+      <span class="dot">·</span>
+      <span>Agents IA</span>
+      <span class="dot">·</span>
+      <span>Lecture 7 min</span>
     </div>
 
-    <h1 class="font-heading gradient-text reveal" style="font-size:clamp(36px,5vw,52px);font-weight:700;line-height:1.1;margin:0 0 20px 0;letter-spacing:-0.03em;">Hermès Agent : la grosse update de juin 2026, décryptage complet</h1>
+    <h1 class="title">La grosse update d'Hermès Agent
+      <em>Quand l'agent IA arrête d'être une démo et devient un poste de travail</em>
+    </h1>
 
-    <p class="reveal" style="font-size:19px;font-weight:300;color:#c2dae8;line-height:1.55;margin:0 0 48px 0;">iMessage, agents en arrière-plan, profils spécialisés, Skills Hub : ce qui change vraiment quand un agent IA arrête d'être une démo pour devenir un poste de travail.</p>
+    <p class="subtitle">iMessage, agents en arrière-plan, profils spécialisés, Skills Hub : cette update fait passer l'agent du statut démo à un vrai système de travail continu. Décryptage.</p>
 
-    <div class="article-body reveal">
-      <p>Hermès Agent est sorti de l'âge de la démo. La mise à jour de juin 2026 transforme l'outil en <strong>poste de travail autonome</strong> : capable de tourner en arrière-plan, de parler à tes apps natives, et de se spécialiser par profil. Voici ce que ça change, sans le hype du changelog officiel.</p><h2>1. iMessage natif : ton agent te répond dans Messages</h2><p>Le plus gros morceau. Hermès peut maintenant envoyer et recevoir des <strong>iMessages et SMS</strong> depuis ton Mac, via une CLI <code>imsg</code> intégrée. Concrètement : tu lui écris depuis ton iPhone comme à un collègue, il répond, il peut déclencher des actions.</p><p>Cas d'usage réel que j'ai testé : tu es en déplacement, tu demandes "vérifie les candidatures crypto d'aujourd'hui et envoie-moi le top 5 sur Telegram". L'agent : scrape Lever via l'API, filtre, formate, envoie. Sans que tu touches ton Mac.</p><h2>2. Agents en arrière-plan (background delegation)</h2><p>Avant, chaque sous-tâche bloquait la conversation. Maintenant, <code>delegate_task</code> retourne immédiatement et l'agent continue à travailler pendant que tu fais autre chose. Le résultat revient dans la conversation quand c'est prêt.</p><p>Ça paraît anodin, mais ça débloque un use case énorme : <strong>tu délègues une recherche de 20 minutes, et tu codes pendant ce temps</strong>. Avant, tu attendais. C'est fini.</p><h2>3. Profils spécialisés</h2><p>Nouveauté clé : tu peux avoir plusieurs profils Hermès avec des skills, des providers, des mémoires différents. J'ai séparé mon profil <code>default</code> (veille + clients) d'un profil <code>work</code> (technique pur, modèle plus cher, outils différents). Switch en une commande.</p><h2>4. Skills Hub et memory persistante</h2><p>Les skills deviennent des <strong>procédures versionnées</strong>, partageables, chargeables à la demande. La mémoire persistante entre sessions est maintenant un système de premier ordre, plus un hack.</p><h2>Pourquoi c'est important pour ton business</h2><p>Si tu es solo founder ou petite équipe : Hermès passe du statut "jouet pour dev" à <strong>collaborateur réellement opérationnel</strong>. Tu peux lui déléguer la veille, la recherche, la rédaction de première version, le suivi client, sans avoir à rester collé à l'écran.</p><p>Le vrai shift : l'agent devient <em>asynchrone</em>. C'est la même différence qu'entre un assistant qui attend à ton bureau et un collègue Slack qui te répond quand il peut.</p><p>On intègre ce genre d'agents dans les offres Omnyx : <a href="/#contact">parle-nous de ton process</a>, on te montre ce qu'on peut automatiser.</p>
+    <div class="stats-box">
+      <div class="stats-label">💡 Ce que tu retiens en 30 secondes :</div>
+      <ul class="stats-list">
+        <li><span class="arrow">→</span><span>L'agent sort enfin du terminal de dev : <strong>iMessage natif</strong> pour lui parler depuis ton iPhone</span></li>
+        <li><span class="arrow">→</span><span>Plus une tâche à la fois, mais des <strong>agents en arrière-plan</strong> pendant que tu continues</span></li>
+        <li><span class="arrow">→</span><span>Plus un assistant généraliste, mais des <strong>profils spécialisés</strong> que tu pilotes</span></li>
+        <li><span class="arrow">→</span><span>Une <strong>memory persistante</strong> qui survit entre les sessions, plus un hub de skills partageables</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="intro-box">
+    <span class="intro-emoji">🚀</span>
+    <h2>Une mise à jour. Trois phases d'évolution franchies d'un coup.</h2>
+    <p>J'utilise Hermès Agent comme hub central de mes agents IA. Cette update ne fait pas qu'ajouter des fonctionnalités : elle fait passer l'agent du statut « truc qu'on lance ponctuellement » à celui de système de travail continu, accessible partout, capable de se spécialiser. Voici les 4 nouveautés qui comptent, et ce qu'elles changent concrètement pour ton workflow.</p>
+  </section>
+
+  <nav class="toc">
+    <div class="toc-label">Au sommaire</div>
+    <ol>
+      <li><a href="#n1"><span class="num">01</span><span>Support natif d'iMessage</span></a></li>
+      <li><a href="#n2"><span class="num">02</span><span>Les agents en arrière-plan</span></a></li>
+      <li><a href="#n3"><span class="num">03</span><span>Les profils spécialisés</span></a></li>
+      <li><a href="#n4"><span class="num">04</span><span>Skills Hub et memory persistante</span></a></li>
+      <li><a href="#bilan"><span class="num">→</span><span>Le bilan</span></a></li>
+    </ol>
+  </nav>
+
+  <section class="part">
+
+    <div class="step" id="n1">
+      <div class="step-num">01</div>
+      <div class="step-body">
+        <h3>Support natif d'iMessage</h3>
+        <span class="step-tag">accessibilité · usage quotidien</span>
+        <p>Le plus gros morceau. Hermès peut maintenant envoyer et recevoir des iMessages et SMS depuis ton Mac, via une CLI intégrée. Concrètement : tu lui écris depuis ton iPhone comme à un collègue, il répond, il peut déclencher des actions.</p>
+        <p class="muted">Cas d'usage réel que j'ai testé : tu es en déplacement, tu demandes « vérifie les candidatures crypto d'aujourd'hui et envoie-moi le top 5 sur Telegram ». L'agent : scrape Lever via l'API, filtre, formate, envoie. Sans que tu touches ton Mac.</p>
+        <div class="callout tip">
+          <div class="callout-label">💡 Le bon réflexe</div>
+          <p>Si ton agent n'est pas accessible depuis tes outils du quotidien, tu ne t'en serviras pas. Le CLI dans le terminal, c'est pour le setup. L'usage réel doit passer par iMessage, Telegram, ou un web UI minimal.</p>
+        </div>
+      </div>
     </div>
 
-    <div class="cta-card reveal">
-      <p class="eyebrow" style="margin-bottom:8px;">Omnyx</p>
-      <h3 class="font-heading" style="font-size:22px;color:#f0f8ff;margin:0 0 12px 0;letter-spacing:-0.02em;">On peut faire ça pour vous.</h3>
-      <p style="color:#8ab4cc;font-size:15px;margin:0 0 24px 0;">Automatisation, agents IA, sites web qui convertissent. 30 min pour voir si on peut vous faire gagner du temps.</p>
-      <a href="index.html#contact" class="btn-primary">Prendre RDV →</a>
+    <div class="step" id="n2">
+      <div class="step-num">02</div>
+      <div class="step-body">
+        <h3>Les agents en arrière-plan</h3>
+        <span class="step-tag">parallélisation · asynchrone</span>
+        <p>Avant, chaque sous-tâche bloquait la conversation. Maintenant, delegate_task retourne immédiatement et l'agent continue à travailler pendant que tu fais autre chose. Le résultat revient dans la conversation quand c'est prêt.</p>
+        <p class="muted">Ça paraît anodin, mais ça débloque un use case énorme : tu délègues une recherche de 20 minutes, et tu codes pendant ce temps. Avant, tu attendais. C'est fini.</p>
+      </div>
     </div>
 
-    <div class="author-block reveal">
-      <p class="eyebrow" style="margin-bottom:8px;">Auteur</p>
-      <p style="color:#f0f8ff;margin:0;font-size:15px;"><strong style="color:#f0f8ff;font-weight:600;">Bryan Blaevoet</strong> — Fondateur Omnyx · Ex-Partnerships Markchain · Madrileño depuis 2024</p>
+    <div class="step" id="n3">
+      <div class="step-num">03</div>
+      <div class="step-body">
+        <h3>Les profils spécialisés</h3>
+        <span class="step-tag">spécialisation · multi-agent</span>
+        <p>Tu peux maintenant avoir plusieurs profils Hermès avec des skills, des providers, des mémoires différents. J'ai séparé mon profil default (veille + clients) d'un profil work (technique pur, modèle plus cher, outils différents).</p>
+        <p class="muted">Switch en une commande. Chaque profil a son propre modèle, ses propres skills, son propre rôle. C'est probablement l'un des usages les plus puissants : ne plus avoir un seul assistant généraliste, mais plusieurs spécialistes qui collaborent autour de tes besoins.</p>
+        <div class="callout action">
+          <div class="callout-label">⚙️ Mise en place</div>
+          <p>Crée un profil par grande responsabilité (veille, clients, technique, contenu). Chaque profil a son modèle optimisé pour sa tâche : Gemini Flash pour la veille, Claude Sonnet pour le code, Mistral pour le tri rapide.</p>
+        </div>
+      </div>
     </div>
 
-  </article>
+    <div class="step" id="n4">
+      <div class="step-num">04</div>
+      <div class="step-body">
+        <h3>Skills Hub et memory persistante</h3>
+        <span class="step-tag">skills · mémoire long terme</span>
+        <p>Les skills deviennent des procédures versionnées, partageables, chargeables à la demande. La mémoire persistante entre sessions est maintenant un système de premier ordre, plus un hack.</p>
+        <p class="muted">Ça montre une tendance de fond : les agents ne seront pas seulement définis par le modèle utilisé, mais aussi par les outils, les skills et les workflows qu'on leur donne. Le modèle est le moteur. Les skills sont ce qui fait la différence.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="part" id="bilan">
+    <div class="part-eyebrow">→ LE BILAN</div>
+    <h2>On ne parle plus d'un chatbot<em>On parle d'un système de travail augmenté</em></h2>
+    <p>Cette update montre que les agents IA entrent dans une nouvelle phase. La vraie rupture n'est pas dans des modèles plus puissants, mais dans des agents plus accessibles, plus spécialisés, plus transparents et capables de bosser en parallèle. Si tu es solo founder, c'est le moment de sérieusement industrialiser.</p>
+    <ul class="rules">
+      <li><span class="rule-icon">🎯</span><div><h4>Phase 1 : la démonstration</h4><p>L'agent répond à des questions ponctuelles dans un terminal de dev.</p></div></li>
+      <li><span class="rule-icon">⚙️</span><div><h4>Phase 2 : l'intégration</h4><p>L'agent vit dans tes outils du quotidien (iMessage, Telegram, Notion).</p></div></li>
+      <li><span class="rule-icon">💡</span><div><h4>Phase 3 : l'orchestration</h4><p>Plusieurs agents spécialisés bossent en parallèle, supervisés par un orchestrateur.</p></div></li>
+    </ul>
+  </section>
+
+  <section class="closing">
+    <h2>Tu veux mettre en place un agent comme Hermès dans ton workflow ?</h2>
+    <p>On peut le setup en 30 min, branché sur tes outils (Telegram, Notion, Airtable, calendrier). Tu gardes le contrôle, l'agent bosse en arrière-plan.</p>
+
+    <div class="closing-cta-final">
+      <a class="btn-big" href="../index.html#contact">Prendre un RDV</a>
+      <p class="fine-print">Omnyx Agency · Marketing, IA &amp; automation · Madrid</p>
+    </div>
+  </section>
+
 </main>
 
-<footer class="blog-footer">
-  <div class="container-omnyx" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;">
-    <div style="display:flex;align-items:center;gap:12px;">
-      <img src="assets/logo-omnyx-original-nav.png" alt="Omnyx" style="height:24px;width:auto"/>
-      <span style="font-family:'Space Grotesk',sans-serif;color:#8ab4cc;font-size:13px;">© 2026 Omnyx · Madrid · Bryan Blaevoet</span>
-    </div>
-    <div style="display:flex;gap:24px;font-size:13px;align-items:center;">
-      <a href="index.html"      style="color:#8ab4cc;text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#7de8f7'" onmouseout="this.style.color='#8ab4cc'">Accueil</a>
-      <a href="blog.html"       style="color:#8ab4cc;text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#7de8f7'" onmouseout="this.style.color='#8ab4cc'">Blog</a>
-      <a href="cv.html"         style="color:#8ab4cc;text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#7de8f7'" onmouseout="this.style.color='#8ab4cc'">CV</a>
-      <a href="https://www.linkedin.com/in/bryanblaevoet/" rel="noopener" style="color:#8ab4cc;text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#7de8f7'" onmouseout="this.style.color='#8ab4cc'">LinkedIn</a>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-name">Omnyx Agency</div>
+    <div class="footer-meta">Marketing, IA &amp; automation · Madrid</div>
+    <div class="footer-links">
+      <a href="../index.html">Site</a>
+      <a href="../blog.html">Blog</a>
+      <a href="../index.html#contact">Contact</a>
     </div>
   </div>
 </footer>
+
 </body>
 </html>
