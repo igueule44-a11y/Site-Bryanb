@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=1584"/>
+<title>LinkedIn Banner | Omnyx</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  width:1584px;
+  height:396px;
+  overflow:hidden;
+  font-family:"Space Grotesk",sans-serif;
+  background:#060c18;
+}
+
+.banner{
+  position:relative;
+  width:1584px;
+  height:396px;
+  background:linear-gradient(115deg,#050b16 0%,#081226 30%,#0a1830 55%,#0b1c38 100%);
+  overflow:hidden;
+}
+
+.mesh{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse at 78% 45%,rgba(0,212,255,.16),transparent 45%),
+    radial-gradient(ellipse at 10% 20%,rgba(0,150,200,.06),transparent 40%),
+    radial-gradient(ellipse at 30% 90%,rgba(30,80,160,.08),transparent 40%);
+  pointer-events:none;
+}
+
+.grid-lines{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(0,212,255,.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(0,212,255,.035) 1px,transparent 1px);
+  background-size:44px 44px;
+  -webkit-mask-image:linear-gradient(to right,black,transparent 55%);
+  mask-image:linear-gradient(to right,black,transparent 55%);
+  pointer-events:none;
+}
+
+/* Logo top-left */
+.logo{
+  position:absolute;
+  top:34px;left:44px;
+  height:64px;
+  width:auto;
+  z-index:10;
+}
+
+/* Center text block */
+.content{
+  position:relative;z-index:5;
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding-left:44px;
+  padding-top:40px;
+  max-width:640px;
+}
+
+.name{
+  font-size:58px;
+  font-weight:600;
+  line-height:1.1;
+  color:#f0f8ff;
+  letter-spacing:-0.01em;
+}
+.name .accent{
+  color:#00d4ff;
+}
+
+.role{
+  font-family:"JetBrains Mono",monospace;
+  font-size:16px;
+  font-weight:500;
+  color:#7de8f7;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  margin-top:16px;
+}
+
+.tagline{
+  font-size:27px;
+  font-weight:700;
+  color:#f0f8ff;
+  line-height:1.4;
+  margin-top:26px;
+}
+.tagline .highlight{
+  color:#00d4ff;
+  display:block;
+}
+
+/* Floating badges */
+.badge{
+  position:absolute;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  background:rgba(8,18,36,.65);
+  border:1px solid rgba(0,212,255,.28);
+  border-radius:9999px;
+  padding:8px 16px;
+  font-family:"JetBrains Mono",monospace;
+  font-size:12px;
+  font-weight:500;
+  color:#c8dff0;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  backdrop-filter:blur(6px);
+  z-index:6;
+}
+.badge-dot{
+  width:6px;height:6px;
+  border-radius:50%;
+  background:#00d4ff;
+  box-shadow:0 0 8px rgba(0,212,255,.8);
+  flex-shrink:0;
+}
+
+/* Network graphic */
+.network{
+  position:absolute;
+  right:180px;top:50%;
+  transform:translateY(-50%);
+  width:260px;height:260px;
+  z-index:4;
+}
+.network-ring{
+  position:absolute;
+  border:1px solid rgba(0,212,255,.14);
+  border-radius:50%;
+  top:50%;left:50%;
+  transform:translate(-50%,-50%);
+}
+.network-glow{
+  position:absolute;
+  top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  width:70px;height:70px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(0,212,255,.9),rgba(0,212,255,.25) 55%,transparent 75%);
+  filter:blur(2px);
+}
+.network-core{
+  position:absolute;
+  top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  width:10px;height:10px;
+  border-radius:50%;
+  background:#e8fbff;
+  box-shadow:0 0 16px 4px rgba(0,212,255,.9);
+}
+.network-line{
+  position:absolute;
+  background:rgba(0,212,255,.35);
+  height:1px;
+  transform-origin:left center;
+  top:50%;left:50%;
+}
+.network-node{
+  position:absolute;
+  width:7px;height:7px;
+  border-radius:50%;
+  background:#7de8f7;
+  box-shadow:0 0 6px rgba(125,232,247,.8);
+}
+</style>
+</head>
+<body>
+<div class="banner">
+  <div class="mesh"></div>
+  <div class="grid-lines"></div>
+
+  <img class="logo" src="assets/logo-omnyx-original-nav.png" alt="Omnyx"/>
+
+  <div class="content">
+    <div class="name">Bryan <span class="accent">Blaevoet</span></div>
+    <div class="role">Marketing &nbsp;/&nbsp; AI &nbsp;/&nbsp; Automation</div>
+    <div class="tagline">
+      Explosez vos résultats.
+      <span class="highlight">Automatisez vos systèmes.</span>
+    </div>
+  </div>
+
+  <!-- Network graphic -->
+  <div class="network">
+    <div class="network-ring" style="width:260px;height:260px;"></div>
+    <div class="network-ring" style="width:190px;height:190px;"></div>
+    <div class="network-ring" style="width:120px;height:120px;"></div>
+    <div class="network-glow"></div>
+    <div class="network-core"></div>
+
+    <div class="network-line" style="width:90px;transform:rotate(-25deg);"></div>
+    <div class="network-line" style="width:70px;transform:rotate(35deg);"></div>
+    <div class="network-line" style="width:100px;transform:rotate(160deg);"></div>
+    <div class="network-line" style="width:60px;transform:rotate(200deg);"></div>
+    <div class="network-line" style="width:85px;transform:rotate(90deg);"></div>
+
+    <div class="network-node" style="top:28%;left:75%;"></div>
+    <div class="network-node" style="top:70%;left:80%;"></div>
+    <div class="network-node" style="top:78%;left:22%;"></div>
+    <div class="network-node" style="top:20%;left:30%;"></div>
+    <div class="network-node" style="top:50%;left:92%;"></div>
+  </div>
+
+  <!-- Floating badges -->
+  <div class="badge" style="top:44px;right:330px;"><span class="badge-dot"></span>Campagnes UGC</div>
+  <div class="badge" style="top:78px;right:600px;"><span class="badge-dot"></span>Agents IA</div>
+  <div class="badge" style="top:96px;right:100px;"><span class="badge-dot"></span>Influence Marketing</div>
+  <div class="badge" style="top:290px;right:560px;"><span class="badge-dot"></span>Workflows IA</div>
+  <div class="badge" style="top:198px;right:36px;"><span class="badge-dot"></span>Ads</div>
+  <div class="badge" style="top:300px;right:230px;"><span class="badge-dot"></span>Chatbot</div>
+  <div class="badge" style="top:296px;right:30px;"><span class="badge-dot"></span>Data</div>
+
+</div>
+</body>
+</html>
