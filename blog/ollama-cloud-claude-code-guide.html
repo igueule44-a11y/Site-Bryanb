@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="fr" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="assets/logo-omnyx-nav.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <meta name="theme-color" content="#080e1a" />
+  <title>Ollama Cloud × Claude Code : le guide complet pour ne plus jamais être bloqué par tes tokens | Blog Omnyx</title>
+  <meta name="description" content="Tutoriel pas à pas pour connecter Ollama Cloud à Claude Code et Hermès Agent. Configuration API, basculement automatique, et pourquoi Ollama Cloud change la donne pour les solo founders." />
+  <link rel="canonical" href="https://omnyx.agency/blog/ollama-cloud-claude-code-guide.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Ollama Cloud × Claude Code : le guide complet pour ne plus jamais être bloqué par tes tokens | Blog Omnyx" />
+  <meta property="og:description" content="Tutoriel pas à pas pour connecter Ollama Cloud à Claude Code et Hermès Agent. Configuration API, basculement automatique, et pourquoi Ollama Cloud change la donne pour les solo founders." />
+  <meta property="og:url" content="https://omnyx.agency/blog/ollama-cloud-claude-code-guide.html" />
+  <meta property="og:image" content="/assets/logo-omnyx.png" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:site_name" content="Omnyx" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Ollama Cloud × Claude Code : le guide complet pour ne plus jamais être bloqué par tes tokens | Blog Omnyx" />
+  <meta name="twitter:description" content="Tutoriel pas à pas pour connecter Ollama Cloud à Claude Code et Hermès Agent. Configuration API, basculement automatique, et pourquoi Ollama Cloud change la donne pour les solo founders." />
+  <meta name="twitter:image" content="/assets/logo-omnyx.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="blog.css" />
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Ollama Cloud × Claude Code : le guide complet pour ne plus jamais être bloqué par tes tokens",
+  "description": "Tutoriel pas à pas pour connecter Ollama Cloud à Claude Code et Hermès Agent. Configuration API, basculement automatique, et pourquoi Ollama Cloud change la donne pour les solo founders.",
+  "author": {
+    "@type": "Person",
+    "name": "Bryan Blaevoet",
+    "url": "https://www.linkedin.com/in/bryanblaevoet/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Omnyx",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://omnyx.agency/assets/logo-omnyx.png"
+    }
+  },
+  "datePublished": "2026-06-25",
+  "dateModified": "2026-06-25",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://omnyx.agency/blog/ollama-cloud-claude-code-guide.html"
+  },
+  "keywords": "Ollama Cloud, Claude Code, Hermès Agent, LLM, API, tokens",
+  "inLanguage": "fr-FR"
+}
+</script>
+</head>
+<body>
+  <header class="nav-fixed">
+    <div class="container-omnyx" style="display:flex;justify-content:space-between;align-items:center;height:72px;">
+      <a href="/" style="display:flex;align-items:center;gap:10px;">
+        <img src="assets/logo-omnyx-nav.png" alt="Omnyx" style="height:32px;" />
+        <span style="font-family:'JetBrains Mono',monospace;font-weight:700;color:#f0f8ff;letter-spacing:0.05em;">OMNYX</span>
+      </a>
+      <nav style="display:flex;gap:24px;align-items:center;">
+        <a href="/#services" style="color:#8ab4cc;font-weight:500;">Services</a>
+        <a href="blog.html" style="color:#00d4ff;font-weight:600;">Blog</a>
+        <a href="/#contact" class="cta-button" style="padding:8px 18px;font-size:0.9rem;">Prendre RDV</a>
+      </nav>
+    </div>
+  </header>
+  <main style="padding-top:72px;">
+
+  <article class="container-omnyx" style="max-width:780px;padding:60px 32px 40px;">
+    <a href="blog.html" style="display:inline-flex;align-items:center;gap:6px;color:#8ab4cc;font-size:0.9rem;margin-bottom:24px;">← Retour au blog</a>
+    <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:16px;">
+      <span class="tag ">Automatisation & Agents IA</span>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:0.8rem;color:#5a7a90;">25 juin 2026</span>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:0.8rem;color:#5a7a90;">·</span>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:0.8rem;color:#5a7a90;">8 min de lecture</span>
+    </div>
+    <h1 style="font-family:'Space Grotesk',sans-serif;font-size:2.5rem;font-weight:700;line-height:1.15;margin:0 0 20px;color:#f0f8ff;letter-spacing:-0.02em;">Ollama Cloud × Claude Code : le guide complet pour ne plus jamais être bloqué par tes tokens</h1>
+    <p style="font-size:1.2rem;color:#8ab4cc;line-height:1.5;margin:0 0 40px;">Comment connecter Ollama Cloud à Claude Code et Hermès Agent pour ne plus jamais être bloqué par tes tokens, pas à pas et sans coder.</p>
+    <div class="article-body">
+      <p>Si tu utilises Claude Code ou Hermès Agent, tu connais la douleur : <strong>tu tombes à court de tokens au pire moment</strong>. Ollama Cloud règle ça. Voici comment tout brancher en 10 minutes.</p><h2>Pourquoi Ollama Cloud plutôt qu'un autre provider</h2><p>Ollama Cloud te donne accès à des modèles open-source (Llama, Qwen, DeepSeek, Mistral) via une API simple, compatible OpenAI. Avantages :</p><ul><li><strong>Coût marginal quasi-nul</strong> sur les modèles locaux bien plus petits que Claude</li><li><strong>Pas de rate limit agressif</strong> comme les API classiques</li><li><strong>Confidentialité</strong> : tes données ne servent pas à entraîner le modèle</li><li><strong>Variété</strong> : tu peux router entre un gros modèle (DeepSeek V3) pour les tâches complexes et un petit (Llama 3.1 8B) pour les tâches simples</li></ul><h2>Étape 1 : récupérer ta clé Ollama Cloud</h2><p>Rends-toi sur <a href="https://ollama.com" rel="noopener">ollama.com</a>, crée un compte, va dans Settings → API Keys. Copie la clé au format <code>ollama-...</code>.</p><h2>Étape 2 : configurer Claude Code</h2><p>Dans ton shell :</p><pre><code>export ANTHROPIC_BASE_URL=https://ollama.com/v1
+export ANTHROPIC_API_KEY=ollama-ta-cle-ici</code></pre><p>Tu peux aussi créer un alias pour switcher rapidement :</p><pre><code># ~/.zshrc ou ~/.bashrc
+alias cc-ollama='ANTHROPIC_BASE_URL=https://ollama.com/v1 ANTHROPIC_API_KEY=ollama-... claude'
+alias cc-anthropic='claude'</code></pre><h2>Étape 3 : brancher Hermès Agent</h2><p>Dans <code>~/.hermes/config.yaml</code>, ajoute un custom provider :</p><pre><code>providers:
+  - name: ollama-cloud
+    base_url: https://ollama.com/v1
+    api_key: ollama-ta-cle
+    models:
+      - name: deepseek-v3
+        context: 128000
+      - name: llama-3.3-70b
+        context: 128000</code></pre><p>Tu peux ensuite router une partie de tes tâches vers ce provider dans les cron jobs ou directement à la main.</p><h2>Étape 4 : la stratégie de bascule</h2><p>La vraie force c'est le <strong>fallback chain</strong> : Claude Sonnet pour le code complexe, Ollama Cloud pour la recherche, le résumé, la classification. Ton coût par tâche baisse de 60-80% sans perte de qualité sur les tâches critiques.</p><p>Concrètement, dans un cron job Hermès :</p><pre><code>model:
+  primary: anthropic/claude-sonnet-4
+  fallbacks:
+    - ollama-cloud/deepseek-v3
+    - ollama-cloud/llama-3.3-70b</code></pre><h2>Cas d'usage qui marchent bien sur Ollama Cloud</h2><ul><li>Recherche et résumé web (Llama 70B suffit)</li><li>Génération de première version d'article (DeepSeek V3)</li><li>Classification et tagging (petits modèles)</li><li>Analyse de logs et debugging simple</li></ul><p>À éviter : génération de code React complexe ou raisonnement multi-étapes long — reste sur Claude Sonnet pour ça.</p><p>Si tu veux qu'on te configure tout ça pour ton stack : <a href="/#contact">on peut le setup en 30 min</a>.</p>
+    </div>
+
+    <div style="margin:60px 0 40px;padding:32px;border:1px solid rgba(0,212,255,0.2);border-radius:12px;background:rgba(0,212,255,0.04);">
+      <p style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:#00d4ff;letter-spacing:0.1em;margin:0 0 8px;text-transform:uppercase;">Omnyx</p>
+      <h3 style="font-family:'Space Grotesk',sans-serif;color:#f0f8ff;font-size:1.4rem;margin:0 0 8px;">On peut faire ça pour vous.</h3>
+      <p style="color:#8ab4cc;margin:0 0 20px;">Automatisation, agents IA, sites web qui convertissent. 30 min pour voir si on peut vous faire gagner du temps.</p>
+      <a href="/#contact" class="cta-button">Prendre RDV →</a>
+    </div>
+
+    <div style="border-top:1px solid rgba(0,212,255,0.1);padding-top:32px;margin-top:40px;">
+      <p style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:#5a7a90;letter-spacing:0.1em;text-transform:uppercase;margin:0 0 8px;">Auteur</p>
+      <p style="color:#f0f8ff;margin:0;"><strong>Bryan Blaevoet</strong> — Fondateur Omnyx · Ex-Partnerships Markchain · Madrileño depuis 2024</p>
+    </div>
+  </article>
+
+  </main>
+  <footer style="border-top:1px solid rgba(0,212,255,0.1);margin-top:80px;padding:40px 0;background:#060c18;">
+    <div class="container-omnyx" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <img src="assets/logo-omnyx-nav.png" alt="Omnyx" style="height:24px;" />
+        <span style="font-family:'JetBrains Mono',monospace;color:#8ab4cc;font-size:0.85rem;">© 2026 Omnyx · Madrid</span>
+      </div>
+      <div style="display:flex;gap:24px;font-size:0.85rem;">
+        <a href="/" style="color:#8ab4cc;">Accueil</a>
+        <a href="blog.html" style="color:#8ab4cc;">Blog</a>
+        <a href="https://www.linkedin.com/in/bryanblaevoet/" style="color:#8ab4cc;" rel="noopener">LinkedIn</a>
+        <a href="/#contact" style="color:#8ab4cc;">Contact</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

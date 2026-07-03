@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="fr" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="assets/logo-omnyx-nav.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <meta name="theme-color" content="#080e1a" />
+  <title>Le making-of d'un déploiement raté : 8 allers-retours pour pousser un fichier HTML | Blog Omnyx</title>
+  <meta name="description" content="Retour d'expérience technique : comment un déploiement Vercel a tourné au fiasco malgré la simplicité apparente, les 4 pièges que j'aurais dû voir, et la leçon pour tes process IA." />
+  <link rel="canonical" href="https://omnyx.agency/blog/making-of-deploiement-rate.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Le making-of d'un déploiement raté : 8 allers-retours pour pousser un fichier HTML | Blog Omnyx" />
+  <meta property="og:description" content="Retour d'expérience technique : comment un déploiement Vercel a tourné au fiasco malgré la simplicité apparente, les 4 pièges que j'aurais dû voir, et la leçon pour tes process IA." />
+  <meta property="og:url" content="https://omnyx.agency/blog/making-of-deploiement-rate.html" />
+  <meta property="og:image" content="/assets/logo-omnyx.png" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:site_name" content="Omnyx" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Le making-of d'un déploiement raté : 8 allers-retours pour pousser un fichier HTML | Blog Omnyx" />
+  <meta name="twitter:description" content="Retour d'expérience technique : comment un déploiement Vercel a tourné au fiasco malgré la simplicité apparente, les 4 pièges que j'aurais dû voir, et la leçon pour tes process IA." />
+  <meta name="twitter:image" content="/assets/logo-omnyx.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="blog.css" />
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Le making-of d'un déploiement raté : 8 allers-retours pour pousser un fichier HTML",
+  "description": "Retour d'expérience technique : comment un déploiement Vercel a tourné au fiasco malgré la simplicité apparente, les 4 pièges que j'aurais dû voir, et la leçon pour tes process IA.",
+  "author": {
+    "@type": "Person",
+    "name": "Bryan Blaevoet",
+    "url": "https://www.linkedin.com/in/bryanblaevoet/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Omnyx",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://omnyx.agency/assets/logo-omnyx.png"
+    }
+  },
+  "datePublished": "2026-06-27",
+  "dateModified": "2026-06-27",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://omnyx.agency/blog/making-of-deploiement-rate.html"
+  },
+  "keywords": "Vercel, déploiement, CI/CD, automatisation, leçons",
+  "inLanguage": "fr-FR"
+}
+</script>
+</head>
+<body>
+  <header class="nav-fixed">
+    <div class="container-omnyx" style="display:flex;justify-content:space-between;align-items:center;height:72px;">
+      <a href="/" style="display:flex;align-items:center;gap:10px;">
+        <img src="assets/logo-omnyx-nav.png" alt="Omnyx" style="height:32px;" />
+        <span style="font-family:'JetBrains Mono',monospace;font-weight:700;color:#f0f8ff;letter-spacing:0.05em;">OMNYX</span>
+      </a>
+      <nav style="display:flex;gap:24px;align-items:center;">
+        <a href="/#services" style="color:#8ab4cc;font-weight:500;">Services</a>
+        <a href="blog.html" style="color:#00d4ff;font-weight:600;">Blog</a>
+        <a href="/#contact" class="cta-button" style="padding:8px 18px;font-size:0.9rem;">Prendre RDV</a>
+      </nav>
+    </div>
+  </header>
+  <main style="padding-top:72px;">
+
+  <article class="container-omnyx" style="max-width:780px;padding:60px 32px 40px;">
+    <a href="blog.html" style="display:inline-flex;align-items:center;gap:6px;color:#8ab4cc;font-size:0.9rem;margin-bottom:24px;">← Retour au blog</a>
+    <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:16px;">
+      <span class="tag tag-orange">Coulisses techniques</span>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:0.8rem;color:#5a7a90;">27 juin 2026</span>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:0.8rem;color:#5a7a90;">·</span>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:0.8rem;color:#5a7a90;">6 min de lecture</span>
+    </div>
+    <h1 style="font-family:'Space Grotesk',sans-serif;font-size:2.5rem;font-weight:700;line-height:1.15;margin:0 0 20px;color:#f0f8ff;letter-spacing:-0.02em;">Le making-of d'un déploiement raté : 8 allers-retours pour pousser un fichier HTML</h1>
+    <p style="font-size:1.2rem;color:#8ab4cc;line-height:1.5;margin:0 0 40px;">Pourquoi déployer un simple fichier HTML a pris huit allers-retours avec mon assistant IA, et les 4 erreurs concrètes qui ont fait perdre le fil.</p>
+    <div class="article-body">
+      <p>Vendredi soir, 23h. Je veux pousser un simple fichier <code>blog.html</code> sur omnyx.agency. Spoiler : <strong>ça m'a pris 8 tentatives et 2h</strong>. Voici ce qui s'est passé.</p><h2>Le contexte</h2><p>J'ai une app React + Vite déployée sur Vercel. Le <code>blog.html</code> que je voulais ajouter n'était pas dans le code source — c'était une page statique standalone que j'avais préparée à part. Logique : je la mets dans <code>public/</code>, je push, Vercel la sert, terminé.</p><h2>Les 4 erreurs que j'ai faites</h2><h3>Erreur 1 : supposer que <code>public/</code> servait les pages statiques à la racine</h3><p>Mon <code>blog.html</code> était à <code>public/blog.html</code>. Au build, Vite l'a copié dans <code>dist/blog.html</code>. Ça aurait dû marcher. <strong>Mais</strong> Vite, par défaut, sert l'index React sur toutes les routes qui n'ont pas d'extension de fichier spécifique. Le fichier était bien sur le serveur, mais la route <code>/blog.html</code> était interceptée par le fallback SPA.</p><h3>Erreur 2 : ne pas avoir de <code>vercel.json</code> propre</h3><p>Mon <code>vercel.json</code> n'avait pas de section <code>cleanUrls</code>, ni de <code>rewrites</code> explicites. Le routing SPA avait la priorité sur tout.</p><h3>Erreur 3 : faire confiance à l'agent IA sans vérifier</h3><p>Mon agent a passé 4 itérations à me dire "ah, c'est bon, j'ai compris, c'est un problème de path". À chaque fois, sa solution était plausible mais incorrecte. J'aurais dû tester la solution moi-même après chaque itération, pas après 4.</p><h3>Erreur 4 : ne pas documenter le pattern</h3><p>Au final, la solution était : transformer <code>blog.html</code> en une entrée multi-page dans <code>vite.config.ts</code> (rollupOptions.input), avec output en <code>blog/blog-article.html</code> pour chaque article. C'est un pattern que je vais réutiliser 50 fois. Je l'aurais vu tout de suite si j'avais eu un <code>notes/patterns.md</code>.</p><h2>La vraie leçon</h2><p>Un agent IA est fort pour générer des hypothèses, faible pour les valider. <strong>Mon process devrait être</strong> : l'agent propose, je teste, l'agent propose la suite. Pas l'agent propose 4 hypothèses en série pendant que je le regarde faire.</p><h2>Ce que j'ai changé depuis</h2><ul><li><strong>Vérification après chaque changement de config</strong>, pas après une série</li><li><strong>Pattern documenté</strong> dans le repo pour les pages statiques multi-entry Vite</li><li><strong>Leçon appliquée</strong> : ce blog utilise exactement le pattern que j'aurais dû appliquer dès le départ (pages HTML statiques servies comme telles, pas via le routing SPA)</li></ul><p>Si tu construis un process où l'IA fait des changements de config ou d'archi, <a href="/#contact">on peut t'aider à mettre le bon cadre</a>.</p>
+    </div>
+
+    <div style="margin:60px 0 40px;padding:32px;border:1px solid rgba(0,212,255,0.2);border-radius:12px;background:rgba(0,212,255,0.04);">
+      <p style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:#00d4ff;letter-spacing:0.1em;margin:0 0 8px;text-transform:uppercase;">Omnyx</p>
+      <h3 style="font-family:'Space Grotesk',sans-serif;color:#f0f8ff;font-size:1.4rem;margin:0 0 8px;">On peut faire ça pour vous.</h3>
+      <p style="color:#8ab4cc;margin:0 0 20px;">Automatisation, agents IA, sites web qui convertissent. 30 min pour voir si on peut vous faire gagner du temps.</p>
+      <a href="/#contact" class="cta-button">Prendre RDV →</a>
+    </div>
+
+    <div style="border-top:1px solid rgba(0,212,255,0.1);padding-top:32px;margin-top:40px;">
+      <p style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:#5a7a90;letter-spacing:0.1em;text-transform:uppercase;margin:0 0 8px;">Auteur</p>
+      <p style="color:#f0f8ff;margin:0;"><strong>Bryan Blaevoet</strong> — Fondateur Omnyx · Ex-Partnerships Markchain · Madrileño depuis 2024</p>
+    </div>
+  </article>
+
+  </main>
+  <footer style="border-top:1px solid rgba(0,212,255,0.1);margin-top:80px;padding:40px 0;background:#060c18;">
+    <div class="container-omnyx" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <img src="assets/logo-omnyx-nav.png" alt="Omnyx" style="height:24px;" />
+        <span style="font-family:'JetBrains Mono',monospace;color:#8ab4cc;font-size:0.85rem;">© 2026 Omnyx · Madrid</span>
+      </div>
+      <div style="display:flex;gap:24px;font-size:0.85rem;">
+        <a href="/" style="color:#8ab4cc;">Accueil</a>
+        <a href="blog.html" style="color:#8ab4cc;">Blog</a>
+        <a href="https://www.linkedin.com/in/bryanblaevoet/" style="color:#8ab4cc;" rel="noopener">LinkedIn</a>
+        <a href="/#contact" style="color:#8ab4cc;">Contact</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

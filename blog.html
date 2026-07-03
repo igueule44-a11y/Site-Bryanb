@@ -1,172 +1,191 @@
-<!DOCTYPE html>
-<html class="scroll-smooth" lang="fr">
+<!doctype html>
+<html lang="fr" class="dark">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Blog Omnyx | Marketing · AI Agency</title>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="assets/logo-omnyx-nav.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <meta name="theme-color" content="#080e1a" />
+  <title>Blog Omnyx | Marketing · IA · Croissance</title>
+  <meta name="description" content="Automatisation, agents IA, growth pour fondateurs et coulisses techniques : ce qui marche vraiment, sans blabla. Articles pratiques écrits par Bryan Blaevoet (Omnyx)." />
+  <link rel="canonical" href="https://omnyx.agency/blog.html" />
 
-<meta name="description" content="Articles Omnyx sur le marketing digital, l'automatisation IA, les agents et le growth pour fondateurs Web2/Web3."/>
-<meta name="author" content="Omnyx Agency"/>
-<meta name="robots" content="index, follow"/>
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Blog Omnyx | Marketing · IA · Croissance" />
+  <meta property="og:description" content="Automatisation, agents IA, growth pour fondateurs et coulisses techniques : ce qui marche vraiment, sans blabla. Articles pratiques écrits par Bryan Blaevoet (Omnyx)." />
+  <meta property="og:url" content="https://omnyx.agency/blog.html" />
+  <meta property="og:image" content="/assets/logo-omnyx.png" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:site_name" content="Omnyx" />
 
-<link rel="icon" type="image/x-icon" href="/favicon.ico"/>
-<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Blog Omnyx | Marketing · IA · Croissance" />
+  <meta name="twitter:description" content="Automatisation, agents IA, growth pour fondateurs et coulisses techniques : ce qui marche vraiment, sans blabla. Articles pratiques écrits par Bryan Blaevoet (Omnyx)." />
+  <meta name="twitter:image" content="/assets/logo-omnyx.png" />
 
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<script id="tailwind-config">
-tailwind.config={darkMode:"class",theme:{extend:{colors:{"deep-navy":"#060c18","main-bg":"#080e1a","card-bg":"#0d1a2e","soft-white":"#f0f8ff","muted-text":"#8ab4cc","soft-cyan":"#7de8f7","cyan-glow":"#00d4ff"},fontFamily:{heading:["Space Grotesk","sans-serif"],body:["Space Grotesk","sans-serif"]},boxShadow:{"neon-cyan":"0 0 20px rgba(0,212,255,0.4)","neon-cyan-strong":"0 0 30px rgba(0,212,255,0.6)","glass":"0 8px 32px 0 rgba(0,0,0,0.5)"}}}}
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="blog.css" />
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "Blog Omnyx",
+  "description": "Marketing, IA & croissance. Automatisation, agents IA, growth pour fondateurs, et coulisses techniques.",
+  "url": "https://omnyx.agency/blog.html",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Omnyx",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://omnyx.agency/assets/logo-omnyx.png"
+    }
+  },
+  "blogPost": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Maîtriser ses prompts en 2026 : ce qui a vraiment changé depuis GPT-3.5",
+      "url": "https://omnyx.agency/blog/maitriser-prompts-2026.html",
+      "datePublished": "2026-07-02"
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Agents IA pour PME : par où commencer en 2026 (guide pragmatique)",
+      "url": "https://omnyx.agency/blog/agents-ia-pme-guide-2026.html",
+      "datePublished": "2026-07-01"
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Le making-of d'un déploiement raté : 8 allers-retours pour pousser un fichier HTML",
+      "url": "https://omnyx.agency/blog/making-of-deploiement-rate.html",
+      "datePublished": "2026-06-27"
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Ollama Cloud × Claude Code : le guide complet pour ne plus jamais être bloqué par tes tokens",
+      "url": "https://omnyx.agency/blog/ollama-cloud-claude-code-guide.html",
+      "datePublished": "2026-06-25"
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Hermès Agent : la grosse update de juin 2026, décryptage complet",
+      "url": "https://omnyx.agency/blog/hermes-agent-update-juin-2026.html",
+      "datePublished": "2026-06-23"
+    }
+  ]
+}
 </script>
-
-<style>
-html{background:linear-gradient(180deg,#060c18 0%,#0a1628 12%,#080e1a 28%,#0b1220 45%,#080e1a 60%,#091526 78%,#080e1a 100%);min-height:100%}
-body{background:transparent;color:#f0f8ff;font-family:"Space Grotesk",sans-serif}
-h1,h2,h3,h4,h5,h6,.font-heading{font-family:"Space Grotesk",sans-serif;font-weight:600;letter-spacing:-0.03em}
-
-.gradient-text{
-  background:linear-gradient(135deg,#f0f8ff 0%,#b3ecff 25%,#00d4ff 50%,#7de8f7 75%,#f0f8ff 100%);
-  background-size:200% auto;
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  background-clip:text;
-  animation:gradient-shimmer 7s ease-in-out infinite alternate;
-}
-@keyframes gradient-shimmer{0%{background-position:left center}100%{background-position:right center}}
-
-.mesh-bg{
-  position:absolute;top:0;left:0;width:100%;height:100%;
-  background:
-    radial-gradient(circle at 15% 50%,rgba(0,212,255,.10),transparent 40%),
-    radial-gradient(circle at 85% 30%,rgba(0,150,200,.08),transparent 40%),
-    radial-gradient(circle at 50% 80%,rgba(30,80,160,.07),transparent 35%);
-  z-index:0;pointer-events:none
-}
-
-.reveal{opacity:0;transform:translateY(20px);filter:blur(8px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1),filter .9s cubic-bezier(.16,1,.3,1)}
-.reveal.active{opacity:1;transform:translateY(0);filter:blur(0)}
-
-.nav-scrolled{background-color:rgba(8,14,26,.78);border-bottom:1px solid rgba(0,212,255,.10);backdrop-filter:blur(16px)}
-
-.glass-card{background:rgba(13,26,46,.35);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(0,212,255,.10);box-shadow:inset 0 2px 20px rgba(0,0,0,.4),0 8px 32px rgba(0,0,0,.4)}
-.glass-card:hover{border-color:rgba(0,212,255,.28);box-shadow:0 0 22px rgba(0,212,255,.12),0 8px 32px rgba(0,0,0,.4)}
-
-.tag-pill{display:inline-flex;align-items:center;background:rgba(0,212,255,.08);border:1px solid rgba(0,212,255,.22);color:#7de8f7;padding:5px 12px;border-radius:9999px;font-size:11px;font-weight:500;letter-spacing:.06em;text-transform:uppercase}
-
-.lang-btn{transition:color .2s}
-.lang-btn.active{color:#00d4ff !important}
-
-footer{background:rgba(8,14,26,.85) !important;backdrop-filter:blur(8px)}
-</style>
 </head>
-
-<body class="antialiased">
-
-<!-- ── NAVIGATION ──────────────────────────────────────────────────────────── -->
-<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 nav-scrolled">
-  <div class="max-w-6xl mx-auto px-5 h-20 flex items-center justify-between">
-    <a href="index.html" class="flex items-center" style="margin-left:-6px">
-      <img src="assets/logo-omnyx-original-nav.png" alt="Omnyx" style="height:60px;width:auto;display:block"/>
-    </a>
-
-    <div class="hidden md:flex items-center gap-7">
-      <a href="index.html#about"      class="text-[12px] font-medium text-[#c2dae8] hover:text-[#f0f8ff] transition-colors tracking-[.15em] uppercase">À propos</a>
-      <a href="index.html#services"   class="text-[12px] font-medium text-[#c2dae8] hover:text-[#f0f8ff] transition-colors tracking-[.15em] uppercase">Services</a>
-      <a href="blog.html"             class="text-[12px] font-medium text-[#7de8f7] hover:text-[#00d4ff] transition-colors tracking-[.15em] uppercase">Blog</a>
-      <a href="cv.html"                class="text-[12px] font-medium text-[#c2dae8] hover:text-[#f0f8ff] transition-colors tracking-[.15em] uppercase">CV</a>
+<body>
+  <header class="nav-fixed">
+    <div class="container-omnyx" style="display:flex;justify-content:space-between;align-items:center;height:72px;">
+      <a href="/" style="display:flex;align-items:center;gap:10px;">
+        <img src="assets/logo-omnyx-nav.png" alt="Omnyx" style="height:32px;" />
+        <span style="font-family:'JetBrains Mono',monospace;font-weight:700;color:#f0f8ff;letter-spacing:0.05em;">OMNYX</span>
+      </a>
+      <nav style="display:flex;gap:24px;align-items:center;">
+        <a href="/#services" style="color:#8ab4cc;font-weight:500;">Services</a>
+        <a href="blog.html" style="color:#00d4ff;font-weight:600;">Blog</a>
+        <a href="/#contact" class="cta-button" style="padding:8px 18px;font-size:0.9rem;">Prendre RDV</a>
+      </nav>
     </div>
+  </header>
+  <main style="padding-top:72px;">
 
-    <div class="flex items-center gap-4">
-      <a href="index.html#contact"
-         class="hidden md:inline-flex items-center gap-2 bg-[#00d4ff] text-[#060c18] text-[12px] font-semibold tracking-[.10em] uppercase px-5 py-2.5 rounded-full shadow-[0_0_20px_rgba(0,212,255,0.35)] hover:shadow-[0_0_30px_rgba(0,212,255,0.60)] hover:-translate-y-px transition-all duration-300">Prendre un RDV</a>
-      <button id="mobile-toggle" class="md:hidden text-[#c2dae8] hover:text-[#f0f8ff] transition-colors">
-        <span class="material-symbols-outlined">menu</span>
-      </button>
+  <section class="container-omnyx" style="padding:80px 32px 40px;max-width:880px;">
+    <p style="font-family:'JetBrains Mono',monospace;font-size:0.8rem;color:#00d4ff;letter-spacing:0.15em;text-transform:uppercase;margin:0 0 16px;">Le blog</p>
+    <h1 style="font-family:'Space Grotesk',sans-serif;font-size:3rem;font-weight:700;line-height:1.1;margin:0 0 20px;color:#f0f8ff;letter-spacing:-0.02em;">Marketing, IA & croissance</h1>
+    <p style="font-size:1.2rem;color:#8ab4cc;line-height:1.5;margin:0 0 0;max-width:640px;">Automatisation, agents IA, growth pour fondateurs, et coulisses techniques : ce qui marche vraiment, sans blabla.</p>
+  </section>
+
+  <section class="container-omnyx" style="padding:20px 32px 80px;max-width:880px;">
+    <div style="display:flex;flex-direction:column;gap:20px;">
+      <a href="blog/maitriser-prompts-2026.html" class="article-card">
+        <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+          <span class="tag tag-orange">Coulisses techniques</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:#5a7a90;">2 juillet 2026</span>
+        </div>
+        <h2>Maîtriser ses prompts en 2026 : ce qui a vraiment changé depuis GPT-3.5</h2>
+        <p>Les conseils de prompting de 2023 sont obsolètes. Voici ce qui marche maintenant avec Claude 4, GPT-5, et Gemini 2.5 — basé sur 18 mois d'usage quotidien.</p>
+        <div class="meta">
+          <span>7 min de lecture</span>
+          <span>·</span>
+          <span>Bryan Blaevoet</span>
+        </div>
+      </a>
+      <a href="blog/agents-ia-pme-guide-2026.html" class="article-card">
+        <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+          <span class="tag tag-green">Marketing & Growth</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:#5a7a90;">1 juillet 2026</span>
+        </div>
+        <h2>Agents IA pour PME : par où commencer en 2026 (guide pragmatique)</h2>
+        <p>Tu veux intégrer un agent IA dans ta boîte mais tu sais pas par où commencer. Voici la méthode en 4 étapes testée sur 12 boîtes à Madrid et Paris.</p>
+        <div class="meta">
+          <span>9 min de lecture</span>
+          <span>·</span>
+          <span>Bryan Blaevoet</span>
+        </div>
+      </a>
+      <a href="blog/making-of-deploiement-rate.html" class="article-card">
+        <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+          <span class="tag tag-orange">Coulisses techniques</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:#5a7a90;">27 juin 2026</span>
+        </div>
+        <h2>Le making-of d'un déploiement raté : 8 allers-retours pour pousser un fichier HTML</h2>
+        <p>Pourquoi déployer un simple fichier HTML a pris huit allers-retours avec mon assistant IA, et les 4 erreurs concrètes qui ont fait perdre le fil.</p>
+        <div class="meta">
+          <span>6 min de lecture</span>
+          <span>·</span>
+          <span>Bryan Blaevoet</span>
+        </div>
+      </a>
+      <a href="blog/ollama-cloud-claude-code-guide.html" class="article-card">
+        <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+          <span class="tag">Automatisation & Agents IA</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:#5a7a90;">25 juin 2026</span>
+        </div>
+        <h2>Ollama Cloud × Claude Code : le guide complet pour ne plus jamais être bloqué par tes tokens</h2>
+        <p>Comment connecter Ollama Cloud à Claude Code et Hermès Agent pour ne plus jamais être bloqué par tes tokens, pas à pas et sans coder.</p>
+        <div class="meta">
+          <span>8 min de lecture</span>
+          <span>·</span>
+          <span>Bryan Blaevoet</span>
+        </div>
+      </a>
+      <a href="blog/hermes-agent-update-juin-2026.html" class="article-card">
+        <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+          <span class="tag">Automatisation & Agents IA</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:#5a7a90;">23 juin 2026</span>
+        </div>
+        <h2>Hermès Agent : la grosse update de juin 2026, décryptage complet</h2>
+        <p>iMessage, agents en arrière-plan, profils spécialisés, Skills Hub : ce qui change vraiment quand un agent IA arrête d'être une démo pour devenir un poste de travail.</p>
+        <div class="meta">
+          <span>7 min de lecture</span>
+          <span>·</span>
+          <span>Bryan Blaevoet</span>
+        </div>
+      </a>
     </div>
-  </div>
+  </section>
 
-  <div id="mobile-menu" class="hidden md:hidden border-t border-[rgba(0,212,255,.08)] px-5 py-6 flex flex-col gap-5" style="background:rgba(8,14,26,.97);backdrop-filter:blur(20px)">
-    <a href="index.html#about"    class="text-[13px] font-medium text-[#c2dae8] uppercase tracking-[.15em]">À propos</a>
-    <a href="index.html#services" class="text-[13px] font-medium text-[#c2dae8] uppercase tracking-[.15em]">Services</a>
-    <a href="blog.html"           class="text-[13px] font-medium text-[#7de8f7] uppercase tracking-[.15em]">Blog</a>
-    <a href="cv.html"             class="text-[13px] font-medium text-[#c2dae8] uppercase tracking-[.15em]">CV</a>
-  </div>
-</nav>
-
-<!-- ── HERO BLOG ───────────────────────────────────────────────────────────── -->
-<section class="relative pt-40 pb-16 px-5 overflow-hidden">
-  <div class="mesh-bg"></div>
-  <div class="relative z-10 max-w-4xl mx-auto text-center">
-    <p class="text-[11px] font-semibold uppercase tracking-[.25em] text-[#7de8f7] mb-4 reveal">Blog Omnyx</p>
-    <h1 class="gradient-text text-[clamp(32px,5vw,52px)] font-semibold leading-tight mb-5 reveal">Marketing, IA & croissance</h1>
-    <p class="text-[16px] font-light text-[#c2dae8] leading-relaxed max-w-2xl mx-auto reveal">
-      Automatisation, agents IA, growth pour fondateurs, et coulisses techniques : ce qui marche vraiment, sans blabla.
-    </p>
-  </div>
-</section>
-
-<!-- ── LISTE ARTICLES ──────────────────────────────────────────────────────── -->
-<section class="relative px-5 pb-28">
-  <div class="max-w-4xl mx-auto grid gap-6" id="article-list">
-
-    <a href="blog/hermes-update.html" class="glass-card rounded-2xl p-7 transition-all duration-500 reveal block">
-      <div class="flex flex-wrap items-center gap-3 mb-3">
-        <span class="tag-pill">Automatisation & Agents IA</span>
-        <span class="text-[11px] text-[#8ab4cc] tracking-widest">Juin 2026</span>
+  </main>
+  <footer style="border-top:1px solid rgba(0,212,255,0.1);margin-top:80px;padding:40px 0;background:#060c18;">
+    <div class="container-omnyx" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <img src="assets/logo-omnyx-nav.png" alt="Omnyx" style="height:24px;" />
+        <span style="font-family:'JetBrains Mono',monospace;color:#8ab4cc;font-size:0.85rem;">© 2026 Omnyx · Madrid</span>
       </div>
-      <h2 class="font-heading text-[20px] font-bold text-[#f0f8ff] mb-2">La grosse update de Hermès Agent, décryptage</h2>
-      <p class="text-[14px] font-light text-[#8ab4cc] leading-relaxed">
-        iMessage, agents en arrière-plan, profils spécialisés, Skills Hub : ce qui change vraiment quand un agent IA arrête d'être une démo pour devenir un poste de travail.
-      </p>
-    </a>
-
-    <a href="blog/ollama-cloud.html" class="glass-card rounded-2xl p-7 transition-all duration-500 reveal block">
-      <div class="flex flex-wrap items-center gap-3 mb-3">
-        <span class="tag-pill">Automatisation & Agents IA</span>
-        <span class="text-[11px] text-[#8ab4cc] tracking-widest">Juin 2026</span>
+      <div style="display:flex;gap:24px;font-size:0.85rem;">
+        <a href="/" style="color:#8ab4cc;">Accueil</a>
+        <a href="blog.html" style="color:#8ab4cc;">Blog</a>
+        <a href="https://www.linkedin.com/in/bryanblaevoet/" style="color:#8ab4cc;" rel="noopener">LinkedIn</a>
+        <a href="/#contact" style="color:#8ab4cc;">Contact</a>
       </div>
-      <h2 class="font-heading text-[20px] font-bold text-[#f0f8ff] mb-2">Ollama Cloud × Claude Code, guide complet</h2>
-      <p class="text-[14px] font-light text-[#8ab4cc] leading-relaxed">
-        Comment connecter Ollama Cloud à Claude Code et à Hermès Agent pour ne plus jamais être bloqué par tes tokens, pas à pas et sans coder.
-      </p>
-    </a>
-
-    <a href="blog/making-of.html" class="glass-card rounded-2xl p-7 transition-all duration-500 reveal block">
-      <div class="flex flex-wrap items-center gap-3 mb-3">
-        <span class="tag-pill">Coulisses techniques</span>
-        <span class="text-[11px] text-[#8ab4cc] tracking-widest">Juin 2026</span>
-      </div>
-      <h2 class="font-heading text-[20px] font-bold text-[#f0f8ff] mb-2">Le making-of d'un déploiement raté</h2>
-      <p class="text-[14px] font-light text-[#8ab4cc] leading-relaxed">
-        Pourquoi déployer un simple fichier HTML a pris huit allers-retours avec mon assistant IA, et les 4 erreurs concrètes qui ont fait perdre le fil.
-      </p>
-    </a>
-
-  </div>
-</section>
-
-<!-- ── FOOTER ──────────────────────────────────────────────────────────────── -->
-<footer class="py-10 px-5 border-t border-[rgba(0,212,255,.06)]">
-  <div class="max-w-6xl mx-auto flex flex-col items-center gap-3">
-    <p class="text-[12px] text-[#c2dae8] text-center">© 2026 Omnyx Agency · Madrid</p>
-  </div>
-</footer>
-
-<script>
-window.addEventListener('scroll',()=>{
-  document.getElementById('navbar').classList.toggle('nav-scrolled', window.scrollY > 20);
-});
-document.getElementById('mobile-toggle').addEventListener('click',()=>{
-  document.getElementById('mobile-menu').classList.toggle('hidden');
-});
-const revealEls = document.querySelectorAll('.reveal');
-const io = new IntersectionObserver((entries)=>{
-  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('active'); io.unobserve(e.target); } });
-},{threshold:.1});
-revealEls.forEach(el=>io.observe(el));
-</script>
-
+    </div>
+  </footer>
 </body>
 </html>
