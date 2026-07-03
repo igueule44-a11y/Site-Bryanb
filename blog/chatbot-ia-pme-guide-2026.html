@@ -167,16 +167,33 @@
   .toc ol li a .num{color:var(--accent); font-family:'JetBrains Mono', monospace; font-size:13px; flex-shrink:0;}
 
   /* Parts */
-  .part{margin-bottom:64px;}
+  .part{margin-bottom:80px;}
   .part-eyebrow{
     font-size:13px; font-weight:700; letter-spacing:0.08em; color:var(--accent);
-    margin-bottom:10px; display:flex; align-items:center; gap:8px;
+    margin-bottom:14px; display:flex; align-items:center; gap:8px;
   }
-  .part > h2{font-size:clamp(22px, 4vw, 28px); margin-bottom:22px;}
-  .part > h2 em{display:block; font-style:normal; color:var(--text-secondary); font-weight:500; font-size:0.7em; margin-top:6px;}
+  .part > h2{font-size:clamp(22px, 4vw, 28px); margin-bottom:28px; line-height:1.25;}
+  .part > h2 em{display:block; font-style:normal; color:var(--text-secondary); font-weight:500; font-size:0.7em; margin-top:8px;}
 
-  .part p{color:var(--text-primary); margin:0 0 18px; font-size:15.5px;}
+  .part p{color:var(--text-primary); margin:0 0 22px; font-size:16px; line-height:1.75;}
   .part p.muted{color:var(--text-secondary);}
+
+  /* Process / list items in part body */
+  .process-list{list-style:none; margin:0 0 24px; padding:0; display:grid; gap:18px;}
+  .process-list li{
+    background:var(--bg-card);
+    border:1px solid var(--border-soft);
+    border-left:3px solid var(--accent);
+    border-radius:10px;
+    padding:18px 22px;
+  }
+  .process-list li h4{
+    margin:0 0 8px; font-size:16px; color:var(--text-primary);
+    font-family:'Inter', sans-serif; font-weight:600;
+    display:flex; gap:10px; align-items:baseline;
+  }
+  .process-list li h4 .num{color:var(--accent); font-family:'JetBrains Mono', monospace; font-size:13px; flex-shrink:0;}
+  .process-list li p{margin:0; color:var(--text-secondary); font-size:14.5px; line-height:1.7;}
 
   /* Callout boxes */
   .callout{
@@ -210,7 +227,7 @@
     font-size:12.5px; color:var(--text-secondary); font-family:'JetBrains Mono', monospace;
     margin-bottom:14px; display:block;
   }
-  .step-body p{color:var(--text-primary); margin:0 0 14px; font-size:15.5px;}
+  .step-body p{color:var(--text-primary); margin:0 0 18px; font-size:16px; line-height:1.75;}
   .step-body p.muted{color:var(--text-secondary);}
 
   /* Rules list */
@@ -252,9 +269,50 @@
   .footer-meta{font-size:13px; color:var(--text-secondary); margin-bottom:18px;}
   .footer-links{display:flex; gap:18px; flex-wrap:wrap; font-size:13.5px;}
 
+  /* Mobile */
+  @media(max-width:768px){
+    .wrap{padding:0 18px;}
+    h1.title{margin-bottom:14px;}
+    .subtitle{font-size:16px; margin-bottom:26px;}
+    .eyebrow-row{font-size:12px; margin-bottom:14px;}
+    .stats-box{padding:20px 22px;}
+    .stats-list li{font-size:14.5px; gap:8px;}
+    .intro-box{margin:28px 0 40px; padding:26px 22px;}
+    .intro-box h2{font-size:19px;}
+    .intro-box p{font-size:15px;}
+    .toc{margin:0 0 44px; padding:20px 22px;}
+    .toc-label{margin-bottom:12px;}
+    .toc ol li a{font-size:14px;}
+    .part{margin-bottom:52px;}
+    .part > h2{margin-bottom:20px;}
+    .step{grid-template-columns:48px 1fr; gap:14px; margin-bottom:36px;}
+    .step-num{font-size:26px;}
+    .step-body h3{font-size:17.5px; margin-bottom:8px;}
+    .step-tag{font-size:11.5px; margin-bottom:12px;}
+    .step-body p{font-size:15px; margin:0 0 14px;}
+    .part p{font-size:15px; line-height:1.75; margin:0 0 16px;}
+    .callout{padding:18px 20px; margin:20px 0;}
+    .callout p{font-size:14px; line-height:1.7;}
+    .rules{gap:14px;}
+    .rules li{padding:16px 18px; gap:12px; grid-template-columns:24px 1fr;}
+    .rules h4{font-size:15px;}
+    .rules p{font-size:13.5px; line-height:1.65;}
+    .closing > p{font-size:15px;}
+    .closing-cta-final{padding:26px 22px;}
+    .closing-cta-final .btn-big{font-size:14.5px; padding:12px 24px;}
+    .site-header-inner{padding:10px 18px;}
+    .logo-link img{height:50px;}
+    .btn-cta{font-size:13px; padding:8px 14px;}
+    .back-link{font-size:13px; margin:20px 0 0;}
+  }
   @media(max-width:540px){
-    .step{grid-template-columns:1fr; gap:8px;}
-    .step-num{font-size:24px; opacity:0.5;}
+    .step{grid-template-columns:1fr; gap:6px; margin-bottom:32px;}
+    .step-num{font-size:22px; opacity:0.5;}
+    .stats-box{padding:18px 20px;}
+    .intro-box{padding:22px 20px; margin:24px 0 36px;}
+    .part{margin-bottom:44px;}
+    .part > h2{font-size:clamp(20px, 5.5vw, 24px);}
+    .callout{padding:16px 18px; margin:18px 0;}
   }
 </style>
 
@@ -343,7 +401,6 @@
       <li><a href="#n5"><span class="num">05</span><span>Comment choisir (checklist 7 critères)</span></a></li>
       <li><a href="#n6"><span class="num">06</span><span>FAQ</span></a></li>
       <li><a href="#bilan"><span class="num">→</span><span>Le bilan</span></a></li>
-      <li><a href="#bilan"><span class="num">→</span><span>Le bilan</span></a></li>
     </ol>
   </nav>
 
@@ -369,13 +426,21 @@
         <h3>Les 3 types de chatbots IA qui marchent vraiment</h3>
         <span class="step-tag">typologie · use cases</span>
         <p>Tous les chatbots IA ne se valent pas. En 2026, sur le marché français, il y a 3 catégories qui ont fait leurs preuves en PME. Chacune a un use case, un coût, et une complexité différents.</p>
-        <p class="muted">Le type 1, c'est le chatbot FAQ enrichi. Il s'appuie sur ta base de connaissances (pages de ton site, FAQ, PDF internes) et répond aux questions standards. C'est le plus simple à déployer (1-2 semaines), le moins cher (2-5k€ setup, 80-200€/mois), et le ROI le plus rapide. Idéal pour les PME qui reçoivent beaucoup de questions répétitives.</p>
-        <div class="callout action">
-          <div class="callout-label">⚙️ Les 3 types</div>
-          <p>1. Chatbot FAQ enrichi (2-5k€) : répond aux questions standards en puisant dans ta doc
-2. Chatbot de qualification (5-10k€) : pose des questions, qualifie le prospect, route vers le bon humain
-3. Chatbot transactionnel (10-30k€) : prend RDV, gère un retour, modifie une commande</p>
-        </div>
+        <ol class="process-list">
+          <li>
+            <h4><span class="num">01</span><span>Chatbot FAQ enrichi (2-5k€)</span></h4>
+            <p>Répond aux questions standards en puisant dans ta doc. Le plus rapide à déployer (1-2 semaines), ROI mesurable dès le premier mois. Idéal pour absorber 60-80% des demandes répétitives.</p>
+          </li>
+          <li>
+            <h4><span class="num">02</span><span>Chatbot de qualification (5-10k€)</span></h4>
+            <p>Pose des questions au prospect, qualifie le besoin, route vers le bon humain ou le bon créneau. S'intègre à ton CRM. Délai : 3-4 semaines.</p>
+          </li>
+          <li>
+            <h4><span class="num">03</span><span>Chatbot transactionnel (10-30k€)</span></h4>
+            <p>Prend un RDV, gère un retour, modifie une commande. Branché à ton système d'information. Délai : 6-10 semaines.</p>
+          </li>
+        </ol>
+        <p class="muted">Pour une première boîte, vise le type 1. Le type 3, c'est quand tu as déjà fait tes preuves sur 6-12 mois et que tu as les reins solides côté SI.</p>
       </div>
     </div>
 
@@ -384,18 +449,31 @@
       <div class="step-body">
         <h3>Cas concret : chatbot support pour PME e-commerce France</h3>
         <span class="step-tag">ROI · 90 jours</span>
-        <p>Contexte : PME e-commerce textile, Paris, 12 personnes, 800 commandes/mois. Avant le chatbot : 1 personne à temps plein sur le support (200h/mois), temps de réponse moyen 14h, taux d'abandon panier 38%.
-
-On a déployé un chatbot FAQ enrichi, branché sur la base de connaissances (FAQ + 200 pages produits + historique de tickets). Stack : Claude Sonnet + RAG sur la doc interne + interface type widget site web + escalade email si besoin.</p>
+        <p>Contexte : PME e-commerce textile, Paris, 12 personnes, 800 commandes/mois. Avant le chatbot : 1 personne à temps plein sur le support (200h/mois), temps de réponse moyen 14h, taux d'abandon panier 38%.</p>
+        <p>On a déployé un chatbot FAQ enrichi, branché sur la base de connaissances (FAQ + 200 pages produits + historique de tickets). Stack : Claude Sonnet + RAG sur la doc interne + interface type widget site web + escalade email si besoin.</p>
         <p class="muted">Après 90 jours : 78% des demandes résolues par le chatbot sans intervention humaine, temps de réponse moyen 8 secondes, temps de support humain passé de 200h à 45h/mois. L'équipe support s'est recentrée sur les demandes complexes (retours litigieux, SAV). Coût : setup 3 200€, run 180€/mois. Économie nette : 8 500€/an.</p>
-        <div class="callout action">
-          <div class="callout-label">📊 ROI mesuré à 90 jours</div>
-          <p>Demandes gérées par le bot : 78% du volume
-Temps de réponse moyen : 14h → 8 secondes
-Heures support humain : 200h/mois → 45h/mois
-Taux d'abandon panier : 38% → 24%
-Économie nette annuelle : 8 500€ (setup 3 200€ + run 2 160€/an)</p>
-        </div>
+        <ol class="process-list">
+          <li>
+            <h4><span class="num">→</span><span>78% du volume résolu par le bot</span></h4>
+            <p>Sans intervention humaine, sur les 800 demandes mensuelles.</p>
+          </li>
+          <li>
+            <h4><span class="num">→</span><span>Temps de réponse : 14h → 8 secondes</span></h4>
+            <p>Le visiteur attend 600× moins longtemps en moyenne.</p>
+          </li>
+          <li>
+            <h4><span class="num">→</span><span>Heures support humain : 200h → 45h/mois</span></h4>
+            <p>L'équipe se concentre sur les 20% de demandes complexes.</p>
+          </li>
+          <li>
+            <h4><span class="num">→</span><span>Abandon panier : 38% → 24%</span></h4>
+            <p>Le chatbot répond aux hésitations au bon moment dans le tunnel.</p>
+          </li>
+          <li>
+            <h4><span class="num">→</span><span>Économie nette : 8 500€/an</span></h4>
+            <p>Setup 3 200€ + run 2 160€/an, payback en 5 mois.</p>
+          </li>
+        </ol>
       </div>
     </div>
 
@@ -404,15 +482,25 @@ Taux d'abandon panier : 38% → 24%
       <div class="step-body">
         <h3>Combien ça coûte vraiment en 2026</h3>
         <span class="step-tag">budget · 4 cas concrets</span>
-        <p>Parlons budgets réels, pas les fourchettes marketing. En 2026, pour une PME française, le coût d'un chatbot IA dépend de 3 facteurs : la complexité du use case, le volume de demandes, et le niveau d'intégration à ton stack existant.
-
-Cas 1 : chatbot FAQ simple (1 use case, 200 questions max dans la base de connaissances). Setup : 2 000-3 500€. Run mensuel : 80-150€ (API LLM + hosting + interface). Tu peux l'avoir opérationnel en 1-2 semaines.
-
-Cas 2 : chatbot de qualification (questions + routing + intégration CRM). Setup : 4 000-8 000€. Run : 200-400€/mois. Délai : 3-4 semaines.
-
-Cas 3 : chatbot transactionnel (RDV, commandes, retours, intégré au système d'information). Setup : 8 000-15 000€. Run : 400-800€/mois. Délai : 6-10 semaines.
-
-Cas 4 : orchestration multi-canal (site + WhatsApp + Messenger + email). Setup : 15 000-30 000€. Run : 800-2 000€/mois. Délai : 3-4 mois.</p>
+        <p>Parlons budgets réels, pas les fourchettes marketing. En 2026, pour une PME française, le coût d'un chatbot IA dépend de 3 facteurs : la complexité du use case, le volume de demandes, et le niveau d'intégration à ton stack existant.</p>
+        <ol class="process-list">
+          <li>
+            <h4><span class="num">01</span><span>Chatbot FAQ simple — 2 000-3 500€ setup</span></h4>
+            <p>1 use case, 200 questions max dans la base de connaissances. Run mensuel : 80-150€ (API LLM + hosting + interface). Opérationnel en 1-2 semaines.</p>
+          </li>
+          <li>
+            <h4><span class="num">02</span><span>Chatbot de qualification — 4 000-8 000€ setup</span></h4>
+            <p>Questions + routing + intégration CRM. Run : 200-400€/mois. Délai : 3-4 semaines.</p>
+          </li>
+          <li>
+            <h4><span class="num">03</span><span>Chatbot transactionnel — 8 000-15 000€ setup</span></h4>
+            <p>RDV, commandes, retours, intégré au système d'information. Run : 400-800€/mois. Délai : 6-10 semaines.</p>
+          </li>
+          <li>
+            <h4><span class="num">04</span><span>Orchestration multi-canal — 15 000-30 000€ setup</span></h4>
+            <p>Site + WhatsApp + Messenger + email. Run : 800-2 000€/mois. Délai : 3-4 mois.</p>
+          </li>
+        </ol>
         <p class="muted">Ces chiffres viennent de mes 12 déploiements terrain en 2025-2026. Ils incluent le setup (configuration, intégration, tests, formation), le run (API LLM, hosting, monitoring), et la maintenance (2-4h/mois pour ajuster les prompts et ajouter de la doc). Pour une première boîte, vise le cas 1 ou 2. Le cas 3-4, c'est quand tu as déjà fait tes preuves sur 6-12 mois.</p>
         <div class="callout tip">
           <div class="callout-label">💡 L'erreur classique</div>
@@ -426,32 +514,38 @@ Cas 4 : orchestration multi-canal (site + WhatsApp + Messenger + email). Setup :
       <div class="step-body">
         <h3>Comment choisir le bon chatbot : checklist 7 critères</h3>
         <span class="step-tag">méthode · critères de choix</span>
-        <p>Tu as 50 chatbots IA sur le marché. Comment choisir ? Voici 7 critères que j'applique systématiquement chez mes clients PME, par ordre d'importance.
-
-1. La qualité du français. Teste le chatbot sur 5 questions nuancées (ex : « Je voudrais savoir si le produit X est compatible avec mon Y mais pas le Z »). Si le chatbot se plante sur 2 d'entre elles, passe au suivant.
-
-2. L'intégration à ta base de connaissances. Le chatbot peut-il lire tes pages, ta FAQ, tes PDF, ton Notion ? Sans RAG (Retrieval-Augmented Generation), le chatbot n'a que sa connaissance générale, et il hallucine.
-
-3. L'escalade humaine. Le visiteur doit pouvoir à tout moment cliquer « Parler à un humain » et être redirigé vers email, formulaire, ou téléphone. Pas de chatbot qui bloque l'humain.
-
-4. La transparence RGPD. Le provider a-t-il un DPA (Data Processing Agreement) conforme RGPD ? Où sont hébergées les données ? Claude, Mistral, OpenAI Enterprise sont conformes ; certains providers US sans DPA ne le sont pas.
-
-5. Le pricing transparent. Pas de « à partir de 49€/mois » qui cache des frais d'API LLM à 800€/mois. Demande un devis avec volumes réels (X demandes/mois, Y tokens par demande).
-
-6. Le support en français. Tu vas avoir des questions de configuration, de facturation, de bug. Si le support est en anglais, tu perds 2h par question. Vérifie que le support est francophone et réactif.
-
-7. La possibilité de tester avant d'acheter. 14 jours d'essai gratuit ou POC de 2 semaines. Si le provider refuse de tester, c'est un red flag.</p>
+        <p>Tu as 50 chatbots IA sur le marché. Comment choisir ? Voici 7 critères que j'applique systématiquement chez mes clients PME, par ordre d'importance.</p>
+        <ol class="process-list">
+          <li>
+            <h4><span class="num">01</span><span>La qualité du français</span></h4>
+            <p>Teste le chatbot sur 5 questions nuancées (ex : « Je voudrais savoir si le produit X est compatible avec mon Y mais pas le Z »). Si le chatbot se plante sur 2 d'entre elles, passe au suivant.</p>
+          </li>
+          <li>
+            <h4><span class="num">02</span><span>L'intégration à ta base de connaissances</span></h4>
+            <p>Le chatbot peut-il lire tes pages, ta FAQ, tes PDF, ton Notion ? Sans RAG (Retrieval-Augmented Generation), le chatbot n'a que sa connaissance générale, et il hallucine.</p>
+          </li>
+          <li>
+            <h4><span class="num">03</span><span>L'escalade humaine</span></h4>
+            <p>Le visiteur doit pouvoir à tout moment cliquer « Parler à un humain » et être redirigé vers email, formulaire, ou téléphone. Pas de chatbot qui bloque l'humain.</p>
+          </li>
+          <li>
+            <h4><span class="num">04</span><span>La transparence RGPD</span></h4>
+            <p>Le provider a-t-il un DPA (Data Processing Agreement) conforme RGPD ? Où sont hébergées les données ? Claude, Mistral, OpenAI Enterprise sont conformes ; certains providers US sans DPA ne le sont pas.</p>
+          </li>
+          <li>
+            <h4><span class="num">05</span><span>Le pricing transparent</span></h4>
+            <p>Pas de « à partir de 49€/mois » qui cache des frais d'API LLM à 800€/mois. Demande un devis avec volumes réels (X demandes/mois, Y tokens par demande).</p>
+          </li>
+          <li>
+            <h4><span class="num">06</span><span>Le support en français</span></h4>
+            <p>Tu vas avoir des questions de configuration, de facturation, de bug. Si le support est en anglais, tu perds 2h par question. Vérifie que le support est francophone et réactif.</p>
+          </li>
+          <li>
+            <h4><span class="num">07</span><span>La possibilité de tester avant d'acheter</span></h4>
+            <p>14 jours d'essai gratuit ou POC de 2 semaines. Si le provider refuse de tester, c'est un red flag.</p>
+          </li>
+        </ol>
         <p class="muted">Avec ces 7 critères, tu élimines 80% des solutions du marché. Restent 5-10 chatbots sérieux. À ce stade, le choix se fait sur l'affinité avec ton stack technique (Make, Zapier, n8n, ou direct API) et le feeling avec l'équipe.</p>
-        <div class="callout action">
-          <div class="callout-label">✅ Checklist rapide</div>
-          <p>□ Français de qualité (5 questions tests)
-□ RAG sur ta base de connaissances
-□ Escalade humaine en 1 clic
-□ DPA RGPD signé
-□ Pricing transparent, devis volumique
-□ Support francophone
-□ POC de 2 semaines avant engagement</p>
-        </div>
       </div>
     </div>
 
@@ -461,7 +555,28 @@ Cas 4 : orchestration multi-canal (site + WhatsApp + Messenger + email). Setup :
         <h3>FAQ — les questions que se posent les PME avant de se lancer</h3>
         <span class="step-tag">questions fréquentes</span>
         <p>Les 5 questions qui reviennent le plus chez mes clients PME français. Réponses directes, basées sur 12 déploiements terrain.</p>
-        <p class="muted">Un chatbot IA bien configuré doit pouvoir gérer 60-80% des demandes standards (FAQ, horaires, prix, disponibilité, suivi de commande) sans intervention humaine. Pour les 20-40% restants, soit le bot escalade vers un humain, soit il collecte l'info et envoie un email. Le visiteur ne fait souvent pas la différence entre un bot et un humain, surtout si les réponses sont rapides.</p>
+        <ol class="process-list">
+          <li>
+            <h4><span class="num">Q</span><span>Quel pourcentage de demandes un chatbot IA peut-il gérer seul ?</span></h4>
+            <p>Un chatbot IA bien configuré gère 60-80% des demandes standards (FAQ, horaires, prix, disponibilité, suivi de commande) sans intervention humaine. Pour les 20-40% restants, soit le bot escalade vers un humain, soit il collecte l'info et envoie un email. Le visiteur ne fait souvent pas la différence entre un bot et un humain, surtout si les réponses sont rapides.</p>
+          </li>
+          <li>
+            <h4><span class="num">Q</span><span>Combien de temps pour un premier déploiement en PME ?</span></h4>
+            <p>Pour un chatbot FAQ simple, 1 à 2 semaines suffisent (configuration, branchement à ta base de connaissances, tests, mise en ligne). Pour un chatbot de qualification intégré au CRM, compte 3-4 semaines. Au-delà (transactionnel, multi-canal), il faut 6-10 semaines minimum.</p>
+          </li>
+          <li>
+            <h4><span class="num">Q</span><span>Faut-il un volume minimum de demandes pour que ça vaille le coup ?</span></h4>
+            <p>En dessous de 200 demandes/mois, l'investissement setup (2-5k€) se rentabilise lentement. Au-dessus de 500 demandes/mois, c'est quasi toujours rentable dès le 2e mois. Le bon seuil : si ton support passe plus de 2h/jour sur des questions répétitives, le chatbot se paie.</p>
+          </li>
+          <li>
+            <h4><span class="num">Q</span><span>Le chatbot va-t-il remplacer mon équipe support ?</span></h4>
+            <p>Non. Il absorbe les 60-80% de demandes répétitives qui prennent 80% du temps de l'équipe. L'humain garde les 20% qui demandent de l'empathie ou du jugement (litiges, SAV complexe, demandes sensibles). C'est un recentrage, pas un remplacement.</p>
+          </li>
+          <li>
+            <h4><span class="num">Q</span><span>Comment mesurer que le chatbot fonctionne vraiment ?</span></h4>
+            <p>3 KPIs à suivre dès la première semaine : taux de résolution sans humain (objectif 60-80%), temps de réponse moyen (objectif &lt;30s), taux d'escalade vers un humain (objectif &lt;40%). Si l'un de ces KPIs est hors cible après 30 jours, le prompt ou la base de connaissances est à ajuster.</p>
+          </li>
+        </ol>
       </div>
     </div>
   </section>
@@ -484,7 +599,6 @@ Cas 4 : orchestration multi-canal (site + WhatsApp + Messenger + email). Setup :
 
     <div class="closing-cta-final">
       <a class="btn-big" href="../index.html#contact">Prendre un RDV</a>
-      <p class="fine-print">Omnyx Agency · Marketing, IA &amp; automation · France</p>
     </div>
   </section>
 

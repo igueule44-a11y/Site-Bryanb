@@ -302,12 +302,59 @@
   .footer-inner a:hover{color:var(--accent-soft);}
   .footer-meta{color:var(--text-secondary); font-size:12.5px;}
 
-  /* Back link */
-  .back-link{
-    display:inline-flex; align-items:center; gap:6px;
-    font-size:13.5px; color:var(--text-secondary); margin:28px 0 0;
+  /* Mobile */
+  @media(max-width:768px){
+    .wrap{padding:0 18px;}
+    h1.title{margin-bottom:14px;}
+    .subtitle{font-size:16px; margin-bottom:26px;}
+    .eyebrow-row{font-size:12px; margin-bottom:14px;}
+    .hero-img{margin-bottom:24px;}
+    .stats-box{padding:20px 22px;}
+    .stats-list li{font-size:14.5px; gap:8px;}
+    .intro-box{margin:28px 0 40px; padding:26px 22px;}
+    .intro-box h2{font-size:19px;}
+    .intro-box p{font-size:15px;}
+    .toc{margin:0 0 44px; padding:20px 22px;}
+    .toc-label{margin-bottom:12px;}
+    .toc ol li a{font-size:14px;}
+    .part{margin-bottom:52px;}
+    .part > h2{margin-bottom:20px;}
+    .step{grid-template-columns:48px 1fr; gap:14px; margin-bottom:36px;}
+    .step-num{font-size:26px;}
+    .step-body h3{font-size:17.5px; margin-bottom:8px;}
+    .step-tag{font-size:11.5px; margin-bottom:12px;}
+    .step-body p{font-size:15px; margin:0 0 14px;}
+    .callout{padding:18px 20px; margin:20px 0;}
+    .callout p{font-size:14px; line-height:1.7;}
+    .bilan{margin:56px 0 48px; padding:28px 22px;}
+    .bilan h2{font-size:clamp(20px, 5vw, 26px);}
+    .bilan .bilan-sub{margin:0 0 20px;}
+    .rules{gap:14px;}
+    .rules li{padding:14px 18px; gap:12px;}
+    .rules li h4{font-size:15px;}
+    .rules li p{font-size:14px; line-height:1.65;}
+    .closing-cta{margin:36px 0 24px; padding:28px 22px;}
+    .closing-cta h3{font-size:18px;}
+    .closing-cta p{font-size:15px;}
+    .closing-cta .btn-big{font-size:14.5px; padding:12px 24px;}
+    .faq{margin:48px 0 0;}
+    .faq > h2{margin-bottom:18px;}
+    .faq-list{gap:12px;}
+    .faq-item{padding:16px 18px;}
+    .faq-q{font-size:15px;}
+    .faq-a{font-size:14px; line-height:1.65;}
+    .site-header-inner{padding:10px 18px;}
+    .logo-link img{height:50px;}
+    .btn-cta{font-size:13px; padding:8px 14px;}
+    .back-link{font-size:13px; margin:20px 0 0;}
+    .footer-inner{padding:0 18px; flex-direction:column; align-items:flex-start; gap:10px;}
   }
-  .back-link:hover{color:var(--accent-soft); text-decoration:none;}
+  @media(max-width:540px){
+    .step{grid-template-columns:1fr; gap:6px; margin-bottom:32px;}
+    .step-num{font-size:22px; opacity:0.5;}
+    .bilan{margin:44px 0 40px; padding:24px 20px;}
+    .closing-cta{margin:32px 0 20px; padding:24px 20px;}
+  }
 </style>
 
 <!-- Schema.org JSON-LD -->
@@ -400,7 +447,7 @@
 <header class="site-header">
   <div class="site-header-inner">
     <a href="../index.html" class="logo-link" aria-label="Omnyx : retour à l'accueil">
-      <img src="../assets/logo-omnyx-nav.png" alt="Omnyx" width="60" height="60">
+      <img src="../assets/logo-omnyx-bleu.png" alt="Omnyx" width="60" height="60">
     </a>
     <a href="../index.html#contact" class="btn-cta">Prendre un RDV</a>
   </div>
@@ -583,7 +630,6 @@
     <h3>Tu veux un chatbot qui marche vraiment ?</h3>
     <p>Si tu as un projet chatbot en tête, ou un chatbot existant qui te frustre, le plus simple c'est qu'on en parle 30 minutes. Je te dis ce qui est réaliste, ce qui ne l'est pas, et par où commencer. Pas de blabla. Pas de slide de 40 pages.</p>
     <a href="../index.html#contact" class="btn-big">Prendre un RDV</a>
-    <p class="fine-print">30 min · visio · gratuit · sans engagement</p>
   </section>
 
   <section class="faq" id="faq">
