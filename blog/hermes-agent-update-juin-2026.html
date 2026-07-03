@@ -242,6 +242,28 @@
   .closing-cta-final .btn-big:hover{background:var(--accent-soft); text-decoration:none; transform:translateY(-1px);}
   .closing-cta-final .fine-print{font-size:13px; color:var(--text-secondary); margin:0;}
 
+  /* Related articles */
+  .related{
+    margin:56px 0 0; padding:24px 26px;
+    background:var(--bg-card); border:1px solid var(--border-soft);
+    border-radius:14px;
+  }
+  .related-label{
+    font-size:12.5px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase;
+    color:var(--accent); margin-bottom:14px;
+  }
+  .related-list{list-style:none; margin:0; padding:0; display:grid; gap:14px;}
+  .related-list li{
+    display:grid; gap:4px; padding:14px 16px;
+    background:var(--bg-darkest); border:1px solid var(--border-soft);
+    border-radius:10px;
+    transition:border-color 0.15s ease, transform 0.15s ease;
+  }
+  .related-list li:hover{border-color:var(--border-strong); transform:translateY(-1px);}
+  .related-list a{color:var(--accent-soft); font-weight:600; font-size:15px;}
+  .related-list a:hover{color:var(--accent); text-decoration:none;}
+  .related-desc{color:var(--text-secondary); font-size:13.5px; line-height:1.5;}
+
   /* Footer */
   footer.site-footer{
     border-top:1px solid var(--border-soft);
@@ -403,6 +425,14 @@
       <li><span class="rule-icon">🎯</span><div><h4>Phase 1 : la démonstration</h4><p>L'agent répond à des questions ponctuelles dans un terminal de dev.</p></div></li>
       <li><span class="rule-icon">⚙️</span><div><h4>Phase 2 : l'intégration</h4><p>L'agent vit dans tes outils du quotidien (iMessage, Telegram, Notion).</p></div></li>
       <li><span class="rule-icon">💡</span><div><h4>Phase 3 : l'orchestration</h4><p>Plusieurs agents spécialisés bossent en parallèle, supervisés par un orchestrateur.</p></div></li>
+    </ul>
+  </section>
+
+  <section class="related">
+    <div class="related-label">Pour aller plus loin</div>
+    <ul class="related-list">
+      <li><a href="ollama-cloud-claude-code-guide.html">→ Ollama Cloud × Claude Code : le setup complet</a><span class="related-desc">Le setup technique pour faire tourner Hermès sans tomber à court de tokens</span></li>
+      <li><a href="agents-ia-pme-guide-2026.html">→ Agents IA pour PME : par où commencer en 2026</a><span class="related-desc">Hermès c'est l'outil. Cet article c'est la méthode pour l'amener en entreprise</span></li>
     </ul>
   </section>
 

@@ -242,6 +242,28 @@
   .closing-cta-final .btn-big:hover{background:var(--accent-soft); text-decoration:none; transform:translateY(-1px);}
   .closing-cta-final .fine-print{font-size:13px; color:var(--text-secondary); margin:0;}
 
+  /* Related articles */
+  .related{
+    margin:56px 0 0; padding:24px 26px;
+    background:var(--bg-card); border:1px solid var(--border-soft);
+    border-radius:14px;
+  }
+  .related-label{
+    font-size:12.5px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase;
+    color:var(--accent); margin-bottom:14px;
+  }
+  .related-list{list-style:none; margin:0; padding:0; display:grid; gap:14px;}
+  .related-list li{
+    display:grid; gap:4px; padding:14px 16px;
+    background:var(--bg-darkest); border:1px solid var(--border-soft);
+    border-radius:10px;
+    transition:border-color 0.15s ease, transform 0.15s ease;
+  }
+  .related-list li:hover{border-color:var(--border-strong); transform:translateY(-1px);}
+  .related-list a{color:var(--accent-soft); font-weight:600; font-size:15px;}
+  .related-list a:hover{color:var(--accent); text-decoration:none;}
+  .related-desc{color:var(--text-secondary); font-size:13.5px; line-height:1.5;}
+
   /* Footer */
   footer.site-footer{
     border-top:1px solid var(--border-soft);
@@ -415,6 +437,14 @@
       <li><span class="rule-icon">🎯</span><div><h4>L'itération reste reine</h4><p>Ton premier prompt est toujours mauvais, le 3e est correct, le 5e est bon</p></div></li>
       <li><span class="rule-icon">⚙️</span><div><h4>Le contexte est roi</h4><p>Mieux le modèle comprend ta situation, mieux il répond</p></div></li>
       <li><span class="rule-icon">💡</span><div><h4>Les exemples battent les instructions</h4><p>Montre, ne dis pas — few-shot > role prompt</p></div></li>
+    </ul>
+  </section>
+
+  <section class="related">
+    <div class="related-label">Pour aller plus loin</div>
+    <ul class="related-list">
+      <li><a href="agents-ia-pme-guide-2026.html">→ Agents IA pour PME : par où commencer en 2026</a><span class="related-desc">Une fois tes prompts au point, l'étape suivante c'est l'orchestration en process</span></li>
+      <li><a href="hermes-agent-update-juin-2026.html">→ La grosse update d'Hermès Agent</a><span class="related-desc">Structured output, profils spécialisés : ce que ça change concrètement quand tu industrialises</span></li>
     </ul>
   </section>
 
