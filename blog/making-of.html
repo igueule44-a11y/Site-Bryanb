@@ -6,8 +6,8 @@
 <meta name="robots" content="index, follow">
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<meta name="description" content="Pourquoi déployer un simple fichier HTML a pris huit allers-retours avec mon assistant IA — et les 4 erreurs concrètes qui ont fait perdre le fil.">
-<title>Le making-of d'un déploiement raté — Omnyx</title>
+<meta name="description" content="Pourquoi déployer un simple fichier HTML a pris huit allers-retours avec mon assistant IA, et les 4 erreurs concrètes qui ont fait perdre le fil.">
+<title>Le making-of d'un déploiement raté | Omnyx</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -386,7 +386,7 @@
       <em>Comment publier un simple fichier HTML a pris huit allers-retours</em>
     </h1>
 
-    <p class="subtitle">J'ai demandé à mon assistant IA de mettre un guide en ligne. Ça aurait dû prendre cinq minutes. Voici les quatre erreurs concrètes qui ont fait dérailler la tâche la plus simple qui soit — et ce que ça m'a appris sur la façon de travailler avec un assistant IA.</p>
+    <p class="subtitle">J'ai demandé à mon assistant IA de mettre un guide en ligne. Ça aurait dû prendre cinq minutes. Voici les quatre erreurs concrètes qui ont fait dérailler la tâche la plus simple qui soit, et ce que ça m'a appris sur la façon de travailler avec un assistant IA.</p>
 
     <div class="stats-box">
       <div class="stats-label">📊 En chiffres</div>
@@ -401,16 +401,16 @@
   <div class="intro-box">
     <span class="intro-emoji">🪞</span>
     <h2>Pourquoi documenter mes propres erreurs ?</h2>
-    <p>Parce que la confusion la plus fréquente quand on travaille avec un assistant IA n'est pas technique — c'est de savoir <strong>où</strong> il agit réellement. Sur son propre environnement de travail ? Sur le mien ? Et qu'est-ce qui se passe quand les deux se mélangent sans que personne ne le remarque tout de suite. Ce guide décortique exactement ça, avec mes propres erreurs comme matière première.</p>
+    <p>Parce que la confusion la plus fréquente quand on travaille avec un assistant IA n'est pas technique : c'est de savoir <strong>où</strong> il agit réellement. Sur son propre environnement de travail ? Sur le mien ? Et qu'est-ce qui se passe quand les deux se mélangent sans que personne ne le remarque tout de suite. Ce guide décortique exactement ça, avec mes propres erreurs comme matière première.</p>
   </div>
 
   <div class="toc">
     <div class="toc-label">Dans ce guide</div>
     <ol>
       <li><a href="#chrono"><span class="num">01</span> La chronologie complète</a></li>
-      <li><a href="#erreur1"><span class="num">02</span> Erreur n°1 — Deux environnements, un seul mot</a></li>
-      <li><a href="#erreur2"><span class="num">03</span> Erreur n°2 — Le chemin qui se duplique</a></li>
-      <li><a href="#erreur3"><span class="num">04</span> Erreur n°3 — La version dégradée à la volée</a></li>
+      <li><a href="#erreur1"><span class="num">02</span> Erreur n°1 : deux environnements, un seul mot</a></li>
+      <li><a href="#erreur2"><span class="num">03</span> Erreur n°2 : le chemin qui se duplique</a></li>
+      <li><a href="#erreur3"><span class="num">04</span> Erreur n°3 : la version dégradée à la volée</a></li>
       <li><a href="#lecons"><span class="num">05</span> Ce que je fais différemment maintenant</a></li>
     </ol>
   </div>
@@ -430,66 +430,66 @@
         <p>Structure proposée et acceptée. Commandes <code>mkdir</code>, <code>cp</code>, <code>git add/commit/push</code> données pour exécution.</p>
       </li>
       <li class="is-error">
-        <div class="timeline-time">Étape 2 — 🔴 erreur</div>
+        <div class="timeline-time">Étape 2 : 🔴 erreur</div>
         <h4>Premier 404 : « le guide n'est pas lisible »</h4>
-        <p>La commande <code>cp</code> pointait vers un chemin qui n'existe que sur le serveur de l'assistant — jamais sur le Mac. Le fichier n'a donc jamais été copié, et rien n'a été poussé sur GitHub.</p>
+        <p>La commande <code>cp</code> pointait vers un chemin qui n'existe que sur le serveur de l'assistant, jamais sur le Mac. Le fichier n'a donc jamais été copié, et rien n'a été poussé sur GitHub.</p>
       </li>
       <li class="is-error">
-        <div class="timeline-time">Étape 3 — 🔴 erreur</div>
+        <div class="timeline-time">Étape 3 : 🔴 erreur</div>
         <h4>Deuxième 404, malgré une nouvelle tentative</h4>
-        <p>Même cause répétée une seconde fois, avec un chemin légèrement différent — toujours côté serveur de l'assistant, toujours invisible depuis le Mac.</p>
+        <p>Même cause répétée une seconde fois, avec un chemin légèrement différent, toujours côté serveur de l'assistant, toujours invisible depuis le Mac.</p>
       </li>
       <li>
         <div class="timeline-time">Étape 4</div>
         <h4>Diagnostic correct : <code>git status</code> demandé</h4>
-        <p>Premier vrai pas de débogage utile — vérifier ce que git voit réellement, plutôt que de redonner la même commande.</p>
+        <p>Premier vrai pas de débogage utile : vérifier ce que git voit réellement, plutôt que de redonner la même commande.</p>
       </li>
       <li class="is-error">
-        <div class="timeline-time">Étape 5 — 🔴 erreur</div>
+        <div class="timeline-time">Étape 5 : 🔴 erreur</div>
         <h4>Chemin dupliqué : <code>guides/guides/</code></h4>
         <p>Le terminal était déjà positionné dans le dossier <code>guides/</code>. La commande suivante a réutilisé le même chemin relatif, créant un dossier fantôme <code>guides/guides/</code> introuvable par git.</p>
       </li>
       <li>
         <div class="timeline-time">Étape 6</div>
         <h4>Contournement : coller le HTML directement dans le terminal</h4>
-        <p>Plutôt que de continuer à chercher pourquoi <code>cp</code> échouait, bascule sur un <code>cat &gt;&gt; fichier &lt;&lt; EOF</code> — coller le contenu HTML complet directement dans la commande terminal.</p>
+        <p>Plutôt que de continuer à chercher pourquoi <code>cp</code> échouait, bascule sur un <code>cat &gt;&gt; fichier &lt;&lt; EOF</code> : coller le contenu HTML complet directement dans la commande terminal.</p>
       </li>
       <li class="is-error">
-        <div class="timeline-time">Étape 7 — 🔴 erreur</div>
+        <div class="timeline-time">Étape 7 : 🔴 erreur</div>
         <h4>Version simplifiée poussée par erreur</h4>
         <p>En tapant le HTML « à la volée » dans la commande, une version résumée et non-stylée a été produite à la place du design original complet. Déployée et visible publiquement quelques minutes.</p>
       </li>
       <li>
-        <div class="timeline-time">Étape 8 — ✅ résolu</div>
+        <div class="timeline-time">Étape 8 : ✅ résolu</div>
         <h4>Récupération du fichier exact via l'API GitHub</h4>
-        <p>Plutôt que de retaper le design à la main, récupération du HTML déjà déployé directement depuis <code>raw.githubusercontent.com</code> — la seule source garantie identique à l'original.</p>
+        <p>Plutôt que de retaper le design à la main, récupération du HTML déjà déployé directement depuis <code>raw.githubusercontent.com</code>, la seule source garantie identique à l'original.</p>
       </li>
     </ul>
   </section>
 
   <section class="part" id="erreur1">
     <div class="part-eyebrow">⚠️ PART 2</div>
-    <h2>Erreur n°1 — Deux environnements, un seul mot
+    <h2>Erreur n°1 : deux environnements, un seul mot
       <em>« ton fichier » ne veut pas dire la même chose des deux côtés</em>
     </h2>
 
-    <p>C'est l'erreur la plus coûteuse de toute la séquence, et la plus facile à reproduire sans s'en rendre compte. Quand un assistant IA crée un fichier pendant la conversation, il l'enregistre sur <strong>son</strong> espace de travail — un serveur temporaire, jamais connecté physiquement à l'ordinateur de la personne.</p>
+    <p>C'est l'erreur la plus coûteuse de toute la séquence, et la plus facile à reproduire sans s'en rendre compte. Quand un assistant IA crée un fichier pendant la conversation, il l'enregistre sur <strong>son</strong> espace de travail, un serveur temporaire, jamais connecté physiquement à l'ordinateur de la personne.</p>
 
     <div class="callout warn">
       <div class="callout-label">🚫 Ce qui s'est passé</div>
-      <p>L'assistant a écrit : <em>« copie ce fichier avec <code>cp /mnt/user-data/outputs/...</code> »</em>. Cette commande est correcte — mais uniquement si elle est exécutée sur la machine de l'assistant. Exécutée sur le Mac de l'utilisateur, elle ne peut que renvoyer <code>No such file or directory</code>, puisque ce chemin n'existe nulle part sur cette machine.</p>
+      <p>L'assistant a écrit : <em>« copie ce fichier avec <code>cp /mnt/user-data/outputs/...</code> »</em>. Cette commande est correcte, mais uniquement si elle est exécutée sur la machine de l'assistant. Exécutée sur le Mac de l'utilisateur, elle ne peut que renvoyer <code>No such file or directory</code>, puisque ce chemin n'existe nulle part sur cette machine.</p>
     </div>
 
     <div class="terminal">
       <div class="terminal-header">
         <div class="terminal-dots"><span></span><span></span><span></span></div>
-        <div class="terminal-label">Terminal — Mac de l'utilisateur</div>
+        <div class="terminal-label">Terminal : Mac de l'utilisateur</div>
       </div>
       <pre><span class="prompt">$</span> cp /mnt/user-data/outputs/ollama-cloud-guide-final.html guides/ollama-cloud.html
 <span class="err-line">cp: /mnt/user-data/outputs/ollama-cloud-guide-final.html: No such file or directory</span></pre>
     </div>
 
-    <p class="muted">Le message d'erreur est techniquement parfait — le système dit exactement la vérité. Le problème n'est pas dans la commande, il est dans l'hypothèse implicite qu'il existe un seul disque dur partagé entre l'assistant et la personne. Ce n'est jamais le cas.</p>
+    <p class="muted">Le message d'erreur est techniquement parfait, le système dit exactement la vérité. Le problème n'est pas dans la commande, il est dans l'hypothèse implicite qu'il existe un seul disque dur partagé entre l'assistant et la personne. Ce n'est jamais le cas.</p>
 
     <div class="callout tip">
       <div class="callout-label">💡 Le réflexe à avoir</div>
@@ -499,7 +499,7 @@
 
   <section class="part" id="erreur2">
     <div class="part-eyebrow">⚠️ PART 3</div>
-    <h2>Erreur n°2 — Le chemin qui se duplique
+    <h2>Erreur n°2 : le chemin qui se duplique
       <em>quand personne ne demande « où es-tu, là, maintenant ? »</em>
     </h2>
 
@@ -508,18 +508,18 @@
     <div class="terminal">
       <div class="terminal-header">
         <div class="terminal-dots"><span></span><span></span><span></span></div>
-        <div class="terminal-label">Terminal — déjà dans /guides</div>
+        <div class="terminal-label">Terminal : déjà dans /guides</div>
       </div>
       <pre><span class="muted-line">~/Site-Bryanb/guides %</span> <span class="prompt">git add guides/ollama-cloud.html</span>
 <span class="err-line">warning: could not open directory 'guides/guides/': No such file or directory
 fatal: pathspec 'guides/ollama-cloud.html' did not match any files</span></pre>
     </div>
 
-    <p>Git n'invente rien : il a cherché exactement ce qu'on lui a demandé, <code>guides/guides/ollama-cloud.html</code>, et ce dossier n'a jamais existé. Le fichier, lui, était bien là — juste un niveau plus haut que ce que supposait la commande.</p>
+    <p>Git n'invente rien : il a cherché exactement ce qu'on lui a demandé, <code>guides/guides/ollama-cloud.html</code>, et ce dossier n'a jamais existé. Le fichier, lui, était bien là, juste un niveau plus haut que ce que supposait la commande.</p>
 
     <div class="callout action">
       <div class="callout-label">✅ La correction</div>
-      <p>Un simple <code>cd ..</code> pour remonter d'un niveau, puis la même commande <code>git add guides/ollama-cloud.html</code> — cette fois avec le bon chemin relatif. Résolu en une ligne, une fois la cause identifiée.</p>
+      <p>Un simple <code>cd ..</code> pour remonter d'un niveau, puis la même commande <code>git add guides/ollama-cloud.html</code>, cette fois avec le bon chemin relatif. Résolu en une ligne, une fois la cause identifiée.</p>
     </div>
 
     <div class="callout tip">
@@ -530,22 +530,22 @@ fatal: pathspec 'guides/ollama-cloud.html' did not match any files</span></pre>
 
   <section class="part" id="erreur3">
     <div class="part-eyebrow">⚠️ PART 4</div>
-    <h2>Erreur n°3 — La version dégradée à la volée
+    <h2>Erreur n°3 : la version dégradée à la volée
       <em>retaper un design complexe de mémoire ne marche jamais bien</em>
     </h2>
 
-    <p>Après deux échecs de copie de fichier, la solution de repli a été de coller le code HTML directement dans une commande terminal (<code>cat &gt; fichier &lt;&lt; EOF</code>). Sur le principe, c'est une bonne idée — ça ne dépend d'aucun chemin de fichier. En pratique, le contenu retapé à la volée était une version résumée, sans la mise en page ni le style d'origine.</p>
+    <p>Après deux échecs de copie de fichier, la solution de repli a été de coller le code HTML directement dans une commande terminal (<code>cat &gt; fichier &lt;&lt; EOF</code>). Sur le principe, c'est une bonne idée, ça ne dépend d'aucun chemin de fichier. En pratique, le contenu retapé à la volée était une version résumée, sans la mise en page ni le style d'origine.</p>
 
     <div class="callout warn">
       <div class="callout-label">🚫 Le résultat</div>
-      <p>Le lien public a affiché, pendant plusieurs minutes, une page blanche basique avec un dégradé bleu générique — rien à voir avec le design sombre cyan que tu vois sur cette page. Repéré immédiatement par retour visuel direct : <em>« c'est moche, c'est pas le bon design »</em>.</p>
+      <p>Le lien public a affiché, pendant plusieurs minutes, une page blanche basique avec un dégradé bleu générique, rien à voir avec le design sombre cyan que tu vois sur cette page. Repéré immédiatement par retour visuel direct : <em>« c'est moche, c'est pas le bon design »</em>.</p>
     </div>
 
-    <p>La bonne pratique ici n'est pas de retaper un design complexe de mémoire dans un terminal, mais de traiter le fichier déjà déployé comme la source de vérité unique. Une fois qu'un design correct existe quelque part en ligne, il n'y a plus besoin de le recréer — seulement de le récupérer tel quel.</p>
+    <p>La bonne pratique ici n'est pas de retaper un design complexe de mémoire dans un terminal, mais de traiter le fichier déjà déployé comme la source de vérité unique. Une fois qu'un design correct existe quelque part en ligne, il n'y a plus besoin de le recréer, seulement de le récupérer tel quel.</p>
 
     <div class="callout action">
       <div class="callout-label">✅ La correction</div>
-      <p>Récupération directe du fichier HTML complet (1,4 Mo, images comprises) depuis <code>raw.githubusercontent.com</code> — le contenu exact déjà en ligne, sans aucune retranscription manuelle. Tous les guides suivants, dont celui-ci, réutilisent ce même CSS extrait à l'identique.</p>
+      <p>Récupération directe du fichier HTML complet (1,4 Mo, images comprises) depuis <code>raw.githubusercontent.com</code>, le contenu exact déjà en ligne, sans aucune retranscription manuelle. Tous les guides suivants, dont celui-ci, réutilisent ce même CSS extrait à l'identique.</p>
     </div>
   </section>
 
@@ -572,14 +572,14 @@ fatal: pathspec 'guides/ollama-cloud.html' did not match any files</span></pre>
         <span class="rule-icon">✅</span>
         <div>
           <h4>Le déployé fait foi, jamais la mémoire</h4>
-          <p>Dès qu'un design correct existe en ligne, je le récupère tel quel pour toute itération future — je ne demande plus jamais de le retaper.</p>
+          <p>Dès qu'un design correct existe en ligne, je le récupère tel quel pour toute itération future, je ne demande plus jamais de le retaper.</p>
         </div>
       </li>
       <li>
         <span class="rule-icon">✅</span>
         <div>
           <h4>Un seul fichier de référence pour tout le site</h4>
-          <p>Ce guide partage exactement le même CSS que le premier — copié-collé depuis la source déployée, pas réécrit. C'est la garantie qu'il n'y a plus de divergence visuelle possible entre les guides du site.</p>
+          <p>Ce guide partage exactement le même CSS que le premier, copié-collé depuis la source déployée, pas réécrit. C'est la garantie qu'il n'y a plus de divergence visuelle possible entre les guides du site.</p>
         </div>
       </li>
     </ul>
@@ -587,7 +587,7 @@ fatal: pathspec 'guides/ollama-cloud.html' did not match any files</span></pre>
 
   <section class="closing" id="ensemble">
     <h2>Et si on évitait ces détours sur ton projet ?</h2>
-    <p>Ce genre de friction — confondre deux environnements, perdre un chemin de fichier, repartir d'une version dégradée — arrive à tout le monde qui débute avec un assistant IA en autonomie. Le sujet n'est pas de ne jamais se tromper, mais de savoir repérer vite où ça part en vrille.</p>
+    <p>Ce genre de friction (confondre deux environnements, perdre un chemin de fichier, repartir d'une version dégradée) arrive à tout le monde qui débute avec un assistant IA en autonomie. Le sujet n'est pas de ne jamais se tromper, mais de savoir repérer vite où ça part en vrille.</p>
 
     <div class="closing-cta-final">
       <a class="btn-big" href="https://calendly.com/bryan-blaevoet/nouvelle-reunion">Réserve 15 minutes avec moi →</a>
