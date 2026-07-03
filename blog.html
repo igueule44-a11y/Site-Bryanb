@@ -1,36 +1,39 @@
 <!doctype html>
-<html lang="fr" class="dark">
+<html lang="fr" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/png" href="assets/logo-omnyx-nav.png" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-  <meta name="theme-color" content="#080e1a" />
-  <title>Blog Omnyx | Marketing · IA · Croissance</title>
-  <meta name="description" content="Automatisation, agents IA, growth pour fondateurs et coulisses techniques : ce qui marche vraiment, sans blabla. Articles pratiques écrits par Bryan Blaevoet (Omnyx)." />
-  <link rel="canonical" href="https://omnyx.agency/blog.html" />
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0"/>
+<meta name="theme-color" content="#080e1a"/>
+<title>Blog Omnyx | Marketing · IA · Croissance</title>
+<meta name="description" content="Automatisation, agents IA, growth pour fondateurs et coulisses techniques : ce qui marche vraiment, sans blabla. Articles pratiques écrits par Bryan Blaevoet (Omnyx)."/>
+<link rel="canonical" href="https://omnyx.agency/blog.html"/>
 
-  <!-- Open Graph -->
-  <meta property="og:type" content="article" />
-  <meta property="og:title" content="Blog Omnyx | Marketing · IA · Croissance" />
-  <meta property="og:description" content="Automatisation, agents IA, growth pour fondateurs et coulisses techniques : ce qui marche vraiment, sans blabla. Articles pratiques écrits par Bryan Blaevoet (Omnyx)." />
-  <meta property="og:url" content="https://omnyx.agency/blog.html" />
-  <meta property="og:image" content="/assets/logo-omnyx.png" />
-  <meta property="og:locale" content="fr_FR" />
-  <meta property="og:site_name" content="Omnyx" />
+<link rel="icon" type="image/png" href="assets/logo-omnyx-nav.png"/>
 
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Blog Omnyx | Marketing · IA · Croissance" />
-  <meta name="twitter:description" content="Automatisation, agents IA, growth pour fondateurs et coulisses techniques : ce qui marche vraiment, sans blabla. Articles pratiques écrits par Bryan Blaevoet (Omnyx)." />
-  <meta name="twitter:image" content="/assets/logo-omnyx.png" />
+<!-- Open Graph -->
+<meta property="og:type" content="article"/>
+<meta property="og:title" content="Blog Omnyx | Marketing · IA · Croissance"/>
+<meta property="og:description" content="Automatisation, agents IA, growth pour fondateurs et coulisses techniques : ce qui marche vraiment, sans blabla. Articles pratiques écrits par Bryan Blaevoet (Omnyx)."/>
+<meta property="og:url" content="https://omnyx.agency/blog.html"/>
+<meta property="og:image" content="/assets/logo-omnyx.png"/>
+<meta property="og:locale" content="fr_FR"/>
+<meta property="og:site_name" content="Omnyx"/>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Blog Omnyx | Marketing · IA · Croissance"/>
+<meta name="twitter:description" content="Automatisation, agents IA, growth pour fondateurs et coulisses techniques : ce qui marche vraiment, sans blabla. Articles pratiques écrits par Bryan Blaevoet (Omnyx)."/>
+<meta name="twitter:image" content="/assets/logo-omnyx.png"/>
 
-  <link rel="stylesheet" href="blog.css" />
+<!-- Fonts (same as index) -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 
-  <script type="application/ld+json">
+<link rel="stylesheet" href="blog.css"/>
+
+<script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Blog",
@@ -81,111 +84,126 @@
 </script>
 </head>
 <body>
-  <header class="nav-fixed">
-    <div class="container-omnyx" style="display:flex;justify-content:space-between;align-items:center;height:72px;">
-      <a href="/" style="display:flex;align-items:center;gap:10px;">
-        <img src="assets/logo-omnyx-nav.png" alt="Omnyx" style="height:32px;" />
-        <span style="font-family:'JetBrains Mono',monospace;font-weight:700;color:#f0f8ff;letter-spacing:0.05em;">OMNYX</span>
-      </a>
-      <nav style="display:flex;gap:24px;align-items:center;">
-        <a href="/#services" style="color:#8ab4cc;font-weight:500;">Services</a>
-        <a href="blog.html" style="color:#00d4ff;font-weight:600;">Blog</a>
-        <a href="/#contact" class="cta-button" style="padding:8px 18px;font-size:0.9rem;">Prendre RDV</a>
-      </nav>
-    </div>
-  </header>
-  <main style="padding-top:72px;">
+<div class="mesh-bg"></div>
+<script>
+// Reveal-on-scroll observer
+document.addEventListener('DOMContentLoaded',()=>{
+  const els=document.querySelectorAll('.reveal');
+  const io=new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('active');io.unobserve(e.target);}});
+  },{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+  els.forEach(el=>io.observe(el));
+  // Nav scroll effect
+  const nav=document.getElementById('blog-nav');
+  if(nav){window.addEventListener('scroll',()=>{nav.classList.toggle('nav-scrolled',window.scrollY>40);},{passive:true});}
+});
+</script>
 
-  <section class="container-omnyx" style="padding:80px 32px 40px;max-width:880px;">
-    <p style="font-family:'JetBrains Mono',monospace;font-size:0.8rem;color:#00d4ff;letter-spacing:0.15em;text-transform:uppercase;margin:0 0 16px;">Le blog</p>
-    <h1 style="font-family:'Space Grotesk',sans-serif;font-size:3rem;font-weight:700;line-height:1.1;margin:0 0 20px;color:#f0f8ff;letter-spacing:-0.02em;">Marketing, IA & croissance</h1>
-    <p style="font-size:1.2rem;color:#8ab4cc;line-height:1.5;margin:0 0 0;max-width:640px;">Automatisation, agents IA, growth pour fondateurs, et coulisses techniques : ce qui marche vraiment, sans blabla.</p>
+<nav id="blog-nav" class="nav-fixed">
+  <div class="container-omnyx" style="height:5rem;display:flex;align-items:center;justify-content:space-between;">
+    <a href="/" aria-label="Omnyx — Accueil"><img src="assets/logo-omnyx-original-nav.png" alt="Omnyx" style="height:60px;width:auto;display:block"/></a>
+    <div class="hidden md:flex items-center gap-7">
+      <a href="index.html#about"      class="text-[12px] font-medium text-[#c2dae8] hover:text-[#f0f8ff] transition-colors tracking-[.15em] uppercase">À propos</a>
+      <a href="index.html#services"   class="text-[12px] font-medium text-[#c2dae8] hover:text-[#f0f8ff] transition-colors tracking-[.15em] uppercase">Services</a>
+      <a href="blog.html"             class="text-[12px] font-medium text-[#7de8f7] hover:text-[#00d4ff] transition-colors tracking-[.15em] uppercase">Blog</a>
+      <a href="index.html#contact"    class="text-[12px] font-medium text-[#c2dae8] hover:text-[#f0f8ff] transition-colors tracking-[.15em] uppercase">Contact</a>
+      <a href="cv.html"               class="text-[12px] font-medium text-[#7de8f7] hover:text-[#00d4ff] transition-colors tracking-[.15em] uppercase">CV</a>
+    </div>
+    <a href="index.html#contact" class="hidden md:inline-flex items-center gap-2 bg-[#00d4ff] text-[#060c18] text-[12px] font-semibold tracking-[.10em] uppercase px-5 py-2.5 rounded-full shadow-[0_0_20px_rgba(0,212,255,0.35)] hover:shadow-[0_0_30px_rgba(0,212,255,0.60)] hover:-translate-y-px transition-all duration-300">Prendre un RDV</a>
+  </div>
+</nav>
+
+<main style="position:relative;z-index:1;padding-top:7rem;">
+  <section class="container-omnyx" style="padding:60px 1.25rem 40px;max-width:900px;">
+    <p class="eyebrow reveal" style="margin-bottom:16px;">Le blog</p>
+    <h1 class="font-heading gradient-text reveal" style="font-size:clamp(40px,6vw,64px);font-weight:700;line-height:1.1;margin:0 0 24px 0;letter-spacing:-0.03em;">Marketing, IA &amp; croissance</h1>
+    <p class="reveal" style="font-size:19px;font-weight:300;color:#c2dae8;line-height:1.55;margin:0 0 0;max-width:640px;">Automatisation, agents IA, growth pour fondateurs, et coulisses techniques : ce qui marche vraiment, sans blabla.</p>
   </section>
 
-  <section class="container-omnyx" style="padding:20px 32px 80px;max-width:880px;">
+  <section class="container-omnyx" style="padding:40px 1.25rem 80px;max-width:900px;">
     <div style="display:flex;flex-direction:column;gap:20px;">
-      <a href="blog/maitriser-prompts-2026.html" class="article-card">
-        <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+      <a href="blog/maitriser-prompts-2026.html" class="article-card reveal">
+        <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:4px;">
           <span class="tag tag-orange">Coulisses techniques</span>
-          <span style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:#5a7a90;">2 juillet 2026</span>
+          <span style="font-family:'Space Grotesk',sans-serif;font-size:12px;color:#5a7a90;letter-spacing:0.05em;">2 juillet 2026</span>
         </div>
         <h2>Maîtriser ses prompts en 2026 : ce qui a vraiment changé depuis GPT-3.5</h2>
         <p>Les conseils de prompting de 2023 sont obsolètes. Voici ce qui marche maintenant avec Claude 4, GPT-5, et Gemini 2.5 — basé sur 18 mois d'usage quotidien.</p>
         <div class="meta">
           <span>7 min de lecture</span>
-          <span>·</span>
+          <span style="opacity:0.4;">·</span>
           <span>Bryan Blaevoet</span>
         </div>
       </a>
-      <a href="blog/agents-ia-pme-guide-2026.html" class="article-card">
-        <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+      <a href="blog/agents-ia-pme-guide-2026.html" class="article-card reveal">
+        <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:4px;">
           <span class="tag tag-green">Marketing & Growth</span>
-          <span style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:#5a7a90;">1 juillet 2026</span>
+          <span style="font-family:'Space Grotesk',sans-serif;font-size:12px;color:#5a7a90;letter-spacing:0.05em;">1 juillet 2026</span>
         </div>
         <h2>Agents IA pour PME : par où commencer en 2026 (guide pragmatique)</h2>
         <p>Tu veux intégrer un agent IA dans ta boîte mais tu sais pas par où commencer. Voici la méthode en 4 étapes testée sur 12 boîtes à Madrid et Paris.</p>
         <div class="meta">
           <span>9 min de lecture</span>
-          <span>·</span>
+          <span style="opacity:0.4;">·</span>
           <span>Bryan Blaevoet</span>
         </div>
       </a>
-      <a href="blog/making-of-deploiement-rate.html" class="article-card">
-        <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+      <a href="blog/making-of-deploiement-rate.html" class="article-card reveal">
+        <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:4px;">
           <span class="tag tag-orange">Coulisses techniques</span>
-          <span style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:#5a7a90;">27 juin 2026</span>
+          <span style="font-family:'Space Grotesk',sans-serif;font-size:12px;color:#5a7a90;letter-spacing:0.05em;">27 juin 2026</span>
         </div>
         <h2>Le making-of d'un déploiement raté : 8 allers-retours pour pousser un fichier HTML</h2>
         <p>Pourquoi déployer un simple fichier HTML a pris huit allers-retours avec mon assistant IA, et les 4 erreurs concrètes qui ont fait perdre le fil.</p>
         <div class="meta">
           <span>6 min de lecture</span>
-          <span>·</span>
+          <span style="opacity:0.4;">·</span>
           <span>Bryan Blaevoet</span>
         </div>
       </a>
-      <a href="blog/ollama-cloud-claude-code-guide.html" class="article-card">
-        <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+      <a href="blog/ollama-cloud-claude-code-guide.html" class="article-card reveal">
+        <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:4px;">
           <span class="tag">Automatisation & Agents IA</span>
-          <span style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:#5a7a90;">25 juin 2026</span>
+          <span style="font-family:'Space Grotesk',sans-serif;font-size:12px;color:#5a7a90;letter-spacing:0.05em;">25 juin 2026</span>
         </div>
         <h2>Ollama Cloud × Claude Code : le guide complet pour ne plus jamais être bloqué par tes tokens</h2>
         <p>Comment connecter Ollama Cloud à Claude Code et Hermès Agent pour ne plus jamais être bloqué par tes tokens, pas à pas et sans coder.</p>
         <div class="meta">
           <span>8 min de lecture</span>
-          <span>·</span>
+          <span style="opacity:0.4;">·</span>
           <span>Bryan Blaevoet</span>
         </div>
       </a>
-      <a href="blog/hermes-agent-update-juin-2026.html" class="article-card">
-        <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+      <a href="blog/hermes-agent-update-juin-2026.html" class="article-card reveal">
+        <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:4px;">
           <span class="tag">Automatisation & Agents IA</span>
-          <span style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:#5a7a90;">23 juin 2026</span>
+          <span style="font-family:'Space Grotesk',sans-serif;font-size:12px;color:#5a7a90;letter-spacing:0.05em;">23 juin 2026</span>
         </div>
         <h2>Hermès Agent : la grosse update de juin 2026, décryptage complet</h2>
         <p>iMessage, agents en arrière-plan, profils spécialisés, Skills Hub : ce qui change vraiment quand un agent IA arrête d'être une démo pour devenir un poste de travail.</p>
         <div class="meta">
           <span>7 min de lecture</span>
-          <span>·</span>
+          <span style="opacity:0.4;">·</span>
           <span>Bryan Blaevoet</span>
         </div>
       </a>
     </div>
   </section>
+</main>
 
-  </main>
-  <footer style="border-top:1px solid rgba(0,212,255,0.1);margin-top:80px;padding:40px 0;background:#060c18;">
-    <div class="container-omnyx" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;">
-      <div style="display:flex;align-items:center;gap:10px;">
-        <img src="assets/logo-omnyx-nav.png" alt="Omnyx" style="height:24px;" />
-        <span style="font-family:'JetBrains Mono',monospace;color:#8ab4cc;font-size:0.85rem;">© 2026 Omnyx · Madrid</span>
-      </div>
-      <div style="display:flex;gap:24px;font-size:0.85rem;">
-        <a href="/" style="color:#8ab4cc;">Accueil</a>
-        <a href="blog.html" style="color:#8ab4cc;">Blog</a>
-        <a href="https://www.linkedin.com/in/bryanblaevoet/" style="color:#8ab4cc;" rel="noopener">LinkedIn</a>
-        <a href="/#contact" style="color:#8ab4cc;">Contact</a>
-      </div>
+<footer class="blog-footer">
+  <div class="container-omnyx" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;">
+    <div style="display:flex;align-items:center;gap:12px;">
+      <img src="assets/logo-omnyx-original-nav.png" alt="Omnyx" style="height:24px;width:auto"/>
+      <span style="font-family:'Space Grotesk',sans-serif;color:#8ab4cc;font-size:13px;">© 2026 Omnyx · Madrid · Bryan Blaevoet</span>
     </div>
-  </footer>
+    <div style="display:flex;gap:24px;font-size:13px;align-items:center;">
+      <a href="index.html"      style="color:#8ab4cc;text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#7de8f7'" onmouseout="this.style.color='#8ab4cc'">Accueil</a>
+      <a href="blog.html"       style="color:#8ab4cc;text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#7de8f7'" onmouseout="this.style.color='#8ab4cc'">Blog</a>
+      <a href="cv.html"         style="color:#8ab4cc;text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#7de8f7'" onmouseout="this.style.color='#8ab4cc'">CV</a>
+      <a href="https://www.linkedin.com/in/bryanblaevoet/" rel="noopener" style="color:#8ab4cc;text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#7de8f7'" onmouseout="this.style.color='#8ab4cc'">LinkedIn</a>
+    </div>
+  </div>
+</footer>
 </body>
 </html>

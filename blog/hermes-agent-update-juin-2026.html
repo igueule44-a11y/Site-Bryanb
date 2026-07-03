@@ -1,36 +1,39 @@
 <!doctype html>
-<html lang="fr" class="dark">
+<html lang="fr" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/png" href="assets/logo-omnyx-nav.png" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-  <meta name="theme-color" content="#080e1a" />
-  <title>Hermès Agent : la grosse update de juin 2026, décryptage complet | Blog Omnyx</title>
-  <meta name="description" content="Décryptage complet de la mise à jour majeure de Hermès Agent en juin 2026 : iMessage natif, agents en arrière-plan, profils spécialisés, Skills Hub, cron jobs intelligents. Ce que ça change concrètement." />
-  <link rel="canonical" href="https://omnyx.agency/blog/hermes-agent-update-juin-2026.html" />
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0"/>
+<meta name="theme-color" content="#080e1a"/>
+<title>Hermès Agent : la grosse update de juin 2026, décryptage complet | Blog Omnyx</title>
+<meta name="description" content="Décryptage complet de la mise à jour majeure de Hermès Agent en juin 2026 : iMessage natif, agents en arrière-plan, profils spécialisés, Skills Hub, cron jobs intelligents. Ce que ça change concrètement."/>
+<link rel="canonical" href="https://omnyx.agency/blog/hermes-agent-update-juin-2026.html"/>
 
-  <!-- Open Graph -->
-  <meta property="og:type" content="article" />
-  <meta property="og:title" content="Hermès Agent : la grosse update de juin 2026, décryptage complet | Blog Omnyx" />
-  <meta property="og:description" content="Décryptage complet de la mise à jour majeure de Hermès Agent en juin 2026 : iMessage natif, agents en arrière-plan, profils spécialisés, Skills Hub, cron jobs intelligents. Ce que ça change concrètement." />
-  <meta property="og:url" content="https://omnyx.agency/blog/hermes-agent-update-juin-2026.html" />
-  <meta property="og:image" content="/assets/logo-omnyx.png" />
-  <meta property="og:locale" content="fr_FR" />
-  <meta property="og:site_name" content="Omnyx" />
+<link rel="icon" type="image/png" href="assets/logo-omnyx-nav.png"/>
 
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Hermès Agent : la grosse update de juin 2026, décryptage complet | Blog Omnyx" />
-  <meta name="twitter:description" content="Décryptage complet de la mise à jour majeure de Hermès Agent en juin 2026 : iMessage natif, agents en arrière-plan, profils spécialisés, Skills Hub, cron jobs intelligents. Ce que ça change concrètement." />
-  <meta name="twitter:image" content="/assets/logo-omnyx.png" />
+<!-- Open Graph -->
+<meta property="og:type" content="article"/>
+<meta property="og:title" content="Hermès Agent : la grosse update de juin 2026, décryptage complet | Blog Omnyx"/>
+<meta property="og:description" content="Décryptage complet de la mise à jour majeure de Hermès Agent en juin 2026 : iMessage natif, agents en arrière-plan, profils spécialisés, Skills Hub, cron jobs intelligents. Ce que ça change concrètement."/>
+<meta property="og:url" content="https://omnyx.agency/blog/hermes-agent-update-juin-2026.html"/>
+<meta property="og:image" content="/assets/logo-omnyx.png"/>
+<meta property="og:locale" content="fr_FR"/>
+<meta property="og:site_name" content="Omnyx"/>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Hermès Agent : la grosse update de juin 2026, décryptage complet | Blog Omnyx"/>
+<meta name="twitter:description" content="Décryptage complet de la mise à jour majeure de Hermès Agent en juin 2026 : iMessage natif, agents en arrière-plan, profils spécialisés, Skills Hub, cron jobs intelligents. Ce que ça change concrètement."/>
+<meta name="twitter:image" content="/assets/logo-omnyx.png"/>
 
-  <link rel="stylesheet" href="blog.css" />
+<!-- Fonts (same as index) -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 
-  <script type="application/ld+json">
+<link rel="stylesheet" href="blog.css"/>
+
+<script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
@@ -61,62 +64,85 @@
 </script>
 </head>
 <body>
-  <header class="nav-fixed">
-    <div class="container-omnyx" style="display:flex;justify-content:space-between;align-items:center;height:72px;">
-      <a href="/" style="display:flex;align-items:center;gap:10px;">
-        <img src="assets/logo-omnyx-nav.png" alt="Omnyx" style="height:32px;" />
-        <span style="font-family:'JetBrains Mono',monospace;font-weight:700;color:#f0f8ff;letter-spacing:0.05em;">OMNYX</span>
-      </a>
-      <nav style="display:flex;gap:24px;align-items:center;">
-        <a href="/#services" style="color:#8ab4cc;font-weight:500;">Services</a>
-        <a href="blog.html" style="color:#00d4ff;font-weight:600;">Blog</a>
-        <a href="/#contact" class="cta-button" style="padding:8px 18px;font-size:0.9rem;">Prendre RDV</a>
-      </nav>
-    </div>
-  </header>
-  <main style="padding-top:72px;">
+<div class="mesh-bg"></div>
+<script>
+// Reveal-on-scroll observer
+document.addEventListener('DOMContentLoaded',()=>{
+  const els=document.querySelectorAll('.reveal');
+  const io=new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('active');io.unobserve(e.target);}});
+  },{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+  els.forEach(el=>io.observe(el));
+  // Nav scroll effect
+  const nav=document.getElementById('blog-nav');
+  if(nav){window.addEventListener('scroll',()=>{nav.classList.toggle('nav-scrolled',window.scrollY>40);},{passive:true});}
+});
+</script>
 
-  <article class="container-omnyx" style="max-width:780px;padding:60px 32px 40px;">
-    <a href="blog.html" style="display:inline-flex;align-items:center;gap:6px;color:#8ab4cc;font-size:0.9rem;margin-bottom:24px;">← Retour au blog</a>
-    <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:16px;">
-      <span class="tag ">Automatisation & Agents IA</span>
-      <span style="font-family:'JetBrains Mono',monospace;font-size:0.8rem;color:#5a7a90;">23 juin 2026</span>
-      <span style="font-family:'JetBrains Mono',monospace;font-size:0.8rem;color:#5a7a90;">·</span>
-      <span style="font-family:'JetBrains Mono',monospace;font-size:0.8rem;color:#5a7a90;">7 min de lecture</span>
+<nav id="blog-nav" class="nav-fixed">
+  <div class="container-omnyx" style="height:5rem;display:flex;align-items:center;justify-content:space-between;">
+    <a href="/" aria-label="Omnyx — Accueil"><img src="assets/logo-omnyx-original-nav.png" alt="Omnyx" style="height:60px;width:auto;display:block"/></a>
+    <div class="hidden md:flex items-center gap-7">
+      <a href="index.html#about"      class="text-[12px] font-medium text-[#c2dae8] hover:text-[#f0f8ff] transition-colors tracking-[.15em] uppercase">À propos</a>
+      <a href="index.html#services"   class="text-[12px] font-medium text-[#c2dae8] hover:text-[#f0f8ff] transition-colors tracking-[.15em] uppercase">Services</a>
+      <a href="blog.html"             class="text-[12px] font-medium text-[#7de8f7] hover:text-[#00d4ff] transition-colors tracking-[.15em] uppercase">Blog</a>
+      <a href="index.html#contact"    class="text-[12px] font-medium text-[#c2dae8] hover:text-[#f0f8ff] transition-colors tracking-[.15em] uppercase">Contact</a>
+      <a href="cv.html"               class="text-[12px] font-medium text-[#7de8f7] hover:text-[#00d4ff] transition-colors tracking-[.15em] uppercase">CV</a>
     </div>
-    <h1 style="font-family:'Space Grotesk',sans-serif;font-size:2.5rem;font-weight:700;line-height:1.15;margin:0 0 20px;color:#f0f8ff;letter-spacing:-0.02em;">Hermès Agent : la grosse update de juin 2026, décryptage complet</h1>
-    <p style="font-size:1.2rem;color:#8ab4cc;line-height:1.5;margin:0 0 40px;">iMessage, agents en arrière-plan, profils spécialisés, Skills Hub : ce qui change vraiment quand un agent IA arrête d'être une démo pour devenir un poste de travail.</p>
-    <div class="article-body">
+    <a href="index.html#contact" class="hidden md:inline-flex items-center gap-2 bg-[#00d4ff] text-[#060c18] text-[12px] font-semibold tracking-[.10em] uppercase px-5 py-2.5 rounded-full shadow-[0_0_20px_rgba(0,212,255,0.35)] hover:shadow-[0_0_30px_rgba(0,212,255,0.60)] hover:-translate-y-px transition-all duration-300">Prendre un RDV</a>
+  </div>
+</nav>
+
+<main style="position:relative;z-index:1;padding-top:7rem;">
+  <article class="container-omnyx" style="max-width:780px;padding-bottom:40px;">
+
+    <a href="blog.html" class="back-link reveal" style="margin-bottom:24px;">← Retour au blog</a>
+
+    <div class="reveal" style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:20px;">
+      <span class="tag">Automatisation & Agents IA</span>
+      <span class="meta-line">
+        <span>23 juin 2026</span>
+        <span class="dot">·</span>
+        <span>7 min de lecture</span>
+      </span>
+    </div>
+
+    <h1 class="font-heading gradient-text reveal" style="font-size:clamp(36px,5vw,52px);font-weight:700;line-height:1.1;margin:0 0 20px 0;letter-spacing:-0.03em;">Hermès Agent : la grosse update de juin 2026, décryptage complet</h1>
+
+    <p class="reveal" style="font-size:19px;font-weight:300;color:#c2dae8;line-height:1.55;margin:0 0 48px 0;">iMessage, agents en arrière-plan, profils spécialisés, Skills Hub : ce qui change vraiment quand un agent IA arrête d'être une démo pour devenir un poste de travail.</p>
+
+    <div class="article-body reveal">
       <p>Hermès Agent est sorti de l'âge de la démo. La mise à jour de juin 2026 transforme l'outil en <strong>poste de travail autonome</strong> : capable de tourner en arrière-plan, de parler à tes apps natives, et de se spécialiser par profil. Voici ce que ça change, sans le hype du changelog officiel.</p><h2>1. iMessage natif : ton agent te répond dans Messages</h2><p>Le plus gros morceau. Hermès peut maintenant envoyer et recevoir des <strong>iMessages et SMS</strong> depuis ton Mac, via une CLI <code>imsg</code> intégrée. Concrètement : tu lui écris depuis ton iPhone comme à un collègue, il répond, il peut déclencher des actions.</p><p>Cas d'usage réel que j'ai testé : tu es en déplacement, tu demandes "vérifie les candidatures crypto d'aujourd'hui et envoie-moi le top 5 sur Telegram". L'agent : scrape Lever via l'API, filtre, formate, envoie. Sans que tu touches ton Mac.</p><h2>2. Agents en arrière-plan (background delegation)</h2><p>Avant, chaque sous-tâche bloquait la conversation. Maintenant, <code>delegate_task</code> retourne immédiatement et l'agent continue à travailler pendant que tu fais autre chose. Le résultat revient dans la conversation quand c'est prêt.</p><p>Ça paraît anodin, mais ça débloque un use case énorme : <strong>tu délègues une recherche de 20 minutes, et tu codes pendant ce temps</strong>. Avant, tu attendais. C'est fini.</p><h2>3. Profils spécialisés</h2><p>Nouveauté clé : tu peux avoir plusieurs profils Hermès avec des skills, des providers, des mémoires différents. J'ai séparé mon profil <code>default</code> (veille + clients) d'un profil <code>work</code> (technique pur, modèle plus cher, outils différents). Switch en une commande.</p><h2>4. Skills Hub et memory persistante</h2><p>Les skills deviennent des <strong>procédures versionnées</strong>, partageables, chargeables à la demande. La mémoire persistante entre sessions est maintenant un système de premier ordre, plus un hack.</p><h2>Pourquoi c'est important pour ton business</h2><p>Si tu es solo founder ou petite équipe : Hermès passe du statut "jouet pour dev" à <strong>collaborateur réellement opérationnel</strong>. Tu peux lui déléguer la veille, la recherche, la rédaction de première version, le suivi client, sans avoir à rester collé à l'écran.</p><p>Le vrai shift : l'agent devient <em>asynchrone</em>. C'est la même différence qu'entre un assistant qui attend à ton bureau et un collègue Slack qui te répond quand il peut.</p><p>On intègre ce genre d'agents dans les offres Omnyx : <a href="/#contact">parle-nous de ton process</a>, on te montre ce qu'on peut automatiser.</p>
     </div>
 
-    <div style="margin:60px 0 40px;padding:32px;border:1px solid rgba(0,212,255,0.2);border-radius:12px;background:rgba(0,212,255,0.04);">
-      <p style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:#00d4ff;letter-spacing:0.1em;margin:0 0 8px;text-transform:uppercase;">Omnyx</p>
-      <h3 style="font-family:'Space Grotesk',sans-serif;color:#f0f8ff;font-size:1.4rem;margin:0 0 8px;">On peut faire ça pour vous.</h3>
-      <p style="color:#8ab4cc;margin:0 0 20px;">Automatisation, agents IA, sites web qui convertissent. 30 min pour voir si on peut vous faire gagner du temps.</p>
-      <a href="/#contact" class="cta-button">Prendre RDV →</a>
+    <div class="cta-card reveal">
+      <p class="eyebrow" style="margin-bottom:8px;">Omnyx</p>
+      <h3 class="font-heading" style="font-size:22px;color:#f0f8ff;margin:0 0 12px 0;letter-spacing:-0.02em;">On peut faire ça pour vous.</h3>
+      <p style="color:#8ab4cc;font-size:15px;margin:0 0 24px 0;">Automatisation, agents IA, sites web qui convertissent. 30 min pour voir si on peut vous faire gagner du temps.</p>
+      <a href="index.html#contact" class="btn-primary">Prendre RDV →</a>
     </div>
 
-    <div style="border-top:1px solid rgba(0,212,255,0.1);padding-top:32px;margin-top:40px;">
-      <p style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:#5a7a90;letter-spacing:0.1em;text-transform:uppercase;margin:0 0 8px;">Auteur</p>
-      <p style="color:#f0f8ff;margin:0;"><strong>Bryan Blaevoet</strong> — Fondateur Omnyx · Ex-Partnerships Markchain · Madrileño depuis 2024</p>
+    <div class="author-block reveal">
+      <p class="eyebrow" style="margin-bottom:8px;">Auteur</p>
+      <p style="color:#f0f8ff;margin:0;font-size:15px;"><strong style="color:#f0f8ff;font-weight:600;">Bryan Blaevoet</strong> — Fondateur Omnyx · Ex-Partnerships Markchain · Madrileño depuis 2024</p>
     </div>
+
   </article>
+</main>
 
-  </main>
-  <footer style="border-top:1px solid rgba(0,212,255,0.1);margin-top:80px;padding:40px 0;background:#060c18;">
-    <div class="container-omnyx" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;">
-      <div style="display:flex;align-items:center;gap:10px;">
-        <img src="assets/logo-omnyx-nav.png" alt="Omnyx" style="height:24px;" />
-        <span style="font-family:'JetBrains Mono',monospace;color:#8ab4cc;font-size:0.85rem;">© 2026 Omnyx · Madrid</span>
-      </div>
-      <div style="display:flex;gap:24px;font-size:0.85rem;">
-        <a href="/" style="color:#8ab4cc;">Accueil</a>
-        <a href="blog.html" style="color:#8ab4cc;">Blog</a>
-        <a href="https://www.linkedin.com/in/bryanblaevoet/" style="color:#8ab4cc;" rel="noopener">LinkedIn</a>
-        <a href="/#contact" style="color:#8ab4cc;">Contact</a>
-      </div>
+<footer class="blog-footer">
+  <div class="container-omnyx" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;">
+    <div style="display:flex;align-items:center;gap:12px;">
+      <img src="assets/logo-omnyx-original-nav.png" alt="Omnyx" style="height:24px;width:auto"/>
+      <span style="font-family:'Space Grotesk',sans-serif;color:#8ab4cc;font-size:13px;">© 2026 Omnyx · Madrid · Bryan Blaevoet</span>
     </div>
-  </footer>
+    <div style="display:flex;gap:24px;font-size:13px;align-items:center;">
+      <a href="index.html"      style="color:#8ab4cc;text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#7de8f7'" onmouseout="this.style.color='#8ab4cc'">Accueil</a>
+      <a href="blog.html"       style="color:#8ab4cc;text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#7de8f7'" onmouseout="this.style.color='#8ab4cc'">Blog</a>
+      <a href="cv.html"         style="color:#8ab4cc;text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#7de8f7'" onmouseout="this.style.color='#8ab4cc'">CV</a>
+      <a href="https://www.linkedin.com/in/bryanblaevoet/" rel="noopener" style="color:#8ab4cc;text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#7de8f7'" onmouseout="this.style.color='#8ab4cc'">LinkedIn</a>
+    </div>
+  </div>
+</footer>
 </body>
 </html>

@@ -1,36 +1,39 @@
 <!doctype html>
-<html lang="fr" class="dark">
+<html lang="fr" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/png" href="assets/logo-omnyx-nav.png" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-  <meta name="theme-color" content="#080e1a" />
-  <title>Maîtriser ses prompts en 2026 : ce qui a vraiment changé depuis GPT-3.5 | Blog Omnyx</title>
-  <meta name="description" content="Les techniques de prompting qui marchent vraiment en 2026 avec les modèles de dernière génération. Différences fondamentales avec 2023, exemples concrets, et erreurs classiques à éviter." />
-  <link rel="canonical" href="https://omnyx.agency/blog/maitriser-prompts-2026.html" />
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0"/>
+<meta name="theme-color" content="#080e1a"/>
+<title>Maîtriser ses prompts en 2026 : ce qui a vraiment changé depuis GPT-3.5 | Blog Omnyx</title>
+<meta name="description" content="Les techniques de prompting qui marchent vraiment en 2026 avec les modèles de dernière génération. Différences fondamentales avec 2023, exemples concrets, et erreurs classiques à éviter."/>
+<link rel="canonical" href="https://omnyx.agency/blog/maitriser-prompts-2026.html"/>
 
-  <!-- Open Graph -->
-  <meta property="og:type" content="article" />
-  <meta property="og:title" content="Maîtriser ses prompts en 2026 : ce qui a vraiment changé depuis GPT-3.5 | Blog Omnyx" />
-  <meta property="og:description" content="Les techniques de prompting qui marchent vraiment en 2026 avec les modèles de dernière génération. Différences fondamentales avec 2023, exemples concrets, et erreurs classiques à éviter." />
-  <meta property="og:url" content="https://omnyx.agency/blog/maitriser-prompts-2026.html" />
-  <meta property="og:image" content="/assets/logo-omnyx.png" />
-  <meta property="og:locale" content="fr_FR" />
-  <meta property="og:site_name" content="Omnyx" />
+<link rel="icon" type="image/png" href="assets/logo-omnyx-nav.png"/>
 
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Maîtriser ses prompts en 2026 : ce qui a vraiment changé depuis GPT-3.5 | Blog Omnyx" />
-  <meta name="twitter:description" content="Les techniques de prompting qui marchent vraiment en 2026 avec les modèles de dernière génération. Différences fondamentales avec 2023, exemples concrets, et erreurs classiques à éviter." />
-  <meta name="twitter:image" content="/assets/logo-omnyx.png" />
+<!-- Open Graph -->
+<meta property="og:type" content="article"/>
+<meta property="og:title" content="Maîtriser ses prompts en 2026 : ce qui a vraiment changé depuis GPT-3.5 | Blog Omnyx"/>
+<meta property="og:description" content="Les techniques de prompting qui marchent vraiment en 2026 avec les modèles de dernière génération. Différences fondamentales avec 2023, exemples concrets, et erreurs classiques à éviter."/>
+<meta property="og:url" content="https://omnyx.agency/blog/maitriser-prompts-2026.html"/>
+<meta property="og:image" content="/assets/logo-omnyx.png"/>
+<meta property="og:locale" content="fr_FR"/>
+<meta property="og:site_name" content="Omnyx"/>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Maîtriser ses prompts en 2026 : ce qui a vraiment changé depuis GPT-3.5 | Blog Omnyx"/>
+<meta name="twitter:description" content="Les techniques de prompting qui marchent vraiment en 2026 avec les modèles de dernière génération. Différences fondamentales avec 2023, exemples concrets, et erreurs classiques à éviter."/>
+<meta name="twitter:image" content="/assets/logo-omnyx.png"/>
 
-  <link rel="stylesheet" href="blog.css" />
+<!-- Fonts (same as index) -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 
-  <script type="application/ld+json">
+<link rel="stylesheet" href="blog.css"/>
+
+<script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
@@ -61,32 +64,54 @@
 </script>
 </head>
 <body>
-  <header class="nav-fixed">
-    <div class="container-omnyx" style="display:flex;justify-content:space-between;align-items:center;height:72px;">
-      <a href="/" style="display:flex;align-items:center;gap:10px;">
-        <img src="assets/logo-omnyx-nav.png" alt="Omnyx" style="height:32px;" />
-        <span style="font-family:'JetBrains Mono',monospace;font-weight:700;color:#f0f8ff;letter-spacing:0.05em;">OMNYX</span>
-      </a>
-      <nav style="display:flex;gap:24px;align-items:center;">
-        <a href="/#services" style="color:#8ab4cc;font-weight:500;">Services</a>
-        <a href="blog.html" style="color:#00d4ff;font-weight:600;">Blog</a>
-        <a href="/#contact" class="cta-button" style="padding:8px 18px;font-size:0.9rem;">Prendre RDV</a>
-      </nav>
-    </div>
-  </header>
-  <main style="padding-top:72px;">
+<div class="mesh-bg"></div>
+<script>
+// Reveal-on-scroll observer
+document.addEventListener('DOMContentLoaded',()=>{
+  const els=document.querySelectorAll('.reveal');
+  const io=new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('active');io.unobserve(e.target);}});
+  },{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+  els.forEach(el=>io.observe(el));
+  // Nav scroll effect
+  const nav=document.getElementById('blog-nav');
+  if(nav){window.addEventListener('scroll',()=>{nav.classList.toggle('nav-scrolled',window.scrollY>40);},{passive:true});}
+});
+</script>
 
-  <article class="container-omnyx" style="max-width:780px;padding:60px 32px 40px;">
-    <a href="blog.html" style="display:inline-flex;align-items:center;gap:6px;color:#8ab4cc;font-size:0.9rem;margin-bottom:24px;">← Retour au blog</a>
-    <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:16px;">
-      <span class="tag tag-orange">Coulisses techniques</span>
-      <span style="font-family:'JetBrains Mono',monospace;font-size:0.8rem;color:#5a7a90;">2 juillet 2026</span>
-      <span style="font-family:'JetBrains Mono',monospace;font-size:0.8rem;color:#5a7a90;">·</span>
-      <span style="font-family:'JetBrains Mono',monospace;font-size:0.8rem;color:#5a7a90;">7 min de lecture</span>
+<nav id="blog-nav" class="nav-fixed">
+  <div class="container-omnyx" style="height:5rem;display:flex;align-items:center;justify-content:space-between;">
+    <a href="/" aria-label="Omnyx — Accueil"><img src="assets/logo-omnyx-original-nav.png" alt="Omnyx" style="height:60px;width:auto;display:block"/></a>
+    <div class="hidden md:flex items-center gap-7">
+      <a href="index.html#about"      class="text-[12px] font-medium text-[#c2dae8] hover:text-[#f0f8ff] transition-colors tracking-[.15em] uppercase">À propos</a>
+      <a href="index.html#services"   class="text-[12px] font-medium text-[#c2dae8] hover:text-[#f0f8ff] transition-colors tracking-[.15em] uppercase">Services</a>
+      <a href="blog.html"             class="text-[12px] font-medium text-[#7de8f7] hover:text-[#00d4ff] transition-colors tracking-[.15em] uppercase">Blog</a>
+      <a href="index.html#contact"    class="text-[12px] font-medium text-[#c2dae8] hover:text-[#f0f8ff] transition-colors tracking-[.15em] uppercase">Contact</a>
+      <a href="cv.html"               class="text-[12px] font-medium text-[#7de8f7] hover:text-[#00d4ff] transition-colors tracking-[.15em] uppercase">CV</a>
     </div>
-    <h1 style="font-family:'Space Grotesk',sans-serif;font-size:2.5rem;font-weight:700;line-height:1.15;margin:0 0 20px;color:#f0f8ff;letter-spacing:-0.02em;">Maîtriser ses prompts en 2026 : ce qui a vraiment changé depuis GPT-3.5</h1>
-    <p style="font-size:1.2rem;color:#8ab4cc;line-height:1.5;margin:0 0 40px;">Les conseils de prompting de 2023 sont obsolètes. Voici ce qui marche maintenant avec Claude 4, GPT-5, et Gemini 2.5 — basé sur 18 mois d'usage quotidien.</p>
-    <div class="article-body">
+    <a href="index.html#contact" class="hidden md:inline-flex items-center gap-2 bg-[#00d4ff] text-[#060c18] text-[12px] font-semibold tracking-[.10em] uppercase px-5 py-2.5 rounded-full shadow-[0_0_20px_rgba(0,212,255,0.35)] hover:shadow-[0_0_30px_rgba(0,212,255,0.60)] hover:-translate-y-px transition-all duration-300">Prendre un RDV</a>
+  </div>
+</nav>
+
+<main style="position:relative;z-index:1;padding-top:7rem;">
+  <article class="container-omnyx" style="max-width:780px;padding-bottom:40px;">
+
+    <a href="blog.html" class="back-link reveal" style="margin-bottom:24px;">← Retour au blog</a>
+
+    <div class="reveal" style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:20px;">
+      <span class="tag tag-orange">Coulisses techniques</span>
+      <span class="meta-line">
+        <span>2 juillet 2026</span>
+        <span class="dot">·</span>
+        <span>7 min de lecture</span>
+      </span>
+    </div>
+
+    <h1 class="font-heading gradient-text reveal" style="font-size:clamp(36px,5vw,52px);font-weight:700;line-height:1.1;margin:0 0 20px 0;letter-spacing:-0.03em;">Maîtriser ses prompts en 2026 : ce qui a vraiment changé depuis GPT-3.5</h1>
+
+    <p class="reveal" style="font-size:19px;font-weight:300;color:#c2dae8;line-height:1.55;margin:0 0 48px 0;">Les conseils de prompting de 2023 sont obsolètes. Voici ce qui marche maintenant avec Claude 4, GPT-5, et Gemini 2.5 — basé sur 18 mois d'usage quotidien.</p>
+
+    <div class="article-body reveal">
       <p>J'utilise Claude, GPT et Gemini en production depuis 18 mois, tous les jours, sur des tâches critiques (code client, articles, emails, agents autonomes). Voici les 6 choses qui ont fondamentalement changé dans ma façon de prompter.</p><h2>1. "Fais comme si tu étais X" est devenu inutile</h2><p>En 2023, le role prompting ("tu es un expert SEO avec 15 ans d'expérience...") aidait. En 2026, <strong>ça n'apporte plus rien sur les modèles de pointe</strong>. Claude 4 et GPT-5 ont déjà le contexte, le role est implicite. Le role prompting gaspille des tokens et peut même dégrader la réponse en créant un cadrage artificiel.</p><p>À la place, donne des <strong>exemples concrets</strong> (few-shot). C'est 10x plus efficace qu'un long role prompt.</p><h2>2. Les instructions négatives sont une perte de temps</h2><p>"Ne fais pas X, ne fais pas Y" ne marche pas bien. Le modèle oublie ou interprète mal. <strong>Dis ce que tu veux, pas ce que tu ne veux pas</strong>. "Écris un email de 3 phrases maximum, ton direct" > "N'écris pas un long email, évite le ton formel".</p><h2>3. Le structured output bat le prompting créatif</h2><p>Si tu veux une sortie exploitable (JSON, table, liste), <strong>force le format dans le prompt ET en sortie</strong>. Les modèles 2026 supportent tous le JSON schema, le tool calling, et les grammaires contraintes (GBNF). Utilise-les.</p><p>En pratique : ne dis pas "réponds en JSON", donne le schéma exact et utilise l'API mode "json_object" ou "tool_use".</p><h2>4. La fenêtre de contexte n'est pas un luxe, c'est un outil</h2><p>Claude 4 Sonnet a 200k tokens, GPT-5 a 400k, Gemini 2.5 Pro a 2M. <strong>Utilise-les</strong>. Au lieu de résumer ton code, colle-le. Au lieu de paraphraser la spec produit, mets-la en entier. La qualité de la sortie explose quand le modèle a tout le contexte.</p><p>Limite à ne pas franchir : au-delà de 60-70% de la fenêtre, la qualité baisse. Mais 100-150k de contexte, c'est 100% utilisable.</p><h2>5. Chain-of-thought = cache ta pensée, pas l'expose</h2><p>Demander "réfléchis étape par étape" en 2023 améliorait la qualité. En 2026, les modèles savent déjà le faire. <strong>Demande la réponse finale, sauf si tu as besoin de voir le raisonnement pour le valider</strong>.</p><p>Cas où le CoT reste utile : debug de logique complexe, math, raisonnement juridique. Pour le reste, ça allonge inutilement la réponse.</p><h2>6. Le prompting par tools est le nouveau prompting par instructions</h2><p>En 2026, un prompt efficace ne décrit pas un workflow, il <strong>définit des tools</strong>. Chaque tool = une action, une signature, une docstring claire. Le modèle choisit tout seul comment les combiner.</p><p>C'est toute la philosophie derrière les agents : au lieu de dire "chercher sur Google, résumer, envoyer par email", tu définis <code>search_web(query)</code>, <code>summarize(text)</code>, <code>send_email(to, subject, body)</code>, et tu laisses le modèle composer.</p><h2>Le template minimal qui marche en 2026</h2><pre><code>&lt;role&gt;Le rôle est implicite, pas besoin de le déclarer&lt;/role&gt;
 
 &lt;context&gt;Tout le contexte pertinent, en entier&lt;/context&gt;
@@ -98,33 +123,34 @@
 &lt;examples&gt;1-2 exemples concrets de la sortie attendue&lt;/examples&gt;</code></pre><h2>Ce qui n'a PAS changé</h2><ul><li><strong>L'itération reste reine</strong> : ton premier prompt est toujours mauvais, le 3e est correct, le 5e est bon</li><li><strong>Le contexte est roi</strong> : mieux le modèle comprend ta situation, mieux il répond</li><li><strong>Les exemples battent les instructions</strong> : montre, ne dis pas</li></ul><p>Pour aller plus loin, on propose des <a href="/#contact">ateliers prompts pour les équipes</a> qui veulent industrialiser leur usage.</p>
     </div>
 
-    <div style="margin:60px 0 40px;padding:32px;border:1px solid rgba(0,212,255,0.2);border-radius:12px;background:rgba(0,212,255,0.04);">
-      <p style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:#00d4ff;letter-spacing:0.1em;margin:0 0 8px;text-transform:uppercase;">Omnyx</p>
-      <h3 style="font-family:'Space Grotesk',sans-serif;color:#f0f8ff;font-size:1.4rem;margin:0 0 8px;">On peut faire ça pour vous.</h3>
-      <p style="color:#8ab4cc;margin:0 0 20px;">Automatisation, agents IA, sites web qui convertissent. 30 min pour voir si on peut vous faire gagner du temps.</p>
-      <a href="/#contact" class="cta-button">Prendre RDV →</a>
+    <div class="cta-card reveal">
+      <p class="eyebrow" style="margin-bottom:8px;">Omnyx</p>
+      <h3 class="font-heading" style="font-size:22px;color:#f0f8ff;margin:0 0 12px 0;letter-spacing:-0.02em;">On peut faire ça pour vous.</h3>
+      <p style="color:#8ab4cc;font-size:15px;margin:0 0 24px 0;">Automatisation, agents IA, sites web qui convertissent. 30 min pour voir si on peut vous faire gagner du temps.</p>
+      <a href="index.html#contact" class="btn-primary">Prendre RDV →</a>
     </div>
 
-    <div style="border-top:1px solid rgba(0,212,255,0.1);padding-top:32px;margin-top:40px;">
-      <p style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:#5a7a90;letter-spacing:0.1em;text-transform:uppercase;margin:0 0 8px;">Auteur</p>
-      <p style="color:#f0f8ff;margin:0;"><strong>Bryan Blaevoet</strong> — Fondateur Omnyx · Ex-Partnerships Markchain · Madrileño depuis 2024</p>
+    <div class="author-block reveal">
+      <p class="eyebrow" style="margin-bottom:8px;">Auteur</p>
+      <p style="color:#f0f8ff;margin:0;font-size:15px;"><strong style="color:#f0f8ff;font-weight:600;">Bryan Blaevoet</strong> — Fondateur Omnyx · Ex-Partnerships Markchain · Madrileño depuis 2024</p>
     </div>
+
   </article>
+</main>
 
-  </main>
-  <footer style="border-top:1px solid rgba(0,212,255,0.1);margin-top:80px;padding:40px 0;background:#060c18;">
-    <div class="container-omnyx" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;">
-      <div style="display:flex;align-items:center;gap:10px;">
-        <img src="assets/logo-omnyx-nav.png" alt="Omnyx" style="height:24px;" />
-        <span style="font-family:'JetBrains Mono',monospace;color:#8ab4cc;font-size:0.85rem;">© 2026 Omnyx · Madrid</span>
-      </div>
-      <div style="display:flex;gap:24px;font-size:0.85rem;">
-        <a href="/" style="color:#8ab4cc;">Accueil</a>
-        <a href="blog.html" style="color:#8ab4cc;">Blog</a>
-        <a href="https://www.linkedin.com/in/bryanblaevoet/" style="color:#8ab4cc;" rel="noopener">LinkedIn</a>
-        <a href="/#contact" style="color:#8ab4cc;">Contact</a>
-      </div>
+<footer class="blog-footer">
+  <div class="container-omnyx" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;">
+    <div style="display:flex;align-items:center;gap:12px;">
+      <img src="assets/logo-omnyx-original-nav.png" alt="Omnyx" style="height:24px;width:auto"/>
+      <span style="font-family:'Space Grotesk',sans-serif;color:#8ab4cc;font-size:13px;">© 2026 Omnyx · Madrid · Bryan Blaevoet</span>
     </div>
-  </footer>
+    <div style="display:flex;gap:24px;font-size:13px;align-items:center;">
+      <a href="index.html"      style="color:#8ab4cc;text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#7de8f7'" onmouseout="this.style.color='#8ab4cc'">Accueil</a>
+      <a href="blog.html"       style="color:#8ab4cc;text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#7de8f7'" onmouseout="this.style.color='#8ab4cc'">Blog</a>
+      <a href="cv.html"         style="color:#8ab4cc;text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#7de8f7'" onmouseout="this.style.color='#8ab4cc'">CV</a>
+      <a href="https://www.linkedin.com/in/bryanblaevoet/" rel="noopener" style="color:#8ab4cc;text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#7de8f7'" onmouseout="this.style.color='#8ab4cc'">LinkedIn</a>
+    </div>
+  </div>
+</footer>
 </body>
 </html>
