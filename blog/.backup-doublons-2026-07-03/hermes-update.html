@@ -4,38 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="index, follow">
-<meta name="description" content="iMessage, agents en arrière-plan, profils spécialisés, Skills Hub : cette update fait passer l'agent du statut démo à un vrai système de travail continu. Décryptage.">
-<title>La grosse update d'Hermès Agent — Quand l'agent IA arrête d'être une démo et devient un poste de travail | Omnyx</title>
-<link rel="canonical" href="https://omnyx.agency/blog/hermes-agent-update-juin-2026.html">
+<meta name="description" content="La plus grosse mise à jour de Hermès Agent décryptée : iMessage, agents en arrière-plan, profils spécialisés, Skills Hub. Ce qui change vraiment pour qui utilise des agents IA au quotidien.">
+<title>La grosse update de Hermès Agent, décryptage | Omnyx</title>
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-
-<!-- Open Graph -->
-<meta property="og:type" content="article">
-<meta property="og:title" content="La grosse update d'Hermès Agent — Quand l'agent IA arrête d'être une démo et devient un poste de travail">
-<meta property="og:description" content="iMessage, agents en arrière-plan, profils spécialisés, Skills Hub : cette update fait passer l'agent du statut démo à un vrai système de travail continu. Décryptage.">
-<meta property="og:url" content="https://omnyx.agency/blog/hermes-agent-update-juin-2026.html">
-<meta property="og:image" content="https://omnyx.agency/assets/logo-omnyx.png">
-<meta property="og:locale" content="fr_FR">
-<meta property="og:site_name" content="Omnyx">
-<meta property="article:published_time" content="2026-06-23">
-<meta property="article:modified_time" content="2026-06-23">
-<meta property="article:author" content="Bryan Blaevoet">
-<meta property="article:section" content="Automatisation">
-<meta property="article:tag" content="agents d'automation">
-
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@OmnyxAgency">
-<meta name="twitter:creator" content="@OmnyxAgency">
-<meta name="twitter:title" content="La grosse update d'Hermès Agent — Quand l'agent IA arrête d'être une démo et devient un poste de travail">
-<meta name="twitter:description" content="iMessage, agents en arrière-plan, profils spécialisés, Skills Hub : cette update fait passer l'agent du statut démo à un vrai système de travail continu. Décryptage.">
-<meta name="twitter:image" content="https://omnyx.agency/assets/logo-omnyx.png">
-
-
 <style>
   :root{
     --bg-darkest:#060c18;
@@ -80,6 +55,12 @@
 
   .wrap{max-width:760px; margin:0 auto; padding:0 24px;}
 
+  .back-link{
+    display:inline-flex; align-items:center; gap:6px;
+    font-size:13.5px; color:var(--text-secondary); margin:28px 0 0;
+  }
+  .back-link:hover{color:var(--accent-soft); text-decoration:none;}
+
   /* Header */
   header.site-header{
     background:var(--bg-darkest);
@@ -94,7 +75,7 @@
     font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:17px;
     color:var(--text-primary); display:flex; align-items:center;
   }
-  .logo-link img{height:60px; width:auto; display:block;}
+  .logo-link img{height:56px; width:auto; display:block;}
   .logo-link:hover{text-decoration:none; color:var(--accent-soft);}
   .btn-cta{
     background:var(--accent); color:#02131f; font-weight:600; font-size:14px;
@@ -103,15 +84,8 @@
   }
   .btn-cta:hover{background:var(--accent-soft); text-decoration:none; transform:translateY(-1px);}
 
-  /* Back link */
-  .back-link{
-    display:inline-flex; align-items:center; gap:6px;
-    font-size:13.5px; color:var(--text-secondary); margin:28px 0 0;
-  }
-  .back-link:hover{color:var(--accent-soft); text-decoration:none;}
-
   /* Hero */
-  .hero{padding:24px 0 32px;}
+  .hero{padding:56px 0 32px;}
   .eyebrow-row{
     display:flex; gap:10px; align-items:center; flex-wrap:wrap;
     font-size:13px; color:var(--text-secondary); margin-bottom:18px;
@@ -201,7 +175,7 @@
   .callout .callout-label{
     font-size:13px; font-weight:700; margin-bottom:8px; display:flex; gap:8px; align-items:center;
   }
-  .callout p{margin:0; font-size:14.5px; color:var(--text-secondary); white-space:pre-wrap;}
+  .callout p{margin:0; font-size:14.5px; color:var(--text-secondary);}
   .callout.warn{border-color:rgba(255,138,101,0.35);}
   .callout.warn .callout-label{color:var(--warn);}
   .callout.tip .callout-label{color:var(--accent-soft);}
@@ -256,28 +230,6 @@
   .closing-cta-final .btn-big:hover{background:var(--accent-soft); text-decoration:none; transform:translateY(-1px);}
   .closing-cta-final .fine-print{font-size:13px; color:var(--text-secondary); margin:0;}
 
-  /* Related articles */
-  .related{
-    margin:56px 0 0; padding:24px 26px;
-    background:var(--bg-card); border:1px solid var(--border-soft);
-    border-radius:14px;
-  }
-  .related-label{
-    font-size:12.5px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase;
-    color:var(--accent); margin-bottom:14px;
-  }
-  .related-list{list-style:none; margin:0; padding:0; display:grid; gap:14px;}
-  .related-list li{
-    display:grid; gap:4px; padding:14px 16px;
-    background:var(--bg-darkest); border:1px solid var(--border-soft);
-    border-radius:10px;
-    transition:border-color 0.15s ease, transform 0.15s ease;
-  }
-  .related-list li:hover{border-color:var(--border-strong); transform:translateY(-1px);}
-  .related-list a{color:var(--accent-soft); font-weight:600; font-size:15px;}
-  .related-list a:hover{color:var(--accent); text-decoration:none;}
-  .related-desc{color:var(--text-secondary); font-size:13.5px; line-height:1.5;}
-
   /* Footer */
   footer.site-footer{
     border-top:1px solid var(--border-soft);
@@ -293,38 +245,6 @@
     .step-num{font-size:24px; opacity:0.5;}
   }
 </style>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "La grosse update d'Hermès Agent — Quand l'agent IA arrête d'être une démo et devient un poste de travail",
-  "description": "iMessage, agents en arrière-plan, profils spécialisés, Skills Hub : cette update fait passer l'agent du statut démo à un vrai système de travail continu. Décryptage.",
-  "datePublished": "2026-06-23",
-  "dateModified": "2026-06-23",
-  "author": {
-    "@type": "Person",
-    "name": "Bryan Blaevoet",
-    "url": "https://www.linkedin.com/in/bryanblaevoet/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Omnyx",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://omnyx.agency/assets/logo-omnyx.png"
-    }
-  },
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://omnyx.agency/blog/hermes-agent-update-juin-2026.html"
-  },
-  "keywords": "automatisation, agents IA, marketing automation, Omnyx, IA",
-  "articleSection": "Automatisation",
-  "image": "https://omnyx.agency/assets/logo-omnyx.png",
-  "inLanguage": "fr-FR"
-}
-</script>
 </head>
 <body>
 
@@ -341,26 +261,25 @@
 
   <section class="hero">
     <div class="eyebrow-row">
-      <span class="eyebrow-tag">Automatisation</span>
+      <span class="eyebrow-tag">Décryptage IA</span>
       <span class="dot">·</span>
       <span>Agents IA</span>
       <span class="dot">·</span>
-      <span>Lecture 7 min</span>
+      <span>Lecture 6 min</span>
     </div>
 
-    <h1 class="title">La grosse update d'Hermès Agent
+    <h1 class="title">La grosse update de Hermès Agent
       <em>Quand l'agent IA arrête d'être une démo et devient un poste de travail</em>
     </h1>
 
-    <p class="subtitle">iMessage, agents en arrière-plan, profils spécialisés, Skills Hub : cette update fait passer l'agent du statut démo à un vrai système de travail continu. Décryptage.</p>
+    <p class="subtitle">Hermès vient de sortir sa plus grosse mise à jour. iMessage, agents en arrière-plan, profils spécialisés, Skills Hub. Voici ce qui change vraiment, vu de mon poste de builder qui s'en sert tous les jours.</p>
 
     <div class="stats-box">
-      <div class="stats-label">💡 Ce que tu retiens en 30 secondes :</div>
+      <div class="stats-label">💡 Ce que tu retiens de cette update en 30 secondes :</div>
       <ul class="stats-list">
-        <li><span class="arrow">→</span><span>L'agent sort enfin du terminal de dev : <strong>iMessage natif</strong> pour lui parler depuis ton iPhone</span></li>
-        <li><span class="arrow">→</span><span>Plus une tâche à la fois, mais des <strong>agents en arrière-plan</strong> pendant que tu continues</span></li>
-        <li><span class="arrow">→</span><span>Plus un assistant généraliste, mais des <strong>profils spécialisés</strong> que tu pilotes</span></li>
-        <li><span class="arrow">→</span><span>Une <strong>memory persistante</strong> qui survit entre les sessions, plus un hub de skills partageables</span></li>
+        <li><span class="arrow">→</span><span>L'agent sort enfin du terminal de dev : <strong>iMessage, Telegram, app desktop</strong></span></li>
+        <li><span class="arrow">→</span><span>Plus une tâche à la fois, mais des <strong>sous-agents en parallèle</strong> pendant que tu continues</span></li>
+        <li><span class="arrow">→</span><span>Plus un assistant généraliste, mais une <strong>équipe d'agents spécialisés</strong> que tu pilotes</span></li>
       </ul>
     </div>
   </section>
@@ -368,7 +287,7 @@
   <section class="intro-box">
     <span class="intro-emoji">🚀</span>
     <h2>Une mise à jour. Trois phases d'évolution franchies d'un coup.</h2>
-    <p>J'utilise Hermès Agent comme hub central de mes agents IA. Cette update ne fait pas qu'ajouter des fonctionnalités : elle fait passer l'agent du statut « truc qu'on lance ponctuellement » à celui de système de travail continu, accessible partout, capable de se spécialiser. Voici les 4 nouveautés qui comptent, et ce qu'elles changent concrètement pour ton workflow.</p>
+    <p>J'utilise Hermès Agent comme hub central de mes agents IA. Cette update n'ajoute pas juste des fonctionnalités : elle fait passer l'agent du statut de « truc qu'on lance ponctuellement » à celui de système de travail continu, accessible partout, capable de se spécialiser et de s'améliorer. Voici les 8 nouveautés qui comptent, et ce qu'elles changent concrètement.</p>
   </section>
 
   <nav class="toc">
@@ -376,25 +295,24 @@
     <ol>
       <li><a href="#n1"><span class="num">01</span><span>Support natif d'iMessage</span></a></li>
       <li><a href="#n2"><span class="num">02</span><span>Les agents en arrière-plan</span></a></li>
-      <li><a href="#n3"><span class="num">03</span><span>Les profils spécialisés</span></a></li>
-      <li><a href="#n4"><span class="num">04</span><span>Skills Hub et memory persistante</span></a></li>
-      <li><a href="#bilan"><span class="num">→</span><span>Le bilan</span></a></li>
+      <li><a href="#n3"><span class="num">03</span><span>L'arbre de sous-agents</span></a></li>
+      <li><a href="#n4"><span class="num">04</span><span>La nouvelle app desktop</span></a></li>
+      <li><a href="#n5"><span class="num">05</span><span>Le Profile Builder</span></a></li>
+      <li><a href="#n6"><span class="num">06</span><span>Le Skills Hub</span></a></li>
+      <li><a href="#n7"><span class="num">07</span><span>Mémoire et skills auto-améliorés</span></a></li>
+      <li><a href="#n8"><span class="num">08</span><span>Telegram + Unreal Engine 5.8</span></a></li>
+      <li><a href="#bilan"><span class="num">→</span><span>Le bilan : on ne parle plus d'un chatbot</span></a></li>
     </ol>
   </nav>
 
   <section class="part">
-
     <div class="step" id="n1">
       <div class="step-num">01</div>
       <div class="step-body">
         <h3>Support natif d'iMessage</h3>
-        <span class="step-tag">accessibilité · usage quotidien</span>
-        <p>Le plus gros morceau. Hermès peut maintenant envoyer et recevoir des iMessages et SMS depuis ton Mac, via une CLI intégrée. Concrètement : tu lui écris depuis ton iPhone comme à un collègue, il répond, il peut déclencher des actions.</p>
-        <p class="muted">Cas d'usage réel que j'ai testé : tu es en déplacement, tu demandes « vérifie les candidatures crypto d'aujourd'hui et envoie-moi le top 5 sur Telegram ». L'agent : scrape Lever via l'API, filtre, formate, envoie. Sans que tu touches ton Mac.</p>
-        <div class="callout tip">
-          <div class="callout-label">💡 Le bon réflexe</div>
-          <p>Si ton agent n'est pas accessible depuis tes outils du quotidien, tu ne t'en serviras pas. Le CLI dans le terminal, c'est pour le setup. L'usage réel doit passer par iMessage, Telegram, ou un web UI minimal.</p>
-        </div>
+        <span class="step-tag">via Photon · accessibilité</span>
+        <p>Hermès peut maintenant se piloter directement depuis iMessage. Tu parles à ton agent comme à un contact dans ta liste de messages.</p>
+        <p class="muted">Tu lui demandes une analyse, une recherche, une action sur ton ordi, un résumé rapide, sans ouvrir la moindre interface technique. C'est important : l'usage des agents ne doit pas rester coincé dans un environnement de développeur. Plus l'agent est accessible depuis tes outils du quotidien, plus il devient réellement utile.</p>
       </div>
     </div>
 
@@ -402,33 +320,77 @@
       <div class="step-num">02</div>
       <div class="step-body">
         <h3>Les agents en arrière-plan</h3>
-        <span class="step-tag">parallélisation · asynchrone</span>
-        <p>Avant, chaque sous-tâche bloquait la conversation. Maintenant, delegate_task retourne immédiatement et l'agent continue à travailler pendant que tu fais autre chose. Le résultat revient dans la conversation quand c'est prêt.</p>
-        <p class="muted">Ça paraît anodin, mais ça débloque un use case énorme : tu délègues une recherche de 20 minutes, et tu codes pendant ce temps. Avant, tu attendais. C'est fini.</p>
+        <span class="step-tag">parallélisation des tâches</span>
+        <p>Avant, une tâche longue te bloquait : l'agent travaillait, toi tu attendais. Maintenant Hermès lance des sous-agents automatiquement.</p>
+        <p class="muted">Ces sous-agents bossent sur des tâches complexes pendant que tu continues à discuter avec l'agent principal. On passe d'un assistant qui exécute une chose à la fois à un système capable de travailler en parallèle.</p>
+        <div class="callout compare">
+          <div class="callout-label">⚖️ Avant / après</div>
+          <p><strong>Avant :</strong> tu lances une grosse tâche → tu attends la fin → tu enchaînes.<br><strong>Après :</strong> tu lances → un sous-agent prend le relais → tu continues à bosser en même temps.</p>
+        </div>
       </div>
     </div>
 
     <div class="step" id="n3">
       <div class="step-num">03</div>
       <div class="step-body">
-        <h3>Les profils spécialisés</h3>
-        <span class="step-tag">spécialisation · multi-agent</span>
-        <p>Tu peux maintenant avoir plusieurs profils Hermès avec des skills, des providers, des mémoires différents. J'ai séparé mon profil default (veille + clients) d'un profil work (technique pur, modèle plus cher, outils différents).</p>
-        <p class="muted">Switch en une commande. Chaque profil a son propre modèle, ses propres skills, son propre rôle. C'est probablement l'un des usages les plus puissants : ne plus avoir un seul assistant généraliste, mais plusieurs spécialistes qui collaborent autour de tes besoins.</p>
-        <div class="callout action">
-          <div class="callout-label">⚙️ Mise en place</div>
-          <p>Crée un profil par grande responsabilité (veille, clients, technique, contenu). Chaque profil a son modèle optimisé pour sa tâche : Gemini Flash pour la veille, Claude Sonnet pour le code, Mistral pour le tri rapide.</p>
-        </div>
+        <h3>L'arbre de sous-agents</h3>
+        <span class="step-tag">transparence · supervision</span>
+        <p>L'interface te montre quels sous-agents sont actifs, ce qu'ils font, les outils utilisés et l'avancement global.</p>
+        <p class="muted">Cette transparence est essentielle. Si les agents gèrent des tâches importantes, il faut pouvoir comprendre ce qu'ils font, où ils en sont et pourquoi ils prennent telle ou telle action. Sans ça, tu délègues à l'aveugle.</p>
       </div>
     </div>
 
     <div class="step" id="n4">
       <div class="step-num">04</div>
       <div class="step-body">
-        <h3>Skills Hub et memory persistante</h3>
-        <span class="step-tag">skills · mémoire long terme</span>
-        <p>Les skills deviennent des procédures versionnées, partageables, chargeables à la demande. La mémoire persistante entre sessions est maintenant un système de premier ordre, plus un hack.</p>
+        <h3>La nouvelle app desktop</h3>
+        <span class="step-tag">le cockpit de travail</span>
+        <p>Tu peux ouvrir plusieurs conversations dans des fenêtres séparées, changer de modèle rapidement, utiliser un terminal intégré et suivre les agents actifs sans quitter l'interface.</p>
+        <p class="muted">L'app desktop devient moins un simple chat IA, et davantage un vrai cockpit de travail. C'est un détail qui change tout sur l'usage quotidien.</p>
+      </div>
+    </div>
+
+    <div class="step" id="n5">
+      <div class="step-num">05</div>
+      <div class="step-body">
+        <h3>Le Profile Builder</h3>
+        <span class="step-tag">agents spécialisés</span>
+        <p>Tu peux créer plusieurs profils d'agents spécialisés. Un pour coder, un pour la recherche, un pour la mémoire, un pour l'analyse, un pour le créatif.</p>
+        <p class="muted">Chaque profil a son propre modèle, ses propres skills, son propre rôle. C'est probablement l'un des usages les plus puissants des agents IA : ne plus avoir un seul assistant généraliste, mais plusieurs spécialistes qui collaborent autour de tes besoins.</p>
+        <div class="callout tip">
+          <div class="callout-label">💡 Le bon réflexe</div>
+          <p>Pense équipe, pas couteau suisse. Un agent qui sait tout faire moyennement vaut moins que trois agents qui font une chose très bien, chacun avec le modèle adapté à sa tâche.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="step" id="n6">
+      <div class="step-num">06</div>
+      <div class="step-body">
+        <h3>Le Skills Hub</h3>
+        <span class="step-tag">bibliothèque de compétences</span>
+        <p>Un hub te permet de parcourir, installer ou analyser des skills. Une bibliothèque de capacités supplémentaires pour personnaliser Hermès.</p>
         <p class="muted">Ça montre une tendance de fond : les agents ne seront pas seulement définis par le modèle utilisé, mais aussi par les outils, les skills et les workflows qu'on leur donne. Le modèle est le moteur. Les skills sont ce qui fait la différence.</p>
+      </div>
+    </div>
+
+    <div class="step" id="n7">
+      <div class="step-num">07</div>
+      <div class="step-body">
+        <h3>Mémoire et skills auto-améliorés</h3>
+        <span class="step-tag">l'agent qui apprend de lui-même</span>
+        <p>Hermès améliore plus souvent ses propres skills, les corrige et les adapte au fil de l'utilisation.</p>
+        <p class="muted">C'est sans doute le point le plus important pour la suite. Un bon agent ne doit pas simplement répondre. Il doit s'améliorer, capitaliser sur les tâches passées, devenir plus efficace à chaque utilisation.</p>
+      </div>
+    </div>
+
+    <div class="step" id="n8">
+      <div class="step-num">08</div>
+      <div class="step-body">
+        <h3>Telegram enrichi + Unreal Engine 5.8</h3>
+        <span class="step-tag">formats · intégration MCP</span>
+        <p>Telegram gagne de meilleurs formats : tableaux, listes, gras, streaming plus fluide, réponses plus lisibles. Et Hermès s'intègre à Unreal Engine 5.8 via MCP pour construire des jeux et des environnements 3D avec l'IA.</p>
+        <p class="muted">La forme compte énormément. Un agent utile n'est pas seulement puissant : c'est un agent qui présente l'info clairement, dans le bon canal, au bon moment.</p>
       </div>
     </div>
   </section>
@@ -436,29 +398,40 @@
   <section class="part" id="bilan">
     <div class="part-eyebrow">→ LE BILAN</div>
     <h2>On ne parle plus d'un chatbot<em>On parle d'un système de travail augmenté</em></h2>
-    <p>Cette update montre que les agents IA entrent dans une nouvelle phase. La vraie rupture n'est pas dans des modèles plus puissants, mais dans des agents plus accessibles, plus spécialisés, plus transparents et capables de bosser en parallèle. Si tu es solo founder, c'est le moment de sérieusement industrialiser.</p>
-    <ul class="rules">
-      <li><span class="rule-icon">🎯</span><div><h4>Phase 1 : la démonstration</h4><p>L'agent répond à des questions ponctuelles dans un terminal de dev.</p></div></li>
-      <li><span class="rule-icon">⚙️</span><div><h4>Phase 2 : l'intégration</h4><p>L'agent vit dans tes outils du quotidien (iMessage, Telegram, Notion).</p></div></li>
-      <li><span class="rule-icon">💡</span><div><h4>Phase 3 : l'orchestration</h4><p>Plusieurs agents spécialisés bossent en parallèle, supervisés par un orchestrateur.</p></div></li>
-    </ul>
-  </section>
+    <p>Ce que cette update montre, c'est que les agents IA entrent dans une nouvelle phase. Et c'est là que se trouve la vraie rupture : pas dans des modèles plus puissants, mais dans des agents plus accessibles, plus spécialisés, plus transparents et capables de bosser en parallèle.</p>
 
-  <section class="related">
-    <div class="related-label">Pour aller plus loin</div>
-    <ul class="related-list">
-      <li><a href="ollama-cloud-claude-code-guide.html">→ Ollama Cloud × Claude Code : le setup complet</a><span class="related-desc">Le setup technique pour faire tourner Hermès sans tomber à court de tokens</span></li>
-      <li><a href="agents-ia-pme-guide-2026.html">→ Agents IA pour PME : par où commencer en 2026</a><span class="related-desc">Hermès c'est l'outil. Cet article c'est la méthode pour l'amener en entreprise</span></li>
+    <ul class="rules">
+      <li>
+        <span class="rule-icon">①</span>
+        <div>
+          <h4>Phase 1 : la démonstration</h4>
+          <p>« Regarde, l'IA peut exécuter une tâche. » Impressionnant, mais ponctuel.</p>
+        </div>
+      </li>
+      <li>
+        <span class="rule-icon">②</span>
+        <div>
+          <h4>Phase 2 : l'intégration</h4>
+          <p>« L'IA est présente dans mes outils du quotidien. » iMessage, Telegram, desktop.</p>
+        </div>
+      </li>
+      <li>
+        <span class="rule-icon">③</span>
+        <div>
+          <h4>Phase 3 : l'orchestration</h4>
+          <p>« Plusieurs agents spécialisés travaillent ensemble pendant que je pilote l'ensemble. » C'est là qu'on bascule.</p>
+        </div>
+      </li>
     </ul>
   </section>
 
   <section class="closing">
-    <h2>Tu veux mettre en place un agent comme Hermès dans ton workflow ?</h2>
-    <p>On peut le setup en 30 min, branché sur tes outils (Telegram, Notion, Airtable, calendrier). Tu gardes le contrôle, l'agent bosse en arrière-plan.</p>
+    <h2>Tu fais déjà tourner des agents en parallèle ?</h2>
+    <p>Si tu en es encore à un seul assistant généraliste, cette update est le bon moment pour penser ton stack autrement. Et si tu veux un coup de main pour mettre des agents IA au service de ton business, on en parle.</p>
 
     <div class="closing-cta-final">
       <a class="btn-big" href="../index.html#contact">Prendre un RDV</a>
-      <p class="fine-print">Omnyx Agency · Marketing, IA &amp; automation · France</p>
+      <p class="fine-print">Omnyx Agency · Marketing, IA &amp; automation · Madrid</p>
     </div>
   </section>
 
@@ -467,7 +440,7 @@
 <footer class="site-footer">
   <div class="wrap">
     <div class="footer-name">Omnyx Agency</div>
-    <div class="footer-meta">Marketing, IA &amp; automation · France</div>
+    <div class="footer-meta">Marketing, IA &amp; automation · Madrid</div>
     <div class="footer-links">
       <a href="../index.html">Site</a>
       <a href="../blog.html">Blog</a>
