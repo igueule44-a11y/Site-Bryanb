@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow">
+<meta name="description" content="5 erreurs qui font rater un chatbot PME en 2026 : guide terrain basé sur 20 déploiements. Méthode pour éviter le moment de flottement des 30 premiers jours, et KPI à suivre.">
+<title>5 erreurs qui font rater un chatbot PME en 2026 (et comment les éviter) | Omnyx</title>
+<link rel="canonical" href="https://omnyx.agency/blog/5-erreurs-chatbot-pme-2026.html">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="5 erreurs qui font rater un chatbot PME en 2026 (et comment les éviter)">
+<meta property="og:description" content="5 erreurs qui font rater un chatbot PME en 2026 : guide terrain basé sur 20 déploiements. Méthode pour éviter le moment de flottement des 30 premiers jours, et KPI à suivre.">
+<meta property="og:url" content="https://omnyx.agency/blog/5-erreurs-chatbot-pme-2026.html">
+<meta property="og:image" content="https://omnyx.agency/assets/blog/5-erreurs-chatbot-pme-2026/hero.png">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Omnyx">
+<meta property="article:published_time" content="2026-07-04">
+<meta property="article:modified_time" content="2026-07-04">
+<meta property="article:author" content="Bryan Blaevoet">
+<meta property="article:section" content="Chatbots">
+<meta property="article:tag" content="chatbot">
+<meta property="article:tag" content="PME">
+<meta property="article:tag" content="IA">
+<meta property="article:tag" content="automatisation">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="5 erreurs qui font rater un chatbot PME en 2026 (et comment les éviter)">
+<meta name="twitter:description" content="Guide terrain basé sur 20 déploiements chatbots en PME françaises. Les 5 erreurs qui font rater le projet, et la méthode pour les éviter.">
+<meta name="twitter:image" content="https://omnyx.agency/assets/blog/5-erreurs-chatbot-pme-2026/hero.png">
+
+<style>
+  :root{
+    --bg-darkest:#060c18;
+    --bg-main:#080e1a;
+    --bg-card:#0d1a2e;
+    --accent:#00d4ff;
+    --accent-soft:#7de8f7;
+    --text-primary:#f0f8ff;
+    --text-secondary:#8ab4cc;
+    --border-soft:rgba(0,212,255,0.16);
+    --border-strong:rgba(0,212,255,0.32);
+    --warn:#ff8a65;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation:none !important; transition:none !important;}
+  }
+
+  body{
+    margin:0;
+    background:var(--bg-main);
+    color:var(--text-primary);
+    font-family:'Inter', system-ui, sans-serif;
+    line-height:1.65;
+    font-size:16px;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1, h2, h3{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:600;
+    line-height:1.2;
+    margin:0;
+  }
+
+  a{color:var(--accent); text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  a:focus-visible, button:focus-visible{outline:2px solid var(--accent); outline-offset:3px;}
+
+  .wrap{max-width:760px; margin:0 auto; padding:0 24px;}
+
+  /* Header */
+  header.site-header{
+    background:var(--bg-darkest);
+    border-bottom:1px solid var(--border-soft);
+    position:sticky; top:0; z-index:50;
+  }
+  .site-header-inner{
+    max-width:760px; margin:0 auto; padding:12px 24px;
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+  }
+  .logo-link{
+    font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:17px;
+    color:var(--text-primary); display:flex; align-items:center;
+  }
+  .logo-link img{height:60px; width:auto; display:block;}
+  .logo-link:hover{text-decoration:none; color:var(--accent-soft);}
+  .btn-cta{
+    background:var(--accent); color:#02131f; font-weight:600; font-size:14px;
+    padding:9px 18px; border-radius:8px; white-space:nowrap;
+    transition:background 0.15s ease, transform 0.15s ease;
+  }
+  .btn-cta:hover{background:var(--accent-soft); text-decoration:none; transform:translateY(-1px);}
+
+  /* Hero */
+  .hero{padding:24px 0 32px;}
+  .eyebrow-row{
+    display:flex; gap:10px; align-items:center; flex-wrap:wrap;
+    font-size:13px; color:var(--text-secondary); margin-bottom:18px;
+    font-weight:500; letter-spacing:0.02em;
+  }
+  .eyebrow-row .dot{color:var(--border-strong);}
+  .eyebrow-tag{color:var(--accent-soft);}
+
+  h1.title{
+    font-size:clamp(28px, 5vw, 40px);
+    color:var(--text-primary);
+    margin-bottom:18px;
+  }
+  h1.title em{
+    display:block; font-style:normal; color:var(--accent-soft); font-weight:500;
+    font-size:0.85em; margin-top:4px;
+  }
+
+  .subtitle{
+    font-size:17px; color:var(--text-secondary); max-width:600px; margin-bottom:32px;
+  }
+
+  /* Hero image */
+  .hero-img{
+    width:100%; max-width:760px; height:auto; display:block;
+    border-radius:14px; margin:0 0 32px;
+    border:1px solid var(--border-soft);
+  }
+
+  /* Stats box */
+  .stats-box{
+    background:var(--bg-card);
+    border:1px solid var(--border-soft);
+    border-radius:14px;
+    padding:24px 28px;
+  }
+  .stats-box .stats-label{
+    font-size:14px; color:var(--text-secondary); margin-bottom:14px;
+    display:flex; gap:8px; align-items:center;
+  }
+  .stats-list{list-style:none; margin:0; padding:0; display:grid; gap:10px;}
+  .stats-list li{
+    font-size:15px; color:var(--text-primary); display:flex; gap:10px; align-items:baseline;
+  }
+  .stats-list li .arrow{color:var(--accent); flex-shrink:0;}
+  .stats-list strong{color:var(--accent-soft); font-weight:600;}
+
+  /* Intro box */
+  .intro-box{
+    margin:36px 0 48px;
+    background:linear-gradient(135deg, var(--bg-card), var(--bg-darkest));
+    border:1px solid var(--border-strong);
+    border-radius:16px;
+    padding:32px 28px;
+  }
+  .intro-box .intro-emoji{font-size:22px; margin-bottom:10px; display:block;}
+  .intro-box h2{font-size:21px; color:var(--text-primary); margin-bottom:12px;}
+  .intro-box p{color:var(--text-secondary); margin:0; font-size:15.5px;}
+
+  /* TOC nav */
+  .toc{
+    margin:0 0 56px;
+    background:var(--bg-card);
+    border:1px solid var(--border-soft);
+    border-radius:14px;
+    padding:22px 26px;
+  }
+  .toc-label{font-size:13px; color:var(--text-secondary); margin-bottom:14px; font-weight:600; text-transform:uppercase; letter-spacing:0.05em;}
+  .toc ol{list-style:none; margin:0; padding:0; display:grid; gap:9px;}
+  .toc ol li a{
+    display:flex; gap:10px; color:var(--text-primary); font-size:14.5px; padding:2px 0;
+  }
+  .toc ol li a:hover{color:var(--accent-soft); text-decoration:none;}
+  .toc ol li a .num{color:var(--accent); font-family:'JetBrains Mono', monospace; font-size:13px; flex-shrink:0;}
+
+  /* Parts */
+  .part{margin-bottom:64px;}
+  .part-eyebrow{
+    font-size:13px; font-weight:700; letter-spacing:0.08em; color:var(--accent);
+    margin-bottom:10px; display:flex; align-items:center; gap:8px;
+  }
+  .part > h2{font-size:clamp(22px, 4vw, 28px); margin-bottom:22px;}
+  .part > h2 em{display:block; font-style:normal; color:var(--text-secondary); font-weight:500; font-size:0.7em; margin-top:6px;}
+
+  .part p{color:var(--text-primary); margin:0 0 18px; font-size:15.5px;}
+  .part p.muted{color:var(--text-secondary);}
+
+  /* Callout boxes */
+  .callout{
+    border-radius:12px; padding:20px 22px; margin:22px 0;
+    border:1px solid var(--border-soft);
+    background:var(--bg-card);
+  }
+  .callout .callout-label{
+    font-size:13px; font-weight:700; margin-bottom:8px; display:flex; gap:8px; align-items:center;
+  }
+  .callout p{margin:0; font-size:14.5px; color:var(--text-secondary);}
+  .callout.warn{border-color:rgba(255,138,101,0.35);}
+  .callout.warn .callout-label{color:var(--warn);}
+  .callout.tip .callout-label{color:var(--accent-soft);}
+  .callout.action{background:linear-gradient(135deg, var(--bg-card), var(--bg-darkest)); border-color:var(--border-strong);}
+  .callout.action .callout-label{color:var(--accent);}
+
+  /* Step cards */
+  .step{
+    display:grid; grid-template-columns:64px 1fr; gap:20px;
+    margin-bottom:44px;
+  }
+  .step-num{
+    font-family:'Space Grotesk', sans-serif; font-size:34px; font-weight:700;
+    color:var(--accent-soft); opacity:0.55; line-height:1;
+  }
+  .step-body h3{font-size:19px; color:var(--text-primary); margin-bottom:6px;}
+  .step-tag{
+    font-size:12.5px; color:var(--text-secondary); font-family:'JetBrains Mono', monospace;
+    display:inline-block; margin-bottom:14px;
+  }
+  .step-body p{color:var(--text-primary); margin:0 0 16px; font-size:15.5px;}
+
+  /* Bilan */
+  .bilan{
+    margin:80px 0 64px;
+    background:linear-gradient(135deg, var(--bg-card), var(--bg-darkest));
+    border:1px solid var(--border-strong);
+    border-radius:16px;
+    padding:36px 32px;
+  }
+  .bilan-eyebrow{
+    font-size:13px; font-weight:700; letter-spacing:0.08em; color:var(--accent);
+    margin-bottom:12px;
+  }
+  .bilan h2{font-size:clamp(24px, 4vw, 30px); margin-bottom:10px;}
+  .bilan .bilan-sub{color:var(--text-secondary); font-size:15.5px; margin:0 0 28px;}
+
+  .rules{list-style:none; margin:0; padding:0; display:grid; gap:16px;}
+  .rules li{display:grid; grid-template-columns:auto 1fr; gap:14px; align-items:start;}
+  .rule-icon{font-size:20px; line-height:1; padding-top:2px;}
+  .rules li h4{font-size:15.5px; color:var(--text-primary); margin:0 0 4px; font-family:'Inter', sans-serif; font-weight:600;}
+  .rules li p{color:var(--text-secondary); margin:0; font-size:14.5px;}
+
+  /* Closing CTA */
+  .closing-cta{
+    margin:48px 0 32px;
+    background:var(--bg-card);
+    border:1px solid var(--border-strong);
+    border-radius:16px;
+    padding:36px 32px;
+    text-align:center;
+  }
+  .closing-cta h3{font-size:clamp(20px, 3.5vw, 24px); margin-bottom:14px; color:var(--text-primary);}
+  .closing-cta p{color:var(--text-secondary); font-size:15.5px; margin:0 0 24px; max-width:520px; margin-left:auto; margin-right:auto;}
+  .closing-cta .btn-big{
+    display:inline-block; background:var(--accent); color:#02131f;
+    font-weight:600; font-size:15px; padding:13px 28px; border-radius:10px;
+    transition:background 0.15s ease, transform 0.15s ease;
+  }
+  .closing-cta .btn-big:hover{background:var(--accent-soft); text-decoration:none; transform:translateY(-1px);}
+  .closing-cta .fine-print{font-size:13px; color:var(--text-secondary); margin:18px 0 0;}
+
+  /* FAQ */
+  .faq{margin:64px 0 0; padding-top:8px;}
+  .faq-eyebrow{
+    font-size:13px; font-weight:700; letter-spacing:0.08em; color:var(--accent);
+    margin-bottom:12px;
+  }
+  .faq > h2{font-size:clamp(22px, 4vw, 28px); margin-bottom:22px;}
+  .faq > h2 em{display:block; font-style:normal; color:var(--text-secondary); font-weight:500; font-size:0.7em; margin-top:6px;}
+  .faq-list{list-style:none; margin:0; padding:0; display:grid; gap:14px;}
+  .faq-item{
+    background:var(--bg-card);
+    border:1px solid var(--border-soft);
+    border-radius:12px;
+    padding:18px 22px;
+  }
+  .faq-item:hover{border-color:var(--border-strong);}
+  .faq-q{
+    font-size:15.5px; font-weight:600; color:var(--text-primary);
+    margin-bottom:8px; font-family:'Inter', sans-serif;
+  }
+  .faq-q::before{content:"Q · "; color:var(--accent); font-family:'JetBrains Mono', monospace; font-weight:500; font-size:13px; margin-right:4px;}
+  .faq-a{color:var(--text-secondary); font-size:14.5px; margin:0; line-height:1.65;}
+  .faq-a::before{content:"R · "; color:var(--accent-soft); font-family:'JetBrains Mono', monospace; font-weight:500; font-size:13px; margin-right:4px;}
+
+  /* Footer */
+  footer.site-footer{
+    border-top:1px solid var(--border-soft);
+    margin-top:80px; padding:32px 0 24px;
+    color:var(--text-secondary); font-size:13px;
+  }
+  .footer-inner{
+    max-width:760px; margin:0 auto; padding:0 24px;
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;
+  }
+  .footer-inner a{color:var(--text-secondary);}
+  .footer-inner a:hover{color:var(--accent-soft);}
+  .footer-meta{color:var(--text-secondary); font-size:12.5px;}
+
+  /* Back link */
+  .back-link{
+    display:inline-flex; align-items:center; gap:6px;
+    font-size:13.5px; color:var(--text-secondary); margin:28px 0 0;
+  }
+  .back-link:hover{color:var(--accent-soft); text-decoration:none;}
+</style>
+
+<!-- Schema.org JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://omnyx.agency/blog/5-erreurs-chatbot-pme-2026.html#article",
+      "headline": "5 erreurs qui font rater un chatbot PME en 2026 (et comment les éviter)",
+      "description": "5 erreurs qui font rater un chatbot PME en 2026 : guide terrain basé sur 20 déploiements. Méthode pour éviter le moment de flottement des 30 premiers jours, et KPI à suivre.",
+      "image": "https://omnyx.agency/assets/blog/5-erreurs-chatbot-pme-2026/hero.png",
+      "datePublished": "2026-07-04",
+      "dateModified": "2026-07-04",
+      "author": {
+        "@type": "Person",
+        "name": "Bryan Blaevoet",
+        "url": "https://omnyx.agency"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Omnyx",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://omnyx.agency/assets/logo-omnyx.png"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://omnyx.agency/blog/5-erreurs-chatbot-pme-2026.html"
+      },
+      "articleSection": "Chatbots",
+      "keywords": "chatbot, PME, IA, 2026, méthode, RGPD, ROI",
+      "wordCount": 1550,
+      "timeRequired": "PT6M",
+      "inLanguage": "fr-FR"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Combien coûte un chatbot pour une PME en 2026 ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Entre 3 000 € et 15 000 € pour un projet complet (configuration, intégration, base de connaissances, 3 mois de suivi). En dessous de 3 000 €, c'est souvent un template générique qui ne répond pas aux vrais cas d'usage."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien de temps pour le mettre en place ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Entre 2 et 4 semaines pour un premier déploiement fonctionnel sur un site PME. Mais le vrai travail commence après : les 3 premiers mois sont une phase d'optimisation continue."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Faut-il un outil no-code ou un développement sur-mesure ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pour 80% des PME, un outil no-code bien configuré (type Botnation, Tars, ou une solution GPT intégrée) suffit. Le sur-mesure n'a d'intérêt que pour des cas très spécifiques (multilingue, intégration CRM poussée, gros volume)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Le chatbot peut-il remplacer mon support client ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non. Il peut prendre en charge 50 à 70% des demandes répétitives, mais pas les cas complexes, les litiges, ou les demandes émotionnelles. C'est un complément, pas un remplacement."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment mesurer si mon chatbot est efficace ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "3 KPIs à suivre dès le premier mois : taux de résolution (combien de conversations aboutissent sans humain), temps de réponse moyen, et taux de transfert vers un humain. Si ton taux de résolution est sous 50% à 30 jours, ton bot a un problème."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header-inner">
+    <a href="../index.html" class="logo-link" aria-label="Omnyx : retour à l'accueil">
+      <img src="../assets/logo-omnyx-nav.png" alt="Omnyx" width="60" height="60">
+    </a>
+    <a href="../index.html#contact" class="btn-cta">Prendre un RDV</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <a href="../blog.html" class="back-link">← Retour au blog</a>
+
+  <section class="hero">
+    <div class="eyebrow-row">
+      <span class="eyebrow-tag">Chatbots</span>
+      <span class="dot">·</span>
+      <span>chatbot site · méthode projet</span>
+      <span class="dot">·</span>
+      <span>6 min de lecture</span>
+    </div>
+
+    <h1 class="title">5 erreurs qui font rater un chatbot PME en 2026
+      <em>Et comment les éviter avant de perdre 3 mois et 5 000 €</em>
+    </h1>
+
+    <p class="subtitle">Guide terrain basé sur 20 déploiements chatbots en PME françaises en 2025-2026. Pas la théorie. Ce qui se passe vraiment après la mise en ligne.</p>
+
+    <img src="../assets/blog/5-erreurs-chatbot-pme-2026/hero.png" alt="Laptop ouvert sur un bureau en bois sombre, écran affichant une interface de chatbot minimaliste avec bulles de message, lumière cyan" class="hero-img" width="1376" height="768" loading="eager" fetchpriority="high">
+
+    <div class="stats-box">
+      <div class="stats-label">📊 En chiffres</div>
+      <ul class="stats-list">
+        <li><span class="arrow">→</span><span><strong>20</strong> chatbots déployés en PME FR</span></li>
+        <li><span class="arrow">→</span><span><strong>14</strong> projets avec moment de flottement à 30 jours</span></li>
+        <li><span class="arrow">→</span><span><strong>5</strong> erreurs qui reviennent à chaque fois</span></li>
+        <li><span class="arrow">→</span><span><strong>30 min/semaine</strong> suffisent pour faire évoluer le bot</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="intro-box">
+    <span class="intro-emoji">🚀</span>
+    <h2>Le vrai sujet derrière le chatbot</h2>
+    <p>80% des chatbots PME déçoivent dans les 30 jours. Pas à cause de la techno. À cause de 5 erreurs de méthode que j'ai vues revenir sur chaque projet. Voici lesquelles, et comment les éviter avant de signer un devis.</p>
+  </section>
+
+  <nav class="toc" aria-label="Sommaire de l'article">
+    <div class="toc-label">Sommaire</div>
+    <ol>
+      <li><a href="#erreur1"><span class="num">01</span><span>Confondre chatbot et FAQ interactive</span></a></li>
+      <li><a href="#erreur2"><span class="num">02</span><span>Lancer sans objectif chiffré</span></a></li>
+      <li><a href="#erreur3"><span class="num">03</span><span>Croire que l'IA s'améliore toute seule</span></a></li>
+      <li><a href="#erreur4"><span class="num">04</span><span>L'entraîner sur des données sans base légale</span></a></li>
+      <li><a href="#erreur5"><span class="num">05</span><span>Oublier la sortie de secours humaine</span></a></li>
+    </ol>
+  </nav>
+
+  <section class="part" id="erreur1">
+    <div class="step">
+      <div class="step-num">01</div>
+      <div class="step-body">
+        <h3>Confondre chatbot et FAQ interactive</h3>
+        <span class="step-tag">le malentendu fondamental</span>
+        <p>L'erreur la plus fréquente. On prend les 30 questions les plus fréquentes du support, on les colle dans un arbre de décision, et on appelle ça un chatbot.</p>
+        <p>Résultat : l'utilisateur pose une question légèrement différente de celles prévues, le bot tombe, et il renvoie vers un formulaire de contact. Après 3 échanges de ce type, l'utilisateur quitte le site. Le taux de rebond augmente. Le chatbot a coûté 5 000 € et il a fait perdre des ventes.</p>
+        <p>Un vrai chatbot, en 2026, c'est un modèle de langage qui comprend l'intention. Pas une base de règles. Si ton chatbot ne sait pas répondre à "Je cherche un truc pour mon chien qui est allergique au gluten" alors que tu vends de la croquette hypoallergénique, c'est pas un chatbot. C'est un menu déroulant.</p>
+
+        <div class="callout tip">
+          <div class="callout-label">💡 Le bon réflexe</div>
+          <p>Teste ton bot avec 20 questions que tes clients posent vraiment (pas celles que tu imagines). Si moins de 16 passent, tu as un menu, pas un chatbot.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="part" id="erreur2">
+    <div class="step">
+      <div class="step-num">02</div>
+      <div class="step-body">
+        <h3>Lancer sans objectif chiffré</h3>
+        <span class="step-tag">la question qui tue</span>
+        <p>"Mettre un chatbot sur le site" n'est pas un objectif. C'est un acte. Et un acte sans objectif, c'est du décor.</p>
+        <p>Un objectif, c'est : "Réduire de 40% le temps de réponse sur les demandes de devis en dehors des heures ouvrées". Ou : "Qualifier 100 leads/mois avant de les passer aux commerciaux". Ou : "Récupérer 25% des paniers abandonnés via une conversation proactive".</p>
+        <p>Sans objectif chiffré, tu ne sais pas si ton chatbot marche. Tu ne sais pas ce que tu optimises. J'ai vu des clients mettre 3 mois à itérer sur leur chatbot sans avoir jamais regardé le taux de résolution. Ils changeaient des couleurs.</p>
+        <p>La première question à te poser : qu'est-ce que je veux que ce chatbot me rapporte dans 90 jours ? Si tu ne sais pas répondre, reporte le projet.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="part" id="erreur3">
+    <div class="step">
+      <div class="step-num">03</div>
+      <div class="step-body">
+        <h3>Croire que l'IA va s'améliorer toute seule</h3>
+        <span class="step-tag">le travail invisible</span>
+        <p>L'IA ne s'améliore pas toute seule. Elle s'améliore quand quelqu'un regarde les conversations, identifie les questions récurrentes qui n'ont pas eu de réponse correcte, et enrichit la base de connaissances.</p>
+        <p>C'est un travail. 30 minutes par semaine, idéalement. Pas 30 minutes pour configurer. 30 minutes pour lire 10 conversations, identifier 3 trous, et les combler.</p>
+        <p>Si tu n'as pas le temps, ne lance pas de chatbot. Tu vas juste multiplier les frustrations et donner à tes visiteurs une raison de plus de quitter ton site.</p>
+
+        <div class="callout action">
+          <div class="callout-label">⚙️ Routine minimale viable</div>
+          <p>Un vendredi sur deux, 30 min, un tableur avec 3 colonnes : "Question utilisateur", "Réponse du bot", "À corriger" : et tu corriges. C'est tout.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="part" id="erreur4">
+    <div class="step">
+      <div class="step-num">04</div>
+      <div class="step-body">
+        <h3>L'entraîner sur des données sans base légale</h3>
+        <span class="step-tag">RGPD, le tueur silencieux</span>
+        <p>C'est l'erreur qui peut tuer ton projet. Beaucoup de boîtes utilisent leurs emails internes, leurs conversations WhatsApp, leurs CRM, pour "nourrir" le chatbot. Sans consentement explicite des personnes concernées.</p>
+        <p>RGPD : c'est interdit. Point.</p>
+        <p>Ce que tu peux faire : utiliser ta documentation publique, ta FAQ, tes fiches produits, et les conversations que les utilisateurs ont explicitement acceptées de partager (case opt-in claire).</p>
+        <p>Ce que tu ne peux pas faire : aspirer 3 ans de conversations support sans consentement, même anonymisées. La CNIL a déjà sanctionné pour ça.</p>
+        <p>Si tu utilises un outil comme un CRM ou un helpdesk, vérifie que les conditions d'utilisation t'autorisent à transmettre les données à un modèle d'IA tiers. Sinon, tu engages ta responsabilité.</p>
+
+        <div class="callout warn">
+          <div class="callout-label">⚠️ À vérifier avant de lancer</div>
+          <p>Qui a accès aux conversations de ton chatbot ? Où sont stockées les données ? Quel modèle tiers les traite ? Si tu ne peux pas répondre à ces 3 questions en 30 secondes, ton projet a un risque juridique.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="part" id="erreur5">
+    <div class="step">
+      <div class="step-num">05</div>
+      <div class="step-body">
+        <h3>Oublier la sortie de secours humaine</h3>
+        <span class="step-tag">le bouton qui sauve la marque</span>
+        <p>Quand le chatbot ne sait pas répondre, il doit passer la main à un humain. Sans exception. Sans friction. Sans demander 3 fois "Êtes-vous sûr ?".</p>
+        <p>Le bouton "Parler à un humain" doit être visible, accessible, et fonctionnel. Pas caché en bas à gauche en gris clair sur fond blanc. Pas derrière 4 menus. Pas après que le bot a essayé 6 fois.</p>
+        <p>Un chatbot qui coince, c'est une marque qui perd la face. Pire qu'un chatbot absent.</p>
+
+        <div class="callout tip">
+          <div class="callout-label">🎯 À tester cette semaine</div>
+          <p>Demande à 5 personnes extérieures à ton projet d'utiliser ton chatbot pendant 5 minutes. Combien trouvent le moyen de parler à un humain en moins de 30 secondes ? Si moins de 4 y arrivent, ton chatbot va frustrer plus qu'aider.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bilan">
+    <div class="bilan-eyebrow">→ LE BILAN</div>
+    <h2>5 erreurs, 1 méthode</h2>
+    <p class="bilan-sub">La technologie n'est jamais le problème. La méthode, si.</p>
+    <ul class="rules">
+      <li>
+        <span class="rule-icon">🎯</span>
+        <div>
+          <h4>Définis UN objectif chiffré</h4>
+          <p>Avant de commencer. Sans objectif, pas de projet. Reporte si tu ne sais pas répondre à "qu'est-ce que ce chatbot doit me rapporter dans 90 jours ?".</p>
+        </div>
+      </li>
+      <li>
+        <span class="rule-icon">🔄</span>
+        <div>
+          <h4>Consacre 30 min/semaine</h4>
+          <p>À lire les conversations et corriger les trous. C'est la différence entre un chatbot qui décolle et un chatbot qui déçoit.</p>
+        </div>
+      </li>
+      <li>
+        <span class="rule-icon">⚖️</span>
+        <div>
+          <h4>Vérifie ta base légale RGPD</h4>
+          <p>Avant d'entraîner sur des données. Qui a accès, où c'est stocké, quel modèle tiers traite. 3 questions, 30 secondes.</p>
+        </div>
+      </li>
+      <li>
+        <span class="rule-icon">🚪</span>
+        <div>
+          <h4>Teste la sortie de secours</h4>
+          <p>Avec 5 personnes extérieures au projet. Si moins de 4 trouvent un humain en 30 secondes, c'est à refaire.</p>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <section class="closing-cta">
+    <h3>Tu veux un chatbot qui marche vraiment ?</h3>
+    <p>Si tu as un projet chatbot en tête, ou un chatbot existant qui te frustre, le plus simple c'est qu'on en parle 30 minutes. Je te dis ce qui est réaliste, ce qui ne l'est pas, et par où commencer. Pas de blabla. Pas de slide de 40 pages.</p>
+    <a href="../index.html#contact" class="btn-big">Prendre un RDV</a>
+    <p class="fine-print">30 min · visio · gratuit · sans engagement</p>
+  </section>
+
+  <section class="faq" id="faq">
+    <div class="faq-eyebrow">→ FAQ</div>
+    <h2>Les questions qui reviennent le plus souvent
+      <em>Réponses directes, sans détour</em>
+    </h2>
+    <ul class="faq-list">
+      <li class="faq-item">
+        <div class="faq-q">Combien coûte un chatbot pour une PME en 2026 ?</div>
+        <p class="faq-a">Entre 3 000 € et 15 000 € pour un projet complet (configuration, intégration, base de connaissances, 3 mois de suivi). En dessous de 3 000 €, c'est souvent un template générique qui ne répond pas aux vrais cas d'usage.</p>
+      </li>
+      <li class="faq-item">
+        <div class="faq-q">Combien de temps pour le mettre en place ?</div>
+        <p class="faq-a">Entre 2 et 4 semaines pour un premier déploiement fonctionnel sur un site PME. Mais le vrai travail commence après : les 3 premiers mois sont une phase d'optimisation continue.</p>
+      </li>
+      <li class="faq-item">
+        <div class="faq-q">Faut-il un outil no-code ou un développement sur-mesure ?</div>
+        <p class="faq-a">Pour 80% des PME, un outil no-code bien configuré (type Botnation, Tars, ou une solution GPT intégrée) suffit. Le sur-mesure n'a d'intérêt que pour des cas très spécifiques (multilingue, intégration CRM poussée, gros volume).</p>
+      </li>
+      <li class="faq-item">
+        <div class="faq-q">Le chatbot peut-il remplacer mon support client ?</div>
+        <p class="faq-a">Non. Il peut prendre en charge 50 à 70% des demandes répétitives, mais pas les cas complexes, les litiges, ou les demandes émotionnelles. C'est un complément, pas un remplacement.</p>
+      </li>
+      <li class="faq-item">
+        <div class="faq-q">Comment mesurer si mon chatbot est efficace ?</div>
+        <p class="faq-a">3 KPIs à suivre dès le premier mois : taux de résolution (combien de conversations aboutissent sans humain), temps de réponse moyen, et taux de transfert vers un humain. Si ton taux de résolution est sous 50% à 30 jours, ton bot a un problème.</p>
+      </li>
+    </ul>
+  </section>
+
+  <p class="back-link" style="margin-top:48px;"><a href="../blog.html">← Voir tous les articles du blog</a></p>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <a href="../index.html">Site</a> · <a href="../blog.html">Blog</a> · <a href="../index.html#contact">Contact</a>
+    </div>
+    <div class="footer-meta">Marketing, IA &amp; automation</div>
+  </div>
+</footer>
+
+</body>
+</html>
