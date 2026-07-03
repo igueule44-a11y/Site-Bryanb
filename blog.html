@@ -239,6 +239,49 @@
   .closing-cta-final .btn-big:hover{background:var(--accent-soft); text-decoration:none; transform:translateY(-1px);}
   .closing-cta-final .fine-print{font-size:13px; color:var(--text-secondary); margin:0;}
 
+  /* Filter chips */
+  .filter-chips{
+    display:flex; gap:8px; flex-wrap:wrap; margin:0 0 28px;
+    padding:14px; background:var(--bg-card);
+    border:1px solid var(--border-soft); border-radius:14px;
+  }
+  .filter-chips-label{
+    font-size:11px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase;
+    color:var(--text-secondary); padding:6px 4px; align-self:center;
+  }
+  .chip{
+    display:inline-flex; align-items:center; gap:6px;
+    background:transparent; color:var(--text-primary);
+    border:1px solid var(--border-strong); border-radius:999px;
+    padding:7px 14px; font-size:13px; font-weight:500;
+    font-family:inherit; cursor:pointer;
+    transition:all 0.15s ease;
+  }
+  .chip:hover{
+    border-color:var(--accent); color:var(--accent-soft);
+    background:rgba(0,212,255,0.06);
+  }
+  .chip.active{
+    background:var(--accent); color:#02131f;
+    border-color:var(--accent); font-weight:600;
+  }
+  .chip:focus-visible{outline:2px solid var(--accent); outline-offset:2px;}
+  .chip-count{
+    display:inline-block; font-size:11px; font-weight:600;
+    padding:1px 7px; border-radius:999px;
+    background:rgba(0,212,255,0.10); color:var(--accent-soft);
+    font-family:'JetBrains Mono', monospace;
+  }
+  .chip.active .chip-count{background:rgba(2,19,31,0.18); color:#02131f;}
+  .empty-state{
+    text-align:center; padding:48px 24px;
+    color:var(--text-secondary); font-size:15px;
+    background:var(--bg-card); border:1px solid var(--border-soft);
+    border-radius:14px; display:none;
+  }
+  .empty-state.visible{display:block;}
+  .article-card.is-hidden{display:none;}
+
   /* Footer */
   footer.site-footer{
     border-top:1px solid var(--border-soft);
@@ -299,10 +342,19 @@
     <p>Marketing, IA &amp; croissance. Automatisation, agents IA, growth pour fondateurs, et coulisses techniques. Ce qui marche vraiment, sans blabla.</p>
   </section>
 
-  <section class="index-list">
-      <a href="blog/chatbot-ia-pme-guide-2026.html" class="article-card">
+  <div class="filter-chips" role="toolbar" aria-label="Filtrer les articles par categorie">
+    <span class="filter-chips-label">Filtrer</span>
+    <button type="button" class="chip active" data-filter="all" aria-pressed="true">Tous <span class="chip-count" data-count="all">0</span></button>
+    <button type="button" class="chip" data-filter="Marketing digital" aria-pressed="false">Marketing digital <span class="chip-count" data-count="Marketing digital">0</span></button>
+    <button type="button" class="chip" data-filter="Automatisation" aria-pressed="false">Automatisation <span class="chip-count" data-count="Automatisation">0</span></button>
+    <button type="button" class="chip" data-filter="Chatbots" aria-pressed="false">Chatbots <span class="chip-count" data-count="Chatbots">0</span></button>
+    <button type="button" class="chip" data-filter="Coulisses Omnyx" aria-pressed="false">Coulisses Omnyx <span class="chip-count" data-count="Coulisses Omnyx">0</span></button>
+  </div>
+
+  <section class="index-list" id="article-list">
+      <a href="blog/chatbot-ia-pme-guide-2026.html" class="article-card" data-category="Chatbots">
         <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:4px;">
-          <span class="tag">Chatbots & agents conversationnels</span>
+          <span class="tag">chatbot site · support client</span>
           <span class="date">2026-07-08</span>
         </div>
         <h2>Chatbot IA pour PME en 2026 : guide pour choisir et déployer le bon</h2>
@@ -313,9 +365,9 @@
           <span>Bryan Blaevoet</span>
         </div>
       </a>
-      <a href="blog/google-ia-6-cas-usage.html" class="article-card">
+      <a href="blog/google-ia-6-cas-usage.html" class="article-card" data-category="Marketing digital">
         <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:4px;">
-          <span class="tag">Analyse Google IA</span>
+          <span class="tag">6 outils</span>
           <span class="date">2026-07-03</span>
         </div>
         <h2>6 cas d'usage Google IA qui changent la donne</h2>
@@ -326,9 +378,9 @@
           <span>Bryan Blaevoet</span>
         </div>
       </a>
-      <a href="blog/maitriser-prompts-2026.html" class="article-card">
+      <a href="blog/maitriser-prompts-2026.html" class="article-card" data-category="Coulisses Omnyx">
         <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:4px;">
-          <span class="tag">Coulisses techniques</span>
+          <span class="tag">LLM · prompting</span>
           <span class="date">2026-07-02</span>
         </div>
         <h2>Maîtriser ses prompts en 2026</h2>
@@ -339,22 +391,22 @@
           <span>Bryan Blaevoet</span>
         </div>
       </a>
-      <a href="blog/agents-ia-pme-guide-2026.html" class="article-card">
+      <a href="blog/agents-ia-pme-guide-2026.html" class="article-card" data-category="Marketing digital">
         <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:4px;">
-          <span class="tag">Marketing & Growth</span>
+          <span class="tag">PME · marketing</span>
           <span class="date">2026-07-01</span>
         </div>
         <h2>Agents IA pour PME : par où commencer en 2026</h2>
-        <p>Guide pragmatique validé sur 12 boîtes à Madrid et Paris. La méthode en 4 étapes.</p>
+        <p>Guide pragmatique validé sur 12 PME en France. La méthode en 4 étapes.</p>
         <div class="meta">
           <span>9 min</span>
           <span style="opacity:0.4;">·</span>
           <span>Bryan Blaevoet</span>
         </div>
       </a>
-      <a href="blog/making-of-deploiement-rate.html" class="article-card">
+      <a href="blog/making-of-deploiement-rate.html" class="article-card" data-category="Coulisses Omnyx">
         <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:4px;">
-          <span class="tag">Coulisses techniques</span>
+          <span class="tag">Vercel · CI/CD</span>
           <span class="date">2026-06-27</span>
         </div>
         <h2>Le making-of d'un déploiement raté</h2>
@@ -365,9 +417,9 @@
           <span>Bryan Blaevoet</span>
         </div>
       </a>
-      <a href="blog/ollama-cloud-claude-code-guide.html" class="article-card">
+      <a href="blog/ollama-cloud-claude-code-guide.html" class="article-card" data-category="Automatisation">
         <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:4px;">
-          <span class="tag">Outils & Setup</span>
+          <span class="tag">LLM open-source</span>
           <span class="date">2026-06-25</span>
         </div>
         <h2>Ollama Cloud × Claude Code : le setup complet</h2>
@@ -378,9 +430,9 @@
           <span>Bryan Blaevoet</span>
         </div>
       </a>
-      <a href="blog/hermes-agent-update-juin-2026.html" class="article-card">
+      <a href="blog/hermes-agent-update-juin-2026.html" class="article-card" data-category="Marketing digital">
         <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:4px;">
-          <span class="tag">Décryptage IA</span>
+          <span class="tag">Hermès Agent</span>
           <span class="date">2026-06-23</span>
         </div>
         <h2>La grosse update d'Hermès Agent</h2>
@@ -391,13 +443,14 @@
           <span>Bryan Blaevoet</span>
         </div>
       </a>
+      <div class="empty-state" id="empty-state">Aucun article dans cette categorie pour le moment.</div>
   </section>
 </main>
 
 <footer class="site-footer">
   <div class="wrap">
     <div class="footer-name">Omnyx Agency</div>
-    <div class="footer-meta">Marketing, IA &amp; automation · Madrid</div>
+    <div class="footer-meta">Marketing, IA &amp; automation</div>
     <div class="footer-links">
       <a href="index.html">Site</a>
       <a href="blog.html">Blog</a>
@@ -405,6 +458,68 @@
     </div>
   </div>
 </footer>
+
+<script>
+(function(){
+  var chips = document.querySelectorAll('.filter-chips .chip');
+  var cards = document.querySelectorAll('#article-list .article-card');
+  var empty = document.getElementById('empty-state');
+  if (!chips.length || !cards.length) return;
+
+  // Init counts per category + total
+  var counts = { all: cards.length };
+  cards.forEach(function(card){
+    var cat = card.getAttribute('data-category');
+    if (!cat) return;
+    counts[cat] = (counts[cat] || 0) + 1;
+  });
+  document.querySelectorAll('.chip-count').forEach(function(el){
+    var key = el.getAttribute('data-count');
+    if (key && counts[key] != null) el.textContent = counts[key];
+  });
+
+  function applyFilter(filter){
+    var visible = 0;
+    cards.forEach(function(card){
+      var cat = card.getAttribute('data-category');
+      var show = (filter === 'all') || (cat === filter);
+      card.classList.toggle('is-hidden', !show);
+      if (show) visible++;
+    });
+    if (empty) empty.classList.toggle('visible', visible === 0);
+  }
+
+  chips.forEach(function(chip){
+    chip.addEventListener('click', function(){
+      chips.forEach(function(c){
+        c.classList.remove('active');
+        c.setAttribute('aria-pressed', 'false');
+      });
+      chip.classList.add('active');
+      chip.setAttribute('aria-pressed', 'true');
+      applyFilter(chip.getAttribute('data-filter'));
+    });
+  });
+
+  // Keyboard nav: Left/Right cycles through chips
+  var toolbar = document.querySelector('.filter-chips');
+  if (toolbar){
+    toolbar.addEventListener('keydown', function(e){
+      if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+      var active = document.activeElement;
+      var arr = Array.prototype.slice.call(chips);
+      var idx = arr.indexOf(active);
+      if (idx === -1) return;
+      var next = e.key === 'ArrowRight'
+        ? arr[(idx + 1) % arr.length]
+        : arr[(idx - 1 + arr.length) % arr.length];
+      e.preventDefault();
+      next.focus();
+      next.click();
+    });
+  }
+})();
+</script>
 
 </body>
 </html>
