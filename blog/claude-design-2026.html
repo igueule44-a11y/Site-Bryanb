@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow">
+<meta name="description" content="Claude Design 2026 : quota unifié, éditeur manuel, connecteurs, design systems. Ce qui change vraiment pour un builder solo, et ce qui reste à améliorer.">
+<title>Claude Design 2026 : ce qui a vraiment changé | Omnyx</title>
+<link rel="canonical" href="https://omnyx.agency/blog/claude-design-2026.html">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Claude Design 2026 : ce qui a vraiment changé pour un builder solo">
+<meta property="og:description" content="Quota unifié, éditeur manuel, connecteurs, design systems : la mise à jour qui transforme Claude Design d'un gadget de démo en vrai cockpit créatif.">
+<meta property="og:url" content="https://omnyx.agency/blog/claude-design-2026.html">
+<meta property="og:image" content="https://omnyx.agency/assets/logo-omnyx.png">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Omnyx">
+<meta property="article:published_time" content="2026-07-06">
+<meta property="article:modified_time" content="2026-07-06">
+<meta property="article:author" content="Bryan Blaevoet">
+<meta property="article:section" content="Design IA">
+<meta property="article:tag" content="Claude Design">
+<meta property="article:tag" content="design IA">
+<meta property="article:tag" content="builder solo">
+<meta property="article:tag" content="automatisation">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Claude Design 2026 : ce qui a vraiment changé pour un builder solo">
+<meta name="twitter:description" content="Quota unifié, éditeur manuel, connecteurs, design systems : la mise à jour qui transforme Claude Design en vrai cockpit créatif.">
+<meta name="twitter:image" content="https://omnyx.agency/assets/logo-omnyx.png">
+
+<style>
+  :root{
+    --bg-darkest:#060c18;
+    --bg-main:#080e1a;
+    --bg-card:#0d1a2e;
+    --accent:#00d4ff;
+    --accent-soft:#7de8f7;
+    --text-primary:#f0f8ff;
+    --text-secondary:#8ab4cc;
+    --border-soft:rgba(0,212,255,0.16);
+    --border-strong:rgba(0,212,255,0.32);
+    --warn:#ff8a65;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation:none !important; transition:none !important;}
+  }
+
+  body{
+    margin:0;
+    background:var(--bg-main);
+    color:var(--text-primary);
+    font-family:'Inter', system-ui, sans-serif;
+    line-height:1.65;
+    font-size:16px;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1, h2, h3{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:600;
+    line-height:1.2;
+    margin:0;
+  }
+
+  a{color:var(--accent); text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  a:focus-visible, button:focus-visible{outline:2px solid var(--accent); outline-offset:3px;}
+
+  .wrap{max-width:760px; margin:0 auto; padding:0 24px;}
+
+  /* Header */
+  header.site-header{
+    background:var(--bg-darkest);
+    border-bottom:1px solid var(--border-soft);
+    position:sticky; top:0; z-index:50;
+  }
+  .site-header-inner{
+    max-width:760px; margin:0 auto; padding:12px 24px;
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+  }
+  .logo-link{
+    font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:17px;
+    color:var(--text-primary); display:flex; align-items:center;
+  }
+  .logo-link img{height:72px; width:auto; display:block;}
+  .logo-link:hover{text-decoration:none; color:var(--accent-soft);}
+  .btn-cta{
+    background:var(--accent); color:#02131f; font-weight:600; font-size:14px;
+    padding:9px 18px; border-radius:8px; white-space:nowrap;
+    transition:background 0.15s ease, transform 0.15s ease;
+  }
+  .btn-cta:hover{background:var(--accent-soft); text-decoration:none; transform:translateY(-1px);}
+
+  /* Back link */
+  .back-link{
+    display:inline-flex; align-items:center; gap:6px;
+    font-size:13.5px; color:var(--text-secondary); margin:28px 0 0;
+  }
+  .back-link:hover{color:var(--accent-soft); text-decoration:none;}
+
+  /* Hero */
+  .hero{padding:24px 0 32px;}
+  .eyebrow-row{
+    display:flex; gap:10px; align-items:center; flex-wrap:wrap;
+    font-size:13px; color:var(--text-secondary); margin-bottom:18px;
+    font-weight:500; letter-spacing:0.02em;
+  }
+  .eyebrow-row .dot{color:var(--border-strong);}
+  .eyebrow-tag{color:var(--accent-soft);}
+
+  h1.title{
+    font-size:clamp(28px, 5vw, 40px);
+    color:var(--text-primary);
+    margin-bottom:18px;
+  }
+  h1.title em{
+    display:block; font-style:normal; color:var(--accent-soft); font-weight:500;
+    font-size:0.85em; margin-top:4px;
+  }
+
+  .subtitle{
+    font-size:17px; color:var(--text-secondary); max-width:600px; margin-bottom:32px;
+  }
+
+  /* Stats box */
+  .stats-box{
+    background:var(--bg-card);
+    border:1px solid var(--border-soft);
+    border-radius:14px;
+    padding:24px 28px;
+  }
+  .stats-box .stats-label{
+    font-size:14px; color:var(--text-secondary); margin-bottom:14px;
+    display:flex; gap:8px; align-items:center;
+  }
+  .stats-list{list-style:none; margin:0; padding:0; display:grid; gap:10px;}
+  .stats-list li{
+    font-size:15px; color:var(--text-primary); display:flex; gap:10px; align-items:baseline;
+  }
+  .stats-list li .arrow{color:var(--accent); flex-shrink:0;}
+  .stats-list strong{color:var(--accent-soft); font-weight:600;}
+
+  /* Intro box */
+  .intro-box{
+    margin:36px 0 48px;
+    background:linear-gradient(135deg, var(--bg-card), var(--bg-darkest));
+    border:1px solid var(--border-strong);
+    border-radius:16px;
+    padding:32px 28px;
+  }
+  .intro-box .intro-emoji{font-size:22px; margin-bottom:10px; display:block;}
+  .intro-box h2{font-size:21px; color:var(--text-primary); margin-bottom:12px;}
+  .intro-box p{color:var(--text-secondary); margin:0; font-size:15.5px;}
+
+  /* TOC nav */
+  .toc{
+    margin:0 0 56px;
+    background:var(--bg-card);
+    border:1px solid var(--border-soft);
+    border-radius:14px;
+    padding:22px 26px;
+  }
+  .toc-label{font-size:13px; color:var(--text-secondary); margin-bottom:14px; font-weight:600; text-transform:uppercase; letter-spacing:0.05em;}
+  .toc ol{list-style:none; margin:0; padding:0; display:grid; gap:9px;}
+  .toc ol li a{
+    display:flex; gap:10px; color:var(--text-primary); font-size:14.5px; padding:2px 0;
+  }
+  .toc ol li a:hover{color:var(--accent-soft); text-decoration:none;}
+  .toc ol li a .num{color:var(--accent); font-family:'JetBrains Mono', monospace; font-size:13px; flex-shrink:0;}
+
+  /* Parts */
+  .part{margin-bottom:80px;}
+  .part-eyebrow{
+    font-size:13px; font-weight:700; letter-spacing:0.08em; color:var(--accent);
+    margin-bottom:14px; display:flex; align-items:center; gap:8px;
+  }
+  .part > h2{font-size:clamp(22px, 4vw, 28px); margin-bottom:28px; line-height:1.25;}
+  .part > h2 em{display:block; font-style:normal; color:var(--text-secondary); font-weight:500; font-size:0.7em; margin-top:8px;}
+
+  .part p{color:var(--text-primary); margin:0 0 22px; font-size:16px; line-height:1.75;}
+  .part p.muted{color:var(--text-secondary);}
+
+  /* Process / list items in part body */
+  .process-list{list-style:none; margin:0 0 24px; padding:0; display:grid; gap:18px;}
+  .process-list li{
+    background:var(--bg-card);
+    border:1px solid var(--border-soft);
+    border-left:3px solid var(--accent);
+    border-radius:10px;
+    padding:18px 22px;
+  }
+  .process-list li h4{
+    margin:0 0 8px; font-size:16px; color:var(--text-primary);
+    font-family:'Inter', sans-serif; font-weight:600;
+    display:flex; gap:10px; align-items:baseline;
+  }
+  .process-list li h4 .num{color:var(--accent); font-family:'JetBrains Mono', monospace; font-size:13px; flex-shrink:0;}
+  .process-list li p{margin:0; color:var(--text-secondary); font-size:14.5px; line-height:1.7;}
+
+  /* Callout boxes */
+  .callout{
+    border-radius:12px; padding:20px 22px; margin:22px 0;
+    border:1px solid var(--border-soft);
+    background:var(--bg-card);
+  }
+  .callout .callout-label{
+    font-size:13px; font-weight:700; margin-bottom:8px; display:flex; gap:8px; align-items:center;
+  }
+  .callout p{margin:0; font-size:14.5px; color:var(--text-secondary);}
+  .callout.warn{border-color:rgba(255,138,101,0.35);}
+  .callout.warn .callout-label{color:var(--warn);}
+  .callout.tip .callout-label{color:var(--accent-soft);}
+  .callout.action{background:linear-gradient(135deg, var(--bg-card), var(--bg-darkest)); border-color:var(--border-strong);}
+  .callout.action .callout-label{color:var(--accent);}
+  .callout.compare .callout-label{color:var(--accent-soft);}
+  .callout.compare p strong{color:var(--text-primary); font-weight:600;}
+
+  /* Step cards (in part body) */
+  .step{
+    display:grid; grid-template-columns:64px 1fr; gap:20px;
+    margin-bottom:36px;
+  }
+  .step-num{
+    font-family:'Space Grotesk', sans-serif; font-size:34px; font-weight:700;
+    color:var(--accent-soft); opacity:0.55; line-height:1;
+  }
+  .step-body h3{font-size:19px; color:var(--text-primary); margin-bottom:6px;}
+  .step-body p{color:var(--text-primary); margin:0 0 18px; font-size:16px; line-height:1.75;}
+
+  /* Config block (key: value pairs) */
+  .config-block{
+    background:var(--bg-darkest);
+    border:1px solid var(--border-soft);
+    border-radius:10px;
+    padding:18px 20px; margin:22px 0;
+    font-family:'JetBrains Mono', monospace; font-size:13.5px;
+    display:grid; gap:10px;
+  }
+  .config-block .row{display:flex; gap:8px; flex-wrap:wrap;}
+  .config-block .key{color:var(--text-secondary); flex-shrink:0;}
+  .config-block .val{color:var(--accent-soft); word-break:break-all;}
+
+  /* Terminal block */
+  .terminal{
+    background:var(--bg-darkest);
+    border:1px solid var(--border-soft);
+    border-radius:10px;
+    margin:18px 0;
+    overflow:hidden;
+  }
+  .terminal-header{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:9px 14px; background:rgba(0,212,255,0.04);
+    border-bottom:1px solid var(--border-soft);
+  }
+  .terminal-dots{display:flex; gap:6px;}
+  .terminal-dots span{width:9px; height:9px; border-radius:50%; background:var(--border-strong);}
+  .terminal-label{font-size:11.5px; color:var(--text-secondary); font-family:'JetBrains Mono', monospace;}
+  .terminal pre{
+    margin:0; padding:16px 18px; overflow-x:auto;
+    font-family:'JetBrains Mono', monospace; font-size:13.5px; line-height:1.7;
+    color:var(--text-primary);
+  }
+  .terminal pre .prompt{color:var(--accent-soft); margin-right:8px;}
+
+  /* Rules list */
+  .rules{list-style:none; margin:0; padding:0; display:grid; gap:18px;}
+  .rules li{
+    display:grid; grid-template-columns:28px 1fr; gap:14px;
+    background:var(--bg-card); border:1px solid var(--border-soft); border-radius:12px;
+    padding:18px 20px;
+  }
+  .rule-icon{color:var(--accent); font-size:17px;}
+  .rules h4{margin:0 0 6px; font-size:15.5px; color:var(--text-primary); font-family:'Inter', sans-serif; font-weight:600;}
+  .rules p{margin:0; font-size:14px; color:var(--text-secondary);}
+
+  /* Closing CTA */
+  .closing{margin:64px 0 0;}
+  .closing > h2{font-size:clamp(22px, 4vw, 28px); margin-bottom:14px;}
+  .closing > p{color:var(--text-secondary); font-size:15.5px; margin-bottom:32px; max-width:560px;}
+
+  .closing-cta-final{
+    background:linear-gradient(135deg, var(--bg-card), var(--bg-darkest));
+    border:1px solid var(--border-strong); border-radius:16px;
+    padding:30px 28px; text-align:center;
+  }
+  .closing-cta-final .btn-big{
+    display:inline-block; background:var(--accent); color:#02131f; font-weight:600;
+    font-size:15px; padding:13px 28px; border-radius:9px;
+    transition:background 0.15s ease, transform 0.15s ease;
+  }
+  .closing-cta-final .btn-big:hover{background:var(--accent-soft); text-decoration:none; transform:translateY(-1px);}
+
+  /* FAQ */
+  .faq{margin:64px 0 0; padding-top:8px;}
+  .faq-eyebrow{
+    font-size:13px; font-weight:700; letter-spacing:0.08em; color:var(--accent);
+    margin-bottom:12px;
+  }
+  .faq > h2{font-size:clamp(22px, 4vw, 28px); margin-bottom:22px;}
+  .faq > h2 em{display:block; font-style:normal; color:var(--text-secondary); font-weight:500; font-size:0.7em; margin-top:6px;}
+  .faq-list{list-style:none; margin:0; padding:0; display:grid; gap:14px;}
+  .faq-item{
+    background:var(--bg-card);
+    border:1px solid var(--border-soft);
+    border-radius:12px;
+    padding:18px 22px;
+  }
+  .faq-item:hover{border-color:var(--border-strong);}
+  .faq-q{
+    font-size:15.5px; font-weight:600; color:var(--text-primary);
+    margin-bottom:8px; font-family:'Inter', sans-serif;
+  }
+  .faq-q::before{content:"Q · "; color:var(--accent); font-family:'JetBrains Mono', monospace; font-weight:500; font-size:13px; margin-right:4px;}
+  .faq-a{color:var(--text-secondary); font-size:14.5px; margin:0; line-height:1.65;}
+  .faq-a::before{content:"R · "; color:var(--accent-soft); font-family:'JetBrains Mono', monospace; font-weight:500; font-size:13px; margin-right:4px;}
+
+  /* Footer */
+  footer.site-footer{
+    border-top:1px solid var(--border-soft);
+    margin-top:72px;
+    padding:32px 0 48px;
+  }
+  .footer-name{font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:15px; color:var(--text-primary); margin-bottom:4px;}
+  .footer-meta{font-size:13px; color:var(--text-secondary); margin-bottom:18px;}
+  .footer-links{display:flex; gap:18px; flex-wrap:wrap; font-size:13.5px;}
+
+  /* Mobile */
+  @media(max-width:768px){
+    .wrap{padding:0 18px;}
+    h1.title{margin-bottom:14px;}
+    .subtitle{font-size:16px; margin-bottom:26px;}
+    .eyebrow-row{font-size:12px; margin-bottom:14px;}
+    .stats-box{padding:20px 22px;}
+    .stats-list li{font-size:14.5px; gap:8px;}
+    .intro-box{margin:28px 0 40px; padding:26px 22px;}
+    .intro-box h2{font-size:19px;}
+    .intro-box p{font-size:15px;}
+    .toc{margin:0 0 44px; padding:20px 22px;}
+    .toc-label{margin-bottom:12px;}
+    .toc ol li a{font-size:14px;}
+    .part{margin-bottom:52px;}
+    .part > h2{margin-bottom:20px;}
+    .step{grid-template-columns:48px 1fr; gap:14px; margin-bottom:28px;}
+    .step-num{font-size:26px;}
+    .step-body h3{font-size:17.5px; margin-bottom:8px;}
+    .step-body p{font-size:15px; margin:0 0 14px;}
+    .part p{font-size:15px; line-height:1.75; margin:0 0 16px;}
+    .callout{padding:18px 20px; margin:20px 0;}
+    .callout p{font-size:14px; line-height:1.7;}
+    .process-list{gap:14px; margin-bottom:20px;}
+    .process-list li{padding:16px 18px;}
+    .process-list li h4{font-size:15px;}
+    .process-list li p{font-size:14px; line-height:1.65;}
+    .config-block{padding:16px 18px; font-size:13px;}
+    .rules{gap:14px;}
+    .rules li{padding:16px 18px; gap:12px; grid-template-columns:24px 1fr;}
+    .rules h4{font-size:15px;}
+    .rules p{font-size:13.5px; line-height:1.65;}
+    .closing > p{font-size:15px;}
+    .closing-cta-final{padding:26px 22px;}
+    .closing-cta-final .btn-big{font-size:14.5px; padding:12px 24px;}
+    .faq{margin:48px 0 0;}
+    .faq > h2{margin-bottom:18px;}
+    .faq-list{gap:12px;}
+    .faq-item{padding:16px 18px;}
+    .faq-q{font-size:15px;}
+    .faq-a{font-size:14px; line-height:1.65;}
+    .site-header-inner{padding:10px 18px;}
+    .logo-link img{height:60px;}
+    .btn-cta{font-size:13px; padding:8px 14px;}
+    .back-link{font-size:13px; margin:20px 0 0;}
+  }
+  @media(max-width:540px){
+    .step{grid-template-columns:1fr; gap:6px; margin-bottom:24px;}
+    .step-num{font-size:22px; opacity:0.5;}
+    .stats-box{padding:18px 20px;}
+    .intro-box{padding:22px 20px; margin:24px 0 36px;}
+    .part{margin-bottom:44px;}
+    .part > h2{font-size:clamp(20px, 5.5vw, 24px);}
+    .callout{padding:16px 18px; margin:18px 0;}
+  }
+</style>
+
+<!-- Schema.org JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://omnyx.agency/blog/claude-design-2026.html#article",
+      "headline": "Claude Design 2026 : ce qui a vraiment changé pour un builder solo",
+      "description": "Quota unifié, éditeur manuel, connecteurs, design systems : la mise à jour qui transforme Claude Design d'un gadget de démo en vrai cockpit créatif.",
+      "image": "https://omnyx.agency/assets/logo-omnyx.png",
+      "datePublished": "2026-07-06",
+      "dateModified": "2026-07-06",
+      "author": {
+        "@type": "Person",
+        "name": "Bryan Blaevoet",
+        "url": "https://www.linkedin.com/in/bryanblaevoet/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Omnyx",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://omnyx.agency/assets/logo-omnyx.png"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://omnyx.agency/blog/claude-design-2026.html"
+      },
+      "articleSection": "Design IA",
+      "keywords": "Claude Design, design IA, builder solo, automatisation, design system, 2026",
+      "wordCount": 1750,
+      "timeRequired": "PT8M",
+      "inLanguage": "fr-FR"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Claude Design remplace-t-il Figma pour un builder solo ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pas encore. Pour un design system mature, des composants partagés entre 5 designers et des exports pixel-perfect, Figma reste plus rapide. Claude Design devient intéressant quand tu pars de zéro, que tu veux itérer vite sur des pages complètes, ou que tu produis des slides, des wireframes, des prototypes éphémères. Pour une équipe design, c'est un complément. Pour un solo founder qui n'a pas le temps d'ouvrir Figma, ça commence à devenir un cockpit crédible."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien coûte Claude Design en tokens ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Le quota est maintenant partagé avec Claude Code, Claude Chat et Cowork. Pour un usage normal (10-15 générations par jour, pas que des vidéos), tu tiens sans exploser ton quota. Les opérations lourdes restent coûteuses : générer un design system complet peut dévorer beaucoup de tokens et prendre 30+ minutes. À éviter quand tu es proche de ta limite."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Faut-il un design system existant pour commencer ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pas obligatoire, mais très recommandé. Sans design system, Claude Design produit des designs cohérents entre eux mais qui ne matcheront pas forcément ta marque. La commande /design-sync depuis Claude Code permet de capturer les couleurs, typographies et composants d'un site ou app existant pour les réutiliser. C'est une opération lourde mais qui change la qualité de tout ce que tu produiras ensuite."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce qui ne marche pas encore bien ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Trois limites réelles : la précision des placements (tu corriges encore à la main), l'export vers des outils pro reste basique (le HTML exporté est correct mais pas optimisé production), et les designs très spécifiques (logos, illustrations complexes) sont toujours plus rapides à faire dans Figma ou Illustrator. Pour tout le reste (landing pages, slides, wireframes, prototypes), c'est devenu un vrai outil de travail."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment tester Claude Design sans cramer son quota ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Commence par des prototypes simples (3-5 sections max), pas des designs complexes dès le départ. Utilise l'éditeur manuel pour les micro-ajustements plutôt que de reprompter. Regroupe tes commentaires avant de cliquer Resolve, pour traiter plusieurs demandes en un seul passage. Et garde la génération de design system pour une session dédiée, pas au milieu d'un sprint de prod."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="logo-link" href="../index.html"><img src="../assets/logo-omnyx-bleu.png" alt="Omnyx"></a>
+    <a class="btn-cta" href="../index.html#contact">Prendre un RDV</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <a class="back-link" href="../blog.html">← Retour au blog</a>
+
+  <section class="hero">
+    <div class="eyebrow-row">
+      <span class="eyebrow-tag">Design IA</span>
+      <span class="dot">·</span>
+      <span>Claude Design · actu outils</span>
+      <span class="dot">·</span>
+      <span>Lecture 8 min</span>
+    </div>
+
+    <h1 class="title">Claude Design 2026 : ce qui a vraiment changé
+      <em>D'un générateur de prompts à un vrai cockpit créatif</em>
+    </h1>
+
+    <p class="subtitle">Pendant longtemps, les outils de design IA étaient impressionnants en démo mais frustrants en usage réel. La dernière mise à jour de Claude Design change vraiment la donne. Voici ce qui a changé, et pourquoi ça compte si tu es builder solo.</p>
+
+    <div class="stats-box">
+      <div class="stats-label">💡 Ce que je retiens en premier :</div>
+      <ul class="stats-list">
+        <li><span class="arrow">→</span><span>Le quota est <strong>intégré à celui de Claude Code</strong>, fini d'être bloqué après quelques prompts</span></li>
+        <li><span class="arrow">→</span><span>Un <strong>éditeur manuel</strong> enfin utilisable : tu cliques, déplaces, ajustes, sans reprompter</span></li>
+        <li><span class="arrow">→</span><span>Des <strong>connecteurs externes</strong> pour récupérer, générer et assembler sans sortir de l'outil</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="intro-box">
+    <span class="intro-emoji">🎨</span>
+    <h2>Le problème, avant.</h2>
+    <p>Tu lançais quelques prompts. Ton quota fondait. Tu devais tout reprompter pour changer une couleur, une taille ou une position. Et au final, tu passais plus de temps à corriger qu'à designer. C'est exactement ce que cette mise à jour vient corriger.</p>
+  </section>
+
+  <nav class="toc">
+    <div class="toc-label">Dans ce guide</div>
+    <ol>
+      <li><a href="#quota"><span class="num">01</span><span>Le quota a été revu</span></a></li>
+      <li><a href="#interface"><span class="num">02</span><span>Une interface entièrement repensée</span></a></li>
+      <li><a href="#connecteurs"><span class="num">03</span><span>Les connecteurs changent tout</span></a></li>
+      <li><a href="#editeur"><span class="num">04</span><span>L'éditeur manuel règle le vrai problème</span></a></li>
+      <li><a href="#commentaires"><span class="num">05</span><span>Le système de commentaires</span></a></li>
+      <li><a href="#design-systems"><span class="num">06</span><span>Les design systems deviennent centraux</span></a></li>
+      <li><a href="#export"><span class="num">07</span><span>Des options d'export enfin sérieuses</span></a></li>
+      <li><a href="#conclusion"><span class="num">08</span><span>Ce que ça change pour un builder solo</span></a></li>
+      <li><a href="#faq"><span class="num">Q</span><span>FAQ</span></a></li>
+    </ol>
+  </nav>
+
+  <section class="part" id="quota">
+    <div class="part-eyebrow">⚡ 01</div>
+    <h2>Le quota a été revu</h2>
+    <p>Avant, Claude Design avait son propre quota, complètement séparé du reste, et très bas. Deux ou trois prompts, et en 15 minutes c'était terminé. Tu devais attendre le rechargement, parfois plusieurs jours, sans pouvoir toucher à ton projet entre-temps.</p>
+    <p>Maintenant, Claude Design partage le même quota que Claude Code, Claude Chat et Cowork. Et il y a un deuxième changement, moins visible mais tout aussi important : le moteur derrière a été rendu plus efficace. Pour le même quota, tu produis davantage.</p>
+
+    <div class="callout compare">
+      <div class="callout-label">⚡ Avant / Maintenant</div>
+      <p><strong>Avant :</strong> quota isolé, épuisé en quelques prompts, obligation d'attendre le rechargement sans pouvoir avancer. <strong>Maintenant :</strong> un quota partagé avec le reste de l'écosystème Claude. Tu n'es plus coupé toutes les 15 minutes.</p>
+    </div>
+
+    <div class="callout warn">
+      <div class="callout-label">🚫 Ne te fais pas d'illusions</div>
+      <p>Ça règle le problème d'accès, pas le problème de prix. Tu peux toujours consommer vite si tu enchaînes les générations lourdes (vidéos, design systems). C'est juste que tu n'es plus bloqué au bout de trois prompts.</p>
+    </div>
+  </section>
+
+  <section class="part" id="interface">
+    <div class="part-eyebrow">🧭 02</div>
+    <h2>Une interface repensée <em>(mais pas le vrai changement)</em></h2>
+    <p>À l'ouverture, tu choisis maintenant ton point de départ : prototype, slides, documents, wireframes, animations. En dessous, tu retrouves tes projets, tes design systems, tes templates et une zone pour déposer tes propres fichiers.</p>
+    <p class="muted">Ça ressemble beaucoup moins à une boîte de prompt qu'avant. Mais soyons honnêtes : ce n'est qu'un lifting visuel. Le vrai changement est ailleurs, dans les quatre points suivants.</p>
+  </section>
+
+  <section class="part" id="connecteurs">
+    <div class="part-eyebrow">🔌 03</div>
+    <h2>Les connecteurs changent tout</h2>
+    <p>Un connecteur, c'est un pont entre Claude et un outil externe : Claude s'en sert à ta place. Et tous les connecteurs déjà branchés sur Claude Code se retrouvent automatiquement dans Claude Design, sans rien reconfigurer (menu <strong>Plus → Manage connectors</strong>).</p>
+    <p>Seul, Claude Design reste limité à ce qu'il sait faire nativement : il ne va pas chercher d'infos sur un site, il ne génère pas de vidéos. Avec un connecteur comme Higgsfield ou Firecrawl, il peut aller récupérer du contexte externe ou générer des assets, puis les intégrer directement dans ta maquette, sans que tu aies à faire l'aller-retour toi-même.</p>
+
+    <ol class="process-list">
+      <li>
+        <h4><span class="num">01</span><span>Capture une page de référence</span></h4>
+        <p>Un screenshot complet de la page qui t'inspire suffit comme point de départ.</p>
+      </li>
+      <li>
+        <h4><span class="num">02</span><span>Fais générer le prompt</span></h4>
+        <p>Donne ce screenshot à Claude et demande-lui d'en tirer un prompt de génération détaillé (direction artistique, structure, sections).</p>
+      </li>
+      <li>
+        <h4><span class="num">03</span><span>Colle le prompt dans Claude Design</span></h4>
+        <p>Vérifie que le bon connecteur est actif. Si tu veux garder une totale liberté créative, ne sélectionne pas de design system pour cette génération.</p>
+      </li>
+      <li>
+        <h4><span class="num">04</span><span>Laisse-le travailler</span></h4>
+        <p>Claude Design pilote seul le connecteur, récupère les assets générés (images, vidéos) et les implémente directement dans la page.</p>
+      </li>
+    </ol>
+
+    <div class="callout tip">
+      <div class="callout-label">💡 Ce que ça change vraiment</div>
+      <p>Ce n'est jamais parfait du premier coup : une vidéo mal positionnée, un texte à corriger. Mais avant, chaque micro-ajustement voulait dire reprompter, donc recramer des tokens. C'est justement ce que règle le point suivant.</p>
+    </div>
+  </section>
+
+  <section class="part" id="editeur">
+    <div class="part-eyebrow">✍️ 04</div>
+    <h2>L'éditeur manuel règle le plus gros problème</h2>
+    <p>Cliquer sur un élément pour changer un texte ou une taille, ça existait déjà avant. Le vrai changement, c'est la barre latérale qui accompagne maintenant le mode <strong>Edit</strong>, avec trois onglets qui donnent un contrôle bien plus fin :</p>
+
+    <div class="config-block">
+      <div class="row"><span class="key">Simple :</span><span class="val">apparence de base : couleur, taille, style</span></div>
+      <div class="row"><span class="key">Pro :</span><span class="val">vue en calques façon Figma : alignement, position, détail fin</span></div>
+      <div class="row"><span class="key">Code :</span><span class="val">accès direct au code de l'élément</span></div>
+    </div>
+
+    <div class="callout action">
+      <div class="callout-label">🎯 Le vrai déclic</div>
+      <p>Avant, changer une couleur ou déplacer un élément de quelques pixels voulait dire reprompter, donc cramer des tokens pour un détail. Maintenant, tu le fais directement, à la main, sans repasser par Claude. C'est ce qui transforme un gadget IA en vrai outil de travail.</p>
+    </div>
+  </section>
+
+  <section class="part" id="commentaires">
+    <div class="part-eyebrow">💬 05</div>
+    <h2>Le système de commentaires est malin</h2>
+    <p>Pour les changements trop complexes pour l'éditeur manuel, il y a le mode <strong>Markup</strong> : tu sélectionnes un élément, tu décris ce que tu veux. Tu peux l'envoyer à Claude tout de suite, ou cliquer sur <strong>Add comment</strong> pour l'empiler avec d'autres demandes.</p>
+    <p>Une fois que tu as accumulé plusieurs commentaires, tu coches ceux que tu veux traiter, un seul, plusieurs, ou tous, et tu cliques sur <strong>Resolve</strong>. Claude traite toutes les demandes cochées en un seul passage.</p>
+
+    <div class="callout tip">
+      <div class="callout-label">💡 Pourquoi ça compte</div>
+      <p>Au lieu de cramer des tokens sur chaque micro-changement envoyé un par un, tu regroupes tous tes ajustements et tu les envoies en une seule fois.</p>
+    </div>
+  </section>
+
+  <section class="part" id="design-systems">
+    <div class="part-eyebrow">🧩 06</div>
+    <h2>Les design systems deviennent centraux</h2>
+    <p>Un design system, c'est ta charte graphique : couleurs, typographie, composants, boutons : le style de ta marque. Une fois capturé, tout ce que Claude va produire ensuite (pages, slides, animations, documents) reste cohérent avec cette identité, sans que tu aies à le repréciser à chaque génération.</p>
+    <p>Important : Claude ne <em>invente</em> pas ton design system, il le <em>capture</em>. Il te faut donc déjà un site ou une application existante à lui donner.</p>
+
+    <div class="terminal">
+      <div class="terminal-header">
+        <div class="terminal-dots"><span></span><span></span><span></span></div>
+        <span class="terminal-label">Claude Code · terminal</span>
+      </div>
+      <pre><span class="prompt">$</span> /design-sync</pre>
+    </div>
+
+    <p>Ouvre ton projet dans Claude Code, puis tape cette commande depuis le terminal (Design system → Créer design system → « en utilisant Claude Code » te donne la commande exacte à copier-coller). Claude va capturer couleurs, typographie et composants de ton app ou ton site, et construire le design system directement dans Claude Design.</p>
+
+    <div class="callout warn">
+      <div class="callout-label">🚫 À savoir avant de lancer</div>
+      <p>Ça ne fonctionne pour l'instant que depuis un terminal Claude Code, pas depuis l'application de bureau. C'est aussi une opération lourde : ça peut dévorer beaucoup de tokens et prendre plus de 30 minutes. Ne la lance pas si tu es proche de ta limite de quota, attends plutôt ta prochaine session.</p>
+    </div>
+
+    <p>Une fois le design system créé, tu peux générer des pages, des slides, des wireframes, des prototypes ou des animations qui respectent automatiquement ta marque. C'est probablement le point le plus important de toute cette mise à jour. L'IA ne doit pas juste produire « un beau design », elle doit respecter un système.</p>
+  </section>
+
+  <section class="part" id="export">
+    <div class="part-eyebrow">📤 07</div>
+    <h2>Des options d'export enfin sérieuses</h2>
+    <p>Depuis <strong>Share → Export</strong>, tu peux sortir ton travail en PDF, vidéo, PowerPoint, fichier projet, HTML, ou l'envoyer directement vers Claude Code, Canva, Cursor et continuer à travailler dessus ailleurs.</p>
+
+    <div class="callout tip">
+      <div class="callout-label">💡 Le conseil qui évite une erreur classique</div>
+      <p>Pour repartir dans Claude Code, deux options : copier un prompt à recoller, ou télécharger directement le projet. Le téléchargement direct est plus rapide et plus fiable. Si tu passes quand même par le prompt, assure-toi de l'envoyer à ton Claude Code local, pas à la version web.</p>
+    </div>
+
+    <p>On commence enfin à voir un vrai workflow complet : idée → design → édition → export → production, sans rupture entre les outils.</p>
+  </section>
+
+  <section class="part" id="conclusion">
+    <div class="part-eyebrow">🎁 CE QUI COMPTE</div>
+    <h2>Ce que ça change pour un builder solo</h2>
+
+    <ul class="rules">
+      <li>
+        <span class="rule-icon">✅</span>
+        <div>
+          <h4>Pas encore parfait.</h4>
+          <p>Encore gourmand en tokens, encore à corriger à la main sur certains points. Mais la direction est claire.</p>
+        </div>
+      </li>
+      <li>
+        <span class="rule-icon">✅</span>
+        <div>
+          <h4>Les outils IA ne remplacent pas seulement des tâches.</h4>
+          <p>Ils deviennent des environnements complets de création, et ça change la manière de travailler, pas juste la vitesse.</p>
+        </div>
+      </li>
+      <li>
+        <span class="rule-icon">✅</span>
+        <div>
+          <h4>Demain, tu ne vas peut-être plus ouvrir 5 outils différents.</h4>
+          <p>Pour créer une landing page, une présentation, une vidéo ou une animation, tu vas piloter un seul système qui va designer, générer, corriger, exporter et s'adapter à ta marque.</p>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <section class="faq" id="faq">
+    <div class="faq-eyebrow">→ FAQ</div>
+    <h2>Les questions qui reviennent le plus souvent
+      <em>Réponses directes, basées sur l'usage</em>
+    </h2>
+    <ul class="faq-list">
+      <li class="faq-item">
+        <div class="faq-q">Claude Design remplace-t-il Figma pour un builder solo ?</div>
+        <p class="faq-a">Pas encore. Pour un design system mature, des composants partagés entre 5 designers et des exports pixel-perfect, Figma reste plus rapide. Claude Design devient intéressant quand tu pars de zéro, que tu veux itérer vite sur des pages complètes, ou que tu produis des slides, des wireframes, des prototypes éphémères. Pour une équipe design, c'est un complément. Pour un solo founder qui n'a pas le temps d'ouvrir Figma, ça commence à devenir un cockpit crédible.</p>
+      </li>
+      <li class="faq-item">
+        <div class="faq-q">Combien coûte Claude Design en tokens ?</div>
+        <p class="faq-a">Le quota est maintenant partagé avec Claude Code, Claude Chat et Cowork. Pour un usage normal (10-15 générations par jour, pas que des vidéos), tu tiens sans exploser ton quota. Les opérations lourdes restent coûteuses : générer un design system complet peut dévorer beaucoup de tokens et prendre 30+ minutes. À éviter quand tu es proche de ta limite.</p>
+      </li>
+      <li class="faq-item">
+        <div class="faq-q">Faut-il un design system existant pour commencer ?</div>
+        <p class="faq-a">Pas obligatoire, mais très recommandé. Sans design system, Claude Design produit des designs cohérents entre eux mais qui ne matcheront pas forcément ta marque. La commande /design-sync depuis Claude Code permet de capturer les couleurs, typographies et composants d'un site ou app existant pour les réutiliser. C'est une opération lourde mais qui change la qualité de tout ce que tu produiras ensuite.</p>
+      </li>
+      <li class="faq-item">
+        <div class="faq-q">Qu'est-ce qui ne marche pas encore bien ?</div>
+        <p class="faq-a">Trois limites réelles : la précision des placements (tu corriges encore à la main), l'export vers des outils pro reste basique (le HTML exporté est correct mais pas optimisé production), et les designs très spécifiques (logos, illustrations complexes) sont toujours plus rapides à faire dans Figma ou Illustrator. Pour tout le reste (landing pages, slides, wireframes, prototypes), c'est devenu un vrai outil de travail.</p>
+      </li>
+      <li class="faq-item">
+        <div class="faq-q">Comment tester Claude Design sans cramer son quota ?</div>
+        <p class="faq-a">Commence par des prototypes simples (3-5 sections max), pas des designs complexes dès le départ. Utilise l'éditeur manuel pour les micro-ajustements plutôt que de reprompter. Regroupe tes commentaires avant de cliquer Resolve, pour traiter plusieurs demandes en un seul passage. Et garde la génération de design system pour une session dédiée, pas au milieu d'un sprint de prod.</p>
+      </li>
+    </ul>
+  </section>
+
+  <section class="closing" id="ensemble">
+    <h2>Figma reste ton outil principal… ou Claude Design devient ton nouveau cockpit créatif ?</h2>
+    <p>C'est la vraie question à te poser maintenant. Si tu veux qu'on regarde ensemble comment intégrer ça dans ton workflow (ou celui de ton équipe), on peut en discuter directement.</p>
+
+    <div class="closing-cta-final">
+      <a class="btn-big" href="../index.html#contact">Prendre un RDV</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-name">Omnyx Agency</div>
+    <div class="footer-meta">Marketing, IA &amp; automation · France</div>
+    <div class="footer-links">
+      <a href="../index.html">Site</a>
+      <a href="../blog.html">Blog</a>
+      <a href="../index.html#contact">Contact</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
