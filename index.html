@@ -159,7 +159,26 @@ footer{background:rgba(8,14,26,.85) !important;backdrop-filter:blur(8px)}
   50% {background-position:-10% center;}
   100%{background-position:-10% center;}
 }
-@media(max-width:480px){#bc-bubble{right:14px;bottom:14px}#bc-window{right:10px;bottom:86px;width:calc(100vw - 20px)}#bc-callout{right:14px;bottom:84px}}
+@media(max-width:480px){
+  /* Chatbot bubble: réduit pour ne pas manger le contenu */
+  #bc-bubble{right:14px;bottom:14px;width:48px;height:48px}
+  #bc-window{right:10px;bottom:80px;width:calc(100vw - 20px)}
+  #bc-callout{right:14px;bottom:78px}
+  #bc-callout-pill{font-size:12px;padding:8px 14px}
+
+  /* Services section: aération mobile */
+  .glass-card.rounded-3xl.p-8{padding:24px 22px}
+  .glass-card.rounded-3xl p.text-\[14px\]{font-size:15px;line-height:1.65}
+
+  /* Hero: titre et intro plus respirants sur petit écran */
+  h1.gradient-text{line-height:1.1}
+  p.text-\[16px\]{font-size:16px;line-height:1.7}
+  p.text-\[14px\]{line-height:1.7}
+
+  /* Boutons CTA pleine largeur sur mobile */
+  a[href$="#contact"].inline-flex,
+  button.inline-flex{display:flex;width:100%;justify-content:center;text-align:center}
+}
 </style>
 
 <script type="application/ld+json">
