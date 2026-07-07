@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
   <!-- Dark navy background -->
-  <rect width="32" height="32" fill="#0b1220" rx="4"/>
-  <!-- Square frame -->
-  <rect x="5" y="5" width="22" height="22" rx="2" fill="none" stroke="#b8c8dc" stroke-width="2.5"/>
+  <rect width="32" height="32" fill="#060c18" rx="6"/>
+  <!-- Oval frame (matching the current Omnyx "O") -->
+  <rect x="5" y="5" width="22" height="22" rx="9" fill="none" stroke="#c9def0" stroke-width="3"/>
   <!-- X inside -->
-  <line x1="7.5" y1="7.5" x2="24.5" y2="24.5" stroke="#b8c8dc" stroke-width="2"/>
-  <line x1="24.5" y1="7.5" x2="7.5" y2="24.5" stroke="#b8c8dc" stroke-width="2"/>
+  <line x1="8.5" y1="8.5" x2="23.5" y2="23.5" stroke="#c9def0" stroke-width="2"/>
+  <line x1="23.5" y1="8.5" x2="8.5" y2="23.5" stroke="#c9def0" stroke-width="2"/>
 </svg>
