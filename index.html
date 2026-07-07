@@ -93,7 +93,7 @@ h1.gradient-text{font-family:"Space Grotesk",sans-serif!important;letter-spacing
 }
 
 .tw-word-outer{display:inline-block;overflow:hidden;vertical-align:text-bottom;position:relative;font-size:1.06em;margin-right:.2em}
-.tw-word-track{display:flex;flex-direction:column;transition:transform .6s cubic-bezier(.65,0,.35,1)}
+.tw-word-track{display:flex;flex-direction:column;align-items:center;transition:transform .6s cubic-bezier(.65,0,.35,1)}
 .tw-word{line-height:1.3;display:block;white-space:nowrap}
 @keyframes gradient-shimmer{0%{background-position:left center}100%{background-position:right center}}
 
@@ -826,32 +826,37 @@ function escapeHtmlWord(s){
   return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 }
 
-function startWordRotator(outerEl, track, words, wordClass, intervalKey){
+function createWordRotator(outerEl, track, words, wordClass){
   track.innerHTML = words.concat([words[0]]).map(w => '<span class="tw-word ' + wordClass + '">' + escapeHtmlWord(w) + '</span>').join('');
 
-  clearInterval(window[intervalKey]);
   let idx = 0;
   track.style.transition = 'none';
   track.style.transform = 'translateY(0)';
   void track.offsetWidth;
   track.style.transition = '';
 
-  const step = Math.round(track.querySelector('.tw-word').getBoundingClientRect().height);
+  const wordEls = track.querySelectorAll('.tw-word');
+  const step = Math.round(wordEls[0].getBoundingClientRect().height);
+  const widths = Array.from(wordEls).map(el => Math.ceil(el.getBoundingClientRect().width));
+  const maxWidth = Math.max.apply(null, widths);
   outerEl.style.height = step + 'px';
+  outerEl.style.width = maxWidth + 'px';
 
-  window[intervalKey] = setInterval(()=>{
-    idx++;
-    track.style.transform = 'translateY(-' + (idx*step) + 'px)';
-    if(idx === words.length){
-      setTimeout(()=>{
-        track.style.transition = 'none';
-        idx = 0;
-        track.style.transform = 'translateY(0)';
-        void track.offsetWidth;
-        track.style.transition = '';
-      }, 650);
+  return {
+    tick(){
+      idx++;
+      track.style.transform = 'translateY(-' + (idx*step) + 'px)';
+      if(idx === words.length){
+        setTimeout(()=>{
+          track.style.transition = 'none';
+          idx = 0;
+          track.style.transform = 'translateY(0)';
+          void track.offsetWidth;
+          track.style.transition = '';
+        }, 650);
+      }
     }
-  }, 2000);
+  };
 }
 
 function initHeroTagline(lang){
@@ -871,8 +876,14 @@ function initHeroTagline(lang){
   line2PrefixEl.textContent = data.line2prefix;
   line2SuffixEl.textContent = data.line2suffix;
 
-  startWordRotator(outerEl, track, data.words, 'gradient-text-word', '__heroWordInterval');
-  startWordRotator(outer2El, track2, data.line2words, 'gradient-text-word2', '__heroWord2Interval');
+  const rotator1 = createWordRotator(outerEl, track, data.words, 'gradient-text-word');
+  const rotator2 = createWordRotator(outer2El, track2, data.line2words, 'gradient-text-word2');
+
+  clearInterval(window.__heroWordMasterInterval);
+  window.__heroWordMasterInterval = setInterval(()=>{
+    rotator1.tick();
+    rotator2.tick();
+  }, 2000);
 }
 
 function setLanguage(lang) {
