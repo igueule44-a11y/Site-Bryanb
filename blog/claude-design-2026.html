@@ -396,10 +396,13 @@
 .related-section { padding: 48px 0 24px; }
 .related-title { font-family:'Space Grotesk',sans-serif; font-size:1.3rem; color:var(--text-primary); margin-bottom:20px; }
 .related-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; }
-.related-card { display:block; background:var(--bg-card); border:1px solid var(--border-soft); border-radius:12px; padding:18px; text-decoration:none; transition:border-color .2s; }
-.related-card:hover { border-color:var(--border-strong); }
+.related-card { display:block; position:relative; overflow:hidden; background:var(--bg-card); border:1px solid var(--border-soft); border-radius:12px; padding:18px; text-decoration:none !important; transition:transform .3s ease, border-color .3s ease, box-shadow .3s ease; }
+.related-card::after { content:"→"; position:absolute; right:16px; bottom:14px; color:var(--accent); font-size:1.1rem; opacity:0; transform:translateX(-6px); transition:opacity .3s ease, transform .3s ease; }
+.related-card:hover { border-color:var(--border-strong); transform:translateY(-4px); box-shadow:0 14px 28px rgba(0,212,255,0.14); text-decoration:none !important; }
+.related-card:hover::after { opacity:1; transform:translateX(0); }
 .related-card .related-tag { font-size:.72rem; color:var(--accent); text-transform:uppercase; letter-spacing:.05em; }
-.related-card h3 { font-family:'Space Grotesk',sans-serif; font-size:.95rem; color:var(--text-primary); margin:8px 0 0; line-height:1.4; }
+.related-card h3 { font-family:'Space Grotesk',sans-serif; font-size:.95rem; color:var(--text-primary); margin:8px 0 0; line-height:1.4; transition:color .3s ease; }
+.related-card:hover h3 { color:var(--accent-soft); }
 </style>
 
 <!-- Schema.org JSON-LD -->
@@ -550,7 +553,7 @@
     <div class="part-eyebrow">⚡ 01</div>
     <h2>Le quota a été revu</h2>
     <p>Avant, Claude Design avait son propre quota, complètement séparé du reste, et très bas. Deux ou trois prompts, et en 15 minutes c'était terminé. Tu devais attendre le rechargement, parfois plusieurs jours, sans pouvoir toucher à ton projet entre-temps.</p>
-    <p>Maintenant, Claude Design partage le même quota que Claude Code, Claude Chat et Cowork. Et il y a un deuxième changement, moins visible mais tout aussi important : le moteur derrière a été rendu plus efficace. Pour le même quota, tu produis davantage.</p>
+    <p>Maintenant, Claude Design partage le même quota que <a href="ollama-cloud-claude-code-guide.html"><strong>Claude Code</strong></a>, Claude Chat et Cowork. Et il y a un deuxième changement, moins visible mais tout aussi important : le moteur derrière a été rendu plus efficace. Pour le même quota, tu produis davantage.</p>
 
     <div class="callout compare">
       <div class="callout-label">⚡ Avant / Maintenant</div>
@@ -583,7 +586,7 @@
       </li>
       <li>
         <h4><span class="num">02</span><span>Fais générer le prompt</span></h4>
-        <p>Donne ce screenshot à Claude et demande-lui d'en tirer un prompt de génération détaillé (direction artistique, structure, sections).</p>
+        <p>Donne ce screenshot à Claude et demande-lui d'en tirer <a href="maitriser-prompts-2026.html"><strong>un prompt de génération détaillé</strong></a> (direction artistique, structure, sections).</p>
       </li>
       <li>
         <h4><span class="num">03</span><span>Colle le prompt dans Claude Design</span></h4>

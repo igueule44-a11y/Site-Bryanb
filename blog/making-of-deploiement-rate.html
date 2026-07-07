@@ -299,10 +299,13 @@
 .related-section { padding: 48px 0 24px; }
 .related-title { font-family:'Space Grotesk',sans-serif; font-size:1.3rem; color:var(--text-primary); margin-bottom:20px; }
 .related-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; }
-.related-card { display:block; background:var(--bg-card); border:1px solid var(--border-soft); border-radius:12px; padding:18px; text-decoration:none; transition:border-color .2s; }
-.related-card:hover { border-color:var(--border-strong); }
+.related-card { display:block; position:relative; overflow:hidden; background:var(--bg-card); border:1px solid var(--border-soft); border-radius:12px; padding:18px; text-decoration:none !important; transition:transform .3s ease, border-color .3s ease, box-shadow .3s ease; }
+.related-card::after { content:"→"; position:absolute; right:16px; bottom:14px; color:var(--accent); font-size:1.1rem; opacity:0; transform:translateX(-6px); transition:opacity .3s ease, transform .3s ease; }
+.related-card:hover { border-color:var(--border-strong); transform:translateY(-4px); box-shadow:0 14px 28px rgba(0,212,255,0.14); text-decoration:none !important; }
+.related-card:hover::after { opacity:1; transform:translateX(0); }
 .related-card .related-tag { font-size:.72rem; color:var(--accent); text-transform:uppercase; letter-spacing:.05em; }
-.related-card h3 { font-family:'Space Grotesk',sans-serif; font-size:.95rem; color:var(--text-primary); margin:8px 0 0; line-height:1.4; }
+.related-card h3 { font-family:'Space Grotesk',sans-serif; font-size:.95rem; color:var(--text-primary); margin:8px 0 0; line-height:1.4; transition:color .3s ease; }
+.related-card:hover h3 { color:var(--accent-soft); }
 </style>
 
 <script type="application/ld+json">
@@ -420,13 +423,13 @@
     <div class="step" id="n3">
       <div class="step-num">03</div>
       <div class="step-body">
-        <h3>Faire confiance à l'agent IA sans vérifier</h3>
+        <h3>Faire confiance à <a href="hermes-agent-update-juin-2026.html"><strong>l'agent IA</strong></a> sans vérifier</h3>
         <span class="step-tag">process · validation</span>
         <p>Mon agent a passé 4 itérations à me dire « ah, c'est bon, j'ai compris, c'est un problème de path ». À chaque fois, sa solution était plausible mais incorrecte. J'aurais dû tester la solution moi-même après chaque itération, pas après 4.</p>
         <p class="muted">Erreur de process de ma part : j'ai laissé l'agent enchaîner les hypothèses sans checkpoint. Lui pensait avancer, moi je regardais faire. Personne ne testait.</p>
         <div class="callout tip">
           <div class="callout-label">💡 Le bon process</div>
-          <p>Règle simple : après chaque proposition de l'agent, tu testes toi-même la solution. Si ça marche, on passe à la suite. Si ça marche pas, on revient à l'agent avec le retour d'erreur exact.</p>
+          <p>Règle simple : après chaque proposition de l'agent, tu testes toi-même la solution. Si ça marche, on passe à la suite. Si ça marche pas, on revient à l'agent avec <a href="maitriser-prompts-2026.html"><strong>le retour d'erreur exact</strong></a>.</p>
         </div>
       </div>
     </div>

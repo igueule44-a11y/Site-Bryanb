@@ -299,10 +299,13 @@
 .related-section { padding: 48px 0 24px; }
 .related-title { font-family:'Space Grotesk',sans-serif; font-size:1.3rem; color:var(--text-primary); margin-bottom:20px; }
 .related-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; }
-.related-card { display:block; background:var(--bg-card); border:1px solid var(--border-soft); border-radius:12px; padding:18px; text-decoration:none; transition:border-color .2s; }
-.related-card:hover { border-color:var(--border-strong); }
+.related-card { display:block; position:relative; overflow:hidden; background:var(--bg-card); border:1px solid var(--border-soft); border-radius:12px; padding:18px; text-decoration:none !important; transition:transform .3s ease, border-color .3s ease, box-shadow .3s ease; }
+.related-card::after { content:"→"; position:absolute; right:16px; bottom:14px; color:var(--accent); font-size:1.1rem; opacity:0; transform:translateX(-6px); transition:opacity .3s ease, transform .3s ease; }
+.related-card:hover { border-color:var(--border-strong); transform:translateY(-4px); box-shadow:0 14px 28px rgba(0,212,255,0.14); text-decoration:none !important; }
+.related-card:hover::after { opacity:1; transform:translateX(0); }
 .related-card .related-tag { font-size:.72rem; color:var(--accent); text-transform:uppercase; letter-spacing:.05em; }
-.related-card h3 { font-family:'Space Grotesk',sans-serif; font-size:.95rem; color:var(--text-primary); margin:8px 0 0; line-height:1.4; }
+.related-card h3 { font-family:'Space Grotesk',sans-serif; font-size:.95rem; color:var(--text-primary); margin:8px 0 0; line-height:1.4; transition:color .3s ease; }
+.related-card:hover h3 { color:var(--accent-soft); }
 </style>
 
 <script type="application/ld+json">
@@ -377,7 +380,7 @@
   <section class="intro-box">
     <span class="intro-emoji">🚀</span>
     <h2>L'IA ne sert plus juste à gagner du temps</h2>
-    <p>La vraie différence ne se fera plus uniquement sur la capacité à créer. Créer une app, une vidéo, une image ou une analyse devient de plus en plus accessible. Elle se fera sur la capacité à comprendre les bons cas d'usage, structurer les bons prompts, choisir les bons outils et transformer l'IA en système de travail quotidien.</p>
+    <p>La vraie différence ne se fera plus uniquement sur la capacité à créer. Créer une app, une vidéo, une image ou une analyse devient de plus en plus accessible. Elle se fera sur la capacité à comprendre les bons cas d'usage, <a href="maitriser-prompts-2026.html"><strong>structurer les bons prompts</strong></a>, choisir les bons outils et <a href="hermes-agent-update-juin-2026.html"><strong>transformer l'IA en système de travail quotidien</strong></a>.</p>
   </section>
 
   <nav class="toc">

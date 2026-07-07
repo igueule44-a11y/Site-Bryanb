@@ -299,10 +299,13 @@
 .related-section { padding: 48px 0 24px; }
 .related-title { font-family:'Space Grotesk',sans-serif; font-size:1.3rem; color:var(--text-primary); margin-bottom:20px; }
 .related-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; }
-.related-card { display:block; background:var(--bg-card); border:1px solid var(--border-soft); border-radius:12px; padding:18px; text-decoration:none; transition:border-color .2s; }
-.related-card:hover { border-color:var(--border-strong); }
+.related-card { display:block; position:relative; overflow:hidden; background:var(--bg-card); border:1px solid var(--border-soft); border-radius:12px; padding:18px; text-decoration:none !important; transition:transform .3s ease, border-color .3s ease, box-shadow .3s ease; }
+.related-card::after { content:"→"; position:absolute; right:16px; bottom:14px; color:var(--accent); font-size:1.1rem; opacity:0; transform:translateX(-6px); transition:opacity .3s ease, transform .3s ease; }
+.related-card:hover { border-color:var(--border-strong); transform:translateY(-4px); box-shadow:0 14px 28px rgba(0,212,255,0.14); text-decoration:none !important; }
+.related-card:hover::after { opacity:1; transform:translateX(0); }
 .related-card .related-tag { font-size:.72rem; color:var(--accent); text-transform:uppercase; letter-spacing:.05em; }
-.related-card h3 { font-family:'Space Grotesk',sans-serif; font-size:.95rem; color:var(--text-primary); margin:8px 0 0; line-height:1.4; }
+.related-card h3 { font-family:'Space Grotesk',sans-serif; font-size:.95rem; color:var(--text-primary); margin:8px 0 0; line-height:1.4; transition:color .3s ease; }
+.related-card:hover h3 { color:var(--accent-soft); }
 </style>
 
 <script type="application/ld+json">
@@ -377,7 +380,7 @@
   <section class="intro-box">
     <span class="intro-emoji">🛠️</span>
     <h2>Le problème : tomber à court de tokens au pire moment</h2>
-    <p>Si tu utilises Claude Code ou Hermès Agent, tu connais la douleur : tu tombes à court de tokens au pire moment, en plein debug critique, et tu dois attendre le reset mensuel ou sortir la CB. Ollama Cloud règle ça. Voici comment tout brancher en 10 minutes.</p>
+    <p>Si tu utilises Claude Code ou <a href="hermes-agent-update-juin-2026.html"><strong>Hermès Agent</strong></a>, tu connais la douleur : tu tombes à court de tokens au pire moment, en plein <a href="making-of-deploiement-rate.html"><strong>debug critique</strong></a>, et tu dois attendre le reset mensuel ou sortir la CB. Ollama Cloud règle ça. Voici comment tout brancher en 10 minutes.</p>
   </section>
 
   <nav class="toc">

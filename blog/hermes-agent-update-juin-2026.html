@@ -299,10 +299,13 @@
 .related-section { padding: 48px 0 24px; }
 .related-title { font-family:'Space Grotesk',sans-serif; font-size:1.3rem; color:var(--text-primary); margin-bottom:20px; }
 .related-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; }
-.related-card { display:block; background:var(--bg-card); border:1px solid var(--border-soft); border-radius:12px; padding:18px; text-decoration:none; transition:border-color .2s; }
-.related-card:hover { border-color:var(--border-strong); }
+.related-card { display:block; position:relative; overflow:hidden; background:var(--bg-card); border:1px solid var(--border-soft); border-radius:12px; padding:18px; text-decoration:none !important; transition:transform .3s ease, border-color .3s ease, box-shadow .3s ease; }
+.related-card::after { content:"→"; position:absolute; right:16px; bottom:14px; color:var(--accent); font-size:1.1rem; opacity:0; transform:translateX(-6px); transition:opacity .3s ease, transform .3s ease; }
+.related-card:hover { border-color:var(--border-strong); transform:translateY(-4px); box-shadow:0 14px 28px rgba(0,212,255,0.14); text-decoration:none !important; }
+.related-card:hover::after { opacity:1; transform:translateX(0); }
 .related-card .related-tag { font-size:.72rem; color:var(--accent); text-transform:uppercase; letter-spacing:.05em; }
-.related-card h3 { font-family:'Space Grotesk',sans-serif; font-size:.95rem; color:var(--text-primary); margin:8px 0 0; line-height:1.4; }
+.related-card h3 { font-family:'Space Grotesk',sans-serif; font-size:.95rem; color:var(--text-primary); margin:8px 0 0; line-height:1.4; transition:color .3s ease; }
+.related-card:hover h3 { color:var(--accent-soft); }
 </style>
 
 <script type="application/ld+json">
@@ -377,7 +380,7 @@
   <section class="intro-box">
     <span class="intro-emoji">🚀</span>
     <h2>Une mise à jour. Trois phases d'évolution franchies d'un coup.</h2>
-    <p>J'utilise Hermès Agent comme hub central de mes agents IA. Cette update ne fait pas qu'ajouter des fonctionnalités : elle fait passer l'agent du statut « truc qu'on lance ponctuellement » à celui de système de travail continu, accessible partout, capable de se spécialiser. Voici les 4 nouveautés qui comptent, et ce qu'elles changent concrètement pour ton workflow.</p>
+    <p>J'utilise Hermès Agent comme hub central de mes <a href="agents-ia-pme-guide-2026.html"><strong>agents IA</strong></a>. Cette update ne fait pas qu'ajouter des fonctionnalités : elle fait passer l'agent du statut « truc qu'on lance ponctuellement » à celui de système de travail continu, accessible partout, capable de se spécialiser. Voici les 4 nouveautés qui comptent, et ce qu'elles changent concrètement pour ton workflow.</p>
   </section>
 
   <nav class="toc">
@@ -426,7 +429,7 @@
         <p class="muted">Switch en une commande. Chaque profil a son propre modèle, ses propres skills, son propre rôle. C'est probablement l'un des usages les plus puissants : ne plus avoir un seul assistant généraliste, mais plusieurs spécialistes qui collaborent autour de tes besoins.</p>
         <div class="callout action">
           <div class="callout-label">⚙️ Mise en place</div>
-          <p>Crée un profil par grande responsabilité (veille, clients, technique, contenu). Chaque profil a son modèle optimisé pour sa tâche : Gemini Flash pour la veille, Claude Sonnet pour le code, Mistral pour le tri rapide.</p>
+          <p>Crée un profil par grande responsabilité (veille, clients, technique, contenu). Chaque profil a son modèle optimisé pour sa tâche : Gemini Flash pour la veille, <a href="ollama-cloud-claude-code-guide.html"><strong>Claude Sonnet pour le code</strong></a>, Mistral pour le tri rapide.</p>
         </div>
       </div>
     </div>

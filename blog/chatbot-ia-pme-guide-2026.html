@@ -318,10 +318,13 @@
 .related-section { padding: 48px 0 24px; }
 .related-title { font-family:'Space Grotesk',sans-serif; font-size:1.3rem; color:var(--text-primary); margin-bottom:20px; }
 .related-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; }
-.related-card { display:block; background:var(--bg-card); border:1px solid var(--border-soft); border-radius:12px; padding:18px; text-decoration:none; transition:border-color .2s; }
-.related-card:hover { border-color:var(--border-strong); }
+.related-card { display:block; position:relative; overflow:hidden; background:var(--bg-card); border:1px solid var(--border-soft); border-radius:12px; padding:18px; text-decoration:none !important; transition:transform .3s ease, border-color .3s ease, box-shadow .3s ease; }
+.related-card::after { content:"→"; position:absolute; right:16px; bottom:14px; color:var(--accent); font-size:1.1rem; opacity:0; transform:translateX(-6px); transition:opacity .3s ease, transform .3s ease; }
+.related-card:hover { border-color:var(--border-strong); transform:translateY(-4px); box-shadow:0 14px 28px rgba(0,212,255,0.14); text-decoration:none !important; }
+.related-card:hover::after { opacity:1; transform:translateX(0); }
 .related-card .related-tag { font-size:.72rem; color:var(--accent); text-transform:uppercase; letter-spacing:.05em; }
-.related-card h3 { font-family:'Space Grotesk',sans-serif; font-size:.95rem; color:var(--text-primary); margin:8px 0 0; line-height:1.4; }
+.related-card h3 { font-family:'Space Grotesk',sans-serif; font-size:.95rem; color:var(--text-primary); margin:8px 0 0; line-height:1.4; transition:color .3s ease; }
+.related-card:hover h3 { color:var(--accent-soft); }
 </style>
 
 <script type="application/ld+json">
@@ -420,7 +423,7 @@
         <h3>Pourquoi un chatbot IA en 2026 : le contexte PME France</h3>
         <span class="step-tag">contexte · marché français</span>
         <p>Si tu diriges une PME française en 2026, tu reçois chaque jour des demandes par email, téléphone, formulaire de contact, WhatsApp, et parfois Messenger. Et tu n'as pas toujours quelqu'un pour répondre en temps réel. Selon une étude Salesforce 2025, 73% des visiteurs d'un site PME attendent une réponse dans les 5 minutes. Au-delà, 60% passent chez un concurrent. Tu n'as ni le temps ni l'équipe pour répondre 24/7, mais tu perds des clients chaque semaine à cause de ça.</p>
-        <p class="muted">Le chatbot IA, ce n'est pas le pop-up « Bonjour, je suis Marie, puis-je vous aider ? » des années 2015, qui ne comprenait rien et énervait tout le monde. C'est un agent conversationnel qui comprend le français nuancé, qui s'intègre à ta base de connaissances, qui pose les bonnes questions de qualification, et qui passe le relais à un humain quand c'est nécessaire. Quand il est bien configuré, le visiteur ne fait même pas la différence.</p>
+        <p class="muted">Le chatbot IA, ce n'est pas le pop-up « Bonjour, je suis Marie, puis-je vous aider ? » des années 2015, qui ne comprenait rien et énervait tout le monde. C'est un <a href="agents-ia-pme-guide-2026.html"><strong>agent conversationnel</strong></a> qui comprend le français nuancé, qui s'intègre à ta base de connaissances, qui pose les bonnes questions de qualification, et qui passe le relais à un humain quand c'est nécessaire. Quand il est bien configuré, le visiteur ne fait même pas la différence.</p>
         <div class="callout tip">
           <div class="callout-label">💡 Le bon réflexe</div>
           <p>Un chatbot IA ne remplace pas ton équipe support. Il absorbe les 60-80% de demandes répétitives (FAQ, horaires, prix, disponibilité) qui prennent 80% du temps de ton équipe. L'humain gère les 20% restants, qui demandent de l'empathie ou du jugement.</p>
@@ -592,7 +595,7 @@
   <section class="part" id="bilan">
     <div class="part-eyebrow">→ LE BILAN</div>
     <h2>Un bon chatbot IA, c'est 80% de design et 20% de tech<em>Le piège classique c'est de commencer par la techno, pas par le process</em></h2>
-    <p>La plupart des chatbots IA ratent parce qu'on a choisi l'outil avant le use case. Le bon ordre : identifier le process de support qui prend le plus de temps, mesurer le volume, puis choisir l'outil qui s'intègre à ton stack. Pas l'inverse. Et surtout : commence petit, un seul use case, mesure le ROI sur 4 semaines, et étends.</p>
+    <p>La plupart des chatbots IA ratent parce qu'on a choisi l'outil avant le use case. Le bon ordre : identifier le process de support qui prend le plus de temps, mesurer le volume, puis choisir l'outil qui s'intègre à ton stack. Pas l'inverse. Et surtout : commence petit, un seul use case, mesure le ROI sur 4 semaines, et étends. On détaille ce type d'erreur, et 4 autres, dans <a href="5-erreurs-chatbot-pme-2026.html"><strong>5 erreurs qui font rater un chatbot PME</strong></a>.</p>
     <ul class="rules">
       <li><span class="rule-icon">🎯</span><div><h4>Choisis l'outil après le process</h4><p>Identifie d'abord le use case (FAQ, qualification, support), puis l'outil qui s'y intègre</p></div></li>
       <li><span class="rule-icon">⚙️</span><div><h4>Commence par un seul use case</h4><p>FAQ basique = setup en 1 semaine, ROI mesurable immédiatement</p></div></li>

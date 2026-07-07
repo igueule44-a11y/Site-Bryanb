@@ -320,10 +320,13 @@
 .related-section { padding: 48px 0 24px; }
 .related-title { font-family:'Space Grotesk',sans-serif; font-size:1.3rem; color:var(--text-primary); margin-bottom:20px; }
 .related-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; }
-.related-card { display:block; background:var(--bg-card); border:1px solid var(--border-soft); border-radius:12px; padding:18px; text-decoration:none; transition:border-color .2s; }
-.related-card:hover { border-color:var(--border-strong); }
+.related-card { display:block; position:relative; overflow:hidden; background:var(--bg-card); border:1px solid var(--border-soft); border-radius:12px; padding:18px; text-decoration:none !important; transition:transform .3s ease, border-color .3s ease, box-shadow .3s ease; }
+.related-card::after { content:"→"; position:absolute; right:16px; bottom:14px; color:var(--accent); font-size:1.1rem; opacity:0; transform:translateX(-6px); transition:opacity .3s ease, transform .3s ease; }
+.related-card:hover { border-color:var(--border-strong); transform:translateY(-4px); box-shadow:0 14px 28px rgba(0,212,255,0.14); text-decoration:none !important; }
+.related-card:hover::after { opacity:1; transform:translateX(0); }
 .related-card .related-tag { font-size:.72rem; color:var(--accent); text-transform:uppercase; letter-spacing:.05em; }
-.related-card h3 { font-family:'Space Grotesk',sans-serif; font-size:.95rem; color:var(--text-primary); margin:8px 0 0; line-height:1.4; }
+.related-card h3 { font-family:'Space Grotesk',sans-serif; font-size:.95rem; color:var(--text-primary); margin:8px 0 0; line-height:1.4; transition:color .3s ease; }
+.related-card:hover h3 { color:var(--accent-soft); }
 </style>
 
 <script type="application/ld+json">
@@ -419,7 +422,7 @@
       <div class="step-body">
         <h3>Cartographier tes process répétitifs</h3>
         <span class="step-tag">étape 1 · observation</span>
-        <p>Prends une feuille. Liste tous les process qui te prennent du temps et qui se répètent. Pour une PME typique : répondre aux mêmes questions clients par email, préparer des devis, faire de la veille, relancer des prospects, rédiger des posts sur les réseaux, récupérer et formatter des données, faire le tri dans des candidatures.</p>
+        <p>Prends une feuille. Liste tous les process qui te prennent du temps et qui se répètent. Pour une PME typique : <a href="chatbot-ia-pme-guide-2026.html"><strong>répondre aux mêmes questions clients par email ou chatbot</strong></a>, préparer des devis, faire de la veille, relancer des prospects, rédiger des posts sur les réseaux, récupérer et formatter des données, faire le tri dans des candidatures.</p>
         <p class="muted">Note pour chacun : fréquence (quotidien / hebdo / mensuel), temps passé, niveau de criticité. Tu vas classer ça en Phase 1 / Phase 2 / Plus tard. Pas de piège : l'exercice prend 1h, et il révèle souvent 2-3 process que tu sous-estimais.</p>
       </div>
     </div>
@@ -457,7 +460,7 @@
         <p class="muted">Quand l'opérateur du process ne comprend pas l'agent, il le désactivera en 2 semaines. Implémente les gens qui font le process aujourd'hui dans la conception de l'agent. Pas en aval, en amont.</p>
         <div class="callout warn">
           <div class="callout-label">⚠️ Les erreurs à éviter</div>
-          <p>Choisir l'outil avant le process. Vouloir tout automatiser d'un coup. Ne pas impliquer les opérateurs. Pas de plan B (l'agent doit pouvoir être désactivé en un clic).</p>
+          <p>Choisir l'outil avant le process. Vouloir tout automatiser d'un coup. Ne pas impliquer les opérateurs. Pas de plan B (l'agent doit pouvoir être désactivé en un clic). Ces pièges rejoignent ceux qu'on détaille dans <a href="5-erreurs-chatbot-pme-2026.html"><strong>les 5 erreurs qui font rater un chatbot PME</strong></a>.</p>
         </div>
       </div>
     </div>

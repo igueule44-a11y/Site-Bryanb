@@ -320,10 +320,13 @@
 .related-section { padding: 48px 0 24px; }
 .related-title { font-family:'Space Grotesk',sans-serif; font-size:1.3rem; color:var(--text-primary); margin-bottom:20px; }
 .related-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; }
-.related-card { display:block; background:var(--bg-card); border:1px solid var(--border-soft); border-radius:12px; padding:18px; text-decoration:none; transition:border-color .2s; }
-.related-card:hover { border-color:var(--border-strong); }
+.related-card { display:block; position:relative; overflow:hidden; background:var(--bg-card); border:1px solid var(--border-soft); border-radius:12px; padding:18px; text-decoration:none !important; transition:transform .3s ease, border-color .3s ease, box-shadow .3s ease; }
+.related-card::after { content:"→"; position:absolute; right:16px; bottom:14px; color:var(--accent); font-size:1.1rem; opacity:0; transform:translateX(-6px); transition:opacity .3s ease, transform .3s ease; }
+.related-card:hover { border-color:var(--border-strong); transform:translateY(-4px); box-shadow:0 14px 28px rgba(0,212,255,0.14); text-decoration:none !important; }
+.related-card:hover::after { opacity:1; transform:translateX(0); }
 .related-card .related-tag { font-size:.72rem; color:var(--accent); text-transform:uppercase; letter-spacing:.05em; }
-.related-card h3 { font-family:'Space Grotesk',sans-serif; font-size:.95rem; color:var(--text-primary); margin:8px 0 0; line-height:1.4; }
+.related-card h3 { font-family:'Space Grotesk',sans-serif; font-size:.95rem; color:var(--text-primary); margin:8px 0 0; line-height:1.4; transition:color .3s ease; }
+.related-card:hover h3 { color:var(--accent-soft); }
 </style>
 
 <script type="application/ld+json">
@@ -398,7 +401,7 @@
   <section class="intro-box">
     <span class="intro-emoji">🧠</span>
     <h2>Les conseils de prompting de 2023 sont obsolètes</h2>
-    <p>J'utilise Claude, GPT et Gemini en production depuis 18 mois, tous les jours, sur des tâches critiques (code client, articles, emails, agents autonomes). Voici les 6 choses qui ont fondamentalement changé dans ma façon de prompter. Pas du hype, du retour d'usage terrain.</p>
+    <p>J'utilise Claude, GPT et Gemini en production depuis 18 mois, tous les jours, sur des tâches critiques (code client, articles, emails, <a href="agents-ia-pme-guide-2026.html"><strong>agents autonomes</strong></a>). Voici les 6 choses qui ont fondamentalement changé dans ma façon de prompter. Pas du hype, du retour d'usage terrain.</p>
   </section>
 
   <nav class="toc">
@@ -475,7 +478,7 @@
       <div class="step-body">
         <h3>Le prompting par tools est le nouveau prompting par instructions</h3>
         <span class="step-tag">tools · agents</span>
-        <p>En 2026, un prompt efficace ne décrit pas un workflow, il définit des tools. Chaque tool = une action, une signature, une docstring claire. Le modèle choisit tout seul comment les combiner. C'est toute la philosophie derrière les agents : au lieu de dire « chercher sur Google, résumer, envoyer par email », tu définis search_web(query), summarize(text), send_email(to, subject, body), et tu laisses le modèle composer.</p>
+        <p>En 2026, un prompt efficace ne décrit pas un workflow, il définit des tools. Chaque tool = une action, une signature, une docstring claire. Le modèle choisit tout seul comment les combiner. C'est <a href="hermes-agent-update-juin-2026.html"><strong>toute la philosophie derrière les agents</strong></a> : au lieu de dire « chercher sur Google, résumer, envoyer par email », tu définis search_web(query), summarize(text), send_email(to, subject, body), et tu laisses le modèle composer.</p>
         <p class="muted">Le prompting par tools est plus court, plus précis, et plus robuste. Le modèle ne dévie pas de la spec parce que la spec est dans les signatures des tools, pas dans le texte libre.</p>
         <div class="callout warn">
           <div class="callout-label">⚠️ Erreur classique</div>

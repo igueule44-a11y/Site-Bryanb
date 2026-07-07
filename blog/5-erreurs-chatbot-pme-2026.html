@@ -359,10 +359,13 @@
 .related-section { padding: 48px 0 24px; }
 .related-title { font-family:'Space Grotesk',sans-serif; font-size:1.3rem; color:var(--text-primary); margin-bottom:20px; }
 .related-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; }
-.related-card { display:block; background:var(--bg-card); border:1px solid var(--border-soft); border-radius:12px; padding:18px; text-decoration:none; transition:border-color .2s; }
-.related-card:hover { border-color:var(--border-strong); }
+.related-card { display:block; position:relative; overflow:hidden; background:var(--bg-card); border:1px solid var(--border-soft); border-radius:12px; padding:18px; text-decoration:none !important; transition:transform .3s ease, border-color .3s ease, box-shadow .3s ease; }
+.related-card::after { content:"→"; position:absolute; right:16px; bottom:14px; color:var(--accent); font-size:1.1rem; opacity:0; transform:translateX(-6px); transition:opacity .3s ease, transform .3s ease; }
+.related-card:hover { border-color:var(--border-strong); transform:translateY(-4px); box-shadow:0 14px 28px rgba(0,212,255,0.14); text-decoration:none !important; }
+.related-card:hover::after { opacity:1; transform:translateX(0); }
 .related-card .related-tag { font-size:.72rem; color:var(--accent); text-transform:uppercase; letter-spacing:.05em; }
-.related-card h3 { font-family:'Space Grotesk',sans-serif; font-size:.95rem; color:var(--text-primary); margin:8px 0 0; line-height:1.4; }
+.related-card h3 { font-family:'Space Grotesk',sans-serif; font-size:.95rem; color:var(--text-primary); margin:8px 0 0; line-height:1.4; transition:color .3s ease; }
+.related-card:hover h3 { color:var(--accent-soft); }
 </style>
 
 <!-- Schema.org JSON-LD -->
@@ -496,7 +499,7 @@
   <section class="intro-box">
     <span class="intro-emoji">🚀</span>
     <h2>Le vrai sujet derrière le chatbot</h2>
-    <p>80% des chatbots PME déçoivent dans les 30 jours. Pas à cause de la techno. À cause de 5 erreurs de méthode que j'ai vues revenir sur chaque projet. Voici lesquelles, et comment les éviter avant de signer un devis.</p>
+    <p>80% des chatbots PME déçoivent dans les 30 jours. Pas à cause de la techno. À cause de 5 erreurs de méthode que j'ai vues revenir sur chaque projet. Voici lesquelles, et comment les éviter avant de signer un devis (notre <a href="chatbot-ia-pme-guide-2026.html"><strong>guide pour choisir et déployer un chatbot IA</strong></a> peut aider en amont).</p>
   </section>
 
   <nav class="toc" aria-label="Sommaire de l'article">
@@ -548,7 +551,7 @@
       <div class="step-body">
         <h3>Croire que l'IA va s'améliorer toute seule</h3>
         <span class="step-tag">le travail invisible</span>
-        <p>L'IA ne s'améliore pas toute seule. Elle s'améliore quand quelqu'un regarde les conversations, identifie les questions récurrentes qui n'ont pas eu de réponse correcte, et enrichit la base de connaissances.</p>
+        <p>L'IA ne s'améliore pas toute seule. Elle s'améliore quand quelqu'un regarde les conversations, identifie les questions récurrentes qui n'ont pas eu de réponse correcte, et <a href="maitriser-prompts-2026.html"><strong>enrichit la base de connaissances</strong></a>.</p>
         <p>C'est un travail. 30 minutes par semaine, idéalement. Pas 30 minutes pour configurer. 30 minutes pour lire 10 conversations, identifier 3 trous, et les combler.</p>
         <p>Si tu n'as pas le temps, ne lance pas de chatbot. Tu vas juste multiplier les frustrations et donner à tes visiteurs une raison de plus de quitter ton site.</p>
 
