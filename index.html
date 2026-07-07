@@ -80,10 +80,9 @@ h1.gradient-text{font-family:"Space Grotesk",sans-serif!important;letter-spacing
   30%{transform:translateY(-0.22em)}
 }
 
-.tw-line2-wave{
-  display:inline-block;
-  animation:tw-dot-bounce 1.2s ease-in-out infinite;
-  animation-delay:.45s;
+.tw-cursor-inline{
+  color:#8b5cf6;
+  animation:twBlink .7s step-end infinite;
 }
 
 .tw-word-outer{display:inline-block;overflow:hidden;vertical-align:text-bottom;position:relative;font-size:1.06em;margin-right:.2em}
@@ -304,7 +303,7 @@ footer{background:rgba(8,14,26,.85) !important;backdrop-filter:blur(8px)}
 
     <p class="font-heading text-[clamp(20px,3.5vw,40px)] font-semibold mt-6 mb-5 leading-snug reveal" id="hero-tagline">
       <span id="htw-prefix" class="gradient-text-line1"></span><span id="htw-word-outer" class="tw-word-outer"><span id="htw-word-track" class="tw-word-track"></span></span><span id="htw-suffix" class="gradient-text-suffix"></span><br/>
-      <span id="htw-line2" class="gradient-text-static tw-line2-wave"></span>
+      <span id="htw-line2" class="gradient-text-static"></span><span id="htw-line2-cursor" class="tw-cursor-inline">_</span>
     </p>
 
     <p class="text-[16px] font-light text-[#c2dae8] max-w-2xl mx-auto mb-10 leading-relaxed reveal" data-i18n="hero_desc">
@@ -821,7 +820,24 @@ function initHeroTagline(lang){
 
   prefixEl.textContent = data.prefix;
   suffixEl.innerHTML = '<span class="tw-dot gradient-text-suffix" style="animation-delay:0s">.</span><span class="tw-dot gradient-text-suffix" style="animation-delay:.15s">.</span><span class="tw-dot gradient-text-suffix" style="animation-delay:.3s">.</span>';
-  line2El.textContent = data.line2;
+
+  clearTimeout(window.__heroLine2Timeout);
+  const line2Text = data.line2;
+  let ci2 = 0, deleting2 = false;
+  function tickLine2(){
+    if(!deleting2){
+      line2El.textContent = line2Text.slice(0, ci2+1);
+      ci2++;
+      if(ci2 === line2Text.length){ window.__heroLine2Timeout = setTimeout(()=>{deleting2=true;tickLine2();}, 2200); return; }
+      window.__heroLine2Timeout = setTimeout(tickLine2, 55);
+    } else {
+      line2El.textContent = line2Text.slice(0, ci2-1);
+      ci2--;
+      if(ci2 === 0){ deleting2 = false; window.__heroLine2Timeout = setTimeout(tickLine2, 400); return; }
+      window.__heroLine2Timeout = setTimeout(tickLine2, 30);
+    }
+  }
+  tickLine2();
 
   const words = data.words;
   const outerEl = document.getElementById('htw-word-outer');
