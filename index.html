@@ -828,13 +828,13 @@ function initHeroTagline(lang){
     if(!deleting2){
       line2El.textContent = line2Text.slice(0, ci2+1);
       ci2++;
-      if(ci2 === line2Text.length){ window.__heroLine2Timeout = setTimeout(()=>{deleting2=true;tickLine2();}, 2200); return; }
-      window.__heroLine2Timeout = setTimeout(tickLine2, 55);
+      if(ci2 === line2Text.length){ window.__heroLine2Timeout = setTimeout(()=>{deleting2=true;tickLine2();}, 3200); return; }
+      window.__heroLine2Timeout = setTimeout(tickLine2, 110);
     } else {
       line2El.textContent = line2Text.slice(0, ci2-1);
       ci2--;
-      if(ci2 === 0){ deleting2 = false; window.__heroLine2Timeout = setTimeout(tickLine2, 400); return; }
-      window.__heroLine2Timeout = setTimeout(tickLine2, 30);
+      if(ci2 === 0){ deleting2 = false; window.__heroLine2Timeout = setTimeout(tickLine2, 700); return; }
+      window.__heroLine2Timeout = setTimeout(tickLine2, 65);
     }
   }
   tickLine2();
