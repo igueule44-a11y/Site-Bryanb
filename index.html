@@ -425,8 +425,7 @@ footer{background:rgba(8,14,26,.85) !important;backdrop-filter:blur(8px)}
   <div class="max-w-6xl mx-auto">
 
     <div class="text-center mb-14">
-      <p class="text-[11px] font-label font-semibold uppercase tracking-[.25em] text-[#7de8f7] mb-3 reveal" data-i18n="projects_overline">Projets</p>
-      <h2 class="font-heading text-[30px] md:text-[40px] font-bold gradient-text reveal pb-1" data-i18n="projects_title">Ce sur quoi je travaille</h2>
+      <h2 class="font-heading text-[30px] md:text-[40px] font-bold gradient-text reveal pb-1" data-i18n="projects_title">Projets</h2>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -496,7 +495,10 @@ footer{background:rgba(8,14,26,.85) !important;backdrop-filter:blur(8px)}
         </div>
         <div class="p-6">
           <div class="flex items-center justify-between mb-3">
-            <span class="text-[11px] font-semibold uppercase tracking-[.15em] text-[#7de8f7]" data-i18n="proj3_tag">SaaS</span>
+            <div class="flex items-center gap-2">
+              <span class="text-[11px] font-semibold uppercase tracking-[.15em] text-[#7de8f7]" data-i18n="proj3_tag">SaaS</span>
+              <span class="text-[10px] font-semibold uppercase tracking-wide text-[#ffb86b] border border-[rgba(255,184,107,.35)] rounded-full px-2 py-0.5" data-i18n="proj3_status">En développement</span>
+            </div>
             <span class="material-symbols-outlined text-[18px] text-[#00d4ff] group-hover:translate-x-1 transition-transform duration-300">arrow_outward</span>
           </div>
           <h3 class="font-heading text-[19px] font-bold text-[#f0f8ff] mb-2" data-i18n="proj3_title">PredictAI : prédictions de matchs de tennis par IA</h3>
@@ -606,10 +608,10 @@ const t = {
     svc5_title:"Influence Marketing",svc5_desc:"Partenariats créateurs, campagnes d'influence ciblées. Votre marque portée par les bonnes voix, au bon moment.",
     svc6_title:"Content Planning",svc6_desc:"1 mois de contenu prêt à publier. LinkedIn, Instagram, TikTok, YouTube, Facebook : planifié, rédigé et optimisé avec l'IA.",
     svc7_title:"Campagne UGC",svc7_desc:"Vidéos authentiques, vrais utilisateurs, vrai impact. Contenu natif qui convertit mieux que toute pub classique.",
-    projects_overline:"Projets",projects_title:"Ce sur quoi je travaille",
+    projects_title:"Projets",
     proj1_tag:"Site web",proj1_title:"Archive : découverte cinéma par émotions",proj1_desc:"Plateforme de découverte culturelle qui cartographie 4 812 films par sensations et concepts. Navigation émotionnelle, graphe sémantique et curation éditoriale, en beta publique.",
     proj2_tag:"Site web",proj2_title:"Nelly Orozco : site vitrine et CV interactif",proj2_desc:"Site one-page pour une Product Manager Coach à Madrid, chatbot IA intégré, réservation Calendly, design glassmorphism et animations au scroll.",
-    proj3_tag:"SaaS",proj3_title:"PredictAI : prédictions de matchs de tennis par IA",proj3_desc:"Plateforme d'analyse tennis par IA : probabilités de victoire, assistant conversationnel, données par surface et forme des joueurs. 84% de précision sur plus de 12 000 prédictions.",
+    proj3_tag:"SaaS",proj3_status:"En développement",proj3_title:"PredictAI : prédictions de matchs de tennis par IA",proj3_desc:"Plateforme d'analyse tennis par IA : probabilités de victoire, assistant conversationnel, données par surface et forme des joueurs. 84% de précision sur plus de 12 000 prédictions.",
     proj_active:"En cours",
     proj1_desc:"Plateforme multi-agents IA dédiée au marketing. Automatisez vos campagnes, gérez votre contenu et pilotez votre croissance depuis une seule interface.",
     proj2_desc:"Solution SaaS d'analyse vidéo pour le tennis. Tracking de performance, coaching à distance et données en temps réel pour joueurs et entraîneurs.",
@@ -653,10 +655,10 @@ const t = {
     svc5_title:"Influence Marketing",svc5_desc:"Creator partnerships, targeted influence campaigns. Your brand carried by the right voices, at the right time.",
     svc6_title:"Content Planning",svc6_desc:"1 month of content ready to publish. LinkedIn, Instagram, TikTok, YouTube, Facebook: planned, written and optimized with AI.",
     svc7_title:"UGC Campaign",svc7_desc:"Authentic videos, real users, real impact. Native content that converts better than any traditional ad.",
-    projects_overline:"Projects",projects_title:"What I'm working on",
+    projects_title:"Projects",
     proj1_tag:"Website",proj1_title:"Archive: Cinema discovery through emotions",proj1_desc:"Cultural discovery platform mapping 4,812 films by feelings and concepts. Emotional navigation, semantic graph and editorial curation, now in public beta.",
     proj2_tag:"Website",proj2_title:"Nelly Orozco: Portfolio & interactive CV",proj2_desc:"One-page site for a Product Manager Coach in Madrid: integrated AI chatbot, Calendly booking, glassmorphism design and scroll animations.",
-    proj3_tag:"SaaS",proj3_title:"PredictAI: AI-powered tennis match predictions",proj3_desc:"AI tennis analysis platform: win probabilities, conversational assistant, surface-specific data and player form. 84% accuracy across 12,000+ predictions.",
+    proj3_tag:"SaaS",proj3_status:"In development",proj3_title:"PredictAI: AI-powered tennis match predictions",proj3_desc:"AI tennis analysis platform: win probabilities, conversational assistant, surface-specific data and player form. 84% accuracy across 12,000+ predictions.",
     proj_active:"In progress",
     proj1_desc:"Multi-agent AI platform dedicated to marketing. Automate your campaigns, manage your content and drive your growth from a single interface.",
     proj2_desc:"SaaS video analysis solution for tennis. Performance tracking, remote coaching and real-time data for players and coaches.",
@@ -700,10 +702,10 @@ const t = {
     svc5_title:"Influence Marketing",svc5_desc:"Colaboraciones con creadores, campañas de influencia dirigidas. Tu marca en las voces correctas, en el momento adecuado.",
     svc6_title:"Content Planning",svc6_desc:"1 mes de contenido listo para publicar. LinkedIn, Instagram, TikTok, YouTube, Facebook: planificado, redactado y optimizado con IA.",
     svc7_title:"Campaña UGC",svc7_desc:"Videos auténticos, usuarios reales, impacto real. Contenido nativo que convierte mejor que cualquier anuncio tradicional.",
-    projects_overline:"Proyectos",projects_title:"En lo que trabajo",
+    projects_title:"Proyectos",
     proj1_tag:"Sitio web",proj1_title:"Archive: Descubrimiento de cine por emociones",proj1_desc:"Plataforma de descubrimiento cultural que mapea 4.812 películas por sensaciones y conceptos. Navegación emocional, grafo semántico y curaduría editorial, en beta pública.",
     proj2_tag:"Sitio web",proj2_title:"Nelly Orozco: Sitio vitrina y CV interactivo",proj2_desc:"Sitio one-page para una Product Manager Coach en Madrid: chatbot IA integrado, reserva Calendly, diseño glassmorphism y animaciones al hacer scroll.",
-    proj3_tag:"SaaS",proj3_title:"PredictAI: predicciones de partidos de tenis con IA",proj3_desc:"Plataforma de análisis de tenis con IA: probabilidades de victoria, asistente conversacional, datos por superficie y forma de los jugadores. 84% de precisión en más de 12 000 predicciones.",
+    proj3_tag:"SaaS",proj3_status:"En desarrollo",proj3_title:"PredictAI: predicciones de partidos de tenis con IA",proj3_desc:"Plataforma de análisis de tenis con IA: probabilidades de victoria, asistente conversacional, datos por superficie y forma de los jugadores. 84% de precisión en más de 12 000 predicciones.",
     proj_active:"En curso",
     proj1_desc:"Plataforma multi-agente IA dedicada al marketing. Automatiza tus campañas, gestiona tu contenido y pilota tu crecimiento desde una sola interfaz.",
     proj2_desc:"Solución SaaS de análisis de vídeo para el tenis. Seguimiento de rendimiento, coaching a distancia y datos en tiempo real para jugadores y entrenadores.",
