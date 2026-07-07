@@ -71,6 +71,13 @@ h1.gradient-text{font-family:"Space Grotesk",sans-serif!important;letter-spacing
   background-clip:text;
 }
 
+.gradient-text-word2{
+  background:linear-gradient(90deg,#5bb8ef 0%,#5588f2 45%,#8b5cf6 100%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+
 .tw-dot{
   display:inline-block;
   animation:tw-dot-bounce 1.2s ease-in-out infinite;
@@ -303,7 +310,7 @@ footer{background:rgba(8,14,26,.85) !important;backdrop-filter:blur(8px)}
 
     <p class="font-heading text-[clamp(20px,3.5vw,40px)] font-semibold mt-6 mb-5 leading-snug reveal" id="hero-tagline">
       <span id="htw-prefix" class="gradient-text-line1"></span><span id="htw-word-outer" class="tw-word-outer"><span id="htw-word-track" class="tw-word-track"></span></span><span id="htw-suffix" class="gradient-text-suffix"></span><br/>
-      <span id="htw-line2" class="gradient-text-static"></span><span id="htw-line2-cursor" class="tw-cursor-inline">_</span>
+      <span id="htw-line2-prefix" class="gradient-text-static"></span><span id="htw-word2-outer" class="tw-word-outer"><span id="htw-word2-track" class="tw-word-track"></span></span><span id="htw-line2-suffix" class="gradient-text-suffix"></span>
     </p>
 
     <p class="text-[16px] font-light text-[#c2dae8] max-w-2xl mx-auto mb-10 leading-relaxed reveal" data-i18n="hero_desc">
@@ -801,49 +808,28 @@ const t = {
 let currentLang = 'fr';
 
 const heroWordData = {
-  fr: {prefix:"Votre marque ", words:["avance","grandit","performe","rayonne","progresse","innove","accélère","s'impose"], suffix:"...", line2:"Même quand vous dormez."},
-  en: {prefix:"Your brand ", words:["moves forward","grows","performs","shines","progresses","innovates","accelerates","stands out"], suffix:"...", line2:"Even while you sleep."},
-  es: {prefix:"Tu marca ", words:["avanza","crece","rinde","brilla","progresa","innova","acelera","destaca"], suffix:"...", line2:"Incluso mientras duermes."}
+  fr: {
+    prefix:"Votre marque ", words:["avance","grandit","performe","rayonne","progresse","innove","accélère","s'impose"], suffix:"...",
+    line2prefix:"Même quand vous ", line2words:["dormez","voyagez","déconnectez","profitez"], line2suffix:"."
+  },
+  en: {
+    prefix:"Your brand ", words:["moves forward","grows","performs","shines","progresses","innovates","accelerates","stands out"], suffix:"...",
+    line2prefix:"Even while you ", line2words:["sleep","travel","disconnect","relax"], line2suffix:"."
+  },
+  es: {
+    prefix:"Tu marca ", words:["avanza","crece","rinde","brilla","progresa","innova","acelera","destaca"], suffix:"...",
+    line2prefix:"Incluso mientras ", line2words:["duermes","viajas","desconectas","disfrutas"], line2suffix:"."
+  }
 };
 
 function escapeHtmlWord(s){
   return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 }
 
-function initHeroTagline(lang){
-  const data = heroWordData[lang] || heroWordData.fr;
-  const prefixEl = document.getElementById('htw-prefix');
-  const suffixEl = document.getElementById('htw-suffix');
-  const line2El = document.getElementById('htw-line2');
-  const track = document.getElementById('htw-word-track');
-  if(!prefixEl || !suffixEl || !line2El || !track) return;
+function startWordRotator(outerEl, track, words, wordClass, intervalKey){
+  track.innerHTML = words.concat([words[0]]).map(w => '<span class="tw-word ' + wordClass + '">' + escapeHtmlWord(w) + '</span>').join('');
 
-  prefixEl.textContent = data.prefix;
-  suffixEl.innerHTML = '<span class="tw-dot gradient-text-suffix" style="animation-delay:0s">.</span><span class="tw-dot gradient-text-suffix" style="animation-delay:.15s">.</span><span class="tw-dot gradient-text-suffix" style="animation-delay:.3s">.</span>';
-
-  clearTimeout(window.__heroLine2Timeout);
-  const line2Text = data.line2;
-  let ci2 = 0, deleting2 = false;
-  function tickLine2(){
-    if(!deleting2){
-      line2El.textContent = line2Text.slice(0, ci2+1);
-      ci2++;
-      if(ci2 === line2Text.length){ window.__heroLine2Timeout = setTimeout(()=>{deleting2=true;tickLine2();}, 3200); return; }
-      window.__heroLine2Timeout = setTimeout(tickLine2, 110);
-    } else {
-      line2El.textContent = line2Text.slice(0, ci2-1);
-      ci2--;
-      if(ci2 === 0){ deleting2 = false; window.__heroLine2Timeout = setTimeout(tickLine2, 700); return; }
-      window.__heroLine2Timeout = setTimeout(tickLine2, 65);
-    }
-  }
-  tickLine2();
-
-  const words = data.words;
-  const outerEl = document.getElementById('htw-word-outer');
-  track.innerHTML = words.concat([words[0]]).map(w => '<span class="tw-word gradient-text-word">' + escapeHtmlWord(w) + '</span>').join('');
-
-  clearInterval(window.__heroWordInterval);
+  clearInterval(window[intervalKey]);
   let idx = 0;
   track.style.transition = 'none';
   track.style.transform = 'translateY(0)';
@@ -853,7 +839,7 @@ function initHeroTagline(lang){
   const step = Math.round(track.querySelector('.tw-word').getBoundingClientRect().height);
   outerEl.style.height = step + 'px';
 
-  window.__heroWordInterval = setInterval(()=>{
+  window[intervalKey] = setInterval(()=>{
     idx++;
     track.style.transform = 'translateY(-' + (idx*step) + 'px)';
     if(idx === words.length){
@@ -866,6 +852,27 @@ function initHeroTagline(lang){
       }, 650);
     }
   }, 2000);
+}
+
+function initHeroTagline(lang){
+  const data = heroWordData[lang] || heroWordData.fr;
+  const prefixEl = document.getElementById('htw-prefix');
+  const suffixEl = document.getElementById('htw-suffix');
+  const track = document.getElementById('htw-word-track');
+  const outerEl = document.getElementById('htw-word-outer');
+  const line2PrefixEl = document.getElementById('htw-line2-prefix');
+  const line2SuffixEl = document.getElementById('htw-line2-suffix');
+  const track2 = document.getElementById('htw-word2-track');
+  const outer2El = document.getElementById('htw-word2-outer');
+  if(!prefixEl || !suffixEl || !track || !line2PrefixEl || !line2SuffixEl || !track2) return;
+
+  prefixEl.textContent = data.prefix;
+  suffixEl.innerHTML = '<span class="tw-dot gradient-text-suffix" style="animation-delay:0s">.</span><span class="tw-dot gradient-text-suffix" style="animation-delay:.15s">.</span><span class="tw-dot gradient-text-suffix" style="animation-delay:.3s">.</span>';
+  line2PrefixEl.textContent = data.line2prefix;
+  line2SuffixEl.textContent = data.line2suffix;
+
+  startWordRotator(outerEl, track, data.words, 'gradient-text-word', '__heroWordInterval');
+  startWordRotator(outer2El, track2, data.line2words, 'gradient-text-word2', '__heroWord2Interval');
 }
 
 function setLanguage(lang) {
