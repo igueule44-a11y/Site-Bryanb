@@ -295,6 +295,14 @@
     .part > h2{font-size:clamp(20px, 5.5vw, 24px);}
     .callout{padding:16px 18px; margin:18px 0;}
   }
+
+.related-section { padding: 48px 0 24px; }
+.related-title { font-family:'Space Grotesk',sans-serif; font-size:1.3rem; color:var(--text-primary); margin-bottom:20px; }
+.related-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; }
+.related-card { display:block; background:var(--bg-card); border:1px solid var(--border-soft); border-radius:12px; padding:18px; text-decoration:none; transition:border-color .2s; }
+.related-card:hover { border-color:var(--border-strong); }
+.related-card .related-tag { font-size:.72rem; color:var(--accent); text-transform:uppercase; letter-spacing:.05em; }
+.related-card h3 { font-family:'Space Grotesk',sans-serif; font-size:.95rem; color:var(--text-primary); margin:8px 0 0; line-height:1.4; }
 </style>
 
 <script type="application/ld+json">
@@ -507,6 +515,16 @@
       <li><span class="rule-icon">🚀</span><div><h4>Transformer l'IA en système de travail quotidien</h4><p>L'IA ne remplace pas la stratégie. Elle accélère ceux qui savent déjà où ils veulent aller.</p></div></li>
     </ul>
   </section>
+  <section class="related-section">
+    <h2 class="related-title">Articles similaires</h2>
+    <div class="related-grid">
+      <a href="claude-design-2026.html" class="related-card"><span class="related-tag">Design IA</span><h3>Claude Design 2026 : ce qui a vraiment changé pour un builder solo</h3></a>
+      <a href="maitriser-prompts-2026.html" class="related-card"><span class="related-tag">Coulisses Omnyx</span><h3>Maîtriser ses prompts en 2026</h3></a>
+      <a href="ollama-cloud-claude-code-guide.html" class="related-card"><span class="related-tag">Automatisation</span><h3>Ollama Cloud × Claude Code : le setup complet</h3></a>
+    </div>
+  </section>
+
+
 
   <section class="closing">
     <h2>Envie d'intégrer l'IA à ta propre stratégie ?</h2>

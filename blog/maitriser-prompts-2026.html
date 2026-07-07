@@ -316,6 +316,14 @@
     .part > h2{font-size:clamp(20px, 5.5vw, 24px);}
     .callout{padding:16px 18px; margin:18px 0;}
   }
+
+.related-section { padding: 48px 0 24px; }
+.related-title { font-family:'Space Grotesk',sans-serif; font-size:1.3rem; color:var(--text-primary); margin-bottom:20px; }
+.related-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; }
+.related-card { display:block; background:var(--bg-card); border:1px solid var(--border-soft); border-radius:12px; padding:18px; text-decoration:none; transition:border-color .2s; }
+.related-card:hover { border-color:var(--border-strong); }
+.related-card .related-tag { font-size:.72rem; color:var(--accent); text-transform:uppercase; letter-spacing:.05em; }
+.related-card h3 { font-family:'Space Grotesk',sans-serif; font-size:.95rem; color:var(--text-primary); margin:8px 0 0; line-height:1.4; }
 </style>
 
 <script type="application/ld+json">
@@ -487,6 +495,16 @@
       <li><span class="rule-icon">💡</span><div><h4>Les exemples battent les instructions</h4><p>Montre, ne dis pas — few-shot > role prompt</p></div></li>
     </ul>
   </section>
+  <section class="related-section">
+    <h2 class="related-title">Articles similaires</h2>
+    <div class="related-grid">
+      <a href="claude-design-2026.html" class="related-card"><span class="related-tag">Design IA</span><h3>Claude Design 2026 : ce qui a vraiment changé pour un builder solo</h3></a>
+      <a href="google-ia-6-cas-usage.html" class="related-card"><span class="related-tag">Marketing digital</span><h3>6 cas d'usage Google IA qui changent la donne</h3></a>
+      <a href="making-of-deploiement-rate.html" class="related-card"><span class="related-tag">Coulisses Omnyx</span><h3>Le making-of d'un déploiement raté</h3></a>
+    </div>
+  </section>
+
+
 
   <section class="closing">
     <h2>Tu veux industrialiser les prompts de ton équipe ?</h2>

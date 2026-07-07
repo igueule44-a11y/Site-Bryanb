@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+<channel>
+  <title>Omnyx Agency : Blog</title>
+  <link>https://omnyx.agency/blog.html</link>
+  <description>Marketing IA, agents, automatisation : le blog d'Omnyx Agency.</description>
+  <language>fr</language>
+  <lastBuildDate>Mon, 06 Jul 2026 00:00:00 +0000</lastBuildDate>
+  <item>
+    <title>Claude Design 2026 : ce qui a vraiment changé pour un builder solo</title>
+    <link>https://omnyx.agency/blog/claude-design-2026.html</link>
+    <guid isPermaLink="true">https://omnyx.agency/blog/claude-design-2026.html</guid>
+    <pubDate>Mon, 06 Jul 2026 00:00:00 +0000</pubDate>
+    <description>Quota unifié, éditeur manuel, connecteurs, design systems : la mise à jour qui transforme Claude Design en vrai cockpit créatif.</description>
+  </item>
+  <item>
+    <title>Chatbot IA pour PME en 2026 : guide pour choisir et déployer le bon</title>
+    <link>https://omnyx.agency/blog/chatbot-ia-pme-guide-2026.html</link>
+    <guid isPermaLink="true">https://omnyx.agency/blog/chatbot-ia-pme-guide-2026.html</guid>
+    <pubDate>Wed, 08 Jul 2026 00:00:00 +0000</pubDate>
+    <description>Guide complet chatbot IA pour PME en 2026 : comparatif, coûts réels, cas concret France, et checklist 7 critères.</description>
+  </item>
+  <item>
+    <title>5 erreurs qui font rater un chatbot PME en 2026</title>
+    <link>https://omnyx.agency/blog/5-erreurs-chatbot-pme-2026.html</link>
+    <guid isPermaLink="true">https://omnyx.agency/blog/5-erreurs-chatbot-pme-2026.html</guid>
+    <pubDate>Sat, 04 Jul 2026 00:00:00 +0000</pubDate>
+    <description>5 erreurs qui font rater un chatbot PME en 2026 : guide terrain basé sur 20 déploiements.</description>
+  </item>
+  <item>
+    <title>6 cas d'usage Google IA qui changent la donne</title>
+    <link>https://omnyx.agency/blog/google-ia-6-cas-usage.html</link>
+    <guid isPermaLink="true">https://omnyx.agency/blog/google-ia-6-cas-usage.html</guid>
+    <pubDate>Fri, 03 Jul 2026 00:00:00 +0000</pubDate>
+    <description>6 cas d'usage concrets des outils Google IA qui changent la manière de créer, apprendre, vendre et travailler en 2026.</description>
+  </item>
+  <item>
+    <title>Maîtriser ses prompts en 2026</title>
+    <link>https://omnyx.agency/blog/maitriser-prompts-2026.html</link>
+    <guid isPermaLink="true">https://omnyx.agency/blog/maitriser-prompts-2026.html</guid>
+    <pubDate>Thu, 02 Jul 2026 00:00:00 +0000</pubDate>
+    <description>Les techniques de prompting qui marchent vraiment en 2026, basé sur 18 mois d'usage quotidien.</description>
+  </item>
+  <item>
+    <title>Agents IA pour PME : par où commencer en 2026</title>
+    <link>https://omnyx.agency/blog/agents-ia-pme-guide-2026.html</link>
+    <guid isPermaLink="true">https://omnyx.agency/blog/agents-ia-pme-guide-2026.html</guid>
+    <pubDate>Wed, 01 Jul 2026 00:00:00 +0000</pubDate>
+    <description>Guide pragmatique pour intégrer des agents IA dans une PME en 2026, basé sur 12 déploiements terrain.</description>
+  </item>
+  <item>
+    <title>Le making-of d'un déploiement raté</title>
+    <link>https://omnyx.agency/blog/making-of-deploiement-rate.html</link>
+    <guid isPermaLink="true">https://omnyx.agency/blog/making-of-deploiement-rate.html</guid>
+    <pubDate>Sat, 27 Jun 2026 00:00:00 +0000</pubDate>
+    <description>Retour d'expérience technique : comment un déploiement Vercel a tourné au fiasco malgré la simplicité apparente.</description>
+  </item>
+  <item>
+    <title>Ollama Cloud × Claude Code : le setup complet</title>
+    <link>https://omnyx.agency/blog/ollama-cloud-claude-code-guide.html</link>
+    <guid isPermaLink="true">https://omnyx.agency/blog/ollama-cloud-claude-code-guide.html</guid>
+    <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+    <description>Tutoriel pas-à-pas pour connecter Ollama Cloud à Claude Code et Hermès Agent.</description>
+  </item>
+  <item>
+    <title>La grosse update d'Hermès Agent</title>
+    <link>https://omnyx.agency/blog/hermes-agent-update-juin-2026.html</link>
+    <guid isPermaLink="true">https://omnyx.agency/blog/hermes-agent-update-juin-2026.html</guid>
+    <pubDate>Tue, 23 Jun 2026 00:00:00 +0000</pubDate>
+    <description>iMessage, agents en arrière-plan, profils spécialisés, Skills Hub : décryptage de la grosse update.</description>
+  </item>
+</channel>
+</rss>

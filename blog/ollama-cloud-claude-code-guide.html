@@ -295,6 +295,14 @@
     .part > h2{font-size:clamp(20px, 5.5vw, 24px);}
     .callout{padding:16px 18px; margin:18px 0;}
   }
+
+.related-section { padding: 48px 0 24px; }
+.related-title { font-family:'Space Grotesk',sans-serif; font-size:1.3rem; color:var(--text-primary); margin-bottom:20px; }
+.related-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; }
+.related-card { display:block; background:var(--bg-card); border:1px solid var(--border-soft); border-radius:12px; padding:18px; text-decoration:none; transition:border-color .2s; }
+.related-card:hover { border-color:var(--border-strong); }
+.related-card .related-tag { font-size:.72rem; color:var(--accent); text-transform:uppercase; letter-spacing:.05em; }
+.related-card h3 { font-family:'Space Grotesk',sans-serif; font-size:.95rem; color:var(--text-primary); margin:8px 0 0; line-height:1.4; }
 </style>
 
 <script type="application/ld+json">
@@ -460,6 +468,16 @@ Alias : alias cc-ollama='ANTHROPIC_BASE_URL=... ANTHROPIC_API_KEY=... claude'</p
       <li><span class="rule-icon">🚀</span><div><h4>Code React complexe</h4><p>Reste sur Claude Sonnet, ne descends pas</p></div></li>
     </ul>
   </section>
+  <section class="related-section">
+    <h2 class="related-title">Articles similaires</h2>
+    <div class="related-grid">
+      <a href="hermes-agent-update-juin-2026.html" class="related-card"><span class="related-tag">Marketing digital</span><h3>La grosse update d'Hermès Agent</h3></a>
+      <a href="chatbot-ia-pme-guide-2026.html" class="related-card"><span class="related-tag">Chatbots</span><h3>Chatbot IA pour PME en 2026 : guide pour choisir et déployer le bon</h3></a>
+      <a href="making-of-deploiement-rate.html" class="related-card"><span class="related-tag">Coulisses Omnyx</span><h3>Le making-of d'un déploiement raté</h3></a>
+    </div>
+  </section>
+
+
 
   <section class="closing">
     <h2>Tu veux qu'on te configure tout ça pour ton stack ?</h2>
