@@ -760,7 +760,7 @@ function setLanguage(lang) {
     const key = el.dataset.i18n;
     if (!t[lang][key]) return;
     if (t[lang][key].includes('\n')) {
-      el.innerHTML = t[lang][key].replace(/\n/g, '<br class="hidden sm:block"/>');
+      el.innerHTML = t[lang][key].replace(/\n/g, '<br class="sm:hidden"/>');
     } else {
       el.textContent = t[lang][key];
     }
