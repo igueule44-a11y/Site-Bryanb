@@ -159,6 +159,8 @@ footer{background:rgba(8,14,26,.85) !important;backdrop-filter:blur(8px)}
   50% {background-position:-10% center;}
   100%{background-position:-10% center;}
 }
+.hero-break{display:none}
+@media(max-width:480px){.hero-break{display:inline}}
 @media(max-width:480px){
   /* Chatbot bubble: réduit pour ne pas manger le contenu */
   #bc-bubble{right:14px;bottom:14px;width:48px;height:48px}
@@ -255,7 +257,7 @@ footer{background:rgba(8,14,26,.85) !important;backdrop-filter:blur(8px)}
   <div class="relative z-10 text-center px-5 max-w-5xl mx-auto">
 
     <p class="font-heading text-[clamp(20px,3.5vw,40px)] font-semibold text-[#f0f8ff] mt-6 mb-5 leading-snug reveal" data-i18n="hero_tagline">
-      Votre marque avance.<br class="sm:hidden"/> Même quand vous dormez.
+      Votre marque avance.<br class="hero-break"/> Même quand vous dormez.
     </p>
 
     <p class="text-[16px] font-light text-[#c2dae8] max-w-2xl mx-auto mb-10 leading-relaxed reveal" data-i18n="hero_desc">
@@ -760,7 +762,7 @@ function setLanguage(lang) {
     const key = el.dataset.i18n;
     if (!t[lang][key]) return;
     if (t[lang][key].includes('\n')) {
-      el.innerHTML = t[lang][key].replace(/\n/g, '<br class="sm:hidden"/>');
+      el.innerHTML = t[lang][key].replace(/\n/g, '<br class="hero-break"/>');
     } else {
       el.textContent = t[lang][key];
     }
