@@ -310,7 +310,7 @@ footer{background:rgba(8,14,26,.85) !important;backdrop-filter:blur(8px)}
 
     <p class="font-heading text-[clamp(20px,3.5vw,40px)] font-semibold mt-6 mb-5 leading-snug reveal" id="hero-tagline">
       <span id="htw-prefix" class="gradient-text-line1"></span><span id="htw-word-outer" class="tw-word-outer"><span id="htw-word-track" class="tw-word-track"></span></span><span id="htw-suffix" class="gradient-text-suffix"></span><br/>
-      <span id="htw-line2-prefix" class="gradient-text-static"></span><span id="htw-word2-outer" class="tw-word-outer"><span id="htw-word2-track" class="tw-word-track"></span></span><span id="htw-line2-suffix" class="gradient-text-suffix"></span>
+      <span id="htw-line2-prefix" class="gradient-text-static"></span><span id="htw-word2-outer" class="tw-word-outer"><span id="htw-word2-track" class="tw-word-track"></span></span>
     </p>
 
     <p class="text-[16px] font-light text-[#c2dae8] max-w-2xl mx-auto mb-10 leading-relaxed reveal" data-i18n="hero_desc">
@@ -810,15 +810,15 @@ let currentLang = 'fr';
 const heroWordData = {
   fr: {
     prefix:"Votre marque ", words:["avance","grandit","performe","rayonne","progresse","innove","accélère","s'impose"], suffix:"...",
-    line2prefix:"Même quand vous ", line2words:["dormez","voyagez","coupez","profitez"], line2suffix:"."
+    line2prefix:"Même quand vous ", line2words:["dormez.","voyagez.","coupez.","profitez."]
   },
   en: {
     prefix:"Your brand ", words:["moves forward","grows","performs","shines","progresses","innovates","accelerates","stands out"], suffix:"...",
-    line2prefix:"Even while you ", line2words:["sleep","travel","unplug","relax"], line2suffix:"."
+    line2prefix:"Even while you ", line2words:["sleep.","travel.","unplug.","relax."]
   },
   es: {
     prefix:"Tu marca ", words:["avanza","crece","rinde","brilla","progresa","innova","acelera","destaca"], suffix:"...",
-    line2prefix:"Incluso mientras ", line2words:["duermes","viajas","paras","disfrutas"], line2suffix:"."
+    line2prefix:"Incluso mientras ", line2words:["duermes.","viajas.","paras.","disfrutas."]
   }
 };
 
@@ -866,15 +866,13 @@ function initHeroTagline(lang){
   const track = document.getElementById('htw-word-track');
   const outerEl = document.getElementById('htw-word-outer');
   const line2PrefixEl = document.getElementById('htw-line2-prefix');
-  const line2SuffixEl = document.getElementById('htw-line2-suffix');
   const track2 = document.getElementById('htw-word2-track');
   const outer2El = document.getElementById('htw-word2-outer');
-  if(!prefixEl || !suffixEl || !track || !line2PrefixEl || !line2SuffixEl || !track2) return;
+  if(!prefixEl || !suffixEl || !track || !line2PrefixEl || !track2) return;
 
   prefixEl.textContent = data.prefix;
   suffixEl.innerHTML = '<span class="tw-dot gradient-text-suffix" style="animation-delay:0s">.</span><span class="tw-dot gradient-text-suffix" style="animation-delay:.15s">.</span><span class="tw-dot gradient-text-suffix" style="animation-delay:.3s">.</span>';
   line2PrefixEl.textContent = data.line2prefix;
-  line2SuffixEl.textContent = data.line2suffix;
 
   const rotator1 = createWordRotator(outerEl, track, data.words, 'gradient-text-word');
   const rotator2 = createWordRotator(outer2El, track2, data.line2words, 'gradient-text-word2');
