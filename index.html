@@ -80,6 +80,12 @@ h1.gradient-text{font-family:"Space Grotesk",sans-serif!important;letter-spacing
   30%{transform:translateY(-0.22em)}
 }
 
+.tw-line2-wave{
+  display:inline-block;
+  animation:tw-dot-bounce 1.2s ease-in-out infinite;
+  animation-delay:.45s;
+}
+
 .tw-word-outer{display:inline-block;overflow:hidden;vertical-align:text-bottom;position:relative;font-size:1.06em;margin-right:.2em}
 .tw-word-track{display:flex;flex-direction:column;transition:transform .6s cubic-bezier(.65,0,.35,1)}
 .tw-word{line-height:1.3;display:block;white-space:nowrap}
@@ -298,7 +304,7 @@ footer{background:rgba(8,14,26,.85) !important;backdrop-filter:blur(8px)}
 
     <p class="font-heading text-[clamp(20px,3.5vw,40px)] font-semibold mt-6 mb-5 leading-snug reveal" id="hero-tagline">
       <span id="htw-prefix" class="gradient-text-line1"></span><span id="htw-word-outer" class="tw-word-outer"><span id="htw-word-track" class="tw-word-track"></span></span><span id="htw-suffix" class="gradient-text-suffix"></span><br/>
-      <span id="htw-line2" class="gradient-text-static"></span>
+      <span id="htw-line2" class="gradient-text-static tw-line2-wave"></span>
     </p>
 
     <p class="text-[16px] font-light text-[#c2dae8] max-w-2xl mx-auto mb-10 leading-relaxed reveal" data-i18n="hero_desc">
@@ -796,9 +802,9 @@ const t = {
 let currentLang = 'fr';
 
 const heroWordData = {
-  fr: {prefix:"Votre marque ", words:["avance","grandit","performe","rayonne"], suffix:"...", line2:"Même quand vous dormez."},
-  en: {prefix:"Your brand ", words:["moves forward","grows","performs","shines"], suffix:"...", line2:"Even while you sleep."},
-  es: {prefix:"Tu marca ", words:["avanza","crece","rinde","brilla"], suffix:"...", line2:"Incluso mientras duermes."}
+  fr: {prefix:"Votre marque ", words:["avance","grandit","performe","rayonne","progresse","innove","accélère","s'impose"], suffix:"...", line2:"Même quand vous dormez."},
+  en: {prefix:"Your brand ", words:["moves forward","grows","performs","shines","progresses","innovates","accelerates","stands out"], suffix:"...", line2:"Even while you sleep."},
+  es: {prefix:"Tu marca ", words:["avanza","crece","rinde","brilla","progresa","innova","acelera","destaca"], suffix:"...", line2:"Incluso mientras duermes."}
 };
 
 function escapeHtmlWord(s){
