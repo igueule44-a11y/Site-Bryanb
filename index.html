@@ -42,6 +42,31 @@ h1.gradient-text{font-family:"Space Grotesk",sans-serif!important;letter-spacing
   background-clip:text;
   animation:gradient-shimmer 7s ease-in-out infinite alternate;
 }
+
+.gradient-text-static{
+  background:linear-gradient(90deg,#3ccbf4 0%,#5588f2 100%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+
+.gradient-text-line1{
+  background:linear-gradient(90deg,#ffffff 0%,#ffffff 65%,#cdeaf9 100%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+
+.gradient-text-word{
+  background:linear-gradient(90deg,#ffffff 0%,#bfe6f7 40%,#5bb8ef 75%,#5588f2 100%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+
+.tw-word-outer{display:inline-block;overflow:hidden;vertical-align:text-bottom;position:relative;font-size:1.06em;margin-right:.2em}
+.tw-word-track{display:flex;flex-direction:column;transition:transform .6s cubic-bezier(.65,0,.35,1)}
+.tw-word{line-height:1.3;display:block;white-space:nowrap}
 @keyframes gradient-shimmer{0%{background-position:left center}100%{background-position:right center}}
 
 .mesh-bg{
@@ -255,8 +280,9 @@ footer{background:rgba(8,14,26,.85) !important;backdrop-filter:blur(8px)}
   <div class="mesh-bg"></div>
   <div class="relative z-10 text-center px-5 max-w-5xl mx-auto">
 
-    <p class="font-heading text-[clamp(20px,3.5vw,40px)] font-semibold text-[#f0f8ff] mt-6 mb-5 leading-snug reveal" data-i18n="hero_tagline">
-      Votre marque avance.<br/>Même quand vous dormez.
+    <p class="font-heading text-[clamp(20px,3.5vw,40px)] font-semibold mt-6 mb-5 leading-snug reveal" id="hero-tagline">
+      <span id="htw-prefix" class="gradient-text-line1"></span><span id="htw-word-outer" class="tw-word-outer"><span id="htw-word-track" class="tw-word-track"></span></span><span id="htw-suffix" class="gradient-text-line1"></span><br/>
+      <span id="htw-line2" class="gradient-text-static"></span>
     </p>
 
     <p class="text-[16px] font-light text-[#c2dae8] max-w-2xl mx-auto mb-10 leading-relaxed reveal" data-i18n="hero_desc">
@@ -612,7 +638,7 @@ const t = {
     nav_about:"À propos",nav_services:"Services",nav_projects:"Projets",
     nav_blog:"Blog",nav_contact:"Contact",nav_cv:"Expériences",nav_cta:"Prendre un RDV",
     hero_overline:"Agence IA",
-    hero_tagline:"Votre marque avance.\nMême quand vous dormez.",
+    hero_tagline:"Votre marque avance...\nMême quand vous dormez.",
     hero_desc:"<span class='inline-flex flex-wrap items-center justify-center'><span class='inline-block px-3 py-1 mx-1 my-1 rounded-full bg-[rgba(0,212,255,.08)] border border-[rgba(0,212,255,.25)] text-[#7de8f7] text-[13px] font-medium tracking-wide align-middle'>Marketing Digital</span><span class='inline-block px-3 py-1 mx-1 my-1 rounded-full bg-[rgba(0,212,255,.08)] border border-[rgba(0,212,255,.25)] text-[#7de8f7] text-[13px] font-medium tracking-wide align-middle'>Sites web</span><span class='inline-block px-3 py-1 mx-1 my-1 rounded-full bg-[rgba(0,212,255,.08)] border border-[rgba(0,212,255,.25)] text-[#7de8f7] text-[13px] font-medium tracking-wide align-middle'>Agents IA</span><span class='inline-block px-3 py-1 mx-1 my-1 rounded-full bg-[rgba(0,212,255,.08)] border border-[rgba(0,212,255,.25)] text-[#7de8f7] text-[13px] font-medium tracking-wide align-middle'>Chatbots</span></span>\n<span class='block mt-6 mb-12 text-[#f0f8ff] font-bold text-[17px]'>Vos systèmes travaillent.\nVos clients arrivent.</span>",
     hero_cta_primary:"Prendre un RDV",hero_cta_secondary:"Voir mes services",
     about_overline:"À propos",about_title:"Marketing. IA. Résultats.",
@@ -659,7 +685,7 @@ const t = {
     nav_about:"About",nav_services:"Services",nav_projects:"Projects",
     nav_blog:"Blog",nav_contact:"Contact",nav_cv:"Experience",nav_cta:"Book a call",
     hero_overline:"AI Agency",
-    hero_tagline:"Your brand moves forward.\nEven while you sleep.",
+    hero_tagline:"Your brand moves forward...\nEven while you sleep.",
     hero_desc:"<span class='inline-flex flex-wrap items-center justify-center'><span class='inline-block px-3 py-1 mx-1 my-1 rounded-full bg-[rgba(0,212,255,.08)] border border-[rgba(0,212,255,.25)] text-[#7de8f7] text-[13px] font-medium tracking-wide align-middle'>Digital Marketing</span><span class='inline-block px-3 py-1 mx-1 my-1 rounded-full bg-[rgba(0,212,255,.08)] border border-[rgba(0,212,255,.25)] text-[#7de8f7] text-[13px] font-medium tracking-wide align-middle'>Websites</span><span class='inline-block px-3 py-1 mx-1 my-1 rounded-full bg-[rgba(0,212,255,.08)] border border-[rgba(0,212,255,.25)] text-[#7de8f7] text-[13px] font-medium tracking-wide align-middle'>AI Agents</span><span class='inline-block px-3 py-1 mx-1 my-1 rounded-full bg-[rgba(0,212,255,.08)] border border-[rgba(0,212,255,.25)] text-[#7de8f7] text-[13px] font-medium tracking-wide align-middle'>Chatbots</span></span>\n<span class='block mt-6 mb-12 text-[#f0f8ff] font-bold text-[17px]'>Your systems work.\nYour clients arrive.</span>",
     hero_cta_primary:"Book a call",hero_cta_secondary:"See my services",
     about_overline:"About",about_title:"Marketing. AI. Results.",
@@ -706,7 +732,7 @@ const t = {
     nav_about:"Sobre mí",nav_services:"Servicios",nav_projects:"Proyectos",
     nav_blog:"Blog",nav_contact:"Contacto",nav_cv:"Experiencia",nav_cta:"Reservar llamada",
     hero_overline:"Agencia IA",
-    hero_tagline:"Tu marca avanza.\nIncluso mientras duermes.",
+    hero_tagline:"Tu marca avanza...\nIncluso mientras duermes.",
     hero_desc:"<span class='inline-flex flex-wrap items-center justify-center'><span class='inline-block px-3 py-1 mx-1 my-1 rounded-full bg-[rgba(0,212,255,.08)] border border-[rgba(0,212,255,.25)] text-[#7de8f7] text-[13px] font-medium tracking-wide align-middle'>Marketing Digital</span><span class='inline-block px-3 py-1 mx-1 my-1 rounded-full bg-[rgba(0,212,255,.08)] border border-[rgba(0,212,255,.25)] text-[#7de8f7] text-[13px] font-medium tracking-wide align-middle'>Sitios web</span><span class='inline-block px-3 py-1 mx-1 my-1 rounded-full bg-[rgba(0,212,255,.08)] border border-[rgba(0,212,255,.25)] text-[#7de8f7] text-[13px] font-medium tracking-wide align-middle'>Agentes IA</span><span class='inline-block px-3 py-1 mx-1 my-1 rounded-full bg-[rgba(0,212,255,.08)] border border-[rgba(0,212,255,.25)] text-[#7de8f7] text-[13px] font-medium tracking-wide align-middle'>Chatbots</span></span>\n<span class='block mt-6 mb-12 text-[#f0f8ff] font-bold text-[17px]'>Tus sistemas trabajan.\nTus clientes llegan.</span>",
     hero_cta_primary:"Reservar llamada",hero_cta_secondary:"Ver mis servicios",
     about_overline:"Sobre mí",about_title:"Marketing. IA. Resultados.",
@@ -753,6 +779,57 @@ const t = {
 
 let currentLang = 'fr';
 
+const heroWordData = {
+  fr: {prefix:"Votre marque ", words:["avance","grandit","performe","rayonne"], suffix:"...", line2:"Même quand vous dormez."},
+  en: {prefix:"Your brand ", words:["moves forward","grows","performs","shines"], suffix:"...", line2:"Even while you sleep."},
+  es: {prefix:"Tu marca ", words:["avanza","crece","rinde","brilla"], suffix:"...", line2:"Incluso mientras duermes."}
+};
+
+function escapeHtmlWord(s){
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function initHeroTagline(lang){
+  const data = heroWordData[lang] || heroWordData.fr;
+  const prefixEl = document.getElementById('htw-prefix');
+  const suffixEl = document.getElementById('htw-suffix');
+  const line2El = document.getElementById('htw-line2');
+  const track = document.getElementById('htw-word-track');
+  if(!prefixEl || !suffixEl || !line2El || !track) return;
+
+  prefixEl.textContent = data.prefix;
+  suffixEl.textContent = data.suffix;
+  line2El.textContent = data.line2;
+
+  const words = data.words;
+  const outerEl = document.getElementById('htw-word-outer');
+  track.innerHTML = words.concat([words[0]]).map(w => '<span class="tw-word gradient-text-word">' + escapeHtmlWord(w) + '</span>').join('');
+
+  clearInterval(window.__heroWordInterval);
+  let idx = 0;
+  track.style.transition = 'none';
+  track.style.transform = 'translateY(0)';
+  void track.offsetWidth;
+  track.style.transition = '';
+
+  const step = Math.round(track.querySelector('.tw-word').getBoundingClientRect().height);
+  outerEl.style.height = step + 'px';
+
+  window.__heroWordInterval = setInterval(()=>{
+    idx++;
+    track.style.transform = 'translateY(-' + (idx*step) + 'px)';
+    if(idx === words.length){
+      setTimeout(()=>{
+        track.style.transition = 'none';
+        idx = 0;
+        track.style.transform = 'translateY(0)';
+        void track.offsetWidth;
+        track.style.transition = '';
+      }, 650);
+    }
+  }, 2000);
+}
+
 function setLanguage(lang) {
   currentLang = lang;
   document.documentElement.lang = lang;
@@ -762,6 +839,8 @@ function setLanguage(lang) {
     if (!t[lang][key]) return;
     el.innerHTML = t[lang][key].replace(/\n/g, '<br/>');
   });
+
+  initHeroTagline(lang);
 
   document.querySelectorAll('[data-placeholder-i18n]').forEach(el => {
     const key = el.dataset.placeholderI18n;
