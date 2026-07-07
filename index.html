@@ -44,7 +44,7 @@ h1.gradient-text{font-family:"Space Grotesk",sans-serif!important;letter-spacing
 }
 
 .gradient-text-static{
-  background:linear-gradient(90deg,#3ccbf4 0%,#5588f2 100%);
+  background:linear-gradient(90deg,#3ccbf4 0%,#5588f2 55%,#8b5cf6 100%);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
   background-clip:text;
@@ -58,17 +58,26 @@ h1.gradient-text{font-family:"Space Grotesk",sans-serif!important;letter-spacing
 }
 
 .gradient-text-word{
-  background:linear-gradient(90deg,#ffffff 0%,#bfe6f7 40%,#5bb8ef 75%,#5588f2 100%);
+  background:linear-gradient(90deg,#ffffff 0%,#bfe6f7 30%,#5bb8ef 55%,#5588f2 80%,#8b5cf6 100%);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
   background-clip:text;
 }
 
 .gradient-text-suffix{
-  background:linear-gradient(90deg,#5588f2 0%,#3ccbf4 100%);
+  background:linear-gradient(90deg,#5588f2 0%,#8b5cf6 100%);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
   background-clip:text;
+}
+
+.tw-dot{
+  display:inline-block;
+  animation:tw-dot-bounce 1.2s ease-in-out infinite;
+}
+@keyframes tw-dot-bounce{
+  0%,60%,100%{transform:translateY(0)}
+  30%{transform:translateY(-0.22em)}
 }
 
 .tw-word-outer{display:inline-block;overflow:hidden;vertical-align:text-bottom;position:relative;font-size:1.06em;margin-right:.2em}
@@ -805,7 +814,7 @@ function initHeroTagline(lang){
   if(!prefixEl || !suffixEl || !line2El || !track) return;
 
   prefixEl.textContent = data.prefix;
-  suffixEl.textContent = data.suffix;
+  suffixEl.innerHTML = '<span class="tw-dot gradient-text-suffix" style="animation-delay:0s">.</span><span class="tw-dot gradient-text-suffix" style="animation-delay:.15s">.</span><span class="tw-dot gradient-text-suffix" style="animation-delay:.3s">.</span>';
   line2El.textContent = data.line2;
 
   const words = data.words;
