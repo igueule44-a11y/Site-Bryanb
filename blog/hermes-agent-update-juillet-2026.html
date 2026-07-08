@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow">
+<meta name="description" content="Mixture of Agents, Slash Learn, Journey, vibe coding avancé : la mise à jour d'Hermès Agent qui transforme un assistant IA en véritable collaborateur.">
+<title>La nouvelle grosse update d'Hermès Agent | Omnyx</title>
+<link rel="canonical" href="https://omnyx.agency/blog/hermes-agent-update-juillet-2026.html">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="La nouvelle grosse update d'Hermès Agent">
+<meta property="og:description" content="Mixture of Agents, Slash Learn, Journey, vibe coding avancé : la mise à jour d'Hermès Agent qui transforme un assistant IA en véritable collaborateur.">
+<meta property="og:url" content="https://omnyx.agency/blog/hermes-agent-update-juillet-2026.html">
+<meta property="og:image" content="https://omnyx.agency/assets/logo-omnyx-v3.png">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Omnyx">
+
+<style>
+  :root{
+    --bg-darkest:#060c18;
+    --bg-main:#080e1a;
+    --bg-card:#0d1a2e;
+    --accent:#00d4ff;
+    --accent-soft:#7de8f7;
+    --text-primary:#f0f8ff;
+    --text-secondary:#c2dae8;
+    --border-soft:rgba(0,212,255,0.16);
+    --border-strong:rgba(0,212,255,0.32);
+    --warn:#ff8a65;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation:none !important; transition:none !important;}
+  }
+
+  body{
+    margin:0;
+    background:var(--bg-main);
+    color:var(--text-primary);
+    font-family:'Inter', system-ui, sans-serif;
+    line-height:1.65;
+    font-size:16px;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1, h2, h3{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:600;
+    line-height:1.2;
+    margin:0;
+  }
+
+  a{color:var(--accent); text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  a:focus-visible, button:focus-visible{outline:2px solid var(--accent); outline-offset:3px;}
+
+  .wrap{max-width:760px; margin:0 auto; padding:0 24px;}
+
+  /* Header */
+  header.site-header{
+    background:var(--bg-darkest);
+    border-bottom:1px solid var(--border-soft);
+    position:sticky; top:0; z-index:50;
+  }
+  .site-header-inner{
+    max-width:760px; margin:0 auto; padding:12px 24px;
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+  }
+  .logo-link{
+    font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:17px;
+    color:var(--text-primary); display:flex; align-items:center;
+  }
+  .logo-link img{height:50px; width:auto; display:block;}
+  .logo-link:hover{text-decoration:none; color:var(--accent-soft);}
+  .btn-cta{
+    background:var(--accent); color:#02131f; font-weight:600; font-size:14px;
+    padding:9px 18px; border-radius:8px; white-space:nowrap;
+    transition:background 0.15s ease, transform 0.15s ease;
+  }
+  .btn-cta:hover{background:var(--accent-soft); text-decoration:none; transform:translateY(-1px);}
+
+  /* Back link */
+  .back-link{
+    display:inline-flex; align-items:center; gap:6px;
+    font-size:13.5px; color:var(--text-secondary); margin:28px 0 0;
+  }
+  .back-link:hover{color:var(--accent-soft); text-decoration:none;}
+
+  /* Hero */
+  .hero{padding:24px 0 32px;}
+  .eyebrow-row{
+    display:flex; gap:10px; align-items:center; flex-wrap:wrap;
+    font-size:13px; color:var(--text-secondary); margin-bottom:18px;
+    font-weight:500; letter-spacing:0.02em;
+  }
+  .eyebrow-row .dot{color:var(--border-strong);}
+  .eyebrow-tag{color:var(--accent-soft);}
+
+  h1.title{
+    font-size:clamp(28px, 5vw, 40px);
+    color:var(--text-primary);
+    margin-bottom:18px;
+  }
+  h1.title em{
+    display:block; font-style:normal; color:var(--accent-soft); font-weight:500;
+    font-size:0.85em; margin-top:4px;
+  }
+
+  .subtitle{
+    font-size:17px; color:var(--text-secondary); max-width:600px; margin-bottom:32px;
+  }
+
+  /* Stats box */
+  .stats-box{
+    background:var(--bg-card);
+    border:1px solid var(--border-soft);
+    border-radius:14px;
+    padding:24px 28px;
+  }
+  .stats-box .stats-label{
+    font-size:14px; color:var(--text-secondary); margin-bottom:14px;
+    display:flex; gap:8px; align-items:center;
+  }
+  .stats-list{list-style:none; margin:0; padding:0; display:grid; gap:10px;}
+  .stats-list li{
+    font-size:15px; color:var(--text-primary); display:flex; gap:10px; align-items:baseline;
+  }
+  .stats-list li .arrow{color:var(--accent); flex-shrink:0;}
+  .stats-list strong{color:var(--accent-soft); font-weight:600;}
+
+  /* Intro box */
+  .intro-box{
+    margin:36px 0 48px;
+    background:linear-gradient(135deg, var(--bg-card), var(--bg-darkest));
+    border:1px solid var(--border-strong);
+    border-radius:16px;
+    padding:32px 28px;
+  }
+  .intro-box .intro-emoji{font-size:22px; margin-bottom:10px; display:block;}
+  .intro-box h2{font-size:21px; color:var(--text-primary); margin-bottom:12px;}
+  .intro-box p{color:var(--text-secondary); margin:0; font-size:15.5px;}
+
+  /* TOC nav */
+  .toc{
+    margin:0 0 56px;
+    background:var(--bg-card);
+    border:1px solid var(--border-soft);
+    border-radius:14px;
+    padding:22px 26px;
+  }
+  .toc-label{font-size:13px; color:var(--text-secondary); margin-bottom:14px; font-weight:600; text-transform:uppercase; letter-spacing:0.05em;}
+  .toc ol{list-style:none; margin:0; padding:0; display:grid; gap:9px;}
+  .toc ol li a{
+    display:flex; gap:10px; color:var(--text-primary); font-size:14.5px; padding:2px 0;
+  }
+  .toc ol li a:hover{color:var(--accent-soft); text-decoration:none;}
+  .toc ol li a .num{color:var(--accent); font-family:'JetBrains Mono', monospace; font-size:13px; flex-shrink:0;}
+
+  /* Parts */
+  .part{margin-bottom:64px;}
+  .part-eyebrow{
+    font-size:13px; font-weight:700; letter-spacing:0.08em; color:var(--accent);
+    margin-bottom:10px; display:flex; align-items:center; gap:8px;
+  }
+  .part > h2{font-size:clamp(22px, 4vw, 28px); margin-bottom:22px;}
+  .part > h2 em{display:block; font-style:normal; color:var(--text-secondary); font-weight:500; font-size:0.7em; margin-top:6px;}
+
+  .part p{color:var(--text-primary); margin:0 0 18px; font-size:15.5px;}
+  .part p.muted{color:var(--text-secondary);}
+
+  /* Callout boxes */
+  .callout{
+    border-radius:12px; padding:20px 22px; margin:22px 0;
+    border:1px solid var(--border-soft);
+    background:var(--bg-card);
+  }
+  .callout .callout-label{
+    font-size:13px; font-weight:700; margin-bottom:8px; display:flex; gap:8px; align-items:center;
+  }
+  .callout p{margin:0; font-size:14.5px; color:var(--text-secondary); white-space:pre-wrap;}
+  .callout.warn{border-color:rgba(255,138,101,0.35);}
+  .callout.warn .callout-label{color:var(--warn);}
+  .callout.tip .callout-label{color:var(--accent-soft);}
+  .callout.action{background:linear-gradient(135deg, var(--bg-card), var(--bg-darkest)); border-color:var(--border-strong);}
+  .callout.action .callout-label{color:var(--accent);}
+  .callout.compare .callout-label{color:var(--accent-soft);}
+  .callout.compare p strong{color:var(--text-primary); font-weight:600;}
+
+  /* Step cards */
+  .step{
+    display:grid; grid-template-columns:64px 1fr; gap:20px;
+    margin-bottom:44px;
+  }
+  .step-num{
+    font-family:'Space Grotesk', sans-serif; font-size:34px; font-weight:700;
+    color:var(--accent-soft); opacity:0.55; line-height:1;
+  }
+  .step-body h3{font-size:19px; color:var(--text-primary); margin-bottom:6px;}
+  .step-tag{
+    font-size:12.5px; color:var(--text-secondary); font-family:'JetBrains Mono', monospace;
+    margin-bottom:14px; display:block;
+  }
+  .step-body p{color:var(--text-primary); margin:0 0 14px; font-size:15.5px;}
+  .step-body p.muted{color:var(--text-secondary);}
+
+  /* Rules list */
+  .rules{list-style:none; margin:0; padding:0; display:grid; gap:18px;}
+  .rules li{
+    display:grid; grid-template-columns:28px 1fr; gap:14px;
+    background:var(--bg-card); border:1px solid var(--border-soft); border-radius:12px;
+    padding:18px 20px;
+  }
+  .rule-icon{color:var(--accent); font-size:17px;}
+  .rules h4{margin:0 0 6px; font-size:15.5px; color:var(--text-primary); font-family:'Inter', sans-serif; font-weight:600;}
+  .rules p{margin:0; font-size:14px; color:var(--text-secondary);}
+
+  /* Closing CTA */
+  .closing{margin:64px 0 0;}
+  .closing > h2{font-size:clamp(22px, 4vw, 28px); margin-bottom:14px;}
+  .closing > p{color:var(--text-secondary); font-size:15.5px; margin-bottom:32px; max-width:560px;}
+
+  .closing-cta-final{
+    background:linear-gradient(135deg, var(--bg-card), var(--bg-darkest));
+    border:1px solid var(--border-strong); border-radius:16px;
+    padding:30px 28px; text-align:center;
+  }
+  .closing-cta-final .btn-big{
+    display:inline-block; background:var(--accent); color:#02131f; font-weight:600;
+    font-size:15px; padding:13px 28px; border-radius:9px; margin-bottom:10px;
+    transition:background 0.15s ease, transform 0.15s ease;
+  }
+  .closing-cta-final .btn-big:hover{background:var(--accent-soft); text-decoration:none; transform:translateY(-1px);}
+  .closing-cta-final .fine-print{font-size:13px; color:var(--text-secondary); margin:0;}
+
+  /* Footer */
+  footer.site-footer{
+    border-top:1px solid var(--border-soft);
+    margin-top:72px;
+    padding:32px 0 48px;
+  }
+  .footer-name{font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:15px; color:var(--text-primary); margin-bottom:4px;}
+  .footer-meta{font-size:13px; color:var(--text-secondary); margin-bottom:18px;}
+  .footer-links{display:flex; gap:18px; flex-wrap:wrap; font-size:13.5px;}
+  /* Mobile */
+  @media(max-width:768px){
+    .wrap{padding:0 18px;}
+    h1.title{margin-bottom:14px;}
+    .subtitle{font-size:16px; margin-bottom:26px;}
+    .eyebrow-row{font-size:12px; margin-bottom:14px;}
+    .stats-box{padding:20px 22px;}
+    .stats-list li{font-size:14.5px; gap:8px;}
+    .intro-box{margin:28px 0 40px; padding:26px 22px;}
+    .intro-box h2{font-size:19px;}
+    .intro-box p{font-size:15px;}
+    .toc{margin:0 0 44px; padding:20px 22px;}
+    .toc-label{margin-bottom:12px;}
+    .toc ol li a{font-size:14px;}
+    .part{margin-bottom:52px;}
+    .part > h2{margin-bottom:20px;}
+    .step{grid-template-columns:48px 1fr; gap:14px; margin-bottom:36px;}
+    .step-num{font-size:26px;}
+    .step-body h3{font-size:17.5px; margin-bottom:8px;}
+    .step-tag{font-size:11.5px; margin-bottom:12px;}
+    .step-body p{font-size:15px; margin:0 0 14px;}
+    .callout{padding:18px 20px; margin:20px 0;}
+    .callout p{font-size:14px; line-height:1.7;}
+    .rules{gap:14px;}
+    .rules li{padding:16px 18px; gap:12px; grid-template-columns:24px 1fr;}
+    .rules h4{font-size:15px;}
+    .rules p{font-size:13.5px; line-height:1.65;}
+    .closing > p{font-size:15px;}
+    .closing-cta-final{padding:26px 22px;}
+    .closing-cta-final .btn-big{font-size:14.5px; padding:12px 24px;}
+    .site-header-inner{padding:10px 18px;}
+    .logo-link img{height:50px;}
+    .btn-cta{font-size:13px; padding:8px 14px;}
+    .back-link{font-size:13px; margin:20px 0 0;}
+  }
+  @media(max-width:540px){
+    .step{grid-template-columns:1fr; gap:6px; margin-bottom:32px;}
+    .step-num{font-size:22px; opacity:0.5;}
+    .stats-box{padding:18px 20px;}
+    .intro-box{padding:22px 20px; margin:24px 0 36px;}
+    .part{margin-bottom:44px;}
+    .part > h2{font-size:clamp(20px, 5.5vw, 24px);}
+    .callout{padding:16px 18px; margin:18px 0;}
+  }
+
+.related-section { padding: 48px 0 24px; }
+.related-title { font-family:'Space Grotesk',sans-serif; font-size:1.3rem; color:var(--text-primary); margin-bottom:20px; }
+.related-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; }
+.related-card { display:block; position:relative; overflow:hidden; background:var(--bg-card); border:1px solid var(--border-soft); border-radius:12px; padding:18px; text-decoration:none !important; transition:transform .3s ease, border-color .3s ease, box-shadow .3s ease; }
+.related-card::after { content:"→"; position:absolute; right:16px; bottom:14px; color:var(--accent); font-size:1.1rem; opacity:0; transform:translateX(-6px); transition:opacity .3s ease, transform .3s ease; }
+.related-card:hover { border-color:var(--border-strong); transform:translateY(-4px); box-shadow:0 14px 28px rgba(0,212,255,0.14); text-decoration:none !important; }
+.related-card:hover::after { opacity:1; transform:translateX(0); }
+.related-card .related-tag { font-size:.72rem; color:var(--accent); text-transform:uppercase; letter-spacing:.05em; }
+.related-card h3 { font-family:'Space Grotesk',sans-serif; font-size:.95rem; color:var(--text-primary); margin:8px 0 0; line-height:1.4; transition:color .3s ease; }
+.related-card:hover h3 { color:var(--accent-soft); }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "La nouvelle grosse update d'Hermès Agent",
+  "description": "Mixture of Agents, Slash Learn, Journey, vibe coding avancé : la mise à jour d'Hermès Agent qui transforme un assistant IA en véritable collaborateur.",
+  "datePublished": "2026-07-08",
+  "dateModified": "2026-07-08",
+  "author": {
+    "@type": "Person",
+    "name": "Bryan Blaevoet",
+    "url": "https://www.linkedin.com/in/bryanblaevoet/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Omnyx",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://omnyx.agency/assets/logo-omnyx-v3.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://omnyx.agency/blog/hermes-agent-update-juillet-2026.html"
+  },
+  "wordCount": 1363,
+  "timeRequired": "PT7M",
+  "articleSection": "Automatisation",
+  "keywords": "Décryptage IA, Agents IA, Hermès Agent",
+  "inLanguage": "fr-FR"
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="logo-link" href="../index.html"><img src="../assets/logo-omnyx-original-nav.png" alt="Omnyx"></a>
+    <a class="btn-cta" href="../index.html#contact">Prendre un RDV</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <a class="back-link" href="../blog.html">← Retour au blog</a>
+
+  <section class="hero">
+    <div class="eyebrow-row">
+      <span class="eyebrow-tag">Décryptage IA</span>
+      <span class="dot">·</span>
+      <span>Agents IA</span>
+      <span class="dot">·</span>
+      <span>Lecture 7 min</span>
+    </div>
+
+    <h1 class="title">La nouvelle grosse update d'Hermès Agent
+      <em>Quand l'agent IA devient une équipe, pas un outil</em>
+    </h1>
+
+    <p class="subtitle">Mixture of Agents, Slash Learn, mémoire visuelle Journey, vibe coding avancé : cette mise à jour fait passer Hermès du statut d'assistant solo à celui de véritable écosystème d'agents spécialisés.</p>
+
+    <div class="stats-box">
+      <div class="stats-label">💡 Ce que tu retiens en 30 secondes :</div>
+      <ul class="stats-list">
+        <li><span class="arrow">→</span><span><strong>Mixture of Agents</strong> : plusieurs modèles analysent ta question en parallèle, un orchestrateur en fait la synthèse</span></li>
+        <li><span class="arrow">→</span><span><strong>Slash Learn</strong> transforme un article, un tweet ou un workflow en compétence réutilisable, en une commande</span></li>
+        <li><span class="arrow">→</span><span><strong>Journey</strong> donne une carte visuelle de tout ce que l'agent a appris et retenu</span></li>
+        <li><span class="arrow">→</span><span>Le <strong>vibe coding</strong> et les profils spécialisés (dont Fable 5) rapprochent l'agent d'une vraie équipe technique</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="intro-box">
+    <span class="intro-emoji">🧠</span>
+    <h2>Le seuil que les agents IA viennent de franchir</h2>
+    <p>Il y a deux semaines, je racontais comment <a href="hermes-agent-update-juin-2026.html">Hermès Agent</a> passait du statut de démo à celui de poste de travail : accessible depuis iMessage, capable de tourner en arrière-plan, avec des profils spécialisés. Cette nouvelle mise à jour ne se contente pas d'ajouter des fonctions : elle change la nature même de l'agent. On ne parle plus d'un assistant qui exécute des tâches, mais d'un système qui réfléchit à plusieurs, apprend en continu et se spécialise tout seul.</p>
+  </section>
+
+  <nav class="toc">
+    <div class="toc-label">Au sommaire</div>
+    <ol>
+      <li><a href="#n1"><span class="num">01</span><span>Mixture of Agents : plusieurs IA qui réfléchissent ensemble</span></a></li>
+      <li><a href="#n2"><span class="num">02</span><span>Slash Learn : transformer une info en compétence</span></a></li>
+      <li><a href="#n3"><span class="num">03</span><span>Journey : la carte mémoire de ton agent</span></a></li>
+      <li><a href="#n4"><span class="num">04</span><span>Le vibe coding devient sérieux</span></a></li>
+      <li><a href="#n5"><span class="num">05</span><span>Profils spécialisés et Fable 5</span></a></li>
+      <li><a href="#bilan"><span class="num">→</span><span>Le bilan</span></a></li>
+    </ol>
+  </nav>
+
+  <section class="part">
+
+    <div class="step" id="n1">
+      <div class="step-num">01</div>
+      <div class="step-body">
+        <h3>Plusieurs IA qui réfléchissent avant de répondre</h3>
+        <span class="step-tag">multi-modèle · orchestration</span>
+        <p>Au lieu d'interroger un seul modèle, Hermès envoie maintenant la question à plusieurs modèles différents en parallèle. Chacun l'analyse avec son propre raisonnement, puis un modèle orchestrateur récupère toutes les réponses et en construit une synthèse finale.</p>
+        <p class="muted">Sur une question business un peu ouverte (positionnement, arbitrage stratégique, diagnostic complexe), la différence se sent : tu ne reçois plus l'avis d'un seul « cerveau », mais une synthèse qui a déjà confronté plusieurs angles avant d'arriver jusqu'à toi.</p>
+        <p class="muted">Concrètement, ça change la façon de poser la question. Avant, tu formulais un prompt pour un modèle précis, en connaissant ses forces et ses angles morts. Maintenant tu poses la question une fois, et c'est l'orchestrateur qui va chercher les perspectives complémentaires à ta place, un peu comme si tu consultais plusieurs collègues avant de trancher au lieu de demander l'avis d'une seule personne.</p>
+        <div class="callout tip">
+          <div class="callout-label">💡 Le bon réflexe</div>
+          <p>Réserve le Mixture of Agents aux décisions qui comptent vraiment (stratégie, arbitrage, diagnostic complexe). Sur une tâche simple, ça ajoute de la latence pour rien.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="step" id="n2">
+      <div class="step-num">02</div>
+      <div class="step-body">
+        <h3>Transformer n'importe quelle source en compétence</h3>
+        <span class="step-tag">apprentissage · skills</span>
+        <p>Avec une seule commande, Hermès peut apprendre à partir d'un article, d'un tweet, d'une documentation ou d'une tâche déjà réalisée. Tu ne réexpliques plus le contexte à chaque fois : tu donnes la source, l'agent l'analyse et la transforme en compétence réutilisable.</p>
+        <p class="muted">Avant, une méthode intéressante repérée sur X impliquait de la copier, d'écrire un prompt, de réexpliquer le contexte. Maintenant tu donnes le lien et Hermès en fait une skill. C'est la différence entre un outil qu'on reprogramme sans arrêt et un collaborateur qui capitalise ce qu'il apprend.</p>
+        <p class="muted">Ces apprentissages tournent désormais sur des modèles moins coûteux en interne : ton agent continue de progresser sans faire exploser ta note d'API.</p>
+        <p class="muted">Ce qui change vraiment, c'est la logique d'accumulation. Un assistant classique repart de zéro à chaque conversation : tu réexpliques ton contexte, tes préférences, ta méthode. Avec Slash Learn, chaque source apprise devient une brique permanente. Après quelques semaines d'usage, ton agent a déjà digéré une bonne partie de ta documentation interne, tes process, tes façons de faire, sans que tu aies eu à les taper une par une dans un prompt.</p>
+      </div>
+    </div>
+
+    <div class="step" id="n3">
+      <div class="step-num">03</div>
+      <div class="step-body">
+        <h3>Une carte visuelle de tout ce que l'agent a appris</h3>
+        <span class="step-tag">mémoire · Journey</span>
+        <p>La nouvelle vue Journey affiche les compétences créées, les souvenirs enregistrés et les connexions entre les différentes connaissances de l'agent. Ce n'est plus une boîte noire : tu vois concrètement ce qu'il sait, comment il l'a appris, et comment ça s'articule.</p>
+        <p class="muted">Un vrai agent ne doit pas seulement répondre, il doit se construire une mémoire de tes objectifs, tes habitudes et tes méthodes de travail. Plus tu l'utilises, plus cette carte s'enrichit, et plus l'agent devient adapté à toi, pas à un utilisateur générique.</p>
+        <p class="muted">C'est aussi un outil de contrôle. Sans cette vue, la mémoire d'un agent reste une boîte opaque : tu ne sais jamais vraiment ce qu'il a retenu ni pourquoi il répond d'une certaine façon sur un sujet donné. Avec Journey, tu peux repérer une compétence obsolète, un souvenir qui n'a plus lieu d'être, ou une connexion qui part dans une mauvaise direction, et corriger le tir avant que ça pollue les réponses suivantes.</p>
+      </div>
+    </div>
+
+    <div class="step" id="n4">
+      <div class="step-num">04</div>
+      <div class="step-body">
+        <h3>Le vibe coding devient un vrai environnement de dev</h3>
+        <span class="step-tag">développement · code</span>
+        <p>Hermès gère maintenant les changements de code, les diffs, les commits et les pull requests directement depuis l'interface. On se rapproche d'un environnement de développement assisté par IA, plutôt que d'un simple générateur de snippets.</p>
+        <p class="muted">Tu peux lui demander de construire une application complète (interface, prototype, mini-outil interne) et suivre chaque étape comme tu le ferais avec un développeur junior en autonomie. L'IA ne génère plus juste du code, elle participe au processus de création.</p>
+        <div class="callout warn">
+          <div class="callout-label">⚠️ Le garde-fou</div>
+          <p>Suivre les diffs et valider chaque commit reste indispensable, même quand l'agent travaille en autonomie. Le vibe coding accélère la production, il ne remplace pas une relecture avant de merger, surtout sur du code qui touche à des données clients ou à de la production.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="step" id="n5">
+      <div class="step-num">05</div>
+      <div class="step-body">
+        <h3>Des agents spécialisés plutôt qu'un généraliste unique</h3>
+        <span class="step-tag">multi-agent · Fable 5</span>
+        <p>Plutôt qu'un seul agent qui fait tout, tu peux désormais créer plusieurs profils spécialisés : un pour coder, un pour la recherche, un pour l'analyse. Un profil dédié à Fable 5 vient s'ajouter pour les tâches complexes à exécuter.</p>
+        <div class="callout action">
+          <div class="callout-label">⚙️ La logique à retenir</div>
+          <p>Questions ouvertes et arbitrages → Mixture of Agents. Tâches complexes à exécuter → Fable 5. L'un réfléchit, l'autre construit. C'est cette répartition qui fait gagner du temps au quotidien, pas juste la puissance brute d'un modèle.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="part" id="bilan">
+    <div class="part-eyebrow">→ LE BILAN</div>
+    <h2>On ne parle plus d'un agent<em>On parle d'un système d'exploitation personnel</em></h2>
+    <p>Cette mise à jour confirme une tendance de fond : le futur des agents IA ne sera probablement pas un chatbot unique toujours plus puissant. Ce sera un écosystème de modèles et de compétences qui s'organise autour de tes objectifs, avec une mémoire qui évolue avec le temps. Pour un entrepreneur ou un builder solo, le changement est énorme.</p>
+    <ul class="rules">
+      <li><span class="rule-icon">🎯</span><div><h4>Avant : un outil qu'on reprogramme</h4><p>Tu expliques le contexte à chaque fois, tu recommences, tu changes d'outil selon la tâche.</p></div></li>
+      <li><span class="rule-icon">⚙️</span><div><h4>Maintenant : un système qui capitalise</h4><p>L'agent apprend une fois, garde la compétence en mémoire, et la réutilise sans que tu aies à répéter.</p></div></li>
+      <li><span class="rule-icon">💡</span><div><h4>Demain : ton propre système d'exploitation</h4><p>Plusieurs agents spécialisés, orchestrés autour de tes objectifs, qui s'améliorent avec le temps passé à travailler avec eux.</p></div></li>
+    </ul>
+    <p>Pour un solo founder ou une petite équipe, ça vaut la peine de le prendre au sérieux. Tu n'as pas besoin de reproduire toute la panoplie (Mixture of Agents, Slash Learn, profils spécialisés) du jour au lendemain. Le bon point de départ, c'est de choisir une seule friction récurrente dans ton activité (le tri des leads, la veille concurrentielle, le reporting) et de construire un premier agent spécialisé dessus. Une fois qu'il tourne et qu'il capitalise ce qu'il apprend, tu en ajoutes un deuxième.</p>
+    <p>La vraie question n'est plus « quel est le meilleur modèle IA ? ». Elle devient : quel système d'agents vas-tu construire autour de tes objectifs ?</p>
+  </section>
+
+  <section class="related-section">
+    <h2 class="related-title">Articles similaires</h2>
+    <div class="related-grid">
+      <a href="hermes-agent-update-juin-2026.html" class="related-card"><span class="related-tag">Marketing digital</span><h3>La grosse update d'Hermès Agent</h3></a>
+      <a href="ollama-cloud-claude-code-guide.html" class="related-card"><span class="related-tag">Automatisation</span><h3>Ollama Cloud × Claude Code : le setup complet</h3></a>
+      <a href="agents-ia-pme-guide-2026.html" class="related-card"><span class="related-tag">Marketing digital</span><h3>Agents IA pour PME : par où commencer en 2026</h3></a>
+    </div>
+  </section>
+
+  <section class="closing">
+    <h2>Tu veux construire ton propre système d'agents ?</h2>
+    <p>On peut structurer ça ensemble : quels agents, quelles compétences, quelle orchestration pour ton activité. 30 minutes suffisent pour poser les bases.</p>
+
+    <div class="closing-cta-final">
+      <a class="btn-big" href="../index.html#contact">Prendre un RDV</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-name">Omnyx Agency</div>
+    <div class="footer-meta">Marketing, IA &amp; automation · France</div>
+    <div class="footer-links">
+      <a href="../index.html">Site</a>
+      <a href="../blog.html">Blog</a>
+      <a href="../index.html#contact">Contact</a>
+      <a href="https://x.com/OmnyxAgency" target="_blank" rel="noopener">X</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
