@@ -335,7 +335,7 @@ footer{background:rgba(8,14,26,.85) !important;backdrop-filter:blur(8px)}
       <a href="#process"    class="text-[12px] font-medium text-[#c2dae8] hover:text-[#f0f8ff] transition-colors tracking-[.15em] uppercase" data-i18n="nav_method">Méthode</a>
       <a href="blog.html"   class="text-[12px] font-medium text-[#7de8f7] hover:text-[#00d4ff] transition-colors tracking-[.15em] uppercase" data-i18n="nav_blog">Blog</a>
       <a href="#contact"    class="text-[12px] font-medium text-[#c2dae8] hover:text-[#f0f8ff] transition-colors tracking-[.15em] uppercase" data-i18n="nav_contact">Contact</a>
-      <a href="cv.html"     class="text-[12px] font-medium text-[#7de8f7] hover:text-[#00d4ff] transition-colors tracking-[.15em] uppercase" data-i18n="nav_cv">Expériences</a>
+      <a href="cv.html"     class="text-[12px] font-medium text-[#c2dae8] hover:text-[#f0f8ff] transition-colors tracking-[.15em] uppercase" data-i18n="nav_cv">Expériences</a>
     </div>
 
     <div class="flex items-center gap-4">
@@ -361,7 +361,7 @@ footer{background:rgba(8,14,26,.85) !important;backdrop-filter:blur(8px)}
     <a href="#process"    class="text-[13px] font-medium text-[#c2dae8] uppercase tracking-[.15em]" data-i18n="nav_method">Méthode</a>
     <a href="blog.html"   class="text-[13px] font-medium text-[#7de8f7] uppercase tracking-[.15em]" data-i18n="nav_blog">Blog</a>
     <a href="#contact"    class="text-[13px] font-medium text-[#c2dae8] uppercase tracking-[.15em]" data-i18n="nav_contact">Contact</a>
-    <a href="cv.html" class="text-[13px] font-medium text-[#7de8f7] uppercase tracking-[.15em]" data-i18n="nav_cv">Expériences</a>
+    <a href="cv.html" class="text-[13px] font-medium text-[#c2dae8] uppercase tracking-[.15em]" data-i18n="nav_cv">Expériences</a>
     <div class="flex items-center gap-3 pt-3 border-t border-[rgba(0,212,255,.08)]">
       <button class="lang-btn active text-[#c2dae8] text-[13px] font-semibold" data-lang="fr" onclick="setLanguage('fr')">FR</button>
       <span class="text-[#c2dae8] opacity-30">·</span>
@@ -1110,9 +1110,10 @@ footer{background:rgba(8,14,26,.85) !important;backdrop-filter:blur(8px)}
           </ul>
 
           <div class="flex flex-col gap-3 mt-3 pt-6 border-t border-[rgba(0,212,255,.12)]">
-            <a href="https://calendly.com/bryan-blaevoet/nouvelle-reunion" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-[14px] text-[#c2dae8] hover:text-[#00d4ff] transition-colors">
+            <a href="https://calendly.com/bryan-blaevoet/nouvelle-reunion" target="_blank" rel="noopener"
+               class="inline-flex items-center justify-center gap-2 bg-[#00d4ff] text-[#060c18] text-[13px] font-semibold tracking-[.10em] uppercase py-4 px-6 rounded-xl shadow-[0_0_20px_rgba(0,212,255,0.30)] hover:shadow-[0_0_28px_rgba(0,212,255,0.55)] hover:-translate-y-px transition-all duration-300">
               <span class="material-symbols-outlined text-[18px]">calendar_month</span>
-              <span data-i18n="audit_cal">Réserver directement sur Calendly</span>
+              <span data-i18n="audit_cal">Réserver mon audit gratuit</span>
             </a>
           </div>
         </div>
@@ -1145,8 +1146,8 @@ footer{background:rgba(8,14,26,.85) !important;backdrop-filter:blur(8px)}
                         data-placeholder-i18n="form_message_placeholder" placeholder="Ex : je passe 10h/semaine en tâches manuelles..."></textarea>
             </div>
             <button type="submit"
-                    class="w-full bg-[#00d4ff] text-[#060c18] text-[13px] font-semibold tracking-[.10em] uppercase py-4 rounded-xl shadow-[0_0_20px_rgba(0,212,255,0.30)] hover:shadow-[0_0_28px_rgba(0,212,255,0.55)] hover:-translate-y-px transition-all duration-300"
-                    data-i18n="form_submit">Réserver mon audit gratuit</button>
+                    class="w-full border border-[rgba(0,212,255,.4)] text-[#e4f3fb] text-[13px] font-semibold tracking-[.10em] uppercase py-4 rounded-xl hover:bg-[rgba(0,212,255,.08)] hover:border-[#00d4ff] hover:text-[#00d4ff] hover:-translate-y-px transition-all duration-300"
+                    data-i18n="form_submit">Envoyer ma demande</button>
             <p class="font-mono text-[10px] uppercase tracking-[.15em] text-[#8ab4cc] text-center" data-i18n="audit_note">Réponse sous 24h · Sans engagement</p>
           </form>
         </div>
@@ -1270,7 +1271,7 @@ const t = {
     form_email_placeholder:"votre@email.com",
     form_company:"Entreprise",form_company_placeholder:"Nom de votre société",
     form_message:"Votre principal défi marketing",form_message_placeholder:"Ex : je passe 10h/semaine en tâches manuelles...",
-    form_submit:"Réserver mon audit gratuit",
+    form_submit:"Envoyer ma demande",
     nav_method:"Méthode",
     method_overline:"Notre méthode",method_title:"Un processus clair, un résultat mesurable.",
     method_subtitle:"Quatre étapes pour passer d'un marketing artisanal à un système intelligent qui performe en autonomie.",
@@ -1289,7 +1290,7 @@ const t = {
     audit_title:'Prêt à transformer votre marketing en <span class="gradient-text">système autonome</span> ?',
     audit_desc:"Réservez 30 minutes avec moi. J'analyse votre stack actuelle et vous repartez avec un plan d'action concret, que l'on travaille ensemble ou non.",
     audit_pt1:"Audit personnalisé de votre stack marketing",audit_pt2:"Plan d'action priorisé sur 90 jours",audit_pt3:"Estimation de ROI et de gains de temps",audit_pt4:"Sans engagement, sans coût caché",
-    audit_cal:"Réserver directement sur Calendly",audit_note:"Réponse sous 24h · Sans engagement",
+    audit_cal:"Réserver mon audit gratuit",audit_note:"Réponse sous 24h · Sans engagement",
     problem_overline:"Le constat",problem_title:"Vous travaillez plus dur, pas plus malin.",
     problem_subtitle:"La plupart des marques perdent des heures, des leads et de l'argent à cause de processus marketing manuels, déconnectés et impossibles à scaler.",
     problem1_title:"Des heures perdues en tâches manuelles",problem1_desc:"Vous publiez, relancez, segmentez, copiez-collez. Le marketing mange votre temps au lieu de générer du résultat.",
@@ -1364,7 +1365,7 @@ const t = {
     form_email_placeholder:"your@email.com",
     form_company:"Company",form_company_placeholder:"Your company name",
     form_message:"Your main marketing challenge",form_message_placeholder:"E.g. I spend 10h/week on manual tasks...",
-    form_submit:"Book my free audit",
+    form_submit:"Send my request",
     nav_method:"Method",
     method_overline:"Our method",method_title:"A clear process, a measurable result.",
     method_subtitle:"Four steps to move from artisanal marketing to an intelligent system that performs on autopilot.",
@@ -1383,7 +1384,7 @@ const t = {
     audit_title:'Ready to turn your marketing into an <span class="gradient-text">autonomous system</span>?',
     audit_desc:"Book 30 minutes with me. I analyze your current stack and you leave with a concrete action plan, whether we work together or not.",
     audit_pt1:"Personalized audit of your marketing stack",audit_pt2:"Prioritized 90-day action plan",audit_pt3:"ROI and time-savings estimate",audit_pt4:"No commitment, no hidden costs",
-    audit_cal:"Book directly on Calendly",audit_note:"Reply within 24h · No commitment",
+    audit_cal:"Book my free audit",audit_note:"Reply within 24h · No commitment",
     problem_overline:"The reality",problem_title:"You work harder, not smarter.",
     problem_subtitle:"Most brands lose hours, leads and money to manual, disconnected marketing processes that can't scale.",
     problem1_title:"Hours lost on manual tasks",problem1_desc:"You post, follow up, segment, copy-paste. Marketing eats your time instead of generating results.",
@@ -1458,7 +1459,7 @@ const t = {
     form_email_placeholder:"tu@email.com",
     form_company:"Empresa",form_company_placeholder:"Nombre de tu empresa",
     form_message:"Tu principal reto de marketing",form_message_placeholder:"Ej: paso 10h/semana en tareas manuales...",
-    form_submit:"Reservar mi auditoría gratis",
+    form_submit:"Enviar mi solicitud",
     nav_method:"Método",
     method_overline:"Nuestro método",method_title:"Un proceso claro, un resultado medible.",
     method_subtitle:"Cuatro etapas para pasar de un marketing artesanal a un sistema inteligente que rinde en autonomía.",
@@ -1477,7 +1478,7 @@ const t = {
     audit_title:'¿Listo para transformar tu marketing en un <span class="gradient-text">sistema autónomo</span>?',
     audit_desc:"Reserva 30 minutos conmigo. Analizo tu stack actual y te vas con un plan de acción concreto, trabajemos juntos o no.",
     audit_pt1:"Auditoría personalizada de tu stack de marketing",audit_pt2:"Plan de acción priorizado a 90 días",audit_pt3:"Estimación de ROI y ahorro de tiempo",audit_pt4:"Sin compromiso, sin costes ocultos",
-    audit_cal:"Reservar directamente en Calendly",audit_note:"Respuesta en 24h · Sin compromiso",
+    audit_cal:"Reservar mi auditoría gratuita",audit_note:"Respuesta en 24h · Sin compromiso",
     problem_overline:"La realidad",problem_title:"Trabajas más duro, no más inteligente.",
     problem_subtitle:"La mayoría de las marcas pierden horas, leads y dinero por procesos de marketing manuales, desconectados e imposibles de escalar.",
     problem1_title:"Horas perdidas en tareas manuales",problem1_desc:"Publicas, haces seguimiento, segmentas, copias y pegas. El marketing se come tu tiempo en vez de generar resultados.",
