@@ -1544,7 +1544,10 @@ function initHeroTagline(lang){
   }, 2000);
 }
 
-function setLanguage(lang) {
+const SUPPORTED_LANGS = ['fr','en','es'];
+
+function setLanguage(lang, persist = true) {
+  if (!SUPPORTED_LANGS.includes(lang)) lang = 'fr';
   currentLang = lang;
   document.documentElement.lang = lang;
 
@@ -1566,6 +1569,13 @@ function setLanguage(lang) {
     btn.classList.toggle('active', active);
     btn.style.color = active ? '#00d4ff' : '#8ab4cc';
   });
+
+  if (persist) {
+    try { localStorage.setItem('omnyx_lang', lang); } catch (e) {}
+    const url = new URL(window.location.href);
+    url.searchParams.set('lang', lang);
+    history.replaceState(null, '', url.toString());
+  }
 }
 
 // Nav blur
@@ -1613,7 +1623,23 @@ document.getElementById('contact-form').addEventListener('submit', function(e) {
   }, 3000);
 });
 
-setLanguage('fr');
+// Langue initiale : ?lang=xx dans l'URL > choix mémorisé (localStorage) > français.
+(function initLang(){
+  const params = new URLSearchParams(window.location.search);
+  const q = (params.get('lang') || '').toLowerCase();
+  const hadParam = params.has('lang');
+  let lang = 'fr';
+  if (SUPPORTED_LANGS.includes(q)) {
+    lang = q;
+  } else {
+    try {
+      const saved = localStorage.getItem('omnyx_lang');
+      if (SUPPORTED_LANGS.includes(saved)) lang = saved;
+    } catch (e) {}
+  }
+  // On ne réécrit l'URL que si un paramètre lang était déjà présent (garder les URLs propres propres).
+  setLanguage(lang, hadParam);
+})();
 
 if (document.fonts && document.fonts.ready) {
   document.fonts.ready.then(() => initHeroTagline(currentLang));
