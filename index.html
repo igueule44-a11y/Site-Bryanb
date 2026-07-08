@@ -270,6 +270,14 @@ footer{background:rgba(8,14,26,.85) !important;backdrop-filter:blur(8px)}
 .underglow-cyan{background:radial-gradient(circle,rgba(0,212,255,.15) 0%,rgba(125,232,247,.05) 40%,transparent 70%)}
 .underglow-cyan-strong{background:radial-gradient(circle,rgba(0,212,255,.35) 0%,rgba(125,232,247,.15) 40%,transparent 70%)}
 .chip{display:inline-flex;align-items:center;gap:.5rem;padding:.5rem 1rem;border:1px solid rgba(0,212,255,.25);background:rgba(0,212,255,.06);border-radius:9999px;color:#7de8f7;font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.15em;font-weight:500}
+.svc-filter{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:0 0 40px}
+.svc-chip{display:inline-flex;align-items:center;gap:6px;padding:.55rem 1.1rem;border:1px solid rgba(0,212,255,.22);background:rgba(13,26,46,.4);border-radius:9999px;color:#c2dae8;font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.1em;font-weight:500;cursor:pointer;transition:all .2s ease}
+.svc-chip:hover{border-color:rgba(0,212,255,.5);color:#7de8f7}
+.svc-chip.active{background:#00d4ff;border-color:#00d4ff;color:#060c18;font-weight:700}
+.svc-chip-count{font-size:10px;padding:1px 7px;border-radius:9999px;background:rgba(0,212,255,.12);color:#7de8f7}
+.svc-chip.active .svc-chip-count{background:rgba(6,12,24,.18);color:#060c18}
+.svc-card{display:none}
+.svc-card.svc-visible{display:block}
 .text-label-caps{font-size:10px;text-transform:uppercase;letter-spacing:.3em}
 .font-mono{font-family:"JetBrains Mono",monospace}
 .font-display{font-family:"Space Grotesk",system-ui,sans-serif}
@@ -690,9 +698,24 @@ footer{background:rgba(8,14,26,.85) !important;backdrop-filter:blur(8px)}
       <p class="text-[16px] font-light text-[#c2dae8] max-w-xl mx-auto reveal" data-i18n="services_subtitle">Chaque prestation est conçue pour tourner sans vous. Résultats dès le premier mois.</p>
     </div>
 
+    <div class="svc-filter reveal" role="tablist" aria-label="Filtrer les services par catégorie">
+      <button type="button" class="svc-chip active" data-svc-cat="sites" role="tab" aria-selected="true">
+        <span data-i18n="svc_cat_sites">Sites &amp; Marque</span><span class="svc-chip-count">2</span>
+      </button>
+      <button type="button" class="svc-chip" data-svc-cat="ia" role="tab" aria-selected="false">
+        <span data-i18n="svc_cat_ia">IA &amp; Automatisation</span><span class="svc-chip-count">5</span>
+      </button>
+      <button type="button" class="svc-chip" data-svc-cat="acquisition" role="tab" aria-selected="false">
+        <span data-i18n="svc_cat_acquisition">Acquisition &amp; Growth</span><span class="svc-chip-count">3</span>
+      </button>
+      <button type="button" class="svc-chip" data-svc-cat="contenu" role="tab" aria-selected="false">
+        <span data-i18n="svc_cat_contenu">Contenu &amp; Réseaux</span><span class="svc-chip-count">3</span>
+      </button>
+    </div>
+
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-      <div class="glass-card rounded-3xl p-8 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(0,212,255,0.13)] transition-all duration-500 reveal">
+      <div class="svc-card svc-visible glass-card rounded-3xl p-8 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(0,212,255,0.13)] transition-all duration-500 reveal" data-svc-cat="sites">
         <div class="w-14 h-14 rounded-full bg-[rgba(13,26,46,.5)] border border-[rgba(0,212,255,.18)] flex items-center justify-center mb-6">
           <span class="material-symbols-outlined text-[28px] text-[#00d4ff] neon-icon-cyan">web</span>
         </div>
@@ -700,7 +723,7 @@ footer{background:rgba(8,14,26,.85) !important;backdrop-filter:blur(8px)}
         <p class="text-[14px] font-light text-[#c2dae8] leading-relaxed" data-i18n="svc1_desc">Votre site convertit. Rapide, responsive, optimisé SEO. Vos visiteurs deviennent des clients, en automatique.</p>
       </div>
 
-      <div class="glass-card rounded-3xl p-8 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(0,212,255,0.13)] transition-all duration-500 reveal">
+      <div class="svc-card glass-card rounded-3xl p-8 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(0,212,255,0.13)] transition-all duration-500 reveal" data-svc-cat="ia">
         <div class="w-14 h-14 rounded-full bg-[rgba(13,26,46,.5)] border border-[rgba(0,212,255,.18)] flex items-center justify-center mb-6">
           <span class="material-symbols-outlined text-[28px] text-[#00d4ff] neon-icon-cyan">smart_toy</span>
         </div>
@@ -708,7 +731,7 @@ footer{background:rgba(8,14,26,.85) !important;backdrop-filter:blur(8px)}
         <p class="text-[14px] font-light text-[#c2dae8] leading-relaxed" data-i18n="svc2_desc">Vos agents travaillent 24h/24. Prospection, support, analyse. Zéro pause. Zéro oubli. Résultats en continu.</p>
       </div>
 
-      <div class="glass-card rounded-3xl p-8 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(0,212,255,0.13)] transition-all duration-500 reveal">
+      <div class="svc-card glass-card rounded-3xl p-8 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(0,212,255,0.13)] transition-all duration-500 reveal" data-svc-cat="ia">
         <div class="w-14 h-14 rounded-full bg-[rgba(13,26,46,.5)] border border-[rgba(0,212,255,.18)] flex items-center justify-center mb-6">
           <span class="material-symbols-outlined text-[28px] text-[#00d4ff] neon-icon-cyan">chat_bubble</span>
         </div>
@@ -716,7 +739,7 @@ footer{background:rgba(8,14,26,.85) !important;backdrop-filter:blur(8px)}
         <p class="text-[14px] font-light text-[#c2dae8] leading-relaxed" data-i18n="svc3_desc">Votre chatbot engage, qualifie, répond. Sur votre site ou vos réseaux. Pendant que vous faites autre chose.</p>
       </div>
 
-      <div class="glass-card rounded-3xl p-8 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(0,212,255,0.13)] transition-all duration-500 reveal">
+      <div class="svc-card svc-visible glass-card rounded-3xl p-8 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(0,212,255,0.13)] transition-all duration-500 reveal" data-svc-cat="sites">
         <div class="w-14 h-14 rounded-full bg-[rgba(13,26,46,.5)] border border-[rgba(0,212,255,.18)] flex items-center justify-center mb-6">
           <span class="material-symbols-outlined text-[28px] text-[#00d4ff] neon-icon-cyan">palette</span>
         </div>
@@ -724,7 +747,7 @@ footer{background:rgba(8,14,26,.85) !important;backdrop-filter:blur(8px)}
         <p class="text-[14px] font-light text-[#c2dae8] leading-relaxed" data-i18n="svc4_desc">Une marque qui marque. Logo, palette, typographie : une identité cohérente qui attire les bons clients.</p>
       </div>
 
-      <div class="glass-card rounded-3xl p-8 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(0,212,255,0.13)] transition-all duration-500 reveal">
+      <div class="svc-card glass-card rounded-3xl p-8 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(0,212,255,0.13)] transition-all duration-500 reveal" data-svc-cat="contenu">
         <div class="w-14 h-14 rounded-full bg-[rgba(13,26,46,.5)] border border-[rgba(0,212,255,.18)] flex items-center justify-center mb-6">
           <span class="material-symbols-outlined text-[28px] text-[#00d4ff] neon-icon-cyan">diversity_3</span>
         </div>
@@ -732,7 +755,7 @@ footer{background:rgba(8,14,26,.85) !important;backdrop-filter:blur(8px)}
         <p class="text-[14px] font-light text-[#c2dae8] leading-relaxed" data-i18n="svc5_desc">Partenariats créateurs, campagnes d'influence ciblées. Votre marque portée par les bonnes voix, au bon moment.</p>
       </div>
 
-      <div class="glass-card rounded-3xl p-8 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(0,212,255,0.13)] transition-all duration-500 reveal">
+      <div class="svc-card glass-card rounded-3xl p-8 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(0,212,255,0.13)] transition-all duration-500 reveal" data-svc-cat="contenu">
         <div class="w-14 h-14 rounded-full bg-[rgba(13,26,46,.5)] border border-[rgba(0,212,255,.18)] flex items-center justify-center mb-6">
           <span class="material-symbols-outlined text-[28px] text-[#00d4ff] neon-icon-cyan">calendar_month</span>
         </div>
@@ -740,7 +763,7 @@ footer{background:rgba(8,14,26,.85) !important;backdrop-filter:blur(8px)}
         <p class="text-[14px] font-light text-[#c2dae8] leading-relaxed" data-i18n="svc6_desc">1 mois de contenu prêt à publier. LinkedIn, Instagram, TikTok, YouTube, Facebook : planifié, rédigé et optimisé avec l'IA.</p>
       </div>
 
-      <div class="glass-card rounded-3xl p-8 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(0,212,255,0.13)] transition-all duration-500 reveal">
+      <div class="svc-card glass-card rounded-3xl p-8 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(0,212,255,0.13)] transition-all duration-500 reveal" data-svc-cat="contenu">
         <div class="w-14 h-14 rounded-full bg-[rgba(13,26,46,.5)] border border-[rgba(0,212,255,.18)] flex items-center justify-center mb-6">
           <span class="material-symbols-outlined text-[28px] text-[#00d4ff] neon-icon-cyan">video_camera_front</span>
         </div>
@@ -748,7 +771,7 @@ footer{background:rgba(8,14,26,.85) !important;backdrop-filter:blur(8px)}
         <p class="text-[14px] font-light text-[#c2dae8] leading-relaxed" data-i18n="svc7_desc">Vidéos authentiques, vrais utilisateurs, vrai impact. Contenu natif qui convertit mieux que toute pub classique.</p>
       </div>
 
-      <div class="glass-card rounded-3xl p-8 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(0,212,255,0.13)] transition-all duration-500 reveal">
+      <div class="svc-card glass-card rounded-3xl p-8 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(0,212,255,0.13)] transition-all duration-500 reveal" data-svc-cat="acquisition">
         <div class="w-14 h-14 rounded-full bg-[rgba(13,26,46,.5)] border border-[rgba(0,212,255,.18)] flex items-center justify-center mb-6">
           <span class="material-symbols-outlined text-[28px] text-[#00d4ff] neon-icon-cyan">ads_click</span>
         </div>
@@ -756,7 +779,7 @@ footer{background:rgba(8,14,26,.85) !important;backdrop-filter:blur(8px)}
         <p class="text-[14px] font-light text-[#c2dae8] leading-relaxed" data-i18n="svc8_desc">Meta, Google, TikTok Ads pilotés par l'IA : ciblages affinés, créatives testées, budgets réalloués en temps réel.</p>
       </div>
 
-      <div class="glass-card rounded-3xl p-8 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(0,212,255,0.13)] transition-all duration-500 reveal">
+      <div class="svc-card glass-card rounded-3xl p-8 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(0,212,255,0.13)] transition-all duration-500 reveal" data-svc-cat="acquisition">
         <div class="w-14 h-14 rounded-full bg-[rgba(13,26,46,.5)] border border-[rgba(0,212,255,.18)] flex items-center justify-center mb-6">
           <span class="material-symbols-outlined text-[28px] text-[#00d4ff] neon-icon-cyan">conversion_path</span>
         </div>
@@ -764,7 +787,7 @@ footer{background:rgba(8,14,26,.85) !important;backdrop-filter:blur(8px)}
         <p class="text-[14px] font-light text-[#c2dae8] leading-relaxed" data-i18n="svc9_desc">Des séquences d'e-mails et de messages qui s'adaptent au comportement de chaque lead, du premier clic à l'achat.</p>
       </div>
 
-      <div class="glass-card rounded-3xl p-8 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(0,212,255,0.13)] transition-all duration-500 reveal">
+      <div class="svc-card glass-card rounded-3xl p-8 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(0,212,255,0.13)] transition-all duration-500 reveal" data-svc-cat="ia">
         <div class="w-14 h-14 rounded-full bg-[rgba(13,26,46,.5)] border border-[rgba(0,212,255,.18)] flex items-center justify-center mb-6">
           <span class="material-symbols-outlined text-[28px] text-[#00d4ff] neon-icon-cyan">account_tree</span>
         </div>
@@ -772,7 +795,7 @@ footer{background:rgba(8,14,26,.85) !important;backdrop-filter:blur(8px)}
         <p class="text-[14px] font-light text-[#c2dae8] leading-relaxed" data-i18n="svc10_desc">De la capture de lead à la relance client, chaque étape est automatisée. Vous décidez, le système exécute.</p>
       </div>
 
-      <div class="glass-card rounded-3xl p-8 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(0,212,255,0.13)] transition-all duration-500 reveal">
+      <div class="svc-card glass-card rounded-3xl p-8 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(0,212,255,0.13)] transition-all duration-500 reveal" data-svc-cat="ia">
         <div class="w-14 h-14 rounded-full bg-[rgba(13,26,46,.5)] border border-[rgba(0,212,255,.18)] flex items-center justify-center mb-6">
           <span class="material-symbols-outlined text-[28px] text-[#00d4ff] neon-icon-cyan">view_kanban</span>
         </div>
@@ -780,7 +803,7 @@ footer{background:rgba(8,14,26,.85) !important;backdrop-filter:blur(8px)}
         <p class="text-[14px] font-light text-[#c2dae8] leading-relaxed" data-i18n="svc11_desc">HubSpot, Pipedrive, Notion ou sur-mesure : je configure votre CRM pour qu'il devienne votre copilote commercial.</p>
       </div>
 
-      <div class="glass-card rounded-3xl p-8 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(0,212,255,0.13)] transition-all duration-500 reveal">
+      <div class="svc-card glass-card rounded-3xl p-8 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(0,212,255,0.13)] transition-all duration-500 reveal" data-svc-cat="acquisition">
         <div class="w-14 h-14 rounded-full bg-[rgba(13,26,46,.5)] border border-[rgba(0,212,255,.18)] flex items-center justify-center mb-6">
           <span class="material-symbols-outlined text-[28px] text-[#00d4ff] neon-icon-cyan">insights</span>
         </div>
@@ -788,7 +811,7 @@ footer{background:rgba(8,14,26,.85) !important;backdrop-filter:blur(8px)}
         <p class="text-[14px] font-light text-[#c2dae8] leading-relaxed" data-i18n="svc12_desc">Attribution multi-canal, événements serveur, dashboards décisionnels et alertes automatiques. Vous voyez ce qui se passe vraiment.</p>
       </div>
 
-      <div class="glass-card rounded-3xl p-8 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(0,212,255,0.13)] transition-all duration-500 reveal">
+      <div class="svc-card glass-card rounded-3xl p-8 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(0,212,255,0.13)] transition-all duration-500 reveal" data-svc-cat="ia">
         <div class="w-14 h-14 rounded-full bg-[rgba(13,26,46,.5)] border border-[rgba(0,212,255,.18)] flex items-center justify-center mb-6">
           <span class="material-symbols-outlined text-[28px] text-[#00d4ff] neon-icon-cyan">auto_awesome</span>
         </div>
@@ -1284,6 +1307,7 @@ const t = {
     svc11_title:"CRM & pipeline",svc11_desc:"HubSpot, Pipedrive, Notion ou sur-mesure : je configure votre CRM pour qu'il devienne votre copilote commercial.",
     svc12_title:"Analytics & tracking",svc12_desc:"Attribution multi-canal, événements serveur, dashboards décisionnels et alertes automatiques. Vous voyez ce qui se passe vraiment.",
     svc13_title:"Automatisation IA",svc13_desc:"Génération de contenus, qualification de leads, support client, A/B testing : l'IA remplace les tâches répétitives.",
+    svc_cat_sites:"Sites & Marque",svc_cat_ia:"IA & Automatisation",svc_cat_acquisition:"Acquisition & Growth",svc_cat_contenu:"Contenu & Réseaux",
     projects_overline:"Réalisations",
     footer_tagline:"Je conçois des systèmes marketing qui combinent IA, automatisation et stratégie créative, pour faire passer votre marque au niveau supérieur.",
     footer_col_services:"Services",footer_col_studio:"Le studio",footer_col_contact:"Contact",
@@ -1377,6 +1401,7 @@ const t = {
     svc11_title:"CRM & pipeline",svc11_desc:"HubSpot, Pipedrive, Notion or custom: I configure your CRM so it becomes your sales copilot.",
     svc12_title:"Analytics & tracking",svc12_desc:"Multi-channel attribution, server events, decision dashboards and automatic alerts. You see what's really happening.",
     svc13_title:"AI automation",svc13_desc:"Content generation, lead qualification, customer support, A/B testing: AI replaces the repetitive tasks.",
+    svc_cat_sites:"Sites & Brand",svc_cat_ia:"AI & Automation",svc_cat_acquisition:"Acquisition & Growth",svc_cat_contenu:"Content & Social",
     projects_overline:"Case studies",
     footer_tagline:"I build marketing systems that combine AI, automation and creative strategy, to take your brand to the next level.",
     footer_col_services:"Services",footer_col_studio:"The studio",footer_col_contact:"Contact",
@@ -1470,6 +1495,7 @@ const t = {
     svc11_title:"CRM & pipeline",svc11_desc:"HubSpot, Pipedrive, Notion o a medida: configuro tu CRM para que se convierta en tu copiloto comercial.",
     svc12_title:"Analytics & tracking",svc12_desc:"Atribución multicanal, eventos de servidor, dashboards de decisión y alertas automáticas. Ves lo que pasa de verdad.",
     svc13_title:"Automatización IA",svc13_desc:"Generación de contenidos, cualificación de leads, soporte al cliente, A/B testing: la IA sustituye las tareas repetitivas.",
+    svc_cat_sites:"Sitios & Marca",svc_cat_ia:"IA & Automatización",svc_cat_acquisition:"Adquisición & Growth",svc_cat_contenu:"Contenido & Redes",
     projects_overline:"Casos",
     footer_tagline:"Diseño sistemas de marketing que combinan IA, automatización y estrategia creativa, para llevar tu marca al siguiente nivel.",
     footer_col_services:"Servicios",footer_col_studio:"El studio",footer_col_contact:"Contacto",
@@ -1607,6 +1633,25 @@ document.querySelectorAll('#mobile-menu a').forEach(a => {
   a.addEventListener('click', () => {
     document.getElementById('mobile-menu').classList.add('hidden');
     document.getElementById('mobile-menu').classList.remove('flex');
+  });
+});
+
+// Services filter (chips par catégorie)
+document.querySelectorAll('.svc-chip').forEach(chip => {
+  chip.addEventListener('click', () => {
+    const cat = chip.dataset.svcCat;
+
+    document.querySelectorAll('.svc-chip').forEach(c => {
+      const active = c === chip;
+      c.classList.toggle('active', active);
+      c.setAttribute('aria-selected', active ? 'true' : 'false');
+    });
+
+    document.querySelectorAll('.svc-card').forEach(card => {
+      const show = card.dataset.svcCat === cat;
+      card.classList.toggle('svc-visible', show);
+      if (show) card.classList.add('active'); // évite un fade-in bloqué (IntersectionObserver n'a jamais vu une carte display:none)
+    });
   });
 });
 
