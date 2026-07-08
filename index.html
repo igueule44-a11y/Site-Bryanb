@@ -105,9 +105,10 @@ h1.gradient-text{font-family:"Space Grotesk",sans-serif!important;letter-spacing
   animation:twBlink .7s step-end infinite;
 }
 
-.tw-word-outer{display:inline-block;overflow:hidden;vertical-align:text-bottom;position:relative;margin-right:.2em}
-.tw-word-track{display:flex;flex-direction:column;align-items:center;transition:transform .6s cubic-bezier(.65,0,.35,1)}
+.tw-word-outer{display:inline-block;overflow:hidden;vertical-align:-0.196em;position:relative;height:1.08em}
+.tw-word-track{display:flex;flex-direction:column;align-items:flex-start;transition:transform .6s cubic-bezier(.65,0,.35,1)}
 .tw-word{line-height:1.08;display:block;white-space:nowrap}
+.tw-word .tw-inline-dots{margin-left:.04em}
 @keyframes gradient-shimmer{0%{background-position:left center}100%{background-position:right center}}
 
 .mesh-bg{
@@ -270,6 +271,8 @@ footer{background:rgba(8,14,26,.85) !important;backdrop-filter:blur(8px)}
 .underglow-cyan{background:radial-gradient(circle,rgba(0,212,255,.15) 0%,rgba(125,232,247,.05) 40%,transparent 70%)}
 .underglow-cyan-strong{background:radial-gradient(circle,rgba(0,212,255,.35) 0%,rgba(125,232,247,.15) 40%,transparent 70%)}
 .chip{display:inline-flex;align-items:center;gap:.5rem;padding:.5rem 1rem;border:1px solid rgba(0,212,255,.25);background:rgba(0,212,255,.06);border-radius:9999px;color:#7de8f7;font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.15em;font-weight:500}
+.chip.chip-hero{gap:.4rem;padding:.32rem .7rem;font-size:9.5px;letter-spacing:.12em}
+@media (max-width:640px){.chip.chip-hero{gap:.35rem;padding:.28rem .6rem;font-size:8.5px;letter-spacing:.06em}}
 .svc-filter{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:0 0 40px}
 .svc-chip{display:inline-flex;align-items:center;gap:6px;padding:.55rem 1.1rem;border:1px solid rgba(0,212,255,.22);background:rgba(13,26,46,.4);border-radius:9999px;color:#c2dae8;font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.1em;font-weight:500;cursor:pointer;transition:all .2s ease}
 .svc-chip:hover{border-color:rgba(0,212,255,.5);color:#7de8f7}
@@ -370,18 +373,18 @@ footer{background:rgba(8,14,26,.85) !important;backdrop-filter:blur(8px)}
 </nav>
 
 <!-- ── HERO ────────────────────────────────────────────────────────────────── -->
-<section id="hero" class="relative min-h-[100svh] flex items-start md:items-center justify-center pt-20 md:pt-24 pb-16 overflow-hidden">
+<section id="hero" class="relative min-h-[100svh] flex items-start md:items-center justify-center pt-28 md:pt-24 pb-16 overflow-hidden">
   <div class="mesh-bg"></div>
   <div class="absolute top-1/4 right-0 w-[600px] h-[600px] underglow-cyan opacity-60 blur-[120px] pointer-events-none"></div>
   <div class="absolute bottom-0 left-[-10%] w-[500px] h-[500px] underglow-cyan opacity-40 blur-[100px] pointer-events-none"></div>
 
   <div class="container-omnyx relative z-10">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
-      <div class="lg:col-span-7 flex flex-col items-start gap-5 md:gap-6">
+      <div class="relative z-10 lg:col-span-7 flex flex-col items-start gap-5 md:gap-6">
         <div class="animate-reveal" style="animation-delay:0.1s">
-          <span class="chip" data-i18n="hero_eyebrow" data-i18n-html>
+          <span class="chip chip-hero" data-i18n="hero_eyebrow" data-i18n-html>
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L9.5 8.5 2 11l7.5 2.5L12 22l2.5-8.5L22 11l-7.5-2.5z"/></svg>
-            Systèmes marketing IA
+            Marketing, IA &amp; automatisation
           </span>
         </div>
 
@@ -410,9 +413,9 @@ footer{background:rgba(8,14,26,.85) !important;backdrop-filter:blur(8px)}
         </div>
       </div>
 
-      <div class="lg:col-span-5 flex justify-center lg:justify-end mt-8 lg:mt-0">
+      <div class="absolute inset-0 flex items-center justify-center translate-x-5 -translate-y-24 pointer-events-none opacity-40 mt-0 lg:static lg:inset-auto lg:translate-x-0 lg:translate-y-0 lg:opacity-100 lg:pointer-events-auto lg:col-span-5 lg:items-stretch lg:justify-end lg:mt-0">
         <div class="animate-reveal w-full" style="animation-delay:0.4s">
-          <div class="relative w-[420px] h-[420px] md:w-[480px] md:h-[480px] mx-auto scale-[0.72] sm:scale-90 md:scale-100 origin-center">
+          <div class="hero-core relative w-[420px] h-[420px] md:w-[480px] md:h-[480px] mx-auto scale-[0.72] sm:scale-90 md:scale-100 origin-center">
             <div class="absolute inset-0 underglow-cyan-strong blur-3xl scale-90 animate-pulse-glow"></div>
 
             <div class="absolute inset-0 rounded-full border border-cyan-glow/10 scale-[1.15] animate-spin-slow"></div>
@@ -1223,7 +1226,7 @@ const t = {
   fr: {
     nav_about:"À propos",nav_services:"Services",nav_projects:"Projets",
     nav_blog:"Blog",nav_contact:"Contact",nav_cv:"Expériences",nav_cta:"Prendre un RDV",
-    hero_eyebrow:'<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L9.5 8.5 2 11l7.5 2.5L12 22l2.5-8.5L22 11l-7.5-2.5z"/></svg>Systèmes marketing IA',
+    hero_eyebrow:'<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L9.5 8.5 2 11l7.5 2.5L12 22l2.5-8.5L22 11l-7.5-2.5z"/></svg>Marketing, IA &amp; automatisation',
     hero_tagline:"Votre marque avance...\nMême quand vous dormez.",
     hero_desc:"Sites web, agents IA et chatbots pour les marques qui veulent avancer pendant que tout le monde dort.",
     hero_cta_primary:"Réserver un audit stratégique",hero_cta_secondary:"Découvrir la méthode",
@@ -1317,7 +1320,7 @@ const t = {
   en: {
     nav_about:"About",nav_services:"Services",nav_projects:"Projects",
     nav_blog:"Blog",nav_contact:"Contact",nav_cv:"Experience",nav_cta:"Book a call",
-    hero_eyebrow:'<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L9.5 8.5 2 11l7.5 2.5L12 22l2.5-8.5L22 11l-7.5-2.5z"/></svg>AI marketing systems',
+    hero_eyebrow:'<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L9.5 8.5 2 11l7.5 2.5L12 22l2.5-8.5L22 11l-7.5-2.5z"/></svg>Marketing, AI &amp; automation',
     hero_tagline:"Your brand moves forward...\nEven while you sleep.",
     hero_desc:"Websites, AI agents and chatbots for brands that want to move forward while everyone else sleeps.",
     hero_cta_primary:"Book a strategic audit",hero_cta_secondary:"Discover the method",
@@ -1411,7 +1414,7 @@ const t = {
   es: {
     nav_about:"Sobre mí",nav_services:"Servicios",nav_projects:"Proyectos",
     nav_blog:"Blog",nav_contact:"Contacto",nav_cv:"Experiencia",nav_cta:"Reservar llamada",
-    hero_eyebrow:'<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L9.5 8.5 2 11l7.5 2.5L12 22l2.5-8.5L22 11l-7.5-2.5z"/></svg>Sistemas de marketing IA',
+    hero_eyebrow:'<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L9.5 8.5 2 11l7.5 2.5L12 22l2.5-8.5L22 11l-7.5-2.5z"/></svg>Marketing, IA y automatización',
     hero_tagline:"Tu marca avanza...\nIncluso mientras duermes.",
     hero_desc:"Sitios web, agentes IA y chatbots para marcas que quieren avanzar mientras todos duermen.",
     hero_cta_primary:"Reservar una auditoría estratégica",hero_cta_secondary:"Descubrir el método",
@@ -1525,8 +1528,9 @@ function escapeHtmlWord(s){
   return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 }
 
-function createWordRotator(outerEl, track, words, wordClass){
-  track.innerHTML = words.concat([words[0]]).map(w => '<span class="tw-word ' + wordClass + '">' + escapeHtmlWord(w) + '</span>').join('');
+function createWordRotator(outerEl, track, words, wordClass, inlineSuffix, suffixClass){
+  const suffixHtml = inlineSuffix ? '<span class="tw-inline-dots ' + (suffixClass || '') + '">' + escapeHtmlWord(inlineSuffix) + '</span>' : '';
+  track.innerHTML = words.concat([words[0]]).map(w => '<span class="tw-word ' + wordClass + '">' + escapeHtmlWord(w) + suffixHtml + '</span>').join('');
 
   let idx = 0;
   track.style.transition = 'none';
@@ -1535,7 +1539,10 @@ function createWordRotator(outerEl, track, words, wordClass){
   track.style.transition = '';
 
   const wordEls = track.querySelectorAll('.tw-word');
-  const step = Math.round(wordEls[0].getBoundingClientRect().height);
+  // Use the EXACT (fractional) word height for both the clip window and the translate
+  // step so consecutive words stack pixel-perfectly: no sliver of the neighbouring word
+  // peeks through, and each word keeps its natural baseline (aligned with the static text).
+  const step = wordEls[0].getBoundingClientRect().height;
   const widths = Array.from(wordEls).map(el => Math.ceil(el.getBoundingClientRect().width));
   const maxWidth = Math.max.apply(null, widths);
   outerEl.style.height = step + 'px';
@@ -1570,17 +1577,17 @@ function initHeroTagline(lang){
   if(!prefixEl || !suffixEl || !track || !line2PrefixEl || !track2) return;
 
   prefixEl.textContent = data.prefix;
-  suffixEl.innerHTML = '<span class="tw-dot gradient-text-suffix" style="animation-delay:0s">.</span><span class="tw-dot gradient-text-suffix" style="animation-delay:.15s">.</span><span class="tw-dot gradient-text-suffix" style="animation-delay:.3s">.</span>';
+  suffixEl.innerHTML = '';
   line2PrefixEl.textContent = data.line2prefix;
 
-  const rotator1 = createWordRotator(outerEl, track, data.words, 'gradient-text-word');
+  const rotator1 = createWordRotator(outerEl, track, data.words, 'gradient-text-word', data.suffix || '...', 'gradient-text-suffix');
   const rotator2 = createWordRotator(outer2El, track2, data.line2words, 'gradient-text-word2');
 
   clearInterval(window.__heroWordMasterInterval);
   window.__heroWordMasterInterval = setInterval(()=>{
     rotator1.tick();
     rotator2.tick();
-  }, 2000);
+  }, 3500);
 }
 
 const SUPPORTED_LANGS = ['fr','en','es'];
