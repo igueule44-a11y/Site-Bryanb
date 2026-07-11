@@ -3,6 +3,12 @@
   "redirects": [
     { "source": "/index.html", "destination": "/", "permanent": true },
     {
+      "source": "/",
+      "has": [{ "type": "host", "value": "www.omnyx.agency" }],
+      "destination": "https://omnyx.agency/",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
       "has": [{ "type": "host", "value": "www.omnyx.agency" }],
       "destination": "https://omnyx.agency/:path*",
