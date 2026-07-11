@@ -1,3 +1,11 @@
 User-agent: *
 Allow: /
+
+# Pages utilitaires / duplicats / brouillons : ne pas indexer
+Disallow: /guides/
+Disallow: /guide.html
+Disallow: /blog/exemple-article.html
+Disallow: /linkedin-banner.html
+Disallow: /carousel/
+
 Sitemap: https://omnyx.agency/sitemap.xml

@@ -1,0 +1,27 @@
+# Omnyx
+
+> Omnyx est une agence (Bryan Blaevoet) qui conçoit des systèmes marketing augmentés par l'IA, des agents IA et des automatisations pour les entrepreneurs et les PME. Trois piliers : marketing, IA et automatisation.
+
+## Site
+
+- [Accueil](https://omnyx.agency/) : services, méthode, projets et audit stratégique gratuit.
+- [Blog](https://omnyx.agency/blog.html) : articles pratiques sur le marketing, les agents IA et l'automatisation.
+- [Parcours de Bryan Blaevoet](https://omnyx.agency/cv.html) : expérience en marketing digital, communication et IA.
+
+## Articles récents
+
+- [La nouvelle grosse update d'Hermès Agent](https://omnyx.agency/blog/hermes-agent-update-juillet-2026.html) : Mixture of Agents, Slash Learn, Journey, vibe coding.
+- [La grosse update d'Hermès Agent (juin)](https://omnyx.agency/blog/hermes-agent-update-juin-2026.html) : iMessage, agents en arrière-plan, profils spécialisés.
+- [Claude Design 2026](https://omnyx.agency/blog/claude-design-2026.html) : quota unifié, éditeur manuel, connecteurs, design systems.
+- [Agents IA pour PME : par où commencer en 2026](https://omnyx.agency/blog/agents-ia-pme-guide-2026.html) : intégration et ROI réaliste.
+- [Chatbot IA pour PME en 2026 : guide complet](https://omnyx.agency/blog/chatbot-ia-pme-guide-2026.html) : comparatif, coûts réels, critères de choix.
+- [5 erreurs qui font rater un chatbot PME](https://omnyx.agency/blog/5-erreurs-chatbot-pme-2026.html) : retour terrain et KPI à suivre.
+- [6 cas d'usage Google IA](https://omnyx.agency/blog/google-ia-6-cas-usage.html) : AI Studio, Gemini, NotebookLM, Vids.
+- [Maîtriser ses prompts en 2026](https://omnyx.agency/blog/maitriser-prompts-2026.html) : techniques de prompting qui marchent.
+- [Ollama Cloud x Claude Code : le setup complet](https://omnyx.agency/blog/ollama-cloud-claude-code-guide.html) : tutoriel pas-à-pas.
+- [Le making-of d'un déploiement raté](https://omnyx.agency/blog/making-of-deploiement-rate.html) : retour d'expérience et leçons.
+
+## Contact
+
+- Réserver un audit stratégique gratuit : https://calendly.com/bryan-blaevoet/nouvelle-reunion
+- LinkedIn : https://www.linkedin.com/in/bryan-blaevoet/
