@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow">
+<meta name="description" content="Fable 5 ne sert pas à coder. Il sert à réfléchir. 3 méthodes concrètes (brain dump, audit CLAUDE.md, manuel d'utilisation) pour rentabiliser ton quota premium.">
+<title>Fable 5 : 3 méthodes pour vraiment l'utiliser | Omnyx</title>
+<link rel="canonical" href="https://omnyx.agency/blog/fable-5-3-methodes-productivite-2026.html">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Fable 5 : 3 méthodes pour vraiment l'utiliser">
+<meta property="og:description" content="Fable 5 ne sert pas à coder. Il sert à réfléchir. 3 méthodes concrètes (brain dump, audit CLAUDE.md, manuel d'utilisation) pour rentabiliser ton quota premium.">
+<meta property="og:url" content="https://omnyx.agency/blog/fable-5-3-methodes-productivite-2026.html">
+<meta property="og:image" content="https://omnyx.agency/assets/logo-omnyx-v3.png">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Omnyx">
+
+<style>
+  :root{
+    --bg-darkest:#060c18;
+    --bg-main:#080e1a;
+    --bg-card:#0d1a2e;
+    --accent:#00d4ff;
+    --accent-soft:#7de8f7;
+    --text-primary:#f0f8ff;
+    --text-secondary:#c2dae8;
+    --border-soft:rgba(0,212,255,0.16);
+    --border-strong:rgba(0,212,255,0.32);
+    --warn:#ff8a65;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation:none !important; transition:none !important;}
+  }
+
+  body{
+    margin:0;
+    background:var(--bg-main);
+    color:var(--text-primary);
+    font-family:'Inter', system-ui, sans-serif;
+    line-height:1.65;
+    font-size:16px;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1, h2, h3{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:600;
+    line-height:1.2;
+    margin:0;
+  }
+
+  a{color:var(--accent); text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  a:focus-visible, button:focus-visible{outline:2px solid var(--accent); outline-offset:3px;}
+
+  .wrap{max-width:760px; margin:0 auto; padding:0 24px;}
+
+  /* Header */
+  header.site-header{
+    background:var(--bg-darkest);
+    border-bottom:1px solid var(--border-soft);
+    position:sticky; top:0; z-index:50;
+  }
+  .site-header-inner{
+    max-width:760px; margin:0 auto; padding:12px 24px;
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+  }
+  .logo-link{
+    font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:17px;
+    color:var(--text-primary); display:flex; align-items:center;
+  }
+  .logo-link img{height:50px; width:auto; display:block;}
+  .logo-link:hover{text-decoration:none; color:var(--accent-soft);}
+  .btn-cta{
+    background:var(--accent); color:#02131f; font-weight:600; font-size:14px;
+    padding:9px 18px; border-radius:8px; white-space:nowrap;
+    transition:background 0.15s ease, transform 0.15s ease;
+  }
+  .btn-cta:hover{background:var(--accent-soft); text-decoration:none; transform:translateY(-1px);}
+
+  /* Back link */
+  .back-link{
+    display:inline-flex; align-items:center; gap:6px;
+    font-size:13.5px; color:var(--text-secondary); margin:28px 0 0;
+  }
+  .back-link:hover{color:var(--accent-soft); text-decoration:none;}
+
+  /* Hero */
+  .hero{padding:24px 0 32px;}
+  .eyebrow-row{
+    display:flex; gap:10px; align-items:center; flex-wrap:wrap;
+    font-size:13px; color:var(--text-secondary); margin-bottom:18px;
+    font-weight:500; letter-spacing:0.02em;
+  }
+  .eyebrow-row .dot{color:var(--border-strong);}
+  .eyebrow-tag{color:var(--accent-soft);}
+
+  h1.title{
+    font-size:clamp(28px, 5vw, 40px);
+    color:var(--text-primary);
+    margin-bottom:18px;
+  }
+  h1.title em{
+    display:block; font-style:normal; color:var(--accent-soft); font-weight:500;
+    font-size:0.85em; margin-top:4px;
+  }
+
+  .subtitle{
+    font-size:17px; color:var(--text-secondary); max-width:600px; margin-bottom:32px;
+  }
+
+  /* Stats box */
+  .stats-box{
+    background:var(--bg-card);
+    border:1px solid var(--border-soft);
+    border-radius:14px;
+    padding:24px 28px;
+  }
+  .stats-box .stats-label{
+    font-size:14px; color:var(--text-secondary); margin-bottom:14px;
+    display:flex; gap:8px; align-items:center;
+  }
+  .stats-list{list-style:none; margin:0; padding:0; display:grid; gap:10px;}
+  .stats-list li{
+    font-size:15px; color:var(--text-primary); display:flex; gap:10px; align-items:baseline;
+  }
+  .stats-list li .arrow{color:var(--accent); flex-shrink:0;}
+  .stats-list strong{color:var(--accent-soft); font-weight:600;}
+
+  /* Intro box */
+  .intro-box{
+    margin:36px 0 48px;
+    background:linear-gradient(135deg, var(--bg-card), var(--bg-darkest));
+    border:1px solid var(--border-strong);
+    border-radius:16px;
+    padding:32px 28px;
+  }
+  .intro-box .intro-emoji{font-size:22px; margin-bottom:10px; display:block;}
+  .intro-box h2{font-size:21px; color:var(--text-primary); margin-bottom:12px;}
+  .intro-box p{color:var(--text-secondary); margin:0; font-size:15.5px;}
+
+  /* TOC nav */
+  .toc{
+    margin:0 0 56px;
+    background:var(--bg-card);
+    border:1px solid var(--border-soft);
+    border-radius:14px;
+    padding:22px 26px;
+  }
+  .toc-label{font-size:13px; color:var(--text-secondary); margin-bottom:14px; font-weight:600; text-transform:uppercase; letter-spacing:0.05em;}
+  .toc ol{list-style:none; margin:0; padding:0; display:grid; gap:9px;}
+  .toc ol li a{
+    display:flex; gap:10px; color:var(--text-primary); font-size:14.5px; padding:2px 0;
+  }
+  .toc ol li a:hover{color:var(--accent-soft); text-decoration:none;}
+  .toc ol li a .num{color:var(--accent); font-family:'JetBrains Mono', monospace; font-size:13px; flex-shrink:0;}
+
+  /* Parts */
+  .part{margin-bottom:80px;}
+  .part-eyebrow{
+    font-size:13px; font-weight:700; letter-spacing:0.08em; color:var(--accent);
+    margin-bottom:14px; display:flex; align-items:center; gap:8px;
+  }
+  .part > h2{font-size:clamp(22px, 4vw, 28px); margin-bottom:28px; line-height:1.25;}
+  .part > h2 em{display:block; font-style:normal; color:var(--text-secondary); font-weight:500; font-size:0.7em; margin-top:8px;}
+
+  .part p{color:var(--text-primary); margin:0 0 22px; font-size:16px; line-height:1.75;}
+  .part p.muted{color:var(--text-secondary);}
+
+  /* Process / list items in part body */
+  .process-list{list-style:none; margin:0 0 24px; padding:0; display:grid; gap:18px;}
+  .process-list li{
+    background:var(--bg-card);
+    border:1px solid var(--border-soft);
+    border-left:3px solid var(--accent);
+    border-radius:10px;
+    padding:18px 22px;
+  }
+  .process-list li h4{
+    margin:0 0 8px; font-size:16px; color:var(--text-primary);
+    font-family:'Inter', sans-serif; font-weight:600;
+    display:flex; gap:10px; align-items:baseline;
+  }
+  .process-list li h4 .num{color:var(--accent); font-family:'JetBrains Mono', monospace; font-size:13px; flex-shrink:0;}
+  .process-list li p{margin:0; color:var(--text-secondary); font-size:14.5px; line-height:1.7;}
+
+  /* Callout boxes */
+  .callout{
+    border-radius:12px; padding:20px 22px; margin:22px 0;
+    border:1px solid var(--border-soft);
+    background:var(--bg-card);
+  }
+  .callout .callout-label{
+    font-size:13px; font-weight:700; margin-bottom:8px; display:flex; gap:8px; align-items:center;
+  }
+  .callout p{margin:0; font-size:14.5px; color:var(--text-secondary); white-space:pre-wrap;}
+  .callout.warn{border-color:rgba(255,138,101,0.35);}
+  .callout.warn .callout-label{color:var(--warn);}
+  .callout.tip .callout-label{color:var(--accent-soft);}
+  .callout.action{background:linear-gradient(135deg, var(--bg-card), var(--bg-darkest)); border-color:var(--border-strong);}
+  .callout.action .callout-label{color:var(--accent);}
+  .callout.compare .callout-label{color:var(--accent-soft);}
+  .callout.compare p strong{color:var(--text-primary); font-weight:600;}
+
+  /* Step cards */
+  .step{
+    display:grid; grid-template-columns:64px 1fr; gap:20px;
+    margin-bottom:44px;
+  }
+  .step-num{
+    font-family:'Space Grotesk', sans-serif; font-size:34px; font-weight:700;
+    color:var(--accent-soft); opacity:0.55; line-height:1;
+  }
+  .step-body h3{font-size:19px; color:var(--text-primary); margin-bottom:6px;}
+  .step-tag{
+    font-size:12.5px; color:var(--text-secondary); font-family:'JetBrains Mono', monospace;
+    margin-bottom:14px; display:block;
+  }
+  .step-body p{color:var(--text-primary); margin:0 0 18px; font-size:16px; line-height:1.75;}
+  .step-body p.muted{color:var(--text-secondary);}
+
+  /* Rules list */
+  .rules{list-style:none; margin:0; padding:0; display:grid; gap:18px;}
+  .rules li{
+    display:grid; grid-template-columns:28px 1fr; gap:14px;
+    background:var(--bg-card); border:1px solid var(--border-soft); border-radius:12px;
+    padding:18px 20px;
+  }
+  .rule-icon{color:var(--accent); font-size:17px;}
+  .rules h4{margin:0 0 6px; font-size:15.5px; color:var(--text-primary); font-family:'Inter', sans-serif; font-weight:600;}
+  .rules p{margin:0; font-size:14px; color:var(--text-secondary);}
+
+  /* Closing CTA */
+  .closing{margin:64px 0 0;}
+  .closing > h2{font-size:clamp(22px, 4vw, 28px); margin-bottom:14px;}
+  .closing > p{color:var(--text-secondary); font-size:15.5px; margin-bottom:32px; max-width:560px;}
+
+  .closing-cta-final{
+    background:linear-gradient(135deg, var(--bg-card), var(--bg-darkest));
+    border:1px solid var(--border-strong); border-radius:16px;
+    padding:30px 28px; text-align:center;
+  }
+  .closing-cta-final .btn-big{
+    display:inline-block; background:var(--accent); color:#02131f; font-weight:600;
+    font-size:15px; padding:13px 28px; border-radius:9px; margin-bottom:10px;
+    transition:background 0.15s ease, transform 0.15s ease;
+  }
+  .closing-cta-final .btn-big:hover{background:var(--accent-soft); text-decoration:none; transform:translateY(-1px);}
+
+  /* Footer */
+  footer.site-footer{
+    border-top:1px solid var(--border-soft);
+    margin-top:72px;
+    padding:32px 0 48px;
+  }
+  .footer-name{font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:15px; color:var(--text-primary); margin-bottom:4px;}
+  .footer-meta{font-size:13px; color:var(--text-secondary); margin-bottom:18px;}
+  .footer-links{display:flex; gap:18px; flex-wrap:wrap; font-size:13.5px;}
+
+  /* Mobile */
+  @media(max-width:768px){
+    .wrap{padding:0 18px;}
+    h1.title{margin-bottom:14px;}
+    .subtitle{font-size:16px; margin-bottom:26px;}
+    .eyebrow-row{font-size:12px; margin-bottom:14px;}
+    .stats-box{padding:20px 22px;}
+    .stats-list li{font-size:14.5px; gap:8px;}
+    .intro-box{margin:28px 0 40px; padding:26px 22px;}
+    .intro-box h2{font-size:19px;}
+    .intro-box p{font-size:15px;}
+    .toc{margin:0 0 44px; padding:20px 22px;}
+    .toc-label{margin-bottom:12px;}
+    .toc ol li a{font-size:14px;}
+    .part{margin-bottom:52px;}
+    .part > h2{margin-bottom:20px;}
+    .step{grid-template-columns:48px 1fr; gap:14px; margin-bottom:36px;}
+    .step-num{font-size:26px;}
+    .step-body h3{font-size:17.5px; margin-bottom:8px;}
+    .step-tag{font-size:11.5px; margin-bottom:12px;}
+    .step-body p{font-size:15px; margin:0 0 14px;}
+    .part p{font-size:15px; line-height:1.75; margin:0 0 16px;}
+    .callout{padding:18px 20px; margin:20px 0;}
+    .callout p{font-size:14px; line-height:1.7;}
+    .rules{gap:14px;}
+    .rules li{padding:16px 18px; gap:12px; grid-template-columns:24px 1fr;}
+    .rules h4{font-size:15px;}
+    .rules p{font-size:13.5px; line-height:1.65;}
+    .closing > p{font-size:15px;}
+    .closing-cta-final{padding:26px 22px;}
+    .closing-cta-final .btn-big{font-size:14.5px; padding:12px 24px;}
+    .site-header-inner{padding:10px 18px;}
+    .logo-link img{height:50px;}
+    .btn-cta{font-size:13px; padding:8px 14px;}
+    .back-link{font-size:13px; margin:20px 0 0;}
+  }
+  @media(max-width:540px){
+    .step{grid-template-columns:1fr; gap:6px; margin-bottom:32px;}
+    .step-num{font-size:22px; opacity:0.5;}
+    .stats-box{padding:18px 20px;}
+    .intro-box{padding:22px 20px; margin:24px 0 36px;}
+    .part{margin-bottom:44px;}
+    .part > h2{font-size:clamp(20px, 5.5vw, 24px);}
+    .callout{padding:16px 18px; margin:18px 0;}
+  }
+
+.related-section { padding: 48px 0 24px; }
+.related-title { font-family:'Space Grotesk',sans-serif; font-size:1.3rem; color:var(--text-primary); margin-bottom:20px; }
+.related-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; }
+.related-card { display:block; position:relative; overflow:hidden; background:var(--bg-card); border:1px solid var(--border-soft); border-radius:12px; padding:18px; text-decoration:none !important; transition:transform .3s ease, border-color .3s ease, box-shadow .3s ease; }
+.related-card::after { content:"→"; position:absolute; right:16px; bottom:14px; color:var(--accent); font-size:1.1rem; opacity:0; transform:translateX(-6px); transition:opacity .3s ease, transform .3s ease; }
+.related-card:hover { border-color:var(--border-strong); transform:translateY(-4px); box-shadow:0 14px 28px rgba(0,212,255,0.14); text-decoration:none !important; }
+.related-card:hover::after { opacity:1; transform:translateX(0); }
+.related-card .related-tag { font-size:.72rem; color:var(--accent); text-transform:uppercase; letter-spacing:.05em; }
+.related-card h3 { font-family:'Space Grotesk',sans-serif; font-size:.95rem; color:var(--text-primary); margin:8px 0 0; line-height:1.4; transition:color .3s ease; }
+.related-card:hover h3 { color:var(--accent-soft); }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Fable 5 : 3 méthodes pour vraiment l'utiliser",
+  "description": "Fable 5 ne sert pas à coder. Il sert à réfléchir. 3 méthodes concrètes (brain dump, audit CLAUDE.md, manuel d'utilisation) pour rentabiliser ton quota premium.",
+  "datePublished": "2026-07-16",
+  "dateModified": "2026-07-16",
+  "author": {
+    "@type": "Person",
+    "name": "Bryan Blaevoet",
+    "url": "https://www.linkedin.com/in/bryanblaevoet/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Omnyx",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://omnyx.agency/assets/logo-omnyx-v3.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://omnyx.agency/blog/fable-5-3-methodes-productivite-2026.html"
+  },
+  "keywords": "Coulisses Omnyx, workflow · productivité IA",
+  "inLanguage": "fr-FR"
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="logo-link" href="../index.html"><img src="../assets/logo-omnyx-original-nav.png" alt="Omnyx"></a>
+    <a class="btn-cta" href="../index.html#contact">Prendre un RDV</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <a class="back-link" href="../blog.html">← Retour au blog</a>
+
+  <section class="hero">
+    <div class="eyebrow-row">
+      <span class="eyebrow-tag">Coulisses Omnyx</span>
+      <span class="dot">·</span>
+      <span>workflow · productivité IA</span>
+      <span class="dot">·</span>
+      <span>Lecture 6 min</span>
+    </div>
+
+    <h1 class="title">Fable 5 : 3 méthodes pour vraiment l'utiliser
+      <em>Ne le gâche pas à lui demander du code. Réserve-le à la réflexion.</em>
+    </h1>
+
+    <p class="subtitle">Fable 5 ne sert pas à coder. Il sert à réfléchir. 3 méthodes concrètes (brain dump, audit CLAUDE.md, manuel d'utilisation) pour rentabiliser ton quota premium.</p>
+
+    <div class="stats-box">
+      <div class="stats-label">💡 Ce que tu retiens en 30 secondes :</div>
+      <ul class="stats-list">
+        <li><span class="arrow">→</span><span>Fable 5 = <strong>cerveau de réflexion</strong>, pas un exécutant</span></li>
+        <li><span class="arrow">→</span><span>Méthode 1 : le <strong>brain dump</strong> d'un workflow que tu répètes tous les jours</span></li>
+        <li><span class="arrow">→</span><span>Méthode 2 : <strong>auditer ton CLAUDE.md</strong> pour le rendre musclé une fois pour toutes</span></li>
+        <li><span class="arrow">→</span><span>Méthode 3 : lui demander son <strong>manuel d'utilisation</strong>, à coller dans tes instructions</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="intro-box">
+    <span class="intro-emoji">🧠</span>
+    <h2>Fable 5, c'est un quota de réflexion. Pas un quota d'exécution.</h2>
+    <p>Il te reste 2 jours pour utiliser Fable 5. La plupart des gens font la même erreur : ils lui demandent ce qu'ils demanderaient à n'importe quel LLM premium. "Écris-moi un script." "Génère-moi un MVP." Et ils brûlent leur quota sur du travail qu'Opus ou Sonnet feraient aussi bien pour 3 fois moins cher. Voici les 3 méthodes qui utilisent Fable 5 là où il est vraiment irremplaçable : la réflexion, pas l'exécution.</p>
+  </section>
+
+  <nav class="toc">
+    <div class="toc-label">Au sommaire</div>
+    <ol>
+      <li><a href="#n1"><span class="num">01</span><span>L'erreur classique : utiliser Fable 5 comme un exécutant</span></a></li>
+      <li><a href="#n2"><span class="num">02</span><span>Méthode 1 : le brain dump d'un workflow quotidien</span></a></li>
+      <li><a href="#n3"><span class="num">03</span><span>Méthode 2 : faire auditer ton CLAUDE.md</span></a></li>
+      <li><a href="#n4"><span class="num">04</span><span>Méthode 3 : son manuel d'utilisation</span></a></li>
+      <li><a href="#n5"><span class="num">05</span><span>Le piège du quota (et comment l'éviter)</span></a></li>
+      <li><a href="#n6"><span class="num">06</span><span>FAQ</span></a></li>
+      <li><a href="#bilan"><span class="num">→</span><span>Le bilan</span></a></li>
+    </ol>
+  </nav>
+
+  <section class="part">
+
+    <div class="step" id="n1">
+      <div class="step-num">01</div>
+      <div class="step-body">
+        <h3>L'erreur classique : utiliser Fable 5 comme un exécutant</h3>
+        <span class="step-tag">constat · usage réel vs usage optimal</span>
+        <p>Sur les 5 derniers threads LinkedIn que j'ai vus sur Fable 5, les gens s'en servent tous pareil : "Fable 5, écris-moi une fonction Python qui parse du JSON." "Fable 5, génère-moi un MVP en 2 minutes." "Fable 5, code-moi un agent." Le résultat : ils découvrent que Fable 5 fait le job, mais pas 3 fois mieux qu'Opus ou Sonnet. Et ils ont brûlé la moitié de leur quota premium sur du travail jetable.</p>
+        <p>Ce que ces gens ratent : Fable 5 n'est pas un modèle "plus rapide" ou "mieux écrit". C'est un modèle de <strong>raisonnement</strong>. Sa vraie valeur, c'est de réfléchir, structurer, améliorer. Et tout ce qu'il produit dans cet exercice, tu le gardes pendant des mois après son départ. Ce qu'il exécute, tu le jettes après le commit.</p>
+        <div class="callout warn">
+          <div class="callout-label">⚠️ Le signal classique d'un mauvais usage</div>
+          <p>Si tu utilises Fable 5 et qu'Objectif est le même que celui que tu donnerais à Opus ou Sonnet, tu brûles ton quota premium sur du travail que tu aurais pu faire à 3 fois moins cher. Le bon usage Fable 5 = "réfléchir à quelque chose que je vais réutiliser", pas "générer quelque chose que je vais jeter".</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="step" id="n2">
+      <div class="step-num">02</div>
+      <div class="step-body">
+        <h3>Méthode 1 : le brain dump d'un workflow quotidien</h3>
+        <span class="step-tag">méthode · système personnel</span>
+        <p>La plus simple, et la plus sous-estimée des trois. Le principe : tu prends UN workflow que tu fais tous les jours, et tu le refais à plat avec Fable 5. Pas trois, un seul. Créer du contenu, développer une app, gérer tes clients, faire ta veille, coder un MVP, répondre à tes mails. Un seul.</p>
+        <p>Tu ouvres Fable 5, raisonnement sur "high", et tu lui balances tout en vrac. Comment tu t'y prends du début à la fin, avec quels outils, dans quel ordre, ce qui te bloque, ce que tu fais "parce que tu as toujours fait comme ça". Pas de structure, pas de mise en page. Le désordre, c'est ce qu'il lui faut pour trouver les patterns que tu ne vois plus.</p>
+        <p>Tu termines par cette consigne exacte :</p>
+        <div class="callout action">
+          <div class="callout-label">📋 Le prompt à copier-coller</div>
+          <p>"Analyse mon système : trouve les étapes inutiles, ce qui devrait être automatisé, les décisions que je reprends à chaque fois alors qu'elles devraient être des règles fixes. Puis propose-moi le nouveau système, étape par étape. Pose-moi des questions si quelque chose manque."</p>
+        </div>
+        <p class="muted">Tu fais 3-5 allers-retours. Quand le nouveau système te paraît évident, tu le gardes. C'est ta méthode, pas celle du modèle. Et tu l'appliques tous les jours. C'est la différence entre "j'ai gagné 30 minutes" et "j'ai divisé mon temps de production par 3 sur 6 mois".</p>
+        <div class="callout tip">
+          <div class="callout-label">💡 Le bon réflexe</div>
+          <p>Tu fais ça AVANT de reprendre le travail réel, pas au passage entre 2 tickets. Une vraie remise à plat de 2-3 heures, suivie d'une application quotidienne pendant 30 jours. Pas un brainstorming de 10 minutes que tu oublies le lendemain.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="step" id="n3">
+      <div class="step-num">03</div>
+      <div class="step-body">
+        <h3>Méthode 2 : faire auditer ton CLAUDE.md</h3>
+        <span class="step-tag">méthode · fichier d'instructions projet</span>
+        <p>Si tu utilises Claude Code (ou un autre agent avec fichier d'instructions), ton CLAUDE.md, c'est le cerveau de ton projet. Le problème, c'est que la plupart de ces fichiers sont flous, incomplets, et ne marchent que parce que toi tu complètes de tête les trous. Fable 5 peut te le rendre musclé en 4 demandes précises.</p>
+        <ol class="process-list">
+          <li>
+            <h4><span class="num">01</span><span>Demande-lui de lire et d'explorer</span></h4>
+            <p>"Lis mon CLAUDE.md en entier, puis explore mon projet. Vérifie si le fichier correspond à la réalité du code."</p>
+          </li>
+          <li>
+            <h4><span class="num">02</span><span>Demande-lui de lister les trous</span></h4>
+            <p>"Liste tout ce qui est vague, contradictoire ou manquant. Sois cash, ne me cache pas les incohérences."</p>
+          </li>
+          <li>
+            <h4><span class="num">03</span><span>Demande-lui de réécrire</span></h4>
+            <p>"Réécris-le pour qu'il soit complet et sans ambiguïté, en gardant mes règles et ma façon de parler."</p>
+          </li>
+          <li>
+            <h4><span class="num">04</span><span>Demande-lui de justifier chaque changement</span></h4>
+            <p>"Montre-moi chaque changement avec une ligne d'explication. Je veux pouvoir accepter ou refuser modif par modif."</p>
+          </li>
+        </ol>
+        <p class="muted">Résultat : après ces 4 demandes, ton CLAUDE.md est musclé. Tu paies Fable 5 une fois pour ce travail. Et après son départ, Opus ou Sonnet suivront ce fichier musclé et garderont un niveau proche de Fable. <strong>Tu paies la réflexion une fois, les modèles moins chers l'appliquent pendant des mois.</strong></p>
+      </div>
+    </div>
+
+    <div class="step" id="n4">
+      <div class="step-num">04</div>
+      <div class="step-body">
+        <h3>Méthode 3 : lui demander son manuel d'utilisation</h3>
+        <span class="step-tag">méthode · transmettre le raisonnement</span>
+        <p>C'est l'astuce la plus partagée du moment, et elle coûte un seul prompt. Le principe : demander à Fable 5 de se documenter lui-même, pour qu'un autre modèle puisse suivre son raisonnement.</p>
+        <p>Le prompt exact :</p>
+        <div class="callout action">
+          <div class="callout-label">📋 Le prompt à copier-coller</div>
+          <p>"Rédige ton manuel d'utilisation : comment tu raisonnes, comment tu structures un problème complexe, comment tu vérifies ton travail avant de répondre. Écris-le comme un guide qu'un autre modèle pourrait suivre. Inclus des exemples concrets de raisonnement appliqué à un problème type."</p>
+        </div>
+        <p>Tu colles ce document dans les instructions de ton projet (CLAUDE.md, system prompt, peu importe). Et après dimanche, quand tu utilises Opus ou Sonnet dans ce projet, ils suivent le guide de raisonnement de Fable. Tu récupères 70-80% de la qualité, au prix normal.</p>
+        <p>C'est l'astuce la plus rentable des trois, parce que son effet se prolonge sur chaque session, chaque prompt, chaque réponse, pendant des mois. Un investissement de 15 minutes pour des mois de qualité supérieure.</p>
+        <div class="callout tip">
+          <div class="callout-label">💡 Le bon usage combiné</div>
+          <p>Les 3 méthodes ne s'excluent pas. Le plus rentable : méthode 2 (CLAUDE.md musclé) + méthode 3 (manuel de Fable) fusionnés en un seul document de projet. Tu obtiens un fichier d'instructions qui porte à la fois tes règles et le style de raisonnement de Fable, et que tous tes modèles moins chers peuvent suivre.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="step" id="n5">
+      <div class="step-num">05</div>
+      <div class="step-body">
+        <h3>Le piège du quota (et comment l'éviter)</h3>
+        <span class="step-tag">budget · gestion du quota premium</span>
+        <p>Fable 5 consomme ton quota très vite. Si tu ne fais pas attention, tu peux le cramer en 1 journée sur du mauvais usage. Voici les règles que je m'impose pour rentabiliser chaque session Fable 5.</p>
+        <ol class="process-list">
+          <li>
+            <h4><span class="num">01</span><span>Pas de génération de gros projets</span></h4>
+            <p>Un MVP, un site complet, un script de 200 lignes : c'est du travail d'exécution. Opus ou Sonnet le font aussi bien pour 3x moins cher. Fable 5 est réservé à la réflexion sur ces projets, pas à leur génération.</p>
+          </li>
+          <li>
+            <h4><span class="num">02</span><span>Pas de tâches répétitives</span></h4>
+            <p>"Écris-moi 50 variations de post LinkedIn", "génère 100 descriptions produit" : c'est du volume, pas de la réflexion. Sonnet en mode batch fait ça aussi bien et bien moins cher. Fable 5 sert à améliorer le système qui produit ces contenus, pas à les produire.</p>
+          </li>
+          <li>
+            <h4><span class="num">03</span><span>Pas de debug de routine</span></h4>
+            <p>"Mon code ne marche pas, trouve le bug" : c'est de l'exécution. Sonnet fait le job. Fable 5 sert à repenser ton approche debugging, pas à débugger à ta place.</p>
+          </li>
+          <li>
+            <h4><span class="num">04</span><span>Oui à la réflexion pure</span></h4>
+            <p>"Repense mon workflow de A à Z." "Audite mes instructions et propose une refonte." "Rédige ton manuel d'utilisation." Ce sont des usages où Fable 5 est 3-5x plus pertinent qu'Opus ou Sonnet.</p>
+          </li>
+        </ol>
+        <p class="muted">Si tu suis cette règle simple, ton quota Fable 5 durera 2-3x plus longtemps, et chaque utilisation te rapportera 10-50x plus qu'un usage "à plat". Le calcul est vite fait.</p>
+      </div>
+    </div>
+
+    <div class="step" id="n6">
+      <div class="step-num">06</div>
+      <div class="step-body">
+        <h3>FAQ : les questions à se poser avant d'utiliser Fable 5</h3>
+        <span class="step-tag">questions fréquentes</span>
+        <p>5 questions que je me pose (et que je te pose) à chaque fois que je veux ouvrir Fable 5. Si la réponse est "non" à l'une d'elles, je ferme l'onglet et j'utilise Sonnet.</p>
+        <ol class="process-list">
+          <li>
+            <h4><span class="num">Q</span><span>Est-ce que ce que je vais produire sera réutilisé dans 1 mois ?</span></h4>
+            <p>Si oui, c'est un bon candidat Fable 5 (workflow, système, instruction, manuel). Si non (un script one-shot, une réponse à un ticket, un message d'erreur), c'est de l'exécution, Sonnet suffit. La règle : Fable 5 produit du durable, Sonnet produit du jetable.</p>
+          </li>
+          <li>
+            <h4><span class="num">Q</span><span>Est-ce qu'Opus ou Sonnet ferait le job aussi bien ?</span></h4>
+            <p>Si la réponse est "à peu près oui", utilise Opus ou Sonnet. Fable 5 est rentable quand il fait quelque chose qu'Opus ou Sonnet ne font pas bien : raisonner sur des problèmes flous, structurer un système, anticiper les incohérences, auditer du contenu ambigu. Si c'est pour générer du texte propre ou du code propre, c'est pas son créneau.</p>
+          </li>
+          <li>
+            <h4><span class="num">Q</span><span>Est-ce que je peux décrire mon problème en vrac ?</span></h4>
+            <p>Si oui, Fable 5 va briller : il adore le désordre, il adore les questions ouvertes, il adore quand tu lui donnes un système à démêler plutôt qu'une tâche à exécuter. Si tu dois formuler ta demande en spec précise, c'est que c'est une tâche d'exécution.</p>
+          </li>
+          <li>
+            <h4><span class="num">Q</span><span>Est-ce que je suis prêt à faire 3-5 allers-retours ?</span></h4>
+            <p>Fable 5 n'est pas un modèle "1 shot". Sa valeur vient de l'itération : tu poses un système, il te propose une refonte, tu contestes, il affine, tu valides. Si tu veux une réponse en 1 prompt, tu vas être déçu et cramer ton quota pour rien.</p>
+          </li>
+          <li>
+            <h4><span class="num">Q</span><span>Est-ce que je peux attendre 2-3 heures de réflexion ?</span></h4>
+            <p>Le brain dump d'un workflow prend 2-3 heures (45 min de vrac + 1h30 d'allers-retours + 30 min de finalisation). L'audit d'un CLAUDE.md prend 1-2 heures. Le manuel d'utilisation prend 1-2 heures. Si tu n'as pas ce temps, scinde en 2-3 sessions, ou utilise Opus/Sonnet pour cette fois.</p>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="part" id="bilan">
+    <div class="part-eyebrow">→ LE BILAN</div>
+    <h2>Fable 5 ne travaille pas à ta place. Il améliore ta façon de travailler.<em>La vraie valeur, c'est ce qu'il produit maintenant et que tu gardes pendant des mois.</em></h2>
+    <p>La plupart des gens utilisent Fable 5 comme un exécutant premium. Ils brûlent leur quota sur du travail qu'ils oublieront dans 1 semaine. Les 3 méthodes ci-dessus utilisent Fable 5 là où il est vraiment irremplaçable : la réflexion, l'audit, la documentation. Et tout ce qu'il produit, tu le réutilises pendant des mois, sur des centaines de sessions, avec des modèles 3x moins chers.</p>
+    <p class="muted">Si tu veux mettre en place un de ces 3 usages sur un de tes workflows concrets, on peut en discuter sur un <a href="../index.html#contact"><strong>appel découverte de 30 min</strong></a>. Je regarde avec toi quel workflow tu fais tous les jours et qui mérite le détour Fable 5.</p>
+    <ul class="rules">
+      <li><span class="rule-icon">🎯</span><div><h4>Réserve Fable 5 à la réflexion</h4><p>Brain dump, audit, documentation. Pas de génération de code ou de projets</p></div></li>
+      <li><span class="rule-icon">⚙️</span><div><h4>Pense en termes de durabilité</h4><p>Si tu réutilises le résultat dans 1 mois, c'est un bon usage. Sinon, Sonnet suffit</p></div></li>
+      <li><span class="rule-icon">💡</span><div><h4>Paye la réflexion une fois, applique-la 100x</h4><p>Muscle ton CLAUDE.md et ton system prompt pour que tous tes modèles en bénéficient</p></div></li>
+      <li><span class="rule-icon">🚀</span><div><h4>Itère, ne one-shot pas</h4><p>3-5 allers-retours, c'est là que Fable 5 te sort quelque chose qu'Opus ne sort pas</p></div></li>
+    </ul>
+  </section>
+  <section class="related-section">
+    <h2 class="related-title">Articles similaires</h2>
+    <div class="related-grid">
+      <a href="maitriser-prompts-2026.html" class="related-card"><span class="related-tag">Coulisses Omnyx</span><h3>Maîtriser les prompts en 2026 : 7 leviers qui changent tout</h3></a>
+      <a href="ollama-cloud-claude-code-guide.html" class="related-card"><span class="related-tag">Automatisation</span><h3>Ollama Cloud × Claude Code : le setup complet</h3></a>
+      <a href="hermes-agent-update-juillet-2026.html" class="related-card"><span class="related-tag">Automatisation</span><h3>Hermès Agent · update juillet 2026</h3></a>
+    </div>
+  </section>
+
+
+
+  <section class="closing">
+    <h2>Tu veux identifier le workflow à refondre en priorité avec Fable 5 ?</h2>
+    <p>Appel découverte de 30 min. On regarde ensemble quel workflow quotidien mérite le détour Fable 5, on cale la méthode 1 ou 2, et tu repars avec un plan d'action concret. Pas de pitch, juste de l'analyse.</p>
+
+    <div class="closing-cta-final">
+      <a class="btn-big" href="../index.html#contact">Prendre un RDV</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-name">Omnyx Agency</div>
+    <div class="footer-meta">Marketing, IA &amp; automation · France</div>
+    <div class="footer-links">
+      <a href="../index.html">Site</a>
+      <a href="../blog.html">Blog</a>
+      <a href="../index.html#contact">Contact</a>
+      <a href="https://x.com/OmnyxAgency" target="_blank" rel="noopener">X</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
