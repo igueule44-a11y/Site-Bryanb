@@ -1,10 +1,11 @@
 User-agent: *
 Allow: /
 
-# Pages utilitaires / duplicats / brouillons : ne pas indexer
-Disallow: /guides/
-Disallow: /guide.html
-Disallow: /blog/exemple-article.html
+# Pages en noindex : crawl autorisé pour que Google lise la balise noindex
+# (un Disallow ici empêcherait Google de voir le noindex et causerait
+# des faux positifs "doublon sans URL canonique" dans Search Console)
+
+# Pages sans balise noindex : bloquées ici faute d'alternative
 Disallow: /linkedin-banner.html
 Disallow: /carousel/
 
