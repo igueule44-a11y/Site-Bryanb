@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow">
+<meta name="description" content="Une entreprise a remplacé un abonnement à 2 500$/mois par du bricolage IA — et s'est retrouvée avec une facture à 12 500$. Voici comment poser un garde-fou de dépense avant de brancher un agent IA dans ta PME.">
+<title>Le coût réel de l'IA pour ta PME | Omnyx</title>
+<link rel="canonical" href="https://omnyx.agency/blog/cout-reel-ia-pme-2026.html">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Le coût réel de l'IA pour ta PME">
+<meta property="og:description" content="Une entreprise a remplacé un abonnement à 2 500$/mois par du bricolage IA — et s'est retrouvée avec une facture à 12 500$. Voici comment éviter la même erreur.">
+<meta property="og:url" content="https://omnyx.agency/blog/cout-reel-ia-pme-2026.html">
+<meta property="og:image" content="https://omnyx.agency/assets/logo-omnyx-v3.png">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Omnyx">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Le coût réel de l'IA pour ta PME">
+<meta name="twitter:description" content="Une entreprise a remplacé un abonnement à 2 500$/mois par du bricolage IA — et s'est retrouvée avec une facture à 12 500$. Voici comment éviter la même erreur.">
+<meta name="twitter:image" content="https://omnyx.agency/assets/logo-omnyx-v3.png">
+
+<style>
+  :root{
+    --bg-darkest:#060c18;
+    --bg-main:#080e1a;
+    --bg-card:#0d1a2e;
+    --accent:#00d4ff;
+    --accent-soft:#7de8f7;
+    --text-primary:#f0f8ff;
+    --text-secondary:#c2dae8;
+    --border-soft:rgba(0,212,255,0.16);
+    --border-strong:rgba(0,212,255,0.32);
+    --warn:#ff8a65;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation:none !important; transition:none !important;}
+  }
+
+  body{
+    margin:0;
+    background:var(--bg-main);
+    color:var(--text-primary);
+    font-family:'Inter', system-ui, sans-serif;
+    line-height:1.65;
+    font-size:16px;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1, h2, h3{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:600;
+    line-height:1.2;
+    margin:0;
+  }
+
+  a{color:var(--accent); text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  a:focus-visible, button:focus-visible{outline:2px solid var(--accent); outline-offset:3px;}
+
+  .wrap{max-width:760px; margin:0 auto; padding:0 24px;}
+
+  header.site-header{
+    background:var(--bg-darkest);
+    border-bottom:1px solid var(--border-soft);
+    position:sticky; top:0; z-index:50;
+  }
+  .site-header-inner{
+    max-width:760px; margin:0 auto; padding:12px 24px;
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+  }
+  .logo-link{
+    font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:17px;
+    color:var(--text-primary); display:flex; align-items:center;
+  }
+  .logo-link img{height:60px; width:auto; display:block;}
+  .logo-link:hover{text-decoration:none; color:var(--accent-soft);}
+  .btn-cta{
+    background:var(--accent); color:#02131f; font-weight:600; font-size:14px;
+    padding:9px 18px; border-radius:8px; white-space:nowrap;
+    transition:background 0.15s ease, transform 0.15s ease;
+  }
+  .btn-cta:hover{background:var(--accent-soft); text-decoration:none; transform:translateY(-1px);}
+
+  .back-link{
+    display:inline-flex; align-items:center; gap:6px;
+    font-size:13.5px; color:var(--text-secondary); margin:28px 0 0;
+  }
+  .back-link:hover{color:var(--accent-soft); text-decoration:none;}
+
+  .hero{padding:24px 0 32px;}
+  .eyebrow-row{
+    display:flex; gap:10px; align-items:center; flex-wrap:wrap;
+    font-size:13px; color:var(--text-secondary); margin-bottom:18px;
+    font-weight:500; letter-spacing:0.02em;
+  }
+  .eyebrow-row .dot{color:var(--border-strong);}
+  .eyebrow-tag{color:var(--accent-soft);}
+
+  h1.title{
+    font-size:clamp(28px, 5vw, 40px);
+    color:var(--text-primary);
+    margin-bottom:18px;
+  }
+  h1.title em{
+    display:block; font-style:normal; color:var(--accent-soft); font-weight:500;
+    font-size:0.85em; margin-top:4px;
+  }
+
+  .subtitle{
+    font-size:17px; color:var(--text-secondary); max-width:600px; margin-bottom:32px;
+  }
+
+  .stats-box{
+    background:var(--bg-card);
+    border:1px solid var(--border-soft);
+    border-radius:14px;
+    padding:24px 28px;
+  }
+  .stats-box .stats-label{
+    font-size:14px; color:var(--text-secondary); margin-bottom:14px;
+    display:flex; gap:8px; align-items:center;
+  }
+  .stats-list{list-style:none; margin:0; padding:0; display:grid; gap:10px;}
+  .stats-list li{
+    font-size:15px; color:var(--text-primary); display:flex; gap:10px; align-items:baseline;
+  }
+  .stats-list li .arrow{color:var(--accent); flex-shrink:0;}
+  .stats-list strong{color:var(--accent-soft); font-weight:600;}
+
+  .intro-box{
+    margin:36px 0 48px;
+    background:linear-gradient(135deg, var(--bg-card), var(--bg-darkest));
+    border:1px solid var(--border-strong);
+    border-radius:16px;
+    padding:32px 28px;
+  }
+  .intro-box .intro-emoji{font-size:22px; margin-bottom:10px; display:block;}
+  .intro-box h2{font-size:21px; color:var(--text-primary); margin-bottom:12px;}
+  .intro-box p{color:var(--text-secondary); margin:0; font-size:15.5px;}
+
+  .toc{
+    margin:0 0 56px;
+    background:var(--bg-card);
+    border:1px solid var(--border-soft);
+    border-radius:14px;
+    padding:22px 26px;
+  }
+  .toc-label{font-size:13px; color:var(--text-secondary); margin-bottom:14px; font-weight:600; text-transform:uppercase; letter-spacing:0.05em;}
+  .toc ol{list-style:none; margin:0; padding:0; display:grid; gap:9px;}
+  .toc ol li a{
+    display:flex; gap:10px; color:var(--text-primary); font-size:14.5px; padding:2px 0;
+  }
+  .toc ol li a:hover{color:var(--accent-soft); text-decoration:none;}
+  .toc ol li a .num{color:var(--accent); font-family:'JetBrains Mono', monospace; font-size:13px; flex-shrink:0;}
+
+  .part{margin-bottom:64px;}
+  .part-eyebrow{
+    font-size:13px; font-weight:700; letter-spacing:0.08em; color:var(--accent);
+    margin-bottom:10px; display:flex; align-items:center; gap:8px;
+  }
+  .part > h2{font-size:clamp(22px, 4vw, 28px); margin-bottom:22px;}
+  .part > h2 em{display:block; font-style:normal; color:var(--text-secondary); font-weight:500; font-size:0.7em; margin-top:6px;}
+
+  .part p{color:var(--text-primary); margin:0 0 18px; font-size:15.5px;}
+  .part p.muted{color:var(--text-secondary);}
+
+  .callout{
+    border-radius:12px; padding:20px 22px; margin:22px 0;
+    border:1px solid var(--border-soft);
+    background:var(--bg-card);
+  }
+  .callout .callout-label{
+    font-size:13px; font-weight:700; margin-bottom:8px; display:flex; gap:8px; align-items:center;
+  }
+  .callout p{margin:0; font-size:14.5px; color:var(--text-secondary);}
+  .callout.warn{border-color:rgba(255,138,101,0.35);}
+  .callout.warn .callout-label{color:var(--warn);}
+  .callout.tip .callout-label{color:var(--accent-soft);}
+  .callout.action{background:linear-gradient(135deg, var(--bg-card), var(--bg-darkest)); border-color:var(--border-strong);}
+  .callout.action .callout-label{color:var(--accent);}
+  .callout.compare .callout-label{color:var(--accent-soft);}
+  .callout.compare p strong{color:var(--text-primary); font-weight:600;}
+
+  .rules{list-style:none; margin:0; padding:0; display:grid; gap:18px;}
+  .rules li{
+    display:grid; grid-template-columns:28px 1fr; gap:14px;
+    background:var(--bg-card); border:1px solid var(--border-soft); border-radius:12px;
+    padding:18px 20px;
+  }
+  .rule-icon{color:var(--accent); font-size:17px;}
+  .rules h4{margin:0 0 6px; font-size:15.5px; color:var(--text-primary); font-family:'Inter', sans-serif; font-weight:600;}
+  .rules p{margin:0; font-size:14px; color:var(--text-secondary);}
+
+  .faq{margin:0 0 18px;}
+  .faq h3{font-size:17.5px; color:var(--text-primary); margin-bottom:8px;}
+  .faq p{color:var(--text-secondary); margin:0 0 28px; font-size:15px;}
+
+  .closing{margin:64px 0 0;}
+  .closing > h2{font-size:clamp(22px, 4vw, 28px); margin-bottom:14px;}
+  .closing > p{color:var(--text-secondary); font-size:15.5px; margin-bottom:32px; max-width:560px;}
+
+  .closing-cta-final{
+    background:linear-gradient(135deg, var(--bg-card), var(--bg-darkest));
+    border:1px solid var(--border-strong); border-radius:16px;
+    padding:30px 28px; text-align:center;
+  }
+  .closing-cta-final .btn-big{
+    display:inline-block; background:var(--accent); color:#02131f; font-weight:600;
+    font-size:15px; padding:13px 28px; border-radius:9px; margin-bottom:10px;
+    transition:background 0.15s ease, transform 0.15s ease;
+  }
+  .closing-cta-final .btn-big:hover{background:var(--accent-soft); text-decoration:none; transform:translateY(-1px);}
+  .closing-cta-final .fine-print{font-size:13px; color:var(--text-secondary); margin:0;}
+
+  footer.site-footer{
+    border-top:1px solid var(--border-soft);
+    margin-top:72px;
+    padding:32px 0 48px;
+  }
+  .footer-name{font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:15px; color:var(--text-primary); margin-bottom:4px;}
+  .footer-meta{font-size:13px; color:var(--text-secondary); margin-bottom:18px;}
+  .footer-links{display:flex; gap:18px; flex-wrap:wrap; font-size:13.5px;}
+
+  .related-section { padding: 48px 0 24px; }
+  .related-title { font-family:'Space Grotesk',sans-serif; font-size:1.3rem; color:var(--text-primary); margin-bottom:20px; }
+  .related-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; }
+  .related-card { display:block; position:relative; overflow:hidden; background:var(--bg-card); border:1px solid var(--border-soft); border-radius:12px; padding:18px; text-decoration:none !important; transition:transform .3s ease, border-color .3s ease, box-shadow .3s ease; }
+  .related-card::after { content:"→"; position:absolute; right:16px; bottom:14px; color:var(--accent); font-size:1.1rem; opacity:0; transform:translateX(-6px); transition:opacity .3s ease, transform .3s ease; }
+  .related-card:hover { border-color:var(--border-strong); transform:translateY(-4px); box-shadow:0 14px 28px rgba(0,212,255,0.14); text-decoration:none !important; }
+  .related-card:hover::after { opacity:1; transform:translateX(0); }
+  .related-card .related-tag { font-size:.72rem; color:var(--accent); text-transform:uppercase; letter-spacing:.05em; }
+  .related-card h3 { font-family:'Space Grotesk',sans-serif; font-size:.95rem; color:var(--text-primary); margin:8px 0 0; line-height:1.4; transition:color .3s ease; }
+  .related-card:hover h3 { color:var(--accent-soft); }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "L'IA qui devait faire économiser ta PME est en train de lui coûter plus cher que l'employé qu'elle remplaçait",
+  "description": "Une entreprise a remplacé un abonnement à 2 500$/mois par du bricolage IA — et s'est retrouvée avec une facture à 12 500$. Voici comment poser un garde-fou de dépense avant de brancher un agent IA dans ta PME.",
+  "datePublished": "2026-07-27",
+  "dateModified": "2026-07-27",
+  "author": {
+    "@type": "Person",
+    "name": "Bryan Blaevoet",
+    "url": "https://www.linkedin.com/in/bryanblaevoet/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Omnyx",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://omnyx.agency/assets/logo-omnyx-v3.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://omnyx.agency/blog/cout-reel-ia-pme-2026.html"
+  },
+  "wordCount": 980,
+  "timeRequired": "PT5M",
+  "articleSection": "Automatisation",
+  "keywords": "coût réel de l'automatisation IA, ROI automatisation PME, budget IA PME, garde-fou dépense IA",
+  "inLanguage": "fr-FR"
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="logo-link" href="../index.html"><img src="../assets/logo-omnyx-original-nav.png" alt="Omnyx"></a>
+    <a class="btn-cta" href="../index.html#contact">Prendre un RDV</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <a class="back-link" href="../blog.html">← Retour au blog</a>
+
+  <section class="hero">
+    <div class="eyebrow-row">
+      <span class="eyebrow-tag">Automatisation</span>
+      <span class="dot">·</span>
+      <span>ROI IA</span>
+      <span class="dot">·</span>
+      <span>Lecture 5 min</span>
+    </div>
+
+    <h1 class="title">L'IA qui devait faire économiser ta PME est en train de lui coûter plus cher que l'employé qu'elle remplaçait
+      <em>Ce que personne ne te dit avant la facture</em>
+    </h1>
+
+    <p class="subtitle">Une entreprise a remplacé un abonnement SaaS à 2 500$ par mois par un outil IA maison. Résultat : 12 500$ par mois. Pas une économie, une facture multipliée par cinq. Voici pourquoi, et comment poser la limite avant que ça t'arrive.</p>
+
+    <div class="stats-box">
+      <div class="stats-label">💡 Ce que tu retiens en 30 secondes :</div>
+      <ul class="stats-list">
+        <li><span class="arrow">→</span><span>Un abonnement à <strong>2 500$/mois</strong> remplacé par de l'IA maison a fini à <strong>12 500$/mois</strong></span></li>
+        <li><span class="arrow">→</span><span>Une entreprise a dépensé <strong>500 millions de dollars</strong> en IA en un seul mois, sans limite fixée</span></li>
+        <li><span class="arrow">→</span><span>Uber a grillé son budget IA annuel en <strong>4 mois</strong>, et plafonne désormais chaque ingénieur</span></li>
+        <li><span class="arrow">→</span><span>Le vrai ROI ne se mesure pas en heures gagnées, mais en <strong>résultat produit</strong></span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="intro-box">
+    <span class="intro-emoji">💸</span>
+    <h2>Le vrai risque n'est pas d'adopter l'IA</h2>
+    <p>Je construis des systèmes d'automatisation pour des PME au quotidien, donc quand une histoire de facture IA qui explose circule, je ne la lis pas comme une anecdote isolée, je regarde ce qu'elle a en commun avec les autres. Trois histoires sont sorties la même semaine. Aucune n'a de lien entre elles. Toutes les trois racontent la même erreur.</p>
+  </section>
+
+  <nav class="toc">
+    <div class="toc-label">Au sommaire</div>
+    <ol>
+      <li><a href="#n1"><span class="num">01</span><span>Le mirage du "ça va nous faire économiser"</span></a></li>
+      <li><a href="#n2"><span class="num">02</span><span>Ce qui se passe quand personne ne regarde le compteur</span></a></li>
+      <li><a href="#n3"><span class="num">03</span><span>La vraie question n'est pas le prix, c'est le contrôle</span></a></li>
+      <li><a href="#n4"><span class="num">04</span><span>Comment je pose la limite avant de brancher quoi que ce soit</span></a></li>
+      <li><a href="#faq"><span class="num">→</span><span>Questions fréquentes</span></a></li>
+      <li><a href="#bilan"><span class="num">→</span><span>Le bilan</span></a></li>
+    </ol>
+  </nav>
+
+  <section class="part" id="n1">
+    <div class="part-eyebrow">→ 01 · LE MIRAGE</div>
+    <h2>Le mirage du "ça va nous faire économiser"</h2>
+    <p>Avant : un abonnement à prix fixe, prévisible, qu'on négocie une fois par an. Maintenant : une facture qui dépend de combien de fois l'agent réfléchit, combien de fois il rate, combien de fois il recommence.</p>
+    <p class="muted">Ce n'est pas un problème d'IA. C'est un problème de compteur. Et un compteur sans limite ne fait jamais d'économies, il fait des surprises.</p>
+  </section>
+
+  <section class="part" id="n2">
+    <div class="part-eyebrow">→ 02 · LE COMPTEUR</div>
+    <h2>Ce qui se passe quand personne ne regarde le compteur</h2>
+    <p>Une entreprise a dépensé 500 millions de dollars en Claude en un seul mois, parce que personne n'avait posé de limite de dépense. Uber a grillé tout son budget IA annuel en quatre mois, et plafonne maintenant chaque ingénieur à 1 500$ par mois. Microsoft, oui, Microsoft, annule des licences pour revenir vers un outil moins cher.</p>
+    <div class="callout warn">
+      <div class="callout-label">⚠️ Le signal à retenir</div>
+      <p>Si des entreprises avec des équipes finance à temps plein se plantent sur ce calcul, une PME qui branche un agent IA un vendredi soir sans surveillance a toutes les chances de se planter aussi.</p>
+    </div>
+  </section>
+
+  <section class="part" id="n3">
+    <div class="part-eyebrow">→ 03 · LE VRAI ROI</div>
+    <h2>La vraie question n'est pas le prix, c'est le contrôle</h2>
+    <p>"L'IA nous fait gagner 2h par semaine" ne dit rien sur ce que ces 2h ont produit. On mesure le temps libéré. On ne mesure jamais où ce temps est allé.</p>
+    <p class="muted">C'est exactement l'angle mort. Le ROI d'un outil IA, ce n'est pas les heures gagnées. C'est ce qu'on a fait de ces heures. Et si personne ne pose de limite de dépense en amont, le compteur tourne pendant que tout le monde regarde le temps gagné plutôt que l'argent qui part.</p>
+    <p>Trop technique pour toi, tu penses ? Ça se résume en une phrase : fixe un plafond avant de brancher quoi que ce soit, pas après.</p>
+  </section>
+
+  <section class="part" id="n4">
+    <div class="part-eyebrow">→ 04 · LA MÉTHODE</div>
+    <h2>Comment je pose la limite avant de brancher quoi que ce soit</h2>
+    <p>Quand je monte un système d'automatisation pour un client, la première chose que je configure n'est pas le workflow. C'est le plafond. Un budget mensuel fixe, une alerte à 80%, un mode dégradé si on dépasse — le système continue de tourner, juste avec un modèle moins gourmand, plutôt que de facturer sans limite.</p>
+    <p class="muted">Ça s'appelle du garde-fou de dépense, et c'est la différence entre un système qui te fait gagner du temps et un système qui te fait une mauvaise surprise le mois suivant.</p>
+    <div class="callout action">
+      <div class="callout-label">⚙️ Exemple concret</div>
+      <p>Sur un workflow n8n de qualification de leads, poser un plafond de tokens par exécution a réduit la facture mensuelle de 40%, sans changer un mot du script. Le système attendait juste qu'on lui dise où s'arrêter.</p>
+    </div>
+  </section>
+
+  <section class="part" id="faq">
+    <div class="part-eyebrow">→ QUESTIONS FRÉQUENTES</div>
+    <div class="faq">
+      <h3>L'IA coûte-t-elle vraiment plus cher qu'un salarié ?</h3>
+      <p>Ça dépend entièrement de si quelqu'un surveille le compteur. Sans plafond, un agent qui tourne en boucle peut coûter plus cher qu'un salarié en quelques semaines. Avec un plafond posé dès le départ, le calcul s'inverse — et c'est là que l'automatisation devient rentable plutôt que risquée.</p>
+    </div>
+    <div class="faq">
+      <h3>Comment mesurer le ROI d'un outil IA ?</h3>
+      <p>Pas en heures gagnées. En résultat produit avec ces heures. Un rapport livré plus vite, un lead qualifié en moins de temps, une réponse client envoyée le jour même plutôt que trois jours après. Si tu ne peux pas nommer ce résultat, le temps gagné ne veut rien dire — et la facture, elle, continue d'arriver.</p>
+    </div>
+  </section>
+
+  <section class="part" id="bilan">
+    <div class="part-eyebrow">→ LE BILAN</div>
+    <h2>Ce n'est plus une question d'outil<em>C'est une question de plafond</em></h2>
+    <p>L'IA ne va pas ruiner ta boîte. Mal cadrée, sans limite posée en amont, elle en a le potentiel. Cadrée, avec un plafond fixé avant même le premier test, elle fait exactement ce qu'on te promet depuis le début.</p>
+    <ul class="rules">
+      <li><span class="rule-icon">🎯</span><div><h4>Avant : une facture qu'on découvre en fin de mois</h4><p>On branche l'outil, on espère que ça reste raisonnable, on regarde la facture avec surprise.</p></div></li>
+      <li><span class="rule-icon">⚙️</span><div><h4>Maintenant : un plafond posé avant le premier test</h4><p>Budget fixe, alerte à 80%, mode dégradé au-delà plutôt qu'une facture sans limite.</p></div></li>
+      <li><span class="rule-icon">💡</span><div><h4>Demain : le ROI mesuré sur le résultat, pas le temps gagné</h4><p>Ce que l'IA a réellement produit, pas seulement combien de temps elle a libéré.</p></div></li>
+    </ul>
+    <p>La différence entre une IA qui te fait économiser et une IA qui te ruine ne tient pas à l'outil. Elle tient à une question qu'on pose avant de brancher quoi que ce soit : où s'arrête-t-on si ça dérape ?</p>
+  </section>
+
+  <section class="related-section">
+    <h2 class="related-title">Articles similaires</h2>
+    <div class="related-grid">
+      <a href="agent-ia-autonome-pme-2026.html" class="related-card"><span class="related-tag">Automatisation</span><h3>5 mises à jour qui changent ce que ton agent IA peut faire</h3></a>
+      <a href="agents-ia-pme-guide-2026.html" class="related-card"><span class="related-tag">Marketing digital</span><h3>Agents IA pour PME : par où commencer en 2026</h3></a>
+      <a href="5-erreurs-chatbot-pme-2026.html" class="related-card"><span class="related-tag">Chatbots</span><h3>5 erreurs à éviter avec un chatbot IA en PME</h3></a>
+    </div>
+  </section>
+
+  <section class="closing">
+    <h2>Tu veux un système IA avec un plafond, pas une facture surprise ?</h2>
+    <p>On peut regarder ensemble comment poser un garde-fou de dépense sur ton automatisation, avant même le premier test. 30 minutes suffisent pour poser les bases.</p>
+
+    <div class="closing-cta-final">
+      <a class="btn-big" href="../index.html#contact">Prendre un RDV</a>
+      <p class="fine-print">Omnyx Agency · Marketing, IA &amp; automation</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-name">Omnyx Agency</div>
+    <div class="footer-meta">Marketing, IA &amp; automation · France</div>
+    <div class="footer-links">
+      <a href="../index.html">Site</a>
+      <a href="../blog.html">Blog</a>
+      <a href="../index.html#contact">Contact</a>
+      <a href="https://x.com/OmnyxAgency" target="_blank" rel="noopener">X</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
