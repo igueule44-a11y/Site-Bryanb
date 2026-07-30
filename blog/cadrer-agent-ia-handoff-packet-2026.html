@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="index, follow">
-<meta name="description" content="Anthropic vient de sortir une fonction qui transforme un enregistrement d'écran en automatisation complète. Voici comment ça marche, concrètement, et ses limites.">
-<title>Automatiser une tâche sans écrire une ligne de code | Omnyx</title>
-<link rel="canonical" href="https://omnyx.agency/blog/claude-cowork-record-a-skill-2026.html">
+<meta name="description" content="Un agent IA à qui on confie une tâche sans cadre invente sa propre règle pour combler les trous. Voici le handoff packet, la méthode en 3 questions pour reprendre le contrôle.">
+<title>Ton agent IA ne va pas attendre ton feu vert pour décider | Omnyx</title>
+<link rel="canonical" href="https://omnyx.agency/blog/cadrer-agent-ia-handoff-packet-2026.html">
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,17 +15,17 @@
 
 <!-- Open Graph -->
 <meta property="og:type" content="article">
-<meta property="og:title" content="Tu n'as plus besoin d'écrire ton process pour l'automatiser">
-<meta property="og:description" content="Anthropic vient de sortir une fonction qui transforme un enregistrement d'écran en automatisation complète. Voici comment ça marche, concrètement, et ses limites.">
-<meta property="og:url" content="https://omnyx.agency/blog/claude-cowork-record-a-skill-2026.html">
+<meta property="og:title" content="Ton agent IA ne va pas attendre ton feu vert pour décider">
+<meta property="og:description" content="Un agent IA à qui on confie une tâche sans cadre invente sa propre règle pour combler les trous. Voici le handoff packet, la méthode en 3 questions pour reprendre le contrôle.">
+<meta property="og:url" content="https://omnyx.agency/blog/cadrer-agent-ia-handoff-packet-2026.html">
 <meta property="og:image" content="https://omnyx.agency/assets/logo-omnyx-v3.png">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:site_name" content="Omnyx">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Tu n'as plus besoin d'écrire ton process pour l'automatiser">
-<meta name="twitter:description" content="Anthropic vient de sortir une fonction qui transforme un enregistrement d'écran en automatisation complète. Voici comment ça marche, concrètement, et ses limites.">
+<meta name="twitter:title" content="Ton agent IA ne va pas attendre ton feu vert pour décider">
+<meta name="twitter:description" content="Un agent IA à qui on confie une tâche sans cadre invente sa propre règle pour combler les trous. Voici le handoff packet, la méthode en 3 questions pour reprendre le contrôle.">
 <meta name="twitter:image" content="https://omnyx.agency/assets/logo-omnyx-v3.png">
 
 <style>
@@ -249,10 +249,10 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "Tu n'as plus besoin d'écrire ton process pour l'automatiser",
-  "description": "Anthropic vient de sortir une fonction qui transforme un enregistrement d'écran en automatisation complète. Voici comment ça marche, concrètement, et ses limites.",
-  "datePublished": "2026-07-28",
-  "dateModified": "2026-07-28",
+  "headline": "Ton agent IA ne va pas attendre ton feu vert pour décider",
+  "description": "Un agent IA à qui on confie une tâche sans cadre invente sa propre règle pour combler les trous. Voici le handoff packet, la méthode en 3 questions pour reprendre le contrôle.",
+  "datePublished": "2026-07-30",
+  "dateModified": "2026-07-30",
   "author": {
     "@type": "Person",
     "name": "Bryan Blaevoet",
@@ -268,12 +268,12 @@
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://omnyx.agency/blog/claude-cowork-record-a-skill-2026.html"
+    "@id": "https://omnyx.agency/blog/cadrer-agent-ia-handoff-packet-2026.html"
   },
-  "wordCount": 950,
-  "timeRequired": "PT4M",
+  "wordCount": 980,
+  "timeRequired": "PT5M",
   "articleSection": "Automatisation",
-  "keywords": "automatiser une tâche sans coder, Claude Cowork skill, automatiser un rapport client PME, gagner du temps sans compétence technique IA",
+  "keywords": "cadrer un agent IA, handoff packet, coordination tax IA, agent IA autonome PME, garde-fou automatisation IA",
   "inLanguage": "fr-FR"
 }
 </script>
@@ -295,138 +295,147 @@
     <div class="eyebrow-row">
       <span class="eyebrow-tag">Automatisation</span>
       <span class="dot">·</span>
-      <span>Claude Cowork</span>
+      <span>Coordination</span>
       <span class="dot">·</span>
-      <span>Lecture 4 min</span>
+      <span>Lecture 5 min</span>
     </div>
 
-    <h1 class="title">Tu n'as plus besoin d'écrire ton process pour l'automatiser
-      <em>Il te suffit de le faire une fois, devant ta caméra</em>
+    <h1 class="title">Ton agent IA ne va pas attendre ton feu vert pour décider
+      <em>Voici comment le cadrer avant qu'il invente sa propre règle</em>
     </h1>
 
-    <p class="subtitle">Le 21 juillet 2026, Anthropic a ajouté une fonction à Claude Cowork qui change une chose précise : la façon dont on transmet un process à une IA pour l'automatiser. Voici comment ça marche, concrètement, et ce qu'il faut savoir avant de s'enthousiasmer.</p>
+    <p class="subtitle">Ken Huang, qui travaille sur les agents IA en entreprise, pose une question simple : est-ce que ton agent te fait gagner du temps, ou est-ce qu'il te crée juste plus de travail de vérification ? La réponse ne dépend pas de l'IA que tu utilises. Elle dépend de ce que tu as pris le temps de lui dire avant de le laisser faire.</p>
 
     <div class="stats-box">
       <div class="stats-label">💡 Ce que tu retiens en 30 secondes :</div>
       <ul class="stats-list">
-        <li><span class="arrow">→</span><span><strong>200 secondes</strong> d'enregistrement ont remplacé un rapport SEO client fait à la main chaque mois</span></li>
-        <li><span class="arrow">→</span><span>Le principe : tu enregistres ton écran en faisant la tâche, <strong>en expliquant à voix haute</strong></span></li>
-        <li><span class="arrow">→</span><span>Disponible sur Pro, Max, Team, <strong>zéro ligne de code</strong></span></li>
-        <li><span class="arrow">→</span><span>Deux limites à connaître avant de l'utiliser sur des <strong>données client</strong></span></li>
+        <li><span class="arrow">→</span><span>Le vrai coût d'un agent IA n'est plus le prix des tokens, c'est <strong>le temps de vérification</strong> qu'il te fait perdre</span></li>
+        <li><span class="arrow">→</span><span>Un agent sans cadre clair <strong>ne s'arrête pas pour demander</strong>, il invente sa propre règle</span></li>
+        <li><span class="arrow">→</span><span>La solution tient en un <strong>"handoff packet"</strong>, trois questions à répondre avant de lui confier une tâche</span></li>
+        <li><span class="arrow">→</span><span>Tu peux l'écrire pour ta prochaine tâche automatisée en <strong>moins de 10 minutes</strong></span></li>
       </ul>
     </div>
   </section>
 
   <section class="intro-box">
-    <span class="intro-emoji">🎙️</span>
-    <h2>Le vrai frein n'a jamais été l'IA</h2>
-    <p>Documenter sa propre façon de travailler est un exercice à part entière, et c'est précisément là que la plupart des gens restent bloqués avant même de penser à automatiser quoi que ce soit. Ce que change cette fonction, ce n'est pas la capacité de l'IA. C'est ce qu'on te demande de faire pour la déclencher.</p>
+    <span class="intro-emoji">🧭</span>
+    <h2>Le problème, ce n'est pas que ton agent se trompe</h2>
+    <p>Le problème, c'est qu'il ne se trompe pas assez fort pour que tu t'en rendes compte tout de suite. Un agent IA à qui on confie une tâche sans cadre clair ne s'arrête pas pour te demander. Il continue, en silence, en inventant sa propre logique pour combler ce que tu n'as pas précisé.</p>
   </section>
 
   <nav class="toc">
     <div class="toc-label">Au sommaire</div>
     <ol>
-      <li><a href="#n1"><span class="num">01</span><span>Le vrai frein n'a jamais été l'IA</span></a></li>
-      <li><a href="#n2"><span class="num">02</span><span>Ça s'appelle une skill</span></a></li>
-      <li><a href="#n3"><span class="num">03</span><span>Les deux limites à connaître</span></a></li>
-      <li><a href="#n4"><span class="num">04</span><span>Le guide, étape par étape</span></a></li>
+      <li><a href="#n1"><span class="num">01</span><span>Un agent qui invente sa propre règle</span></a></li>
+      <li><a href="#n2"><span class="num">02</span><span>La vraie facture n'est pas dans les tokens</span></a></li>
+      <li><a href="#n3"><span class="num">03</span><span>Le handoff packet, en trois questions</span></a></li>
+      <li><a href="#n4"><span class="num">04</span><span>Comment l'écrire avant ta prochaine tâche</span></a></li>
       <li><a href="#faq"><span class="num">→</span><span>Questions fréquentes</span></a></li>
       <li><a href="#bilan"><span class="num">→</span><span>Le bilan</span></a></li>
     </ol>
   </nav>
 
   <section class="part" id="n1">
-    <div class="part-eyebrow">→ 01 · LE FREIN</div>
-    <h2>Le vrai frein n'a jamais été l'IA</h2>
-    <p>Avant : automatiser une tâche voulait dire l'écrire. Ouvrir un document, lister chaque étape, chaque exception, chaque "si ça ne marche pas, alors". Écrire un bon process est un métier en soi, et c'est précisément la partie sur laquelle la plupart des gens restent bloqués. Pas parce qu'ils ne savent pas faire la tâche. Parce qu'ils ne savent pas la décrire.</p>
-    <p class="muted">Maintenant : tu ouvres l'app Claude, tu actives Cowork, tu cliques sur enregistrer, et tu fais la tâche normalement, en expliquant à voix haute ce que tu fais et pourquoi. Claude capture ton écran, tes clics, ce que tu tapes, ta voix, et transforme le tout en une skill.</p>
+    <div class="part-eyebrow">→ 01 · LE SIGNAL</div>
+    <h2>Un agent qui invente sa propre règle</h2>
+    <p>Un exemple qui a circulé récemment illustre bien le problème : quelqu'un a laissé un agent Claude trier des commentaires sur une longue tâche, découpée en 73 étapes, sans intervenir. À un moment, l'agent invente une règle que personne ne lui avait écrite. Jamais répondre. Jamais liker. Jamais supprimer. Personne ne le lui avait dit. Il a construit cette règle tout seul, en observant le contexte autour de lui.</p>
+    <p class="muted">Ce n'est pas une anecdote amusante sur une IA "intelligente". C'est un signal d'alerte. Un agent auquel on ne donne pas de limites explicites ne s'arrête pas au premier flou qu'il rencontre. Il continue, et il comble le vide avec sa propre interprétation, celle qui lui semble la plus cohérente. Tu ne le sais que quand le résultat arrive, souvent trop tard pour corriger sans dégâts.</p>
   </section>
 
   <section class="part" id="n2">
-    <div class="part-eyebrow">→ 02 · LA SKILL</div>
-    <h2>Ça s'appelle une skill</h2>
-    <p>Une skill, dans Claude Cowork, c'est une automatisation réutilisable et programmable, générée à partir d'un enregistrement. Tu peux la relancer à la demande, ou la programmer pour qu'elle tourne toute seule à une date fixe.</p>
+    <div class="part-eyebrow">→ 02 · LA VRAIE FACTURE</div>
+    <h2>La vraie facture n'est pas dans les tokens</h2>
+    <p>Ken Huang, qui écrit sur l'ingénierie des agents IA en entreprise, résume le vrai goulot d'étranglement en une phrase : la partie coûteuse n'est plus de produire des tokens, c'est de décider qui a le droit d'agir, ce qui doit être transmis, quels éléments comptent, et à quel moment un humain doit reprendre la main.</p>
     <div class="callout tip">
-      <div class="callout-label">📎 La preuve, en une phrase</div>
-      <p>Un rapport SEO client mensuel, enregistré en 200 secondes, devenu une skill qui va chercher les données, rédige l'analyse, construit un PDF aux couleurs de l'agence et prépare l'email client. Elle tourne seule, tous les 22 du mois.</p>
+      <div class="callout-label">📎 La vraie contrainte</div>
+      <p>Un agent peut produire en une après-midi plus de travail qu'une personne ne peut superviser tranquillement. Le frein n'est pas la capacité de l'IA, c'est ta bande passante d'approbation. C'est ça, la "taxe de coordination".</p>
     </div>
-    <p class="muted">Disponible sur les offres Pro, Max et Team, uniquement sur l'app desktop. Aucune ligne de code.</p>
+    <p class="muted">Concrètement, le temps que tu passes à vérifier, corriger et refaire ce qu'un agent a mal interprété pèse souvent plus lourd dans la balance que le prix de l'inférence elle-même. Un agent rapide qui te fait perdre une heure de relecture n'a rien fait gagner à personne.</p>
   </section>
 
   <section class="part" id="n3">
-    <div class="part-eyebrow">→ 03 · LES LIMITES</div>
-    <h2>Les deux limites à connaître avant de t'enthousiasmer</h2>
-    <p>Je ne vais pas vendre ça comme une solution sans limite, ce serait malhonnête.</p>
-    <div class="callout warn">
-      <div class="callout-label">⚠️ À savoir avant d'enregistrer</div>
-      <p>Anthropic prévient elle-même : ne tape aucun mot de passe et n'affiche aucune information sensible pendant que tu enregistres. Et pour l'instant, il n'existe pas de documentation publique sur la conservation ou le stockage des enregistrements. Reste prudent avec toute donnée client sensible en attendant plus de clarté.</p>
+    <div class="part-eyebrow">→ 03 · LE HANDOFF PACKET</div>
+    <h2>Le handoff packet, en trois questions</h2>
+    <p>Ken Huang appelle ça un "handoff packet" : ce que tu dois clarifier avant de transmettre une tâche à un agent. Pas un cahier des charges de dix pages. Trois questions, à répondre avant de cliquer sur "lancer".</p>
+    <div class="callout action">
+      <div class="callout-label">1️⃣ Qu'est-ce qu'il peut faire tout seul ?</div>
+      <p>La liste des actions où l'agent a le droit d'agir sans repasser par toi, parce que l'erreur possible est faible et réversible.</p>
     </div>
+    <div class="callout action">
+      <div class="callout-label">2️⃣ Qu'est-ce qu'il doit seulement observer ?</div>
+      <p>Les zones où il peut regarder, analyser, proposer, mais jamais modifier ni exécuter sans validation.</p>
+    </div>
+    <div class="callout action">
+      <div class="callout-label">3️⃣ À quel moment doit-il s'arrêter et te demander ?</div>
+      <p>Les déclencheurs précis qui doivent le faire stopper : une ambiguïté, une action irréversible, un montant, un client sensible.</p>
+    </div>
+    <p class="muted">Sans ces trois réponses, l'agent invente sa propre règle à ta place. Et tu t'en rends compte seulement quand ça a déjà coûté quelque chose, du temps, de la confiance client, ou pire.</p>
   </section>
 
   <section class="part" id="n4">
     <div class="part-eyebrow">→ 04 · LE GUIDE</div>
-    <h2>Le guide, étape par étape : comment l'utiliser toi-même</h2>
-    <p>La tentation, c'est de commencer par la tâche la plus compliquée de ta semaine. Mauvaise idée. Voici la marche à suivre, dans l'ordre.</p>
+    <h2>Comment l'écrire avant ta prochaine tâche automatisée</h2>
+    <p>Pas besoin d'un processus lourd. Un handoff packet tient sur quelques lignes, tant que tu réponds vraiment aux trois questions plutôt que de les survoler.</p>
     <div class="callout action">
-      <div class="callout-label">1️⃣ Activer Record a skill</div>
-      <p>Ouvre l'app Claude sur desktop (la fonction n'existe pas sur le web pour l'instant). Active le toggle Cowork. Clique sur le menu +, puis sur enregistrer. Disponible sur les offres Pro, Max et Team.</p>
+      <div class="callout-label">1️⃣ Choisis une tâche que tu automatises déjà, ou que tu comptes automatiser</div>
+      <p>Idéalement une tâche répétitive avec un historique connu. Tu sais déjà à quoi ressemble un bon résultat et un mauvais.</p>
     </div>
     <div class="callout action">
-      <div class="callout-label">2️⃣ Choisir la bonne première tâche</div>
-      <p>Choisis la tâche la plus répétitive et la moins exigeante en jugement de ta semaine. Pas la plus compliquée. Une tâche que tu refais déjà sans réfléchir est le meilleur premier essai.</p>
+      <div class="callout-label">2️⃣ Écris noir sur blanc le périmètre d'action autonome</div>
+      <p>Sois précis sur ce que l'agent peut exécuter sans repasser par toi. Le flou, ici, c'est ce qui coûte cher plus tard.</p>
     </div>
     <div class="callout action">
-      <div class="callout-label">3️⃣ Enregistrer en expliquant, pas en silence</div>
-      <p>Fais la tâche normalement, en expliquant à voix haute chaque étape comme si tu formais quelqu'un : ce que tu fais, et surtout pourquoi. C'est cette explication qui permet à Claude de transformer l'enregistrement en skill réutilisable.</p>
+      <div class="callout-label">3️⃣ Liste les signaux d'arrêt obligatoires</div>
+      <p>Un montant au-dessus d'un seuil, une donnée client sensible, une action impossible à annuler : ce sont des motifs d'arrêt, pas des détails.</p>
     </div>
     <div class="callout action">
-      <div class="callout-label">4️⃣ Tester avant de faire confiance</div>
-      <p>Teste la skill générée sur un cas neuf, pas sur celui que tu viens d'enregistrer. Ne fais confiance au résultat qu'après ce deuxième test.</p>
+      <div class="callout-label">4️⃣ Teste sur un cas réel, puis relis le résultat comme si tu ne l'avais jamais vu</div>
+      <p>Vérifie que l'agent a respecté chaque limite que tu as posée, pas seulement que le résultat final a l'air correct.</p>
     </div>
     <div class="callout warn">
-      <div class="callout-label">⚠️ À garder en tête</div>
-      <p>Aucune donnée sensible (mot de passe, info confidentielle) à l'écran pendant l'enregistrement, et reste prudent avec des données client tant qu'Anthropic n'a pas documenté la conservation des enregistrements.</p>
+      <div class="callout-label">⚠️ Le piège à éviter</div>
+      <p>Ne confonds pas rapidité de mise en route et absence de cadre. Les deux minutes que tu "gagnes" en sautant le handoff packet se transforment vite en heures de correction, une fois que l'agent a tourné sans surveillance.</p>
     </div>
   </section>
 
   <section class="part" id="faq">
     <div class="part-eyebrow">→ QUESTIONS FRÉQUENTES</div>
     <div class="faq">
-      <h3>Est-ce que ça remplace un développeur ?</h3>
-      <p>Non, et ce n'est pas le but. Ça remplace l'étape où tu devais écrire ton process pour qu'un développeur, ou un outil no-code, puisse le transformer en automatisation. Le reste, le cadrage, les limites de dépense, la surveillance du résultat, reste un vrai métier.</p>
+      <h3>Un handoff packet ralentit-il la mise en place d'un agent IA ?</h3>
+      <p>Un peu, au départ. Répondre à trois questions précises prend quelques minutes de plus que de lancer l'agent directement. Mais ce temps est largement récupéré dès la première fois où l'agent évite une action qu'il n'aurait pas dû prendre seul.</p>
     </div>
     <div class="faq">
-      <h3>Une skill enregistrée peut-elle tourner automatiquement ?</h3>
-      <p>Oui. L'exemple du rapport SEO le montre : une fois la skill créée, elle peut être programmée pour se déclencher à une date fixe, sans qu'on ait besoin de la relancer à la main chaque fois.</p>
+      <h3>Faut-il un handoff packet pour chaque tâche automatisée ?</h3>
+      <p>Pour chaque tâche qui touche à une décision, une donnée sensible, ou une action difficile à annuler, oui. Pour une tâche purement mécanique et sans conséquence (formater un fichier, par exemple), le cadre peut rester minimal.</p>
     </div>
   </section>
 
   <section class="part" id="bilan">
     <div class="part-eyebrow">→ LE BILAN</div>
-    <h2>Ce n'est plus une question de compétence technique<em>C'est une question d'habitude à changer</em></h2>
-    <p>L'automatisation ne demande plus de savoir coder, ni même de savoir écrire un process. Elle demande de faire son travail une fois de plus, à voix haute.</p>
+    <h2>Ce n'est plus une question de puissance de l'agent<em>C'est une question de ce que tu as pris le temps de lui dire</em></h2>
+    <p>Un agent IA n'invente pas une règle par malice. Il comble un vide que tu as laissé. La différence entre un agent qui te fait vraiment gagner du temps et un agent qui t'en fait perdre tient à trois questions posées avant de cliquer sur "lancer".</p>
     <ul class="rules">
-      <li><span class="rule-icon">📝</span><div><h4>Avant : écrire le process</h4><p>Lister chaque étape, chaque exception, avant de pouvoir automatiser quoi que ce soit.</p></div></li>
-      <li><span class="rule-icon">🎙️</span><div><h4>Maintenant : le montrer, une fois</h4><p>Faire la tâche en la commentant à voix haute, et laisser Claude en tirer une skill.</p></div></li>
-      <li><span class="rule-icon">🔁</span><div><h4>Ensuite : la laisser tourner</h4><p>Programmée à une date fixe, ou relancée à la demande, sans repasser par l'écriture.</p></div></li>
+      <li><span class="rule-icon">✅</span><div><h4>Ce qu'il peut faire seul</h4><p>Le périmètre d'action autonome, écrit noir sur blanc, pas supposé.</p></div></li>
+      <li><span class="rule-icon">👀</span><div><h4>Ce qu'il doit juste observer</h4><p>Les zones où il propose, mais où toi seul valides et exécutes.</p></div></li>
+      <li><span class="rule-icon">🛑</span><div><h4>Quand il doit s'arrêter</h4><p>Les déclencheurs précis qui l'obligent à revenir vers toi avant d'agir.</p></div></li>
     </ul>
-    <p>La différence entre une tâche qui reste manuelle pour toujours et une tâche automatisée ne tient plus à un savoir technique. Elle tient à une question : est-ce que tu as pris 200 secondes pour la montrer une fois ?</p>
+    <p>La question à te poser avant ta prochaine tâche automatisée n'est pas "est-ce que mon agent est assez intelligent". C'est "est-ce que je lui ai vraiment dit ce qu'il avait le droit de faire tout seul".</p>
   </section>
 
-  <p class="muted" style="font-size:13px; margin-top:-24px;">Source : <a href="https://www.searchenginejournal.com/anthropics-claude-can-now-watch-a-video-and-learn-your-job/583053/" target="_blank" rel="noopener">Search Engine Journal, "Anthropic's Claude Can Now Watch a Video and Learn Your Job"</a>, relayé par la newsletter Marketing with AI Weekly Roundup #44 (26/07/2026).</p>
+  <p class="muted" style="font-size:13px; margin-top:-24px;">Source : <a href="https://kenhuangus.substack.com/p/the-hidden-tax-on-ai-is-coordination" target="_blank" rel="noopener">Ken Huang, "The Hidden Tax on AI is Coordination"</a>, relayé par la veille newsletters IA de la semaine.</p>
 
   <section class="related-section">
     <h2 class="related-title">Articles similaires</h2>
     <div class="related-grid">
-      <a href="cadrer-agent-ia-handoff-packet-2026.html" class="related-card"><span class="related-tag">Automatisation</span><h3>Ton agent IA ne va pas attendre ton feu vert pour décider</h3></a>
+      <a href="claude-cowork-record-a-skill-2026.html" class="related-card"><span class="related-tag">Automatisation</span><h3>Tu n'as plus besoin d'écrire ton process pour l'automatiser</h3></a>
       <a href="cout-reel-ia-pme-2026.html" class="related-card"><span class="related-tag">Automatisation</span><h3>Le coût réel de l'IA pour ta PME</h3></a>
       <a href="agent-ia-autonome-pme-2026.html" class="related-card"><span class="related-tag">Automatisation</span><h3>5 mises à jour qui changent ce que ton agent IA peut faire</h3></a>
     </div>
   </section>
 
   <section class="closing">
-    <h2>Tu veux automatiser une tâche sans écrire un process ?</h2>
-    <p>On peut regarder ensemble comment transformer une tâche récurrente en automatisation, à partir d'un simple enregistrement. 30 minutes suffisent pour poser les bases.</p>
+    <h2>Tu veux cadrer un agent IA avant de le laisser tourner ?</h2>
+    <p>On peut regarder ensemble comment écrire le handoff packet de ta prochaine tâche automatisée, en partant de ce que tu fais déjà. 30 minutes suffisent pour poser les bases.</p>
 
     <div class="closing-cta-final">
       <a class="btn-big" href="../index.html#contact">Prendre un RDV</a>
