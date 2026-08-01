@@ -237,6 +237,41 @@
   .langsw button.active{color:var(--accent);}
   .langsw button:hover{color:var(--accent-soft);}
   .langsw .sep{color:var(--text-secondary);opacity:.35;}
+
+  .sharebtn{
+    position:fixed;
+    top:1.1rem;left:1.1rem;
+    z-index:2;
+    display:flex;align-items:center;justify-content:center;
+    width:38px;height:38px;
+    background:rgba(8,14,26,.55);
+    backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+    border:1px solid var(--border-soft);
+    border-radius:50%;
+    color:var(--accent-soft);
+    cursor:pointer;
+    transition:border-color .2s, color .2s, transform .2s;
+  }
+  .sharebtn:hover{border-color:var(--border-strong);color:var(--accent);transform:translateY(-1px)}
+  .sharebtn svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.8}
+
+  .toast{
+    position:fixed;
+    bottom:1.6rem;left:50%;
+    transform:translate(-50%,12px);
+    z-index:3;
+    background:rgba(8,14,26,.94);
+    border:1px solid var(--border-strong);
+    color:var(--text-primary);
+    font-size:.85rem;font-weight:500;
+    padding:.65rem 1.1rem;
+    border-radius:9999px;
+    box-shadow:0 8px 24px rgba(0,0,0,.4);
+    opacity:0;
+    pointer-events:none;
+    transition:opacity .25s, transform .25s;
+  }
+  .toast.show{opacity:1;transform:translate(-50%,0);}
 </style>
 </head>
 <body>
@@ -249,6 +284,12 @@
   <span class="sep">·</span>
   <button class="lang-btn" data-lang="es" onclick="setLanguage('es')">ES</button>
 </div>
+
+<button class="sharebtn" id="shareBtn" onclick="shareCard()" aria-label="Partager">
+  <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="2.6"/><circle cx="6" cy="12" r="2.6"/><circle cx="18" cy="19" r="2.6"/><path d="M8.3 10.7 15.7 6.6M8.3 13.3l7.4 4.1"/></svg>
+</button>
+
+<div class="toast" id="toast"></div>
 
 <main>
 
@@ -360,6 +401,9 @@ const t = {
     eyebrow_card: "Ma carte de visite",
     dl_btn: "Télécharger la carte",
     eyebrow_social: "Suivez-moi ailleurs",
+    share_label: "Partager",
+    share_text: "Tous les liens de Bryan Blaevoet (Omnyx Agency)",
+    share_copied: "Lien copié !",
   },
   en: {
     tagline: "Founder, Omnyx Agency — Marketing · AI &amp; Automation",
@@ -372,6 +416,9 @@ const t = {
     eyebrow_card: "My business card",
     dl_btn: "Download the card",
     eyebrow_social: "Follow me elsewhere",
+    share_label: "Share",
+    share_text: "All of Bryan Blaevoet's links (Omnyx Agency)",
+    share_copied: "Link copied!",
   },
   es: {
     tagline: "Fundador, Omnyx Agency — Marketing · IA y Automatización",
@@ -384,6 +431,9 @@ const t = {
     eyebrow_card: "Mi tarjeta de visita",
     dl_btn: "Descargar la tarjeta",
     eyebrow_social: "Sígueme en otras redes",
+    share_label: "Compartir",
+    share_text: "Todos los enlaces de Bryan Blaevoet (Omnyx Agency)",
+    share_copied: "¡Enlace copiado!",
   },
 };
 
@@ -401,6 +451,9 @@ function setLanguage(lang, persist = true) {
   document.querySelectorAll('.lang-btn').forEach((btn) => {
     btn.classList.toggle('active', btn.dataset.lang === lang);
   });
+
+  const shareBtn = document.getElementById('shareBtn');
+  if (shareBtn) shareBtn.setAttribute('aria-label', t[lang].share_label);
 
   if (persist) {
     try { localStorage.setItem('omnyx_lang', lang); } catch (e) {}
@@ -425,6 +478,38 @@ function setLanguage(lang, persist = true) {
   }
   setLanguage(lang, hadParam);
 })();
+
+let toastTimer = null;
+function showToast(msg) {
+  const el = document.getElementById('toast');
+  el.textContent = msg;
+  el.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => el.classList.remove('show'), 2200);
+}
+
+async function shareCard() {
+  const url = 'https://bryan.omnyx.agency';
+  const shareData = {
+    title: 'Bryan Blaevoet — Omnyx Agency',
+    text: t[currentLang].share_text,
+    url,
+  };
+  if (navigator.share) {
+    try {
+      await navigator.share(shareData);
+    } catch (e) {
+      /* user cancelled the native share sheet, nothing to do */
+    }
+    return;
+  }
+  try {
+    await navigator.clipboard.writeText(url);
+    showToast(t[currentLang].share_copied);
+  } catch (e) {
+    window.prompt(t[currentLang].share_label + ' :', url);
+  }
+}
 
 (() => {
   const canvas = document.getElementById('bg-canvas');

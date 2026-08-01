@@ -1842,15 +1842,31 @@ window.addEventListener('resize', () => {
     bcCall(t);
   };
 
+  const SAVE_IMG_TXT={fr:"⬇︎ Enregistrer l'image",en:'⬇︎ Save image',es:'⬇︎ Guardar imagen'};
+
   function bcAdd(text,role){
     const msgs=document.getElementById('bc-msgs');
     const d=document.createElement('div');
     d.className='bc-m '+role;
     if(role==='bot'){
-      const bookRx=/\[(?:BOOK|LINK)\|([^\|]+)\|([^\]]+)\]/g;
-      let clean=text.replace(bookRx,'').trim();
+      const linkRx=/\[(?:BOOK|LINK)\|([^\|]+)\|([^\]]+)\]/g;
+      const imgRx=/\[IMG\|([^\|]+)\|([^\]]+)\]/g;
+      let clean=text.replace(linkRx,'').replace(imgRx,'').trim();
       d.textContent=clean;
-      [...text.matchAll(bookRx)].forEach(m=>{
+      [...text.matchAll(imgRx)].forEach(m=>{
+        const img=document.createElement('img');
+        img.src=m[1];img.alt=m[2];
+        img.loading='lazy';
+        img.style.cssText='display:block;margin-top:8px;max-width:180px;width:100%;border-radius:10px;box-shadow:0 4px 16px rgba(0,0,0,.35)';
+        d.appendChild(img);
+        const dl=document.createElement('a');
+        dl.href=m[1];dl.download='';
+        dl.textContent=SAVE_IMG_TXT[lang]||SAVE_IMG_TXT.fr;
+        dl.className='bc-qr';
+        dl.style.cssText='display:block;margin-top:6px;text-decoration:none;font-size:11px;';
+        d.appendChild(dl);
+      });
+      [...text.matchAll(linkRx)].forEach(m=>{
         const btn=document.createElement('a');
         btn.href=m[1];btn.target='_blank';
         btn.textContent=m[2];
