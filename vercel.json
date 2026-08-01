@@ -13,13 +13,12 @@
       "has": [{ "type": "host", "value": "www.omnyx.agency" }],
       "destination": "https://omnyx.agency/:path*",
       "permanent": true
-    }
-  ],
-  "rewrites": [
+    },
     {
       "source": "/",
       "has": [{ "type": "host", "value": "bryan.omnyx.agency" }],
-      "destination": "/links.html"
+      "destination": "https://bryan.omnyx.agency/links.html",
+      "permanent": false
     }
   ]
 }
