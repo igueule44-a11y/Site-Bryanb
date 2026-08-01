@@ -490,19 +490,6 @@ function showToast(msg) {
 
 async function shareCard() {
   const url = 'https://bryan.omnyx.agency';
-  const shareData = {
-    title: 'Bryan Blaevoet — Omnyx Agency',
-    text: t[currentLang].share_text,
-    url,
-  };
-  if (navigator.share) {
-    try {
-      await navigator.share(shareData);
-    } catch (e) {
-      /* user cancelled the native share sheet, nothing to do */
-    }
-    return;
-  }
   try {
     await navigator.clipboard.writeText(url);
     showToast(t[currentLang].share_copied);
