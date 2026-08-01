@@ -272,6 +272,87 @@
     transition:opacity .25s, transform .25s;
   }
   .toast.show{opacity:1;transform:translate(-50%,0);}
+
+  .share-overlay{
+    position:fixed;inset:0;z-index:10;
+    background:rgba(3,7,14,.72);
+    backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);
+    display:flex;align-items:center;justify-content:center;
+    padding:1.25rem;
+    opacity:0;pointer-events:none;
+    transition:opacity .2s;
+  }
+  .share-overlay.show{opacity:1;pointer-events:auto;}
+
+  .share-modal{
+    position:relative;
+    width:100%;max-width:360px;
+    background:linear-gradient(180deg, rgba(13,26,46,.97), rgba(8,14,26,.99));
+    border:1px solid var(--border-strong);
+    border-radius:1.1rem;
+    padding:1.6rem 1.4rem 1.4rem;
+    box-shadow:0 20px 60px rgba(0,0,0,.5), 0 0 40px rgba(0,212,255,.08);
+    transform:translateY(8px);
+    transition:transform .2s;
+  }
+  .share-overlay.show .share-modal{transform:translateY(0);}
+
+  .share-close{
+    position:absolute;top:.9rem;right:.9rem;
+    width:32px;height:32px;
+    display:flex;align-items:center;justify-content:center;
+    border-radius:50%;
+    background:rgba(0,212,255,.06);
+    border:1px solid var(--border-soft);
+    color:var(--text-secondary);
+    cursor:pointer;
+    transition:border-color .2s,color .2s,background .2s;
+  }
+  .share-close:hover{border-color:var(--border-strong);color:var(--accent);background:rgba(0,212,255,.12);}
+  .share-close svg{width:15px;height:15px;}
+
+  .share-modal h2{
+    font-size:1.05rem;font-weight:700;margin-bottom:1.1rem;padding-right:2rem;
+  }
+
+  .share-linkrow{display:flex;gap:.5rem;margin-bottom:1.3rem;}
+  .share-linkrow input{
+    flex:1;min-width:0;
+    background:rgba(0,212,255,.05);
+    border:1px solid var(--border-soft);
+    border-radius:.6rem;
+    padding:.6rem .8rem;
+    color:var(--text-secondary);
+    font-family:"JetBrains Mono",monospace;
+    font-size:.78rem;
+  }
+  .share-linkrow button{
+    flex:none;
+    padding:.6rem 1rem;
+    border-radius:.6rem;
+    background:rgba(0,212,255,.1);
+    border:1px solid var(--border-strong);
+    color:var(--accent-soft);
+    font-weight:600;font-size:.82rem;
+    cursor:pointer;
+    transition:background .2s;
+  }
+  .share-linkrow button:hover{background:rgba(0,212,255,.18);}
+
+  .share-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem;}
+  .share-icon{
+    display:flex;flex-direction:column;align-items:center;gap:.4rem;
+    padding:.75rem .5rem;
+    border-radius:.75rem;
+    background:rgba(0,212,255,.05);
+    border:1px solid var(--border-soft);
+    color:var(--accent-soft);
+    text-decoration:none;
+    font-size:.7rem;font-weight:500;
+    transition:border-color .2s,background .2s,transform .2s;
+  }
+  .share-icon:hover{border-color:var(--border-strong);background:rgba(0,212,255,.12);transform:translateY(-2px);}
+  .share-icon svg{width:20px;height:20px;fill:currentColor;}
 </style>
 </head>
 <body>
@@ -285,11 +366,50 @@
   <button class="lang-btn" data-lang="es" onclick="setLanguage('es')">ES</button>
 </div>
 
-<button class="sharebtn" id="shareBtn" onclick="shareCard()" aria-label="Partager">
+<button class="sharebtn" id="shareBtn" onclick="openShareModal()" aria-label="Partager">
   <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="2.6"/><circle cx="6" cy="12" r="2.6"/><circle cx="18" cy="19" r="2.6"/><path d="M8.3 10.7 15.7 6.6M8.3 13.3l7.4 4.1"/></svg>
 </button>
 
 <div class="toast" id="toast"></div>
+
+<div class="share-overlay" id="shareOverlay" onclick="if(event.target===this) closeShareModal()">
+  <div class="share-modal" role="dialog" aria-modal="true" aria-labelledby="shareModalTitle">
+    <button class="share-close" onclick="closeShareModal()" aria-label="Fermer">
+      <svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+    <h2 id="shareModalTitle" data-i18n="share_modal_title">Partager ce profil</h2>
+    <div class="share-linkrow">
+      <input type="text" id="shareUrlInput" readonly value="https://bryan.omnyx.agency" onclick="this.select()">
+      <button onclick="copyShareLink()" data-i18n="share_copy_btn">Copier</button>
+    </div>
+    <div class="share-grid">
+      <a class="share-icon" id="shareWhatsapp" target="_blank" rel="noopener" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.9 4.44-9.9 9.9 0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.87 9.87 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.44 9.9-9.9 0-2.64-1.03-5.12-2.9-6.99A9.82 9.82 0 0 0 12.04 2Zm0 1.67c2.15 0 4.17.84 5.69 2.36a8.03 8.03 0 0 1 2.36 5.69c0 4.44-3.61 8.05-8.05 8.05a8.03 8.03 0 0 1-4.1-1.12l-.29-.17-3.12.82.83-3.04-.19-.31a8.02 8.02 0 0 1-1.23-4.28c0-4.44 3.61-8 8.1-8Zm-4.38 4.6c-.15 0-.4.06-.61.29-.21.24-.8.78-.8 1.9 0 1.12.82 2.2.93 2.35.11.15 1.6 2.55 3.94 3.48 1.94.78 2.34.62 2.76.58.42-.04 1.35-.55 1.54-1.08.19-.53.19-.98.13-1.08-.06-.1-.21-.16-.44-.27-.23-.12-1.35-.67-1.56-.74-.21-.08-.36-.12-.51.12-.15.24-.59.74-.72.9-.13.15-.27.17-.5.06-.23-.12-.98-.36-1.87-1.15-.69-.62-1.16-1.38-1.29-1.62-.13-.24-.01-.36.1-.48.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.51-1.28-.72-1.75-.19-.45-.38-.39-.51-.4Z"/></svg>
+        <span>WhatsApp</span>
+      </a>
+      <a class="share-icon" id="shareTelegram" target="_blank" rel="noopener" aria-label="Telegram">
+        <svg viewBox="0 0 24 24"><path d="M21.5 3.5 2.8 10.9c-1.1.45-1.1 1.07-.2 1.35l4.8 1.5 1.85 5.66c.23.62.4.87.8.87.32 0 .48-.15.68-.35l1.68-1.63 3.5 2.58c.65.36 1.1.17 1.27-.6l2.3-10.83c.25-1.06-.4-1.5-1.28-1.15L21.5 3.5Zm-11.3 9.9-1.1 3.5-.7-4.3 8.6-5.4c.45-.28.85-.13.52.18l-7.32 6.02Z"/></svg>
+        <span>Telegram</span>
+      </a>
+      <a class="share-icon" id="shareFacebook" target="_blank" rel="noopener" aria-label="Facebook">
+        <svg viewBox="0 0 24 24"><path d="M13.5 21v-7.7h2.6l.4-3h-3v-1.9c0-.87.24-1.46 1.5-1.46h1.6V4.3c-.28-.04-1.22-.12-2.33-.12-2.3 0-3.87 1.4-3.87 3.98v2.14H7.8v3h2.6V21h3.1Z"/></svg>
+        <span>Facebook</span>
+      </a>
+      <a class="share-icon" id="shareX" target="_blank" rel="noopener" aria-label="X (Twitter)">
+        <svg viewBox="0 0 24 24"><path d="M18.24 3h3.1l-6.77 7.74L22.5 21h-6.24l-4.89-6.39L5.76 21H2.65l7.24-8.28L2 3h6.4l4.42 5.84L18.24 3Zm-1.09 16.17h1.72L7.94 4.74H6.09l11.06 14.43Z"/></svg>
+        <span>X</span>
+      </a>
+      <a class="share-icon" id="shareLinkedin" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24"><path d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5a2.5 2.5 0 0 1-.02-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.55 4.78 5.86V21h-4v-5.6c0-1.34-.03-3.06-1.94-3.06-1.94 0-2.24 1.45-2.24 2.96V21h-4V9Z"/></svg>
+        <span>LinkedIn</span>
+      </a>
+      <a class="share-icon" id="shareEmail" aria-label="Email">
+        <svg viewBox="0 0 24 24" style="fill:none;stroke:currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m4 7 8 6 8-6"/></svg>
+        <span>Email</span>
+      </a>
+    </div>
+  </div>
+</div>
 
 <main>
 
@@ -404,6 +524,8 @@ const t = {
     share_label: "Partager",
     share_text: "Tous les liens de Bryan Blaevoet (Omnyx Agency)",
     share_copied: "Lien copié !",
+    share_modal_title: "Partager ce profil",
+    share_copy_btn: "Copier",
   },
   en: {
     tagline: "Founder, Omnyx Agency — Marketing · AI &amp; Automation",
@@ -419,6 +541,8 @@ const t = {
     share_label: "Share",
     share_text: "All of Bryan Blaevoet's links (Omnyx Agency)",
     share_copied: "Link copied!",
+    share_modal_title: "Share this profile",
+    share_copy_btn: "Copy",
   },
   es: {
     tagline: "Fundador, Omnyx Agency — Marketing · IA y Automatización",
@@ -434,6 +558,8 @@ const t = {
     share_label: "Compartir",
     share_text: "Todos los enlaces de Bryan Blaevoet (Omnyx Agency)",
     share_copied: "¡Enlace copiado!",
+    share_modal_title: "Compartir este perfil",
+    share_copy_btn: "Copiar",
   },
 };
 
@@ -488,8 +614,28 @@ function showToast(msg) {
   toastTimer = setTimeout(() => el.classList.remove('show'), 2200);
 }
 
-async function shareCard() {
+function openShareModal() {
   const url = 'https://bryan.omnyx.agency';
+  const text = t[currentLang].share_text;
+  document.getElementById('shareUrlInput').value = url;
+  document.getElementById('shareWhatsapp').href = 'https://api.whatsapp.com/send?text=' + encodeURIComponent(text + ' ' + url);
+  document.getElementById('shareTelegram').href = 'https://t.me/share/url?url=' + encodeURIComponent(url) + '&text=' + encodeURIComponent(text);
+  document.getElementById('shareFacebook').href = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url);
+  document.getElementById('shareX').href = 'https://twitter.com/intent/tweet?url=' + encodeURIComponent(url) + '&text=' + encodeURIComponent(text);
+  document.getElementById('shareLinkedin').href = 'https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(url);
+  document.getElementById('shareEmail').href = 'mailto:?subject=' + encodeURIComponent(text) + '&body=' + encodeURIComponent(text + ' ' + url);
+  document.getElementById('shareOverlay').classList.add('show');
+  document.addEventListener('keydown', onShareKeydown);
+}
+function closeShareModal() {
+  document.getElementById('shareOverlay').classList.remove('show');
+  document.removeEventListener('keydown', onShareKeydown);
+}
+function onShareKeydown(e) {
+  if (e.key === 'Escape') closeShareModal();
+}
+async function copyShareLink() {
+  const url = document.getElementById('shareUrlInput').value;
   try {
     await navigator.clipboard.writeText(url);
     showToast(t[currentLang].share_copied);
