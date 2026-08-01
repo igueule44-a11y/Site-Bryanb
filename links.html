@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow">
+<meta name="description" content="Bryan Blaevoet, fondateur d'Omnyx Agency — tous mes liens : le site de l'agence, réserver un appel, le blog et mes réseaux.">
+<title>Bryan Blaevoet — Omnyx Agency</title>
+<link rel="canonical" href="https://omnyx.agency/links.html">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Bryan Blaevoet — Omnyx Agency">
+<meta property="og:description" content="Fondateur d'Omnyx Agency — Marketing · IA & Automation. Tous mes liens.">
+<meta property="og:url" content="https://omnyx.agency/links.html">
+<meta property="og:image" content="https://omnyx.agency/assets/og-omnyx.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<style>
+  :root{
+    --bg-darkest:#060c18;
+    --bg-main:#080e1a;
+    --bg-card:#0d1a2e;
+    --accent:#00d4ff;
+    --accent-soft:#7de8f7;
+    --text-primary:#f0f8ff;
+    --text-secondary:#8ab4cc;
+    --border-soft:rgba(0,212,255,0.14);
+    --border-strong:rgba(0,212,255,0.32);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;background:var(--bg-darkest);}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation:none !important; transition:none !important;}
+  }
+  body{
+    min-height:100vh;
+    background:var(--bg-main);
+    color:var(--text-primary);
+    font-family:"Space Grotesk", sans-serif;
+    -webkit-font-smoothing:antialiased;
+    display:flex;
+    justify-content:center;
+    padding:4.5rem 1.25rem 3rem;
+    position:relative;
+    overflow-x:hidden;
+  }
+  #bg-canvas{
+    position:fixed;
+    inset:0;
+    z-index:0;
+    width:100%;
+    height:100%;
+    display:block;
+    pointer-events:none;
+  }
+  main{position:relative;z-index:1;width:100%;max-width:440px;}
+
+  .avatar{
+    display:block;
+    width:88px;height:88px;
+    margin:0 auto 1.1rem;
+    border-radius:50%;
+    padding:3px;
+    background:conic-gradient(from 220deg, var(--accent), rgba(0,212,255,.15) 40%, var(--accent-soft) 75%, var(--accent));
+    box-shadow:0 0 26px 3px rgba(0,212,255,.22);
+  }
+  .avatar img{
+    display:block;width:100%;height:100%;border-radius:50%;
+    object-fit:cover;border:3px solid var(--bg-darkest);
+  }
+
+  h1{
+    text-align:center;
+    font-weight:700;
+    font-size:1.6rem;
+    letter-spacing:-.02em;
+    text-wrap:balance;
+    background:linear-gradient(135deg,#f0f8ff 0%,#b3ecff 30%,#00d4ff 58%,#7de8f7 82%,#f0f8ff 100%);
+    background-size:200% auto;
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+    animation:shimmer 8s ease-in-out infinite alternate;
+  }
+  @keyframes shimmer{0%{background-position:left center}100%{background-position:right center}}
+
+  .tagline{
+    text-align:center;
+    margin-top:.4rem;
+    font-size:.95rem;
+    color:var(--accent-soft);
+    font-weight:500;
+  }
+
+  .socials{
+    display:flex;
+    justify-content:center;
+    gap:.6rem;
+    margin:1.3rem 0 2rem;
+  }
+  .socials a{
+    display:flex;align-items:center;justify-content:center;
+    width:40px;height:40px;
+    border-radius:50%;
+    background:rgba(0,212,255,.06);
+    border:1px solid var(--border-soft);
+    color:var(--accent-soft);
+    transition:border-color .2s, background .2s, transform .2s;
+  }
+  .socials a:hover{border-color:var(--border-strong);background:rgba(0,212,255,.12);transform:translateY(-2px)}
+  .socials svg{width:18px;height:18px;fill:currentColor}
+
+  .links{display:flex;flex-direction:column;gap:.85rem;}
+
+  .card{
+    display:flex;
+    align-items:center;
+    gap:.9rem;
+    padding:1.05rem 1.2rem;
+    border-radius:1rem;
+    background:linear-gradient(180deg, rgba(13,26,46,.6), rgba(8,14,26,.75));
+    backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+    border:1px solid var(--border-soft);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.03), 0 10px 26px rgba(0,0,0,.35);
+    text-decoration:none;
+    color:var(--text-primary);
+    transition:border-color .2s, transform .2s, box-shadow .2s;
+  }
+  .card:hover{
+    border-color:var(--border-strong);
+    transform:translateY(-2px);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.04), 0 14px 32px rgba(0,0,0,.4), 0 0 0 1px rgba(0,212,255,.05);
+  }
+  .card.primary{
+    border-color:var(--border-strong);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.04), 0 0 32px 2px rgba(0,212,255,.14), 0 10px 26px rgba(0,0,0,.35);
+  }
+
+  .card .icon{
+    flex:none;
+    width:42px;height:42px;
+    border-radius:.65rem;
+    display:flex;align-items:center;justify-content:center;
+    background:rgba(0,212,255,.08);
+    border:1px solid var(--border-soft);
+    color:var(--accent-soft);
+  }
+  .card .icon svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.7;}
+
+  .card .body{min-width:0;flex:1;}
+  .card .title{display:block;font-weight:600;font-size:1rem;letter-spacing:-.01em;}
+  .card .sub{display:block;margin-top:.2rem;font-size:.8rem;color:var(--text-secondary);}
+
+  .card .go{
+    flex:none;color:var(--text-secondary);opacity:.6;
+  }
+  .card .go svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;}
+
+  .eyebrow{
+    font-family:"JetBrains Mono",monospace;
+    font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--text-secondary);
+    text-align:center;
+    margin:2.2rem 0 .8rem;
+  }
+
+  .bcard{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:1rem;
+    padding:1.3rem;
+    border-radius:1.1rem;
+    background:linear-gradient(180deg, rgba(13,26,46,.6), rgba(8,14,26,.75));
+    backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+    border:1px solid var(--border-soft);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.03), 0 10px 26px rgba(0,0,0,.35);
+  }
+  .bcard img{
+    width:100%;
+    max-width:240px;
+    border-radius:.85rem;
+    box-shadow:0 0 30px 2px rgba(0,212,255,.14), 0 8px 20px rgba(0,0,0,.4);
+  }
+  .bcard .dl{
+    display:flex;
+    align-items:center;
+    gap:.5rem;
+    padding:.7rem 1.3rem;
+    border-radius:9999px;
+    background:rgba(0,212,255,.08);
+    border:1px solid var(--border-strong);
+    color:var(--accent-soft);
+    font-weight:600;
+    font-size:.9rem;
+    text-decoration:none;
+    transition:background .2s, transform .2s;
+  }
+  .bcard .dl:hover{background:rgba(0,212,255,.16);transform:translateY(-1px)}
+  .bcard .dl svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.8}
+
+  footer{
+    margin-top:2.6rem;
+    padding-top:1.2rem;
+    border-top:1px solid var(--border-soft);
+    display:flex;align-items:center;justify-content:space-between;
+    font-family:"JetBrains Mono",monospace;
+    font-size:10px;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--text-secondary);
+  }
+  footer a{color:var(--accent-soft);text-decoration:none;font-weight:700}
+</style>
+</head>
+<body>
+<canvas id="bg-canvas" aria-hidden="true"></canvas>
+<main>
+
+  <span class="avatar"><img src="/assets/photo-bryan.jpg" alt="Photo de Bryan Blaevoet" width="88" height="88"></span>
+  <h1>Bryan Blaevoet</h1>
+  <p class="tagline">Fondateur, Omnyx Agency — Marketing · IA &amp; Automation</p>
+
+  <nav class="socials" aria-label="Me contacter et réseaux sociaux">
+    <a href="mailto:bryan@omnyx.agency" aria-label="Email">
+      <svg viewBox="0 0 24 24" style="fill:none;stroke:currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m4 7 8 6 8-6"/></svg>
+    </a>
+    <a href="https://t.me/bryanb2" target="_blank" rel="noopener" aria-label="Telegram">
+      <svg viewBox="0 0 24 24"><path d="M21.5 3.5 2.8 10.9c-1.1.45-1.1 1.07-.2 1.35l4.8 1.5 1.85 5.66c.23.62.4.87.8.87.32 0 .48-.15.68-.35l1.68-1.63 3.5 2.58c.65.36 1.1.17 1.27-.6l2.3-10.83c.25-1.06-.4-1.5-1.28-1.15L21.5 3.5Zm-11.3 9.9-1.1 3.5-.7-4.3 8.6-5.4c.45-.28.85-.13.52.18l-7.32 6.02Z"/></svg>
+    </a>
+    <a href="https://www.linkedin.com/in/bryan-blaevoet/" target="_blank" rel="noopener" aria-label="LinkedIn">
+      <svg viewBox="0 0 24 24"><path d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5a2.5 2.5 0 0 1-.02-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.55 4.78 5.86V21h-4v-5.6c0-1.34-.03-3.06-1.94-3.06-1.94 0-2.24 1.45-2.24 2.96V21h-4V9Z"/></svg>
+    </a>
+    <a href="https://www.instagram.com/bryanintheblock/" target="_blank" rel="noopener" aria-label="Instagram">
+      <svg viewBox="0 0 24 24"><path d="M12 2.2c2.7 0 3 .01 4.1.06 1.06.05 1.79.22 2.43.47.66.26 1.21.6 1.76 1.15.55.55.9 1.1 1.15 1.76.25.64.42 1.37.47 2.43.05 1.1.06 1.4.06 4.1s-.01 3-.06 4.1c-.05 1.06-.22 1.79-.47 2.43a4.9 4.9 0 0 1-1.15 1.76 4.9 4.9 0 0 1-1.76 1.15c-.64.25-1.37.42-2.43.47-1.1.05-1.4.06-4.1.06s-3-.01-4.1-.06c-1.06-.05-1.79-.22-2.43-.47a4.9 4.9 0 0 1-1.76-1.15 4.9 4.9 0 0 1-1.15-1.76c-.25-.64-.42-1.37-.47-2.43C2.21 15 2.2 14.7 2.2 12s.01-3 .06-4.1c.05-1.06.22-1.79.47-2.43.26-.66.6-1.21 1.15-1.76A4.9 4.9 0 0 1 5.64 2.56c.64-.25 1.37-.42 2.43-.47C9.17 2.04 9.47 2.03 12 2.03V2.2ZM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm0 8.25A3.25 3.25 0 1 1 12 8.5a3.25 3.25 0 0 1 0 6.75Zm5.19-8.7a1.17 1.17 0 1 1 0-2.34 1.17 1.17 0 0 1 0 2.34Z"/></svg>
+    </a>
+    <a href="https://www.facebook.com/profile.php?id=61591608871883" target="_blank" rel="noopener" aria-label="Facebook">
+      <svg viewBox="0 0 24 24"><path d="M13.5 21v-7.7h2.6l.4-3h-3v-1.9c0-.87.24-1.46 1.5-1.46h1.6V4.3c-.28-.04-1.22-.12-2.33-.12-2.3 0-3.87 1.4-3.87 3.98v2.14H7.8v3h2.6V21h3.1Z"/></svg>
+    </a>
+    <a href="https://x.com/OmnyxAgency" target="_blank" rel="noopener" aria-label="X (Twitter)">
+      <svg viewBox="0 0 24 24"><path d="M18.24 3h3.1l-6.77 7.74L22.5 21h-6.24l-4.89-6.39L5.76 21H2.65l7.24-8.28L2 3h6.4l4.42 5.84L18.24 3Zm-1.09 16.17h1.72L7.94 4.74H6.09l11.06 14.43Z"/></svg>
+    </a>
+  </nav>
+
+  <div class="links">
+    <a class="card primary" href="https://www.omnyx.agency/" target="_blank" rel="noopener">
+      <span class="icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M8 8l8 8M16 8l-8 8"/></svg></span>
+      <span class="body">
+        <span class="title">Mon agence Omnyx</span>
+        <span class="sub">Sites web, agents IA, chatbots &amp; contenu</span>
+      </span>
+      <span class="go"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+    </a>
+
+    <a class="card" href="https://calendly.com/bryan-blaevoet/nouvelle-reunion" target="_blank" rel="noopener">
+      <span class="icon"><svg viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="16" rx="2.5"/><path d="M3 9.5h18M8 3v3M16 3v3"/></svg></span>
+      <span class="body">
+        <span class="title">Réserver un appel découverte</span>
+        <span class="sub">30 min, gratuit</span>
+      </span>
+      <span class="go"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+    </a>
+
+    <a class="card" href="/blog.html" target="_blank" rel="noopener">
+      <span class="icon"><svg viewBox="0 0 24 24"><path d="M6 3h9l5 5v13H6V3Z"/><path d="M15 3v5h5M9 12h6M9 16h6"/></svg></span>
+      <span class="body">
+        <span class="title">Mon blog</span>
+        <span class="sub">Marketing, IA &amp; croissance</span>
+      </span>
+      <span class="go"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+    </a>
+  </div>
+
+  <p class="eyebrow">Ma carte de visite</p>
+  <div class="bcard">
+    <img src="/assets/carte-visite-bryan.png" alt="Carte de visite numérique de Bryan Blaevoet" loading="lazy">
+    <a class="dl" href="/assets/carte-visite-bryan.png" download="Bryan-Blaevoet-Omnyx.png">
+      <svg viewBox="0 0 24 24"><path d="M12 3v13m0 0-4.5-4.5M12 16l4.5-4.5"/><path d="M4 19.5h16"/></svg>
+      Télécharger la carte
+    </a>
+  </div>
+
+  <p class="eyebrow">Suivez-moi ailleurs</p>
+  <div class="links">
+    <a class="card" href="https://www.linkedin.com/in/bryan-blaevoet/" target="_blank" rel="noopener">
+      <span class="icon"><svg viewBox="0 0 24 24"><path d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5a2.5 2.5 0 0 1-.02-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.55 4.78 5.86V21h-4v-5.6c0-1.34-.03-3.06-1.94-3.06-1.94 0-2.24 1.45-2.24 2.96V21h-4V9Z" fill="currentColor" stroke="none"/></svg></span>
+      <span class="body"><span class="title">LinkedIn</span></span>
+      <span class="go"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+    </a>
+    <a class="card" href="https://www.instagram.com/bryanintheblock/" target="_blank" rel="noopener">
+      <span class="icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.6"/><circle cx="17.3" cy="6.7" r="1"/></svg></span>
+      <span class="body"><span class="title">Instagram</span></span>
+      <span class="go"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+    </a>
+    <a class="card" href="https://www.facebook.com/profile.php?id=61591608871883" target="_blank" rel="noopener">
+      <span class="icon"><svg viewBox="0 0 24 24"><path d="M13.5 21v-7.7h2.6l.4-3h-3v-1.9c0-.87.24-1.46 1.5-1.46h1.6V4.3c-.28-.04-1.22-.12-2.33-.12-2.3 0-3.87 1.4-3.87 3.98v2.14H7.8v3h2.6V21h3.1Z" fill="currentColor" stroke="none"/></svg></span>
+      <span class="body"><span class="title">Facebook</span></span>
+      <span class="go"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+    </a>
+    <a class="card" href="https://x.com/OmnyxAgency" target="_blank" rel="noopener">
+      <span class="icon"><svg viewBox="0 0 24 24"><path d="M18.24 3h3.1l-6.77 7.74L22.5 21h-6.24l-4.89-6.39L5.76 21H2.65l7.24-8.28L2 3h6.4l4.42 5.84L18.24 3Z" fill="currentColor" stroke="none"/></svg></span>
+      <span class="body"><span class="title">X (Twitter)</span></span>
+      <span class="go"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+    </a>
+  </div>
+
+  <footer>
+    <a href="https://www.omnyx.agency/">Omnyx Agency</a>
+    <span>@bryanintheblock</span>
+  </footer>
+
+</main>
+<script>
+(() => {
+  const canvas = document.getElementById('bg-canvas');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const gl = canvas.getContext('webgl', { antialias: false, alpha: true });
+
+  if (!gl) {
+    canvas.style.background =
+      'radial-gradient(circle at 20% 15%, rgba(0,212,255,.14), transparent 45%),' +
+      'radial-gradient(circle at 80% 80%, rgba(30,80,160,.12), transparent 50%)';
+    return;
+  }
+
+  const VERT = `
+    attribute vec2 aPos;
+    void main() { gl_Position = vec4(aPos, 0.0, 1.0); }
+  `;
+
+  const FRAG = `
+    precision highp float;
+    uniform vec2  uRes;
+    uniform float uTime;
+
+    // --- simplex-ish value noise ---
+    vec2 hash(vec2 p) {
+      p = vec2(dot(p, vec2(127.1, 311.7)), dot(p, vec2(269.5, 183.3)));
+      return -1.0 + 2.0 * fract(sin(p) * 43758.5453123);
+    }
+
+    float noise(vec2 p) {
+      const float K1 = 0.366025404;
+      const float K2 = 0.211324865;
+      vec2 i = floor(p + (p.x + p.y) * K1);
+      vec2 a = p - i + (i.x + i.y) * K2;
+      float m = step(a.y, a.x);
+      vec2 o = vec2(m, 1.0 - m);
+      vec2 b = a - o + K2;
+      vec2 c = a - 1.0 + 2.0 * K2;
+      vec3 h = max(0.5 - vec3(dot(a,a), dot(b,b), dot(c,c)), 0.0);
+      vec3 n = h*h*h*h * vec3(dot(a, hash(i)), dot(b, hash(i+o)), dot(c, hash(i+1.0)));
+      return dot(n, vec3(70.0));
+    }
+
+    float fbm(vec2 p) {
+      float v = 0.0;
+      float amp = 0.5;
+      for (int i = 0; i < 5; i++) {
+        v += amp * noise(p);
+        p *= 2.02;
+        amp *= 0.5;
+      }
+      return v;
+    }
+
+    void main() {
+      vec2 uv = gl_FragCoord.xy / uRes.xy;
+      vec2 p = uv;
+      p.x *= uRes.x / uRes.y;
+
+      float t = uTime * 0.045;
+
+      // domain warping: noise fed into noise -> flowing silk
+      vec2 q = vec2(fbm(p * 1.6 + vec2(0.0, t)),
+                    fbm(p * 1.6 + vec2(5.2, 1.3 - t)));
+
+      vec2 r = vec2(fbm(p * 1.8 + 3.0 * q + vec2(1.7, 9.2) + t * 0.7),
+                    fbm(p * 1.8 + 3.0 * q + vec2(8.3, 2.8) - t * 0.5));
+
+      float f = fbm(p * 1.7 + 3.2 * r);
+
+      // brand palette: deep navy -> steel blue -> cyan highlight
+      vec3 navy   = vec3(0.031, 0.055, 0.102);
+      vec3 mid    = vec3(0.051, 0.125, 0.216);
+      vec3 steel  = vec3(0.086, 0.286, 0.400);
+      vec3 cyan   = vec3(0.490, 0.910, 0.969);
+
+      vec3 col = navy;
+      col = mix(col, mid,   smoothstep(-0.30, 0.35, f));
+      col = mix(col, steel, smoothstep( 0.05, 0.62, f) * 0.75);
+
+      // filament highlights riding the warp field
+      float filament = smoothstep(0.72, 0.98, f + length(r) * 0.35);
+      col = mix(col, cyan, filament * 0.55);
+
+      // soft glow pools
+      float glow = smoothstep(0.35, 1.0, length(q)) * 0.28;
+      col += vec3(0.0, 0.45, 0.62) * glow;
+
+      // vignette so the content stays readable
+      float d = distance(uv, vec2(0.5, 0.42));
+      col *= 1.0 - smoothstep(0.35, 1.05, d) * 0.55;
+
+      // subtle grain to avoid banding
+      float grain = (fract(sin(dot(gl_FragCoord.xy, vec2(12.9898, 78.233))) * 43758.5453) - 0.5) * 0.015;
+      col += grain;
+
+      gl_FragColor = vec4(col, 1.0);
+    }
+  `;
+
+  function compile(type, src) {
+    const s = gl.createShader(type);
+    gl.shaderSource(s, src);
+    gl.compileShader(s);
+    if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) {
+      console.error(gl.getShaderInfoLog(s));
+      return null;
+    }
+    return s;
+  }
+
+  const vs = compile(gl.VERTEX_SHADER, VERT);
+  const fs = compile(gl.FRAGMENT_SHADER, FRAG);
+  if (!vs || !fs) return;
+
+  const prog = gl.createProgram();
+  gl.attachShader(prog, vs);
+  gl.attachShader(prog, fs);
+  gl.linkProgram(prog);
+  gl.useProgram(prog);
+
+  const buf = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 3,-1, -1,3]), gl.STATIC_DRAW);
+  const loc = gl.getAttribLocation(prog, 'aPos');
+  gl.enableVertexAttribArray(loc);
+  gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+
+  const uRes = gl.getUniformLocation(prog, 'uRes');
+  const uTime = gl.getUniformLocation(prog, 'uTime');
+
+  const DPR = Math.min(window.devicePixelRatio || 1, 1.75);
+  function resize() {
+    const w = window.innerWidth, h = window.innerHeight;
+    canvas.width = Math.floor(w * DPR);
+    canvas.height = Math.floor(h * DPR);
+    canvas.style.width = w + 'px';
+    canvas.style.height = h + 'px';
+    gl.viewport(0, 0, canvas.width, canvas.height);
+    gl.uniform2f(uRes, canvas.width, canvas.height);
+  }
+  window.addEventListener('resize', resize);
+  resize();
+
+  function render(time) {
+    gl.uniform1f(uTime, time / 1000);
+    gl.drawArrays(gl.TRIANGLES, 0, 3);
+  }
+
+  if (reduceMotion) {
+    render(0);
+    return;
+  }
+
+  let running = true;
+  document.addEventListener('visibilitychange', () => {
+    running = !document.hidden;
+    if (running) requestAnimationFrame(loop);
+  });
+
+  function loop(ts) {
+    if (!running) return;
+    render(ts);
+    requestAnimationFrame(loop);
+  }
+  requestAnimationFrame(loop);
+})();
+</script>
+</body>
+</html>
