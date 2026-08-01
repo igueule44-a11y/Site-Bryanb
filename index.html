@@ -1784,7 +1784,7 @@ window.addEventListener('resize', () => {
     es:'Asistente IA · Omnyx Agency'
   };
   const PLACEHOLDER={fr:'Écris un message...',en:'Type a message...',es:'Escribe un mensaje...'};
-  const BOOK_URL='https://calendly.com/bryanblaevoet';
+  const BOOK_URL='https://calendly.com/bryan-blaevoet/nouvelle-reunion';
 
   let open=false,lang='fr',hist=[],started=false;
 
@@ -1847,7 +1847,7 @@ window.addEventListener('resize', () => {
     const d=document.createElement('div');
     d.className='bc-m '+role;
     if(role==='bot'){
-      const bookRx=/\[BOOK\|([^\|]+)\|([^\]]+)\]/g;
+      const bookRx=/\[(?:BOOK|LINK)\|([^\|]+)\|([^\]]+)\]/g;
       let clean=text.replace(bookRx,'').trim();
       d.textContent=clean;
       [...text.matchAll(bookRx)].forEach(m=>{
