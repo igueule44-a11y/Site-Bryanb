@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow">
+<meta name="description" content="1355 favoris coincés dans 224 dossiers, réorganisés par une IA en 6 catégories et 209 sous-dossiers sans perdre une seule URL. La méthode, les contraintes à donner, et le piège de l'import.">
+<title>J'ai fait ranger mes 1339 favoris par une IA | Omnyx</title>
+<link rel="canonical" href="https://omnyx.agency/blog/ranger-favoris-chrome-ia-2026.html">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="J'ai fait ranger mes 1339 favoris par une IA">
+<meta property="og:description" content="1355 favoris coincés dans 224 dossiers, réorganisés par une IA en 6 catégories et 209 sous-dossiers sans perdre une seule URL. La méthode, les contraintes à donner, et le piège de l'import.">
+<meta property="og:url" content="https://omnyx.agency/blog/ranger-favoris-chrome-ia-2026.html">
+<meta property="og:image" content="https://omnyx.agency/assets/logo-omnyx-v3.png">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Omnyx">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="J'ai fait ranger mes 1339 favoris par une IA">
+<meta name="twitter:description" content="1355 favoris coincés dans 224 dossiers, réorganisés par une IA en 6 catégories et 209 sous-dossiers sans perdre une seule URL. La méthode, les contraintes à donner, et le piège de l'import.">
+<meta name="twitter:image" content="https://omnyx.agency/assets/logo-omnyx-v3.png">
+
+<style>
+<style>
+  :root{
+    --bg-darkest:#060c18;
+    --bg-main:#080e1a;
+    --bg-card:#0d1a2e;
+    --accent:#00d4ff;
+    --accent-soft:#7de8f7;
+    --text-primary:#f0f8ff;
+    --text-secondary:#c2dae8;
+    --border-soft:rgba(0,212,255,0.16);
+    --border-strong:rgba(0,212,255,0.32);
+    --warn:#ff8a65;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation:none !important; transition:none !important;}
+  }
+
+  body{
+    margin:0;
+    background:var(--bg-main);
+    color:var(--text-primary);
+    font-family:'Inter', system-ui, sans-serif;
+    line-height:1.65;
+    font-size:16px;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1, h2, h3{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:600;
+    line-height:1.2;
+    margin:0;
+  }
+
+  a{color:var(--accent); text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  a:focus-visible, button:focus-visible{outline:2px solid var(--accent); outline-offset:3px;}
+
+  .wrap{max-width:760px; margin:0 auto; padding:0 24px;}
+
+  /* Header */
+  header.site-header{
+    background:var(--bg-darkest);
+    border-bottom:1px solid var(--border-soft);
+    position:sticky; top:0; z-index:50;
+  }
+  .site-header-inner{
+    max-width:760px; margin:0 auto; padding:12px 24px;
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+  }
+  .logo-link{
+    font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:17px;
+    color:var(--text-primary); display:flex; align-items:center;
+  }
+  .logo-link img{height:60px; width:auto; display:block;}
+  .logo-link:hover{text-decoration:none; color:var(--accent-soft);}
+  .btn-cta{
+    background:var(--accent); color:#02131f; font-weight:600; font-size:14px;
+    padding:9px 18px; border-radius:8px; white-space:nowrap;
+    transition:background 0.15s ease, transform 0.15s ease;
+  }
+  .btn-cta:hover{background:var(--accent-soft); text-decoration:none; transform:translateY(-1px);}
+
+  /* Back link */
+  .back-link{
+    display:inline-flex; align-items:center; gap:6px;
+    font-size:13.5px; color:var(--text-secondary); margin:28px 0 0;
+  }
+  .back-link:hover{color:var(--accent-soft); text-decoration:none;}
+
+  /* Hero */
+  .hero{padding:24px 0 32px;}
+  .eyebrow-row{
+    display:flex; gap:10px; align-items:center; flex-wrap:wrap;
+    font-size:13px; color:var(--text-secondary); margin-bottom:18px;
+    font-weight:500; letter-spacing:0.02em;
+  }
+  .eyebrow-row .dot{color:var(--border-strong);}
+  .eyebrow-tag{color:var(--accent-soft);}
+
+  h1.title{
+    font-size:clamp(28px, 5vw, 40px);
+    color:var(--text-primary);
+    margin-bottom:18px;
+  }
+  h1.title em{
+    display:block; font-style:normal; color:var(--accent-soft); font-weight:500;
+    font-size:0.85em; margin-top:4px;
+  }
+
+  .subtitle{
+    font-size:17px; color:var(--text-secondary); max-width:600px; margin-bottom:32px;
+  }
+
+  /* Stats box */
+  .stats-box{
+    background:var(--bg-card);
+    border:1px solid var(--border-soft);
+    border-radius:14px;
+    padding:24px 28px;
+  }
+  .stats-box .stats-label{
+    font-size:14px; color:var(--text-secondary); margin-bottom:14px;
+    display:flex; gap:8px; align-items:center;
+  }
+  .stats-list{list-style:none; margin:0; padding:0; display:grid; gap:10px;}
+  .stats-list li{
+    font-size:15px; color:var(--text-primary); display:flex; gap:10px; align-items:baseline;
+  }
+  .stats-list li .arrow{color:var(--accent); flex-shrink:0;}
+  .stats-list strong{color:var(--accent-soft); font-weight:600;}
+
+  /* Intro box */
+  .intro-box{
+    margin:36px 0 48px;
+    background:linear-gradient(135deg, var(--bg-card), var(--bg-darkest));
+    border:1px solid var(--border-strong);
+    border-radius:16px;
+    padding:32px 28px;
+  }
+  .intro-box .intro-emoji{font-size:22px; margin-bottom:10px; display:block;}
+  .intro-box h2{font-size:21px; color:var(--text-primary); margin-bottom:12px;}
+  .intro-box p{color:var(--text-secondary); margin:0; font-size:15.5px;}
+
+  /* TOC nav */
+  .toc{
+    margin:0 0 56px;
+    background:var(--bg-card);
+    border:1px solid var(--border-soft);
+    border-radius:14px;
+    padding:22px 26px;
+  }
+  .toc-label{font-size:13px; color:var(--text-secondary); margin-bottom:14px; font-weight:600; text-transform:uppercase; letter-spacing:0.05em;}
+  .toc ol{list-style:none; margin:0; padding:0; display:grid; gap:9px;}
+  .toc ol li a{
+    display:flex; gap:10px; color:var(--text-primary); font-size:14.5px; padding:2px 0;
+  }
+  .toc ol li a:hover{color:var(--accent-soft); text-decoration:none;}
+  .toc ol li a .num{color:var(--accent); font-family:'JetBrains Mono', monospace; font-size:13px; flex-shrink:0;}
+
+  /* Parts */
+  .part{margin-bottom:64px;}
+  .part-eyebrow{
+    font-size:13px; font-weight:700; letter-spacing:0.08em; color:var(--accent);
+    margin-bottom:10px; display:flex; align-items:center; gap:8px;
+  }
+  .part > h2{font-size:clamp(22px, 4vw, 28px); margin-bottom:22px;}
+  .part > h2 em{display:block; font-style:normal; color:var(--text-secondary); font-weight:500; font-size:0.7em; margin-top:6px;}
+
+  .part p{color:var(--text-primary); margin:0 0 18px; font-size:15.5px;}
+  .part p.muted{color:var(--text-secondary);}
+
+  /* Callout boxes */
+  .callout{
+    border-radius:12px; padding:20px 22px; margin:22px 0;
+    border:1px solid var(--border-soft);
+    background:var(--bg-card);
+  }
+  .callout .callout-label{
+    font-size:13px; font-weight:700; margin-bottom:8px; display:flex; gap:8px; align-items:center;
+  }
+  .callout p{margin:0; font-size:14.5px; color:var(--text-secondary);}
+  .callout.warn{border-color:rgba(255,138,101,0.35);}
+  .callout.warn .callout-label{color:var(--warn);}
+  .callout.tip .callout-label{color:var(--accent-soft);}
+  .callout.action{background:linear-gradient(135deg, var(--bg-card), var(--bg-darkest)); border-color:var(--border-strong);}
+  .callout.action .callout-label{color:var(--accent);}
+  .callout.compare .callout-label{color:var(--accent-soft);}
+  .callout.compare p strong{color:var(--text-primary); font-weight:600;}
+
+  /* Step cards */
+  .step{
+    display:grid; grid-template-columns:64px 1fr; gap:20px;
+    margin-bottom:44px;
+  }
+  .step-num{
+    font-family:'Space Grotesk', sans-serif; font-size:34px; font-weight:700;
+    color:var(--accent-soft); opacity:0.55; line-height:1;
+  }
+  .step-body h3{font-size:19px; color:var(--text-primary); margin-bottom:6px;}
+  .step-tag{
+    font-size:12.5px; color:var(--text-secondary); font-family:'JetBrains Mono', monospace;
+    margin-bottom:14px; display:block;
+  }
+  .step-body p{color:var(--text-primary); margin:0 0 14px; font-size:15.5px;}
+  .step-body p.muted{color:var(--text-secondary);}
+
+  /* Rules list */
+  .rules{list-style:none; margin:0 0 20px; padding:0; display:grid; gap:18px;}
+  .rules li{
+    display:grid; grid-template-columns:28px 1fr; gap:14px;
+    background:var(--bg-card); border:1px solid var(--border-soft); border-radius:12px;
+    padding:18px 20px;
+  }
+  .rule-icon{color:var(--accent); font-size:17px;}
+  .rules h4{margin:0 0 6px; font-size:15.5px; color:var(--text-primary); font-family:'Inter', sans-serif; font-weight:600;}
+  .rules p{margin:0; font-size:14px; color:var(--text-secondary);}
+
+  /* Closing CTA */
+  .closing{margin:64px 0 0;}
+  .closing > h2{font-size:clamp(22px, 4vw, 28px); margin-bottom:14px;}
+  .closing > p{color:var(--text-secondary); font-size:15.5px; margin-bottom:32px; max-width:560px;}
+
+  .closing-cta-final{
+    background:linear-gradient(135deg, var(--bg-card), var(--bg-darkest));
+    border:1px solid var(--border-strong); border-radius:16px;
+    padding:30px 28px; text-align:center;
+  }
+  .closing-cta-final .btn-big{
+    display:inline-block; background:var(--accent); color:#02131f; font-weight:600;
+    font-size:15px; padding:13px 28px; border-radius:9px; margin-bottom:10px;
+    transition:background 0.15s ease, transform 0.15s ease;
+  }
+  .closing-cta-final .btn-big:hover{background:var(--accent-soft); text-decoration:none; transform:translateY(-1px);}
+  .closing-cta-final .fine-print{font-size:13px; color:var(--text-secondary); margin:0;}
+
+  /* Footer */
+  footer.site-footer{
+    border-top:1px solid var(--border-soft);
+    margin-top:72px;
+    padding:32px 0 48px;
+  }
+  .footer-name{font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:15px; color:var(--text-primary); margin-bottom:4px;}
+  .footer-meta{font-size:13px; color:var(--text-secondary); margin-bottom:18px;}
+  .footer-links{display:flex; gap:18px; flex-wrap:wrap; font-size:13.5px;}
+
+  @media(max-width:540px){
+    .step{grid-template-columns:1fr; gap:8px;}
+    .step-num{font-size:24px; opacity:0.5;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="logo-link" href="../index.html"><img src="../assets/logo-omnyx-v3.png" alt="Omnyx"></a>
+    <a class="btn-cta" href="../index.html#contact">Prendre un RDV</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <a class="back-link" href="../blog.html">← Retour au blog</a>
+
+  <section class="hero">
+    <div class="eyebrow-row">
+      <span class="eyebrow-tag">Automatisation</span>
+      <span class="dot">·</span>
+      <span>Organisation</span>
+      <span class="dot">·</span>
+      <span>Lecture 5 min</span>
+    </div>
+
+    <h1 class="title">J'ai fait ranger mes 1339 favoris par une IA
+      <em>La méthode, et le piège de l'import dont personne ne parle</em>
+    </h1>
+
+    <p class="subtitle">1355 favoris coincés dans 224 dossiers créés un par un pendant des années. Réorganisés en 6 catégories et 209 sous-dossiers, sans perdre une seule URL. Voilà comment je m'y suis pris, et surtout l'étape où ça peut mal tourner.</p>
+
+    <div class="stats-box">
+      <div class="stats-label">💡 Ce que tu retiens en 30 secondes :</div>
+      <ul class="stats-list">
+        <li><span class="arrow">→</span><span>Le problème n'est pas d'avoir trop de favoris, c'est <strong>l'absence de structure</strong></span></li>
+        <li><span class="arrow">→</span><span>Ce qui change le résultat, ce sont <strong>les contraintes données à l'IA</strong>, pas l'outil choisi</span></li>
+        <li><span class="arrow">→</span><span>Une IA qui lit les titres range mal, une IA qui <strong>compare les URL</strong> range juste</span></li>
+        <li><span class="arrow">→</span><span>À la réimportation, ton navigateur <strong>ajoute au lieu de remplacer</strong></span></li>
+        <li><span class="arrow">→</span><span>La vérification avant suppression : <strong>0 URL manquante, 0 URL en trop</strong></span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="intro-box">
+    <span class="intro-emoji">🗂️</span>
+    <h2>J'avais arrêté d'utiliser mes propres favoris</h2>
+    <p>Pas parce qu'ils étaient mauvais. Parce que chercher un lien dedans me coûtait plus cher que de le retrouver sur Google. Un dossier de favoris qu'on n'ouvre plus n'est pas une bibliothèque, c'est un cimetière. Et le mien avait grossi pendant des années sans que personne décide de rien.</p>
+  </section>
+
+  <nav class="toc">
+    <div class="toc-label">Au sommaire</div>
+    <ol>
+      <li><a href="#n1"><span class="num">01</span><span>Le vrai problème n'est pas le nombre</span></a></li>
+      <li><a href="#n2"><span class="num">02</span><span>Exporter tes favoris dans un fichier</span></a></li>
+      <li><a href="#n3"><span class="num">03</span><span>Les contraintes à donner à l'IA</span></a></li>
+      <li><a href="#n4"><span class="num">04</span><span>Vérifier avant de supprimer</span></a></li>
+      <li><a href="#n5"><span class="num">05</span><span>Le piège de l'import</span></a></li>
+      <li><a href="#bilan"><span class="num">→</span><span>Le bilan</span></a></li>
+    </ol>
+  </nav>
+
+  <section class="part">
+
+    <div class="step" id="n1">
+      <div class="step-num">01</div>
+      <div class="step-body">
+        <h3>Le vrai problème n'est pas le nombre de favoris</h3>
+        <span class="step-tag">diagnostic</span>
+        <p>Pendant des années j'ai cru que mon problème était d'en avoir trop. C'était faux.</p>
+        <p>224 dossiers, c'est déjà un système de rangement. Sauf qu'il avait poussé tout seul, un dossier à la fois, sans plan. J'avais des « Chart » en double, des « Automatisation » en double, un dossier IA rangé à l'intérieur d'un autre dossier IA. Et des dizaines de « Nouveau dossier » contenant un seul lien.</p>
+        <div class="callout compare">
+          <div class="callout-label">Avant / Maintenant</div>
+          <p><strong>Avant :</strong> je savais que la ressource était quelque part, et j'y passais plusieurs minutes.<br><strong>Maintenant :</strong> je la retrouve en quelques secondes.</p>
+        </div>
+        <p class="muted">Le problème, c'était la structure, pas le volume.</p>
+      </div>
+    </div>
+
+    <div class="step" id="n2">
+      <div class="step-num">02</div>
+      <div class="step-body">
+        <h3>Exporter tes favoris dans un fichier</h3>
+        <span class="step-tag">2 minutes</span>
+        <p>Dans Chrome : gestionnaire de favoris, puis exporter. Tu récupères un fichier HTML qui contient tous tes liens avec leur arborescence.</p>
+        <p class="muted">Ça s'appelle un export au format Netscape. C'est un vieux standard, lisible tel quel, et c'est précisément ce qui le rend exploitable par une IA.</p>
+      </div>
+    </div>
+
+    <div class="step" id="n3">
+      <div class="step-num">03</div>
+      <div class="step-body">
+        <h3>Les contraintes à donner à l'IA</h3>
+        <span class="step-tag">l'étape qui décide de tout</span>
+        <p>C'est ici que se joue la qualité du résultat. J'ai donné le fichier à Claude avec des règles précises :</p>
+        <ul class="rules">
+          <li><span class="rule-icon">→</span><div><h4>Tu modifies l'organisation, rien d'autre</h4><p>Dossiers et sous-dossiers uniquement. Le contenu ne bouge pas.</p></div></li>
+          <li><span class="rule-icon">→</span><div><h4>Tu ne supprimes aucun favori</h4><p>Sauf un vrai doublon, c'est-à-dire exactement la même URL.</p></div></li>
+          <li><span class="rule-icon">→</span><div><h4>Même nom mais URL différentes, tu gardes les deux</h4><p>Deux pages d'accueil d'outils différents portent souvent le même titre.</p></div></li>
+          <li><span class="rule-icon">→</span><div><h4>Tu compares les URL, pas les titres</h4><p>La contrainte qui change le plus le résultat final.</p></div></li>
+          <li><span class="rule-icon">→</span><div><h4>Tu crées des sous-dossiers quand la catégorie le justifie</h4><p>Sinon tu remplaces 224 dossiers par 6 dossiers illisibles.</p></div></li>
+        </ul>
+        <div class="callout tip">
+          <div class="callout-label">💡 Pourquoi l'URL et pas le titre</div>
+          <p>Un favori nommé « Accueil » ne dit rien à personne. Son URL, elle, dit exactement de quel outil il s'agit. Une IA qui lit les titres range mal, une IA qui lit les URL range juste.</p>
+        </div>
+        <p class="muted">Cette logique de cadrage n'a rien de spécifique aux favoris. Je l'ai détaillée dans mon guide sur <a href="cadrer-agent-ia-handoff-packet-2026.html">comment cadrer un agent IA avant de le lancer</a>.</p>
+      </div>
+    </div>
+
+    <div class="step" id="n4">
+      <div class="step-num">04</div>
+      <div class="step-body">
+        <h3>Vérifier avant de supprimer quoi que ce soit</h3>
+        <span class="step-tag">l'étape que tout le monde saute</span>
+        <p>L'IA m'a rendu un fichier réorganisé. Je ne l'ai pas crue sur parole.</p>
+        <p>Je lui ai demandé de recompter : est-ce qu'une seule URL a disparu entre le fichier d'origine et le nouveau ?</p>
+        <div class="callout action">
+          <div class="callout-label">Le résultat du recomptage</div>
+          <p>0 URL manquante, 0 URL en trop. 1355 favoris au départ, dont 16 doublons stricts, donc 1339 uniques à l'arrivée. Le compte tombait juste.</p>
+        </div>
+        <p>C'est la seule raison pour laquelle j'ai accepté de supprimer mes anciens favoris ensuite.</p>
+      </div>
+    </div>
+
+    <div class="step" id="n5">
+      <div class="step-num">05</div>
+      <div class="step-body">
+        <h3>Le piège de l'import</h3>
+        <span class="step-tag">à lire avant de cliquer</span>
+        <p>Tu réimportes le fichier réorganisé dans Chrome. Et là, attention.</p>
+        <div class="callout warn">
+          <div class="callout-label">⚠️ Chrome n'écrase pas, il ajoute</div>
+          <p>Tu te retrouves avec tes anciens favoris et les nouveaux, côte à côte. Dans mon cas, plus de 2600 liens pendant quelques minutes. La suppression des anciens dossiers se fait à la main, et il n'y a pas de raccourci fiable.</p>
+        </div>
+        <p>Fais une sauvegarde avant. Un deuxième export, nommé clairement, rangé ailleurs que dans tes téléchargements. Si le nouveau fichier avait eu un défaut que je n'avais pas vu, je voulais pouvoir revenir en arrière.</p>
+        <p class="muted">Je l'ai fait, je n'en ai pas eu besoin. C'est exactement pour ça qu'on le fait.</p>
+      </div>
+    </div>
+
+  </section>
+
+  <section class="part">
+    <div class="part-eyebrow">→ LE RÉSULTAT</div>
+    <h2>Six entrées dans la barre de favoris<em>Au lieu de 224 dossiers dispersés</em></h2>
+    <p>Mes 1339 favoris se répartissent maintenant comme ça :</p>
+    <div class="stats-box">
+      <div class="stats-label">Répartition finale</div>
+      <ul class="stats-list">
+        <li><span class="arrow">→</span><span>Crypto : <strong>334</strong></span></li>
+        <li><span class="arrow">→</span><span>Markchain : <strong>296</strong></span></li>
+        <li><span class="arrow">→</span><span>Marketing &amp; Contenu : <strong>239</strong></span></li>
+        <li><span class="arrow">→</span><span>Business &amp; Entrepreneuriat : <strong>179</strong></span></li>
+        <li><span class="arrow">→</span><span>IA &amp; Automatisation : <strong>151</strong></span></li>
+        <li><span class="arrow">→</span><span>Personnel : <strong>140</strong></span></li>
+      </ul>
+    </div>
+    <p style="margin-top:22px;">Chaque catégorie est éclatée en sous-dossiers thématiques, jusqu'à quatre niveaux quand le sujet le justifiait. L'ancien dossier « Analyse crypto » qui contenait 76 éléments en vrac est devenu une arborescence lisible.</p>
+  </section>
+
+  <section class="part">
+    <div class="part-eyebrow">→ EST-CE QUE ÇA VAUT LE COUP</div>
+    <h2>Ça dépend surtout de combien tu en as</h2>
+    <p>Si tu as moins de cent favoris, non. Tu les rangeras plus vite à la main que tu ne liras cet article.</p>
+    <p>Si tu en as plusieurs centaines et que tu ne t'en sers plus, alors oui. Compte une demi-heure au total, dont une vingtaine de minutes de suppression manuelle.</p>
+    <p class="muted">Le gain n'est pas d'avoir une belle arborescence. Le gain, c'est que mes favoris redeviennent un outil.</p>
+  </section>
+
+  <section class="part" id="bilan">
+    <div class="part-eyebrow">→ LE BILAN</div>
+    <h2>Contraintes explicites et vérification chiffrée, pas outil magique<em>Ce que cette histoire de favoris dit du reste</em></h2>
+    <p>L'IA n'a pas fait un bon travail parce que c'est Claude plutôt qu'un autre. Elle a fait un bon travail parce que je lui ai interdit de supprimer, que je lui ai imposé de comparer les URL, et que j'ai vérifié le résultat avec un compte exact avant de lui faire confiance.</p>
+    <p>Quand quelqu'un me dit « j'ai déjà essayé un outil IA et ça n'a pas tenu », il manque presque toujours ces deux pièces : des contraintes explicites au départ, une vérification chiffrée à l'arrivée. La même logique s'applique à n'importe quelle tâche que tu délègues, et c'est le sujet de mon guide sur <a href="maitriser-prompts-2026.html">comment maîtriser ses prompts</a>.</p>
+  </section>
+
+  <section class="closing">
+    <h2>Tu as combien de favoris en attente dans ton navigateur ?</h2>
+    <p>Si tu veux qu'on applique cette logique à autre chose qu'à tes favoris, à un process qui te prend du temps chaque semaine, on peut en parler.</p>
+
+    <div class="closing-cta-final">
+      <a class="btn-big" href="../index.html#contact">Prendre un RDV</a>
+      <p class="fine-print">Omnyx Agency · Marketing, IA &amp; automation</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-name">Omnyx Agency</div>
+    <div class="footer-meta">Marketing, IA &amp; automation</div>
+    <div class="footer-links">
+      <a href="../index.html">Site</a>
+      <a href="../blog.html">Blog</a>
+      <a href="../index.html#contact">Contact</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
