@@ -28,6 +28,39 @@
 <meta name="twitter:description" content="1355 favoris coincés dans 224 dossiers, réorganisés par une IA en 6 catégories et 209 sous-dossiers sans perdre une seule URL. La méthode, les contraintes à donner, et le piège de l'import.">
 <meta name="twitter:image" content="https://omnyx.agency/assets/logo-omnyx-v3.png">
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "J'ai fait ranger mes 1339 favoris par une IA",
+  "description": "1355 favoris coincés dans 224 dossiers, réorganisés par une IA en 6 catégories et 209 sous-dossiers sans perdre une seule URL. La méthode, les contraintes à donner, et le piège de l'import.",
+  "datePublished": "2026-08-06",
+  "dateModified": "2026-08-06",
+  "author": {
+    "@type": "Person",
+    "name": "Bryan Blaevoet",
+    "url": "https://www.linkedin.com/in/bryanblaevoet/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Omnyx",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://omnyx.agency/assets/logo-omnyx-v3.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://omnyx.agency/blog/ranger-favoris-chrome-ia-2026.html"
+  },
+  "wordCount": 1319,
+  "timeRequired": "PT5M",
+  "articleSection": "Automatisation",
+  "keywords": "ranger ses favoris Chrome, organiser favoris automatiquement, trop de favoris Chrome, organiser ses favoris avec l'IA, exporter favoris Chrome HTML",
+  "inLanguage": "fr-FR"
+}
+</script>
+
 <style>
 <style>
   :root{
@@ -263,6 +296,23 @@
     .step{grid-template-columns:1fr; gap:8px;}
     .step-num{font-size:24px; opacity:0.5;}
   }
+
+  /* FAQ */
+  .faq{margin:0 0 18px;}
+  .faq h3{font-size:17.5px; color:var(--text-primary); margin-bottom:8px;}
+  .faq p{color:var(--text-secondary); margin:0 0 28px; font-size:15px;}
+
+  /* Related articles */
+  .related-section { padding: 48px 0 24px; }
+  .related-title { font-family:'Space Grotesk',sans-serif; font-size:1.3rem; color:var(--text-primary); margin-bottom:20px; }
+  .related-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; }
+  .related-card { display:block; position:relative; overflow:hidden; background:var(--bg-card); border:1px solid var(--border-soft); border-radius:12px; padding:18px; text-decoration:none !important; transition:transform .3s ease, border-color .3s ease, box-shadow .3s ease; }
+  .related-card::after { content:"→"; position:absolute; right:16px; bottom:14px; color:var(--accent); font-size:1.1rem; opacity:0; transform:translateX(-6px); transition:opacity .3s ease, transform .3s ease; }
+  .related-card:hover { border-color:var(--border-strong); transform:translateY(-4px); box-shadow:0 14px 28px rgba(0,212,255,0.14); text-decoration:none !important; }
+  .related-card:hover::after { opacity:1; transform:translateX(0); }
+  .related-card .related-tag { font-size:.72rem; color:var(--accent); text-transform:uppercase; letter-spacing:.05em; }
+  .related-card h3 { font-family:'Space Grotesk',sans-serif; font-size:.95rem; color:var(--text-primary); margin:8px 0 0; line-height:1.4; transition:color .3s ease; }
+  .related-card:hover h3 { color:var(--accent-soft); }
 </style>
 </head>
 <body>
@@ -319,6 +369,7 @@
       <li><a href="#n3"><span class="num">03</span><span>Les contraintes à donner à l'IA</span></a></li>
       <li><a href="#n4"><span class="num">04</span><span>Vérifier avant de supprimer</span></a></li>
       <li><a href="#n5"><span class="num">05</span><span>Le piège de l'import</span></a></li>
+      <li><a href="#faq"><span class="num">→</span><span>Questions fréquentes</span></a></li>
       <li><a href="#bilan"><span class="num">→</span><span>Le bilan</span></a></li>
     </ol>
   </nav>
@@ -429,6 +480,18 @@
     <p class="muted">Le gain n'est pas d'avoir une belle arborescence. Le gain, c'est que mes favoris redeviennent un outil.</p>
   </section>
 
+  <section class="part" id="faq">
+    <div class="part-eyebrow">→ QUESTIONS FRÉQUENTES</div>
+    <div class="faq">
+      <h3>Est-ce que l'IA peut supprimer mes favoris par erreur ?</h3>
+      <p>Seulement si tu ne le lui interdis pas explicitement. La consigne « tu ne supprimes aucun favori sauf un doublon d'URL strict » élimine ce risque, et le recomptage final (0 URL manquante) le confirme avant que tu touches à quoi que ce soit.</p>
+    </div>
+    <div class="faq">
+      <h3>Chrome remplace-t-il mes anciens favoris à l'import du fichier réorganisé ?</h3>
+      <p>Non. Il ajoute le nouveau fichier à côté de l'ancien. Tu te retrouves avec le double de favoris pendant quelques minutes, le temps de supprimer manuellement les anciens dossiers.</p>
+    </div>
+  </section>
+
   <section class="part" id="bilan">
     <div class="part-eyebrow">→ LE BILAN</div>
     <h2>Contraintes explicites et vérification chiffrée, pas outil magique<em>Ce que cette histoire de favoris dit du reste</em></h2>
@@ -443,6 +506,15 @@
     <div class="closing-cta-final">
       <a class="btn-big" href="../index.html#contact">Prendre un RDV</a>
       <p class="fine-print">Omnyx Agency · Marketing, IA &amp; automation</p>
+    </div>
+  </section>
+
+  <section class="related-section">
+    <h2 class="related-title">Articles similaires</h2>
+    <div class="related-grid">
+      <a href="cadrer-agent-ia-handoff-packet-2026.html" class="related-card"><span class="related-tag">Automatisation</span><h3>Ton agent IA ne va pas attendre ton feu vert pour décider</h3></a>
+      <a href="maitriser-prompts-2026.html" class="related-card"><span class="related-tag">LLM · prompting</span><h3>Maîtriser ses prompts en 2026</h3></a>
+      <a href="agents-ia-pme-guide-2026.html" class="related-card"><span class="related-tag">PME · marketing</span><h3>Agents IA pour PME : par où commencer en 2026</h3></a>
     </div>
   </section>
 
